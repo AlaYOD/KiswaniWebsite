@@ -1,0 +1,5 @@
+interface:
+  display_name: "Kiswani Brand Web"
+  short_description: "Build premium Kiswani-branded web experiences"
+  default_prompt: "Use $kiswani-brand-web to design and build a polished Kiswani Lights website experience."
+  brand_color: "#FFDA01"
