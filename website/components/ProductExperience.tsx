@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Download, FileText, MessageCircle, ShoppingBag } from "lucide-react";
 import { useState } from "react";
-import { getProductCategory, getProductDescription, getProductGallery, getProductName, getProductSlug, getRelatedProducts, type Product } from "../lib/catalog";
+import { formatPrice, getProductCategory, getProductDescription, getProductGallery, getProductName, getProductSlug, getRelatedProducts, type Product } from "../lib/catalog";
 import { CartDrawer, useCart } from "./CartSystem";
 import { Header, LuxuryFooter, isRtlLanguage, localize, useStoredLanguage } from "./KiswaniExperience";
 
@@ -21,7 +21,7 @@ export function ProductExperience({ product }: { product: Product }) {
   const category = getProductCategory(product, language);
   const description = getProductDescription(product, language);
   const related = getRelatedProducts(product);
-  const message = encodeURIComponent(`Hello Kiswani Lights, I am interested in ${product.name} (${product.code}).`);
+  const message = encodeURIComponent(`Hello Kiswani Lights, I am interested in ${product.name} (${product.code}). Initial catalog price: ${formatPrice(product.price, "en")}.`);
 
   return (
     <div lang={language} dir={isRtl ? "rtl" : "ltr"} className="min-h-screen bg-white text-[#0F1822]">
@@ -57,12 +57,19 @@ export function ProductExperience({ product }: { product: Product }) {
                 <a href={`/collections/${product.categorySlug}`} className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#FFDA01]"><ArrowLeft size={15} className={isRtl ? "rotate-180" : ""} />{category}</a>
                 <h1 className="mt-8 text-balance text-5xl font-semibold leading-[0.94] tracking-[-0.055em] sm:text-6xl xl:text-7xl">{name}</h1>
                 <p className="mt-7 max-w-xl text-base leading-8 text-[#A3A7AA]">{description}</p>
+                <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-y border-white/10 py-6">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#73787C]">{localize(language, "Initial catalog price", "Initial catalog price", "Initial catalog price")}</p>
+                    <p className="mt-2 text-4xl font-bold tracking-[-0.04em] text-white">{formatPrice(product.price, language)}</p>
+                  </div>
+                  <p className="max-w-xs text-xs leading-5 text-[#A3A7AA]">{localize(language, "Calculated in cart by quantity before final approval.", "Calculated in cart by quantity before final approval.", "Calculated in cart by quantity before final approval.")}</p>
+                </div>
 
                 <div className="mt-9 grid grid-cols-2 gap-px bg-white/10 border border-white/10">
                   {product.specs.slice(0, 4).map(([label, value]) => <div key={label} className="bg-[#0B1015] p-5"><p className="text-[9px] font-bold uppercase tracking-[0.16em] text-[#73787C]">{label}</p><p className="mt-2 text-sm font-semibold text-white">{value}</p></div>)}
                 </div>
 
-                <div className="mt-8 flex items-start gap-3 border-s-2 border-[#FFDA01] ps-5"><Check size={17} className="mt-0.5 shrink-0 text-[#FFDA01]" /><p className="text-sm leading-6 text-[#A3A7AA]">{localize(language, "Price, availability, and delivery timing are confirmed with the Kiswani team before approval.", "السعر والتوفر وموعد التسليم يتم تأكيدها مع فريق كسواني قبل اعتماد الطلب.", "המחיר, הזמינות וזמן האספקה יאושרו עם צוות Kiswani לפני אישור ההזמנה.")}</p></div>
+                <div className="mt-8 flex items-start gap-3 border-s-2 border-[#FFDA01] ps-5"><Check size={17} className="mt-0.5 shrink-0 text-[#FFDA01]" /><p className="text-sm leading-6 text-[#A3A7AA]">{localize(language, "Initial price, availability, and delivery timing are confirmed with the Kiswani team before final approval.", "السعر الأولي والتوفر وموعد التسليم يتم تأكيدها مع فريق كسواني قبل اعتماد الطلب النهائي.", "מחיר ראשוני, זמינות וזמן אספקה יאושרו עם צוות Kiswani לפני אישור סופי.")}</p></div>
               </div>
 
               <div className="mt-12 grid gap-3">

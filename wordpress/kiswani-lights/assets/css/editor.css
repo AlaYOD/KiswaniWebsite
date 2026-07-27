@@ -1,0 +1,12 @@
+body {
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", Arial, sans-serif;
+}
+.editor-styles-wrapper {
+  --kl-yellow: #ffda01;
+  --kl-ink: #0f1822;
+}
+.editor-styles-wrapper .kl-hero,
+.editor-styles-wrapper .kl-footer,
+.editor-styles-wrapper .kl-section--dark {
+  color: #fff;
+}

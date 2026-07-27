@@ -40,12 +40,12 @@ export function CollectionExperience({ category, collectionProducts }: { categor
 
       <main>
         <section id="top" className="bg-[#070B0E] px-4 py-4 text-white sm:px-8 sm:py-8">
-          <div className="mx-auto grid max-w-[1440px] overflow-hidden border border-white/10 bg-[#0F151B] lg:grid-cols-[0.88fr_1.12fr]">
+          <div className="mx-auto grid h-auto max-w-[1440px] overflow-hidden border border-white/10 bg-[#0F151B] lg:h-[720px] lg:grid-cols-[0.88fr_1.12fr]">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex min-h-[580px] flex-col justify-between p-8 sm:p-14 lg:min-h-[720px] lg:p-20"
+              className="flex min-h-[580px] flex-col justify-between p-8 sm:p-14 lg:h-full lg:min-h-0 lg:p-20"
             >
               <Link href="/#collections" className="inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#CCCFCE] transition-colors hover:text-[#FFDA01]">
                 <ArrowLeft size={17} className={isRtl ? "rotate-180" : ""} />
@@ -76,7 +76,7 @@ export function CollectionExperience({ category, collectionProducts }: { categor
               </div>
             </motion.div>
 
-            <div className="relative min-h-[520px] lg:min-h-[720px]">
+            <div className="relative h-[520px] overflow-hidden sm:h-[620px] lg:h-full lg:min-h-0">
               <Media
                 src={category.image}
                 alt={getCategoryName(category, language)}

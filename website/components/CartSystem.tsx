@@ -4,10 +4,11 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { getProductName, products, type Product } from "../lib/catalog";
+import { formatPrice, getProductName, products, type Product } from "../lib/catalog";
 import type { Language } from "./KiswaniExperience";
 
-const cartText = (language: Language, english: string, arabic: string, hebrew: string) => language === "ar" ? arabic : language === "he" ? hebrew : english;
+const cartText = (language: Language, english: string, arabic: string, hebrew: string) =>
+  language === "ar" ? arabic : language === "he" ? hebrew : english;
 
 type CartLine = { code: string; quantity: number };
 
@@ -41,11 +42,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       }
       setHydrated(true);
     }, 0);
+
     return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (!hydrated) return;
+
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(lines));
     } catch {
@@ -53,25 +56,35 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, [hydrated, lines]);
 
-  const value = useMemo<CartContextValue>(() => ({
-    lines,
-    count: lines.reduce((total, line) => total + line.quantity, 0),
-    isOpen,
-    add: (product) => {
-      setLines((current) => {
-        const existing = current.find((line) => line.code === product.code);
-        return existing
-          ? current.map((line) => line.code === product.code ? { ...line, quantity: line.quantity + 1 } : line)
-          : [...current, { code: product.code, quantity: 1 }];
-      });
-      setIsOpen(true);
-    },
-    remove: (code) => setLines((current) => current.filter((line) => line.code !== code)),
-    update: (code, quantity) => setLines((current) => quantity <= 0 ? current.filter((line) => line.code !== code) : current.map((line) => line.code === code ? { ...line, quantity } : line)),
-    clear: () => setLines([]),
-    open: () => setIsOpen(true),
-    close: () => setIsOpen(false),
-  }), [isOpen, lines]);
+  const value = useMemo<CartContextValue>(
+    () => ({
+      lines,
+      count: lines.reduce((total, line) => total + line.quantity, 0),
+      isOpen,
+      add: (product) => {
+        setLines((current) => {
+          const existing = current.find((line) => line.code === product.code);
+          return existing
+            ? current.map((line) =>
+                line.code === product.code ? { ...line, quantity: line.quantity + 1 } : line,
+              )
+            : [...current, { code: product.code, quantity: 1 }];
+        });
+        setIsOpen(true);
+      },
+      remove: (code) => setLines((current) => current.filter((line) => line.code !== code)),
+      update: (code, quantity) =>
+        setLines((current) =>
+          quantity <= 0
+            ? current.filter((line) => line.code !== code)
+            : current.map((line) => (line.code === code ? { ...line, quantity } : line)),
+        ),
+      clear: () => setLines([]),
+      open: () => setIsOpen(true),
+      close: () => setIsOpen(false),
+    }),
+    [isOpen, lines],
+  );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
@@ -82,13 +95,41 @@ export function useCart() {
   return context;
 }
 
-export function CartTrigger({ compact = false, language = "en" }: { compact?: boolean; language?: Language }) {
+export function CartTrigger({
+  compact = false,
+  language = "en",
+}: {
+  compact?: boolean;
+  language?: Language;
+}) {
   const { count, open } = useCart();
+
   return (
-    <button type="button" onClick={open} aria-label={cartText(language, `Open shopping cart with ${count} items`, `فتح سلة التسوق وفيها ${count} قطع`, `פתיחת סל הקניות עם ${count} פריטים`)} className={`relative inline-flex items-center justify-center border border-white/25 text-white transition-colors hover:border-[#FFDA01] hover:text-[#FFDA01] ${compact ? "h-11 w-11" : "h-11 gap-2 px-4 text-xs font-bold"}`}>
+    <button
+      type="button"
+      onClick={open}
+      aria-label={cartText(
+        language,
+        `Open shopping cart with ${count} items`,
+        `Open shopping cart with ${count} items`,
+        `Open shopping cart with ${count} items`,
+      )}
+      className={`relative inline-flex items-center justify-center border border-white/25 text-white transition-colors hover:border-[#FFDA01] hover:text-[#FFDA01] ${
+        compact ? "h-11 w-11" : "h-11 gap-2 px-4 text-xs font-bold"
+      }`}
+    >
       <ShoppingBag size={18} aria-hidden="true" />
-      {!compact && <span>{cartText(language, "Cart", "السلة", "סל")}</span>}
-      {count > 0 && <motion.span key={count} initial={{ scale: 0.6 }} animate={{ scale: 1 }} className="absolute -end-2 -top-2 flex h-6 min-w-6 items-center justify-center rounded-full bg-[#FFDA01] px-1 text-[10px] font-bold text-[#0F1822]">{count}</motion.span>}
+      {!compact && <span>{cartText(language, "Cart", "Cart", "Cart")}</span>}
+      {count > 0 && (
+        <motion.span
+          key={count}
+          initial={{ scale: 0.6 }}
+          animate={{ scale: 1 }}
+          className="absolute -end-2 -top-2 flex h-6 min-w-6 items-center justify-center rounded-full bg-[#FFDA01] px-1 text-[10px] font-bold text-[#0F1822]"
+        >
+          {count}
+        </motion.span>
+      )}
     </button>
   );
 }
@@ -96,13 +137,18 @@ export function CartTrigger({ compact = false, language = "en" }: { compact?: bo
 export function CartDrawer({ language }: { language: Language }) {
   const { lines, count, isOpen, close, remove, update, clear } = useCart();
   const isRtl = language !== "en";
-  const items = lines.map((line) => ({ line, product: products.find((product) => product.code === line.code) })).filter((item): item is { line: CartLine; product: Product } => Boolean(item.product));
+  const items = lines
+    .map((line) => ({ line, product: products.find((product) => product.code === line.code) }))
+    .filter((item): item is { line: CartLine; product: Product } => Boolean(item.product));
+  const subtotal = items.reduce((total, { line, product }) => total + product.price * line.quantity, 0);
 
   useEffect(() => {
     if (!isOpen) return;
+
     const onKey = (event: KeyboardEvent) => event.key === "Escape" && close();
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
+
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
@@ -112,31 +158,178 @@ export function CartDrawer({ language }: { language: Language }) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[90] bg-[#070B0E]/75 backdrop-blur-sm" onMouseDown={(event) => event.target === event.currentTarget && close()}>
-          <motion.aside role="dialog" aria-modal="true" aria-labelledby="cart-title" initial={{ x: isRtl ? "-100%" : "100%" }} animate={{ x: 0 }} exit={{ x: isRtl ? "-100%" : "100%" }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-y-0 end-0 flex w-full max-w-lg flex-col bg-[#F4F2ED] text-[#0F1822] shadow-2xl">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[90] bg-[#070B0E]/75 backdrop-blur-sm"
+          onMouseDown={(event) => event.target === event.currentTarget && close()}
+        >
+          <motion.aside
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cart-title"
+            initial={{ x: isRtl ? "-100%" : "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: isRtl ? "-100%" : "100%" }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-y-0 end-0 flex w-full max-w-lg flex-col bg-[#F4F2ED] text-[#0F1822] shadow-2xl"
+          >
             <div className="flex items-center justify-between border-b border-[#CCCFCE] px-6 py-6 sm:px-8">
-              <div><p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#73787C]">Kiswani store</p><h2 id="cart-title" className="mt-1 text-3xl font-semibold tracking-[-0.04em]">{cartText(language, "Your cart", "سلة الطلب", "הסל שלך")}</h2></div>
-              <button type="button" onClick={close} className="flex h-11 w-11 items-center justify-center bg-[#0F1822] text-white" aria-label="Close cart"><X size={18} /></button>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#73787C]">
+                  Kiswani store
+                </p>
+                <h2 id="cart-title" className="mt-1 text-3xl font-semibold tracking-[-0.04em]">
+                  {cartText(language, "Your cart", "Your cart", "Your cart")}
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={close}
+                className="flex h-11 w-11 items-center justify-center bg-[#0F1822] text-white"
+                aria-label="Close cart"
+              >
+                <X size={18} />
+              </button>
             </div>
 
             <div className="flex-1 overflow-y-auto px-6 py-6 sm:px-8">
               {items.length === 0 ? (
-                <div className="flex min-h-80 flex-col items-center justify-center text-center"><span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#FFDA01]"><ShoppingBag size={26} /></span><h3 className="mt-6 text-2xl font-semibold">{cartText(language, "Your cart is empty", "السلة فارغة", "הסל שלך ריק")}</h3><p className="mt-3 max-w-xs text-sm leading-6 text-[#73787C]">{cartText(language, "Add the lighting pieces you love and we will confirm price and availability.", "أضف قطع الإضاءة التي تناسب مشروعك وسنساعدك في تأكيد السعر والتوفر.", "הוסיפו את גופי התאורה שאהבתם ואנו נאשר מחיר וזמינות.")}</p></div>
+                <div className="flex min-h-80 flex-col items-center justify-center text-center">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#FFDA01]">
+                    <ShoppingBag size={26} />
+                  </span>
+                  <h3 className="mt-6 text-2xl font-semibold">
+                    {cartText(language, "Your cart is empty", "Your cart is empty", "Your cart is empty")}
+                  </h3>
+                  <p className="mt-3 max-w-xs text-sm leading-6 text-[#73787C]">
+                    {cartText(
+                      language,
+                      "Add the lighting pieces you love and we will prepare your order total.",
+                      "Add the lighting pieces you love and we will prepare your order total.",
+                      "Add the lighting pieces you love and we will prepare your order total.",
+                    )}
+                  </p>
+                </div>
               ) : (
                 <div className="space-y-4">
-                  {items.map(({ line, product }) => (
-                    <motion.article layout key={product.code} className="grid grid-cols-[88px_1fr] gap-4 border-b border-[#CCCFCE] pb-5">
-                      <div className="relative h-28 overflow-hidden bg-[#CCCFCE]/30"><Image unoptimized src={product.image} alt="" fill sizes="88px" className="object-cover" /></div>
-                      <div className="min-w-0"><div className="flex items-start justify-between gap-3"><div><p className="text-[10px] font-semibold tracking-[0.12em] text-[#73787C]">{product.code}</p><h3 className="mt-1 font-semibold">{getProductName(product, language)}</h3></div><button type="button" onClick={() => remove(product.code)} className="p-2 text-[#73787C] hover:text-[#0F1822]" aria-label={`Remove ${product.name}`}><Trash2 size={16} /></button></div><p className="mt-2 text-xs text-[#73787C]">{cartText(language, "Price confirmed with order", "السعر يؤكد عند الطلب", "המחיר יאושר בעת ההזמנה")}</p><div className="mt-3 inline-flex items-center border border-[#A3A7AA]"><button type="button" onClick={() => update(product.code, line.quantity - 1)} className="flex h-9 w-9 items-center justify-center" aria-label="Decrease quantity"><Minus size={14} /></button><span className="min-w-8 text-center text-sm font-semibold">{line.quantity}</span><button type="button" onClick={() => update(product.code, line.quantity + 1)} className="flex h-9 w-9 items-center justify-center" aria-label="Increase quantity"><Plus size={14} /></button></div></div>
-                    </motion.article>
-                  ))}
+                  {items.map(({ line, product }) => {
+                    const lineTotal = product.price * line.quantity;
+
+                    return (
+                      <motion.article
+                        layout
+                        key={product.code}
+                        className="grid grid-cols-[88px_1fr] gap-4 border-b border-[#CCCFCE] pb-5"
+                      >
+                        <div className="relative h-28 overflow-hidden bg-[#CCCFCE]/30">
+                          <Image unoptimized src={product.image} alt="" fill sizes="88px" className="object-cover" />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="flex items-start justify-between gap-3">
+                            <div>
+                              <p className="text-[10px] font-semibold tracking-[0.12em] text-[#73787C]">
+                                {product.code}
+                              </p>
+                              <h3 className="mt-1 font-semibold">{getProductName(product, language)}</h3>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => remove(product.code)}
+                              className="p-2 text-[#73787C] hover:text-[#0F1822]"
+                              aria-label={`Remove ${product.name}`}
+                            >
+                              <Trash2 size={16} />
+                            </button>
+                          </div>
+                          <div className="mt-3 flex items-end justify-between gap-4">
+                            <div>
+                              <p className="text-xs font-semibold text-[#0F1822]">
+                                {formatPrice(product.price, language)}
+                              </p>
+                              <p className="mt-1 text-[11px] text-[#73787C]">
+                                {cartText(language, "Initial unit price", "Initial unit price", "Initial unit price")}
+                              </p>
+                            </div>
+                            <p className="text-sm font-bold text-[#0F1822]">{formatPrice(lineTotal, language)}</p>
+                          </div>
+                          <div className="mt-3 inline-flex items-center border border-[#A3A7AA]">
+                            <button
+                              type="button"
+                              onClick={() => update(product.code, line.quantity - 1)}
+                              className="flex h-9 w-9 items-center justify-center"
+                              aria-label="Decrease quantity"
+                            >
+                              <Minus size={14} />
+                            </button>
+                            <span className="min-w-8 text-center text-sm font-semibold">{line.quantity}</span>
+                            <button
+                              type="button"
+                              onClick={() => update(product.code, line.quantity + 1)}
+                              className="flex h-9 w-9 items-center justify-center"
+                              aria-label="Increase quantity"
+                            >
+                              <Plus size={14} />
+                            </button>
+                          </div>
+                        </div>
+                      </motion.article>
+                    );
+                  })}
                 </div>
               )}
             </div>
 
             <div className="border-t border-[#CCCFCE] bg-white px-6 py-6 sm:px-8">
-              {count > 0 && <><div className="flex items-center justify-between text-sm"><span className="text-[#73787C]">{cartText(language, "Total pieces", "إجمالي القطع", "סך הפריטים")}</span><strong>{count}</strong></div><p className="mt-3 text-xs leading-5 text-[#73787C]">{cartText(language, "Kiswani will confirm pricing, availability, and delivery before the order is approved.", "سيؤكد فريق كسواني الأسعار والتوفر وخيارات التوصيل قبل اعتماد الطلب.", "צוות Kiswani יאשר מחיר, זמינות ואפשרויות משלוח לפני אישור ההזמנה.")}</p><a href="/checkout" onClick={close} className="mt-5 flex min-h-14 items-center justify-center gap-3 bg-[#FFDA01] px-6 text-sm font-bold text-[#0F1822]">{cartText(language, "Continue to checkout", "متابعة إتمام الطلب", "המשך לתשלום")}<ArrowRight size={17} className={isRtl ? "rotate-180" : ""} /></a><button type="button" onClick={clear} className="mt-3 w-full py-3 text-xs font-semibold text-[#73787C] underline underline-offset-4">{cartText(language, "Clear cart", "إفراغ السلة", "ריקון הסל")}</button></>}
-              {count === 0 && <button type="button" onClick={close} className="flex min-h-14 w-full items-center justify-center bg-[#0F1822] px-6 text-sm font-bold text-white">{cartText(language, "Continue shopping", "متابعة التسوق", "המשך בקניות")}</button>}
+              {count > 0 && (
+                <>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-[#73787C]">
+                      {cartText(language, "Total pieces", "إجمالي عدد القطع", "סה\"כ حتيخوت")}
+                    </span>
+                    <strong>{count} {cartText(language, "pieces", "قطعة", "حتيخوت")}</strong>
+                  </div>
+                  <div className="mt-3 flex items-center justify-between text-base">
+                    <span className="text-[#73787C]">
+                      {cartText(language, "Initial subtotal", "المجموع المبدئي", "סה\"כ ביניים")}
+                    </span>
+                    <strong className="text-xl">{formatPrice(subtotal, language)}</strong>
+                  </div>
+                  <p className="mt-3 text-xs leading-5 text-[#73787C]">
+                    {cartText(
+                      language,
+                      "Initial prices are calculated from the catalog. Kiswani will confirm availability, delivery, and final approval before order processing.",
+                      "الأسعار مبدئية ومحسوبة من الكتالوج. سيقوم مستشار الكسواني بتأكيد التوفر، مدة التوريد، التوصيل، والاعتماد النهائي قبل تجهيز الطلب.",
+                      "Initial prices are calculated from the catalog. Kiswani will confirm availability, delivery, and final approval before order processing.",
+                    )}
+                  </p>
+                  <a
+                    href="/checkout"
+                    onClick={close}
+                    className="mt-5 flex min-h-14 items-center justify-center gap-3 bg-[#FFDA01] px-6 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100]"
+                  >
+                    {cartText(language, "Continue to checkout", "استكمال الطلب والتوصيل", "המשך לתשלום")}
+                    <ArrowRight size={17} className={isRtl ? "rotate-180" : ""} />
+                  </a>
+                  <button
+                    type="button"
+                    onClick={clear}
+                    className="mt-3 w-full py-3 text-xs font-semibold text-[#73787C] underline underline-offset-4"
+                  >
+                    {cartText(language, "Clear cart", "تفريغ السلة", "نكاث ات هعغالا")}
+                  </button>
+                </>
+              )}
+              {count === 0 && (
+                <button
+                  type="button"
+                  onClick={close}
+                  className="flex min-h-14 w-full items-center justify-center bg-[#0F1822] px-6 text-sm font-bold text-white"
+                >
+                  {cartText(language, "Continue shopping", "متابعة التسوق", "המשך بالقنيوت")}
+                </button>
+              )}
             </div>
           </motion.aside>
         </motion.div>
