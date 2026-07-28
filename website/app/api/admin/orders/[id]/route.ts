@@ -10,7 +10,7 @@ function clean(value: unknown) {
 }
 
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
-  const authError = requireAdmin(request);
+  const authError = await requireAdmin(request);
   if (authError) return authError;
 
   const { id } = await params;
@@ -28,7 +28,8 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
       return Response.json({ error: "Invalid order status." }, { status: 400 });
     }
 
-    const [order] = await getDb()
+    const db = await getDb();
+    const [order] = await db
       .update(orders)
       .set({
         status,

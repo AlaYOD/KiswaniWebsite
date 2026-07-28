@@ -16,11 +16,11 @@ function toRouteErrorMessage(error: unknown) {
 }
 
 export async function GET(request: Request) {
-  const authError = requireAdmin(request);
+  const authError = await requireAdmin(request);
   if (authError) return authError;
 
   try {
-    const db = getDb();
+    const db = await getDb();
     const rows = await db.select().from(orders).orderBy(desc(orders.createdAt), desc(orders.id)).limit(100);
     const ids = rows.map((order) => order.id);
     const itemRows = ids.length > 0 ? await db.select().from(orderItems).where(inArray(orderItems.orderId, ids)) : [];

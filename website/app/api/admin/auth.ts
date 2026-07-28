@@ -1,8 +1,8 @@
-import { env } from "cloudflare:workers";
+import { getRuntimeEnv } from "../../../lib/runtime-env";
 
-export function requireAdmin(request: Request): Response | null {
-  const configuredPassword =
-    (env as { ADMIN_PASSWORD?: string }).ADMIN_PASSWORD || process.env.ADMIN_PASSWORD || "";
+export async function requireAdmin(request: Request): Promise<Response | null> {
+  const env = await getRuntimeEnv();
+  const configuredPassword = env.ADMIN_PASSWORD || "";
 
   if (!configuredPassword) {
     return Response.json(

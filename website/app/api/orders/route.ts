@@ -83,7 +83,7 @@ export async function POST(request: Request) {
     const totalPieces = items.reduce((total, item) => total + item.quantity, 0);
     const subtotal = items.reduce((total, item) => total + item.lineTotal, 0);
 
-    const db = getDb();
+    const db = await getDb();
     const [order] = await db
       .insert(orders)
       .values({
