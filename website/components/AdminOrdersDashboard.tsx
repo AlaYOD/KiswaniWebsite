@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { CheckCircle2, ClipboardList, LogOut, MessageCircle, RefreshCw, Search, Shield, ShoppingBag } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { CheckCircle2, ClipboardList, Database, LogOut, MessageCircle, RefreshCw, Search, Shield, ShoppingBag } from "lucide-react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 type AdminOrderItem = {
   id: number;
@@ -51,6 +51,176 @@ const statusClass: Record<OrderStatus, string> = {
   cancelled: "border-red-200 bg-red-50 text-red-700",
 };
 
+const demoOrders: AdminOrder[] = [
+  {
+    id: 1048,
+    customerName: "Aya Nassar",
+    customerEmail: "aya.nassar@example.invalid",
+    customerWhatsapp: "+970 000 000 048",
+    customerLocation: "Ramallah",
+    projectType: "Home renovation",
+    notes: "Warm lighting for an open living and dining area. Prefer dimmable fixtures.",
+    language: "en",
+    totalPieces: 3,
+    subtotal: 1480,
+    status: "new",
+    adminNote: "",
+    whatsappMessage: "Hello Aya, thank you for your Kiswani Lights request. We are reviewing the selected fixtures and will contact you with availability.",
+    createdAt: "2026-07-28T08:20:00.000Z",
+    updatedAt: "2026-07-28T08:20:00.000Z",
+    items: [
+      { id: 104801, orderId: 1048, productCode: "KL-RS-015", productName: "Resin Halo Pendant", quantity: 1, unitPrice: 760, lineTotal: 760 },
+      { id: 104802, orderId: 1048, productCode: "KL-IN-018", productName: "Infinity Wall Light Gold", quantity: 2, unitPrice: 360, lineTotal: 720 },
+    ],
+  },
+  {
+    id: 1047,
+    customerName: "Omar Khatib",
+    customerEmail: "omar.khatib@example.invalid",
+    customerWhatsapp: "+970 000 000 047",
+    customerLocation: "Al-Bireh",
+    projectType: "Retail fit-out",
+    notes: "Lighting package for a 90 m2 boutique. Installation is planned for mid-August.",
+    language: "en",
+    totalPieces: 9,
+    subtotal: 4200,
+    status: "contacted",
+    adminNote: "Initial call completed. Waiting for the reflected ceiling plan.",
+    whatsappMessage: "Hello Omar, please send the ceiling plan and fixture locations so we can confirm quantities and prepare the final quotation.",
+    createdAt: "2026-07-27T13:45:00.000Z",
+    updatedAt: "2026-07-28T07:10:00.000Z",
+    items: [
+      { id: 104701, orderId: 1047, productCode: "KL-AB-031", productName: "Alabaster Linear Pendant", quantity: 3, unitPrice: 780, lineTotal: 2340 },
+      { id: 104702, orderId: 1047, productCode: "KL-SM-032", productName: "Spanish Marble Tube Pendant", quantity: 6, unitPrice: 310, lineTotal: 1860 },
+    ],
+  },
+  {
+    id: 1046,
+    customerName: "Lina Shalabi",
+    customerEmail: "lina.shalabi@example.invalid",
+    customerWhatsapp: "+970 000 000 046",
+    customerLocation: "Bethlehem",
+    projectType: "Private villa",
+    notes: "Main entrance and upper-floor corridor. Please keep all visible finishes black or natural stone.",
+    language: "en",
+    totalPieces: 6,
+    subtotal: 2220,
+    status: "approved",
+    adminNote: "Finish selection approved. Reserve stock for seven days.",
+    whatsappMessage: "Hello Lina, your selected finishes are approved and the fixtures have been reserved pending payment confirmation.",
+    createdAt: "2026-07-26T10:15:00.000Z",
+    updatedAt: "2026-07-27T15:30:00.000Z",
+    items: [
+      { id: 104601, orderId: 1046, productCode: "KL-RD-028", productName: "Round Halo Pendant Black", quantity: 2, unitPrice: 650, lineTotal: 1300 },
+      { id: 104602, orderId: 1046, productCode: "KL-TV-009", productName: "Travertine Block Wall Light", quantity: 4, unitPrice: 230, lineTotal: 920 },
+    ],
+  },
+  {
+    id: 1045,
+    customerName: "Noor Interior Studio",
+    customerEmail: "projects@noor-studio.example.invalid",
+    customerWhatsapp: "+970 000 000 045",
+    customerLocation: "Nablus",
+    projectType: "Hospitality",
+    notes: "Reception lounge package for a small boutique hotel.",
+    language: "en",
+    totalPieces: 8,
+    subtotal: 2520,
+    status: "fulfilled",
+    adminNote: "Delivered to the site office. Handover signed by the project manager.",
+    whatsappMessage: "Your Kiswani Lights order has been delivered. Thank you for working with our project team.",
+    createdAt: "2026-07-22T09:05:00.000Z",
+    updatedAt: "2026-07-26T11:40:00.000Z",
+    items: [
+      { id: 104501, orderId: 1045, productCode: "KL-GL-002", productName: "Golden Wall Lamp - 6 Bulb", quantity: 2, unitPrice: 690, lineTotal: 1380 },
+      { id: 104502, orderId: 1045, productCode: "KL-FB-026", productName: "Classic Fabric Wall Lamp", quantity: 6, unitPrice: 190, lineTotal: 1140 },
+    ],
+  },
+  {
+    id: 1044,
+    customerName: "Tariq Masri",
+    customerEmail: "tariq.masri@example.invalid",
+    customerWhatsapp: "+970 000 000 044",
+    customerLocation: "Jenin",
+    projectType: "Apartment",
+    notes: "Dining pendant and two bedside wall lights. Warm color temperature only.",
+    language: "en",
+    totalPieces: 3,
+    subtotal: 1330,
+    status: "fulfilled",
+    adminNote: "Collected from showroom and paid in full.",
+    whatsappMessage: "Your order is complete. Contact us if you need installation guidance.",
+    createdAt: "2026-07-20T14:30:00.000Z",
+    updatedAt: "2026-07-23T09:20:00.000Z",
+    items: [
+      { id: 104401, orderId: 1044, productCode: "KL-OS-033", productName: "Oslo Pendant Light", quantity: 1, unitPrice: 890, lineTotal: 890 },
+      { id: 104402, orderId: 1044, productCode: "KL-AG-005", productName: "Amber Globe Wall Lamp", quantity: 2, unitPrice: 220, lineTotal: 440 },
+    ],
+  },
+  {
+    id: 1043,
+    customerName: "Hiba Odeh",
+    customerEmail: "hiba.odeh@example.invalid",
+    customerWhatsapp: "+970 000 000 043",
+    customerLocation: "Rawabi",
+    projectType: "Office",
+    notes: "Four suspended fixtures above shared worktables.",
+    language: "en",
+    totalPieces: 4,
+    subtotal: 3280,
+    status: "cancelled",
+    adminNote: "Project postponed by the client. No stock was reserved.",
+    whatsappMessage: "The request has been closed for now. We will be ready to reopen it when the project resumes.",
+    createdAt: "2026-07-19T11:55:00.000Z",
+    updatedAt: "2026-07-21T08:10:00.000Z",
+    items: [
+      { id: 104301, orderId: 1043, productCode: "KL-RS-016", productName: "Resin Linear Pendant", quantity: 4, unitPrice: 820, lineTotal: 3280 },
+    ],
+  },
+  {
+    id: 1042,
+    customerName: "Sami Qandil",
+    customerEmail: "sami.qandil@example.invalid",
+    customerWhatsapp: "+970 000 000 042",
+    customerLocation: "Jerusalem",
+    projectType: "Restaurant",
+    notes: "Decorative pendants over tables with accent lights along the textured walls.",
+    language: "en",
+    totalPieces: 11,
+    subtotal: 4740,
+    status: "new",
+    adminNote: "",
+    whatsappMessage: "Hello Sami, we received your restaurant lighting request and will prepare a product and quantity review.",
+    createdAt: "2026-07-18T16:25:00.000Z",
+    updatedAt: "2026-07-18T16:25:00.000Z",
+    items: [
+      { id: 104201, orderId: 1042, productCode: "KL-AB-030", productName: "Alabaster Bowl Pendant", quantity: 5, unitPrice: 540, lineTotal: 2700 },
+      { id: 104202, orderId: 1042, productCode: "KL-SM-041", productName: "Spanish Marble Organic Wall Light", quantity: 6, unitPrice: 340, lineTotal: 2040 },
+    ],
+  },
+  {
+    id: 1041,
+    customerName: "Rawan Saleh",
+    customerEmail: "rawan.saleh@example.invalid",
+    customerWhatsapp: "+970 000 000 041",
+    customerLocation: "Hebron",
+    projectType: "Private residence",
+    notes: "Accent lighting for the family room and entrance corridor.",
+    language: "en",
+    totalPieces: 6,
+    subtotal: 1760,
+    status: "contacted",
+    adminNote: "Requested photos of the entrance wall before confirming mounting positions.",
+    whatsappMessage: "Hello Rawan, please send a clear photo and dimensions of the entrance wall so we can confirm the fixture spacing.",
+    createdAt: "2026-07-17T12:10:00.000Z",
+    updatedAt: "2026-07-18T09:35:00.000Z",
+    items: [
+      { id: 104101, orderId: 1041, productCode: "KL-TV-006", productName: "Travertine Oval Wall Light", quantity: 4, unitPrice: 260, lineTotal: 1040 },
+      { id: 104102, orderId: 1041, productCode: "KL-IN-019", productName: "Infinity Wall Light Black", quantity: 2, unitPrice: 360, lineTotal: 720 },
+    ],
+  },
+];
+
 function formatPrice(value: number) {
   return new Intl.NumberFormat("en-IL", {
     style: "currency",
@@ -68,13 +238,21 @@ function formatDate(value: string) {
   }).format(date);
 }
 
+async function fetchAdminOrders(secret: string) {
+  const response = await fetch("/api/admin/orders", {
+    headers: { Authorization: `Bearer ${secret}` },
+  });
+  const result = (await response.json().catch(() => null)) as { orders?: AdminOrder[]; error?: string } | null;
+
+  if (!response.ok) throw new Error(result?.error || "Could not load orders.");
+  return result?.orders ?? [];
+}
+
 export function AdminOrdersDashboard() {
-  const [password, setPassword] = useState(() =>
-    typeof window === "undefined" ? "" : window.sessionStorage.getItem("kiswani-admin-password") ?? "",
-  );
-  const [savedPassword, setSavedPassword] = useState(() =>
-    typeof window === "undefined" ? "" : window.sessionStorage.getItem("kiswani-admin-password") ?? "",
-  );
+  const [password, setPassword] = useState("");
+  const [savedPassword, setSavedPassword] = useState("");
+  const [sessionReady, setSessionReady] = useState(false);
+  const [demoMode, setDemoMode] = useState(false);
   const [orders, setOrders] = useState<AdminOrder[]>([]);
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [query, setQuery] = useState("");
@@ -122,39 +300,75 @@ export function AdminOrdersDashboard() {
   }, [orders]);
 
   const loadOrders = useCallback(async (secret = savedPassword) => {
+    if (demoMode) {
+      setOrders(demoOrders);
+      setSelectedId((current) => current ?? demoOrders[0].id);
+      setError("");
+      setMessage("Demo orders refreshed.");
+      return;
+    }
     if (!secret) return;
     setLoading(true);
     setError("");
     setMessage("");
 
     try {
-      const response = await fetch("/api/admin/orders", {
-        headers: { Authorization: `Bearer ${secret}` },
-      });
-      const result = (await response.json().catch(() => null)) as { orders?: AdminOrder[]; error?: string } | null;
-
-      if (!response.ok) throw new Error(result?.error || "Could not load orders.");
-
-      setOrders(result?.orders ?? []);
-      setSelectedId((current) => current ?? result?.orders?.[0]?.id ?? null);
+      const loadedOrders = await fetchAdminOrders(secret);
+      setOrders(loadedOrders);
+      setSelectedId((current) => current ?? loadedOrders[0]?.id ?? null);
     } catch (loadError) {
-      setError(loadError instanceof Error ? loadError.message : "Could not load orders.");
+      const errorMessage = loadError instanceof Error ? loadError.message : "Could not load orders.";
+      if (/admin password is not configured|invalid admin password/i.test(errorMessage)) {
+        window.sessionStorage.removeItem("kiswani-admin-password");
+        setSavedPassword("");
+        setPassword("");
+        setOrders([]);
+        setSelectedId(null);
+      }
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
-  }, [savedPassword]);
+  }, [demoMode, savedPassword]);
+
+  useEffect(() => {
+    let active = true;
+    const timer = window.setTimeout(() => {
+      const storedPassword = window.sessionStorage.getItem("kiswani-admin-password") ?? "";
+      if (!active) return;
+
+      setPassword(storedPassword);
+      setSessionReady(true);
+    }, 0);
+
+    return () => {
+      active = false;
+      window.clearTimeout(timer);
+    };
+  }, []);
 
   function unlock(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const value = password.trim();
     if (!value) return;
     window.sessionStorage.setItem("kiswani-admin-password", value);
+    setDemoMode(false);
     setSavedPassword(value);
     void loadOrders(value);
   }
 
+  function openDemoDashboard() {
+    setDemoMode(true);
+    setSavedPassword("demo");
+    setOrders(demoOrders);
+    setSelectedId(demoOrders[0].id);
+    setError("");
+    setMessage("");
+  }
+
   function logout() {
     window.sessionStorage.removeItem("kiswani-admin-password");
+    setDemoMode(false);
     setSavedPassword("");
     setPassword("");
     setOrders([]);
@@ -167,6 +381,19 @@ export function AdminOrdersDashboard() {
     setSaving(true);
     setError("");
     setMessage("");
+
+    if (demoMode) {
+      setOrders((current) =>
+        current.map((item) =>
+          item.id === order.id
+            ? { ...item, status, adminNote, updatedAt: new Date().toISOString() }
+            : item,
+        ),
+      );
+      setMessage(`Demo order #${order.id} updated.`);
+      setSaving(false);
+      return;
+    }
 
     try {
       const response = await fetch(`/api/admin/orders/${order.id}`, {
@@ -199,6 +426,10 @@ export function AdminOrdersDashboard() {
     } finally {
       setSaving(false);
     }
+  }
+
+  if (!sessionReady) {
+    return <main className="min-h-screen bg-[#070B0E]" aria-busy="true" />;
   }
 
   if (!savedPassword) {
@@ -239,6 +470,11 @@ export function AdminOrdersDashboard() {
               <Shield size={17} />
               Open dashboard
             </button>
+            <div className="my-5 flex items-center gap-3" aria-hidden="true"><span className="h-px flex-1 bg-[#CCCFCE]" /><span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#73787C]">or</span><span className="h-px flex-1 bg-[#CCCFCE]" /></div>
+            <button type="button" onClick={openDemoDashboard} className="inline-flex min-h-13 w-full items-center justify-center gap-3 border border-[#AE6B0D] px-5 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#AE6B0D] hover:text-white">
+              <Database size={17} />
+              Open demo dashboard
+            </button>
             {error && <p className="mt-4 border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700">{error}</p>}
           </form>
         </section>
@@ -256,7 +492,7 @@ export function AdminOrdersDashboard() {
             </div>
             <div className="hidden h-10 w-px bg-white/10 sm:block" />
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#FFDA01]">Admin</p>
+              <div className="flex items-center gap-3"><p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#FFDA01]">Admin</p>{demoMode && <span className="border border-[#AE6B0D] px-2 py-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#D79B42]">Demo data</span>}</div>
               <h1 className="mt-1 text-2xl font-semibold tracking-[-0.04em]">Orders dashboard</h1>
             </div>
           </div>
@@ -358,7 +594,7 @@ export function AdminOrdersDashboard() {
 
             <section className="min-w-0 bg-white">
               {selected ? (
-                <OrderDetail key={selected.id} order={selected} saving={saving} onSave={updateOrder} />
+                <OrderDetail key={selected.id} order={selected} saving={saving} demoMode={demoMode} onSave={updateOrder} />
               ) : (
                 <div className="grid min-h-[520px] place-items-center border border-dashed border-[#A3A7AA] p-10 text-center">
                   <div>
@@ -386,10 +622,12 @@ export function AdminOrdersDashboard() {
 function OrderDetail({
   order,
   saving,
+  demoMode,
   onSave,
 }: {
   order: AdminOrder;
   saving: boolean;
+  demoMode: boolean;
   onSave: (order: AdminOrder, status: OrderStatus, adminNote: string) => Promise<void>;
 }) {
   const [status, setStatus] = useState<OrderStatus>(order.status);
@@ -418,15 +656,22 @@ function OrderDetail({
           <InfoBlock label="Project type" value={order.projectType || "Not provided"} />
         </div>
 
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-5 inline-flex min-h-12 items-center gap-2 bg-[#FFDA01] px-5 text-sm font-bold text-[#0F1822]"
-        >
-          <MessageCircle size={17} />
-          Open WhatsApp
-        </a>
+        {demoMode ? (
+          <span className="mt-5 inline-flex min-h-12 items-center gap-2 border border-[#CCCFCE] bg-[#F4F2ED] px-5 text-sm font-bold text-[#73787C]">
+            <MessageCircle size={17} />
+            Demo WhatsApp unavailable
+          </span>
+        ) : (
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-5 inline-flex min-h-12 items-center gap-2 bg-[#FFDA01] px-5 text-sm font-bold text-[#0F1822]"
+          >
+            <MessageCircle size={17} />
+            Open WhatsApp
+          </a>
+        )}
       </div>
 
       <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_320px]">

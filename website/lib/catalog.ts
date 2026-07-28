@@ -43,7 +43,7 @@ export const categories: Category[] = [
     arabic: "Ø§Ù„Ø¥Ù†Ø§Ø±Ø© Ø§Ù„Ø¯ÙŠÙƒÙˆØ±ÙŠØ©",
     detail: "Statement pieces that give the room its character.",
     detailAr: "Ù‚Ø·Ø¹ Ù…Ù…ÙŠØ²Ø© ØªÙ…Ù†Ø­ Ø§Ù„Ù…ÙƒØ§Ù† Ø´Ø®ØµÙŠØªÙ‡ ÙˆØ­Ø¶ÙˆØ±Ù‡.",
-    image: "/images/kiswani-decorative-2026.webp",
+    image: "/images/editorial/hero-decorative.webp",
   },
   {
     slug: "interior",
@@ -51,7 +51,7 @@ export const categories: Category[] = [
     arabic: "Ø§Ù„Ø¥Ù†Ø§Ø±Ø© Ø§Ù„Ø¯Ø§Ø®Ù„ÙŠØ©",
     detail: "Warm, considered light for everyday living.",
     detailAr: "Ø¶ÙˆØ¡ Ø¯Ø§ÙØ¦ ÙˆÙ…Ø¯Ø±ÙˆØ³ Ù„ØªÙØ§ØµÙŠÙ„ Ø§Ù„Ø­ÙŠØ§Ø© Ø§Ù„ÙŠÙˆÙ…ÙŠØ©.",
-    image: "/images/kiswani-hero-2026.webp",
+    image: "/images/editorial/hero-interior.webp",
   },
   {
     slug: "technical",
@@ -59,7 +59,7 @@ export const categories: Category[] = [
     arabic: "Ø§Ù„Ø¥Ù†Ø§Ø±Ø© Ø§Ù„ØªÙ‚Ù†ÙŠØ©",
     detail: "Precise systems for architectural performance.",
     detailAr: "Ø£Ù†Ø¸Ù…Ø© Ø¯Ù‚ÙŠÙ‚Ø© Ù„Ù„Ø£Ø¯Ø§Ø¡ Ø§Ù„Ù…Ø¹Ù…Ø§Ø±ÙŠ Ø§Ù„Ø§Ø­ØªØ±Ø§ÙÙŠ.",
-    image: "/images/kiswani-technical-2026.webp",
+    image: "/images/editorial/hero-technical.webp",
   },
   {
     slug: "accent",
@@ -67,7 +67,7 @@ export const categories: Category[] = [
     arabic: "Ø§Ù„Ø¥Ù†Ø§Ø±Ø© Ø§Ù„Ø¬Ù…Ø§Ù„ÙŠØ©",
     detail: "Focused moments that reveal material and mood.",
     detailAr: "Ù„Ù…Ø³Ø§Øª Ù…Ø±ÙƒØ²Ø© ØªØ¸Ù‡Ø± Ø§Ù„Ø®Ø§Ù…Ø© ÙˆØªØµÙ†Ø¹ Ø§Ù„Ø£Ø¬ÙˆØ§Ø¡.",
-    image: "/images/kiswani-accent-2026.webp",
+    image: "/images/editorial/hero-accent.webp",
   },
 ];
 

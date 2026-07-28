@@ -137,11 +137,11 @@ export function FeaturedProjectExperience({ language }: { language: Language }) 
         <div className="relative overflow-hidden border border-white/10 bg-[#0F1822] shadow-[0_45px_140px_rgba(0,0,0,0.44)]">
           <div className="relative min-h-[580px] sm:min-h-[720px] lg:min-h-[820px]">
             <motion.div initial={reducedMotion ? false : { scale: 1.085 }} animate={visible ? { scale: 1.025 } : undefined} transition={{ duration: reducedMotion ? 0 : 10, ease: "easeOut" }} className="absolute inset-0">
-              <Image unoptimized src="/images/kiswani-hero-2026.webp" alt={isArabic ? "مشروع إنارة داخلي قبل تشغيل الإضاءة" : "Interior lighting project before illumination"} fill sizes="100vw" className="object-cover object-center brightness-[0.42] saturate-[0.58]" />
+              <Image unoptimized src="/images/editorial/project-dining.webp" alt={isArabic ? "مشروع إنارة داخلي قبل تشغيل الإضاءة" : "Interior lighting project before illumination"} fill sizes="100vw" className="object-cover object-center brightness-[0.42] saturate-[0.58]" />
             </motion.div>
 
             <motion.div initial={reducedMotion ? false : { scale: 1.085 }} animate={visible ? { scale: 1.025 } : undefined} transition={{ duration: reducedMotion ? 0 : 10, ease: "easeOut" }} className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 ${100 - reveal}% 0 0)` }}>
-              <Image unoptimized src="/images/kiswani-hero-2026.webp" alt={isArabic ? "مشروع إنارة داخلي بعد تشغيل الإضاءة" : "Interior lighting project after illumination"} fill sizes="100vw" className="object-cover object-center transition-[filter] duration-700" style={{ filter: activeTemperature.filter }} />
+              <Image unoptimized src="/images/editorial/project-dining.webp" alt={isArabic ? "مشروع إنارة داخلي بعد تشغيل الإضاءة" : "Interior lighting project after illumination"} fill sizes="100vw" className="object-cover object-center transition-[filter] duration-700" style={{ filter: activeTemperature.filter }} />
               <div className="absolute inset-0 transition-colors duration-700 mix-blend-soft-light" style={{ backgroundColor: activeTemperature.overlay }} aria-hidden="true" />
             </motion.div>
 

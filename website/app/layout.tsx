@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans_Arabic } from "next/font/google";
+import "./fonts.css";
 import "./globals.css";
 import { CartProvider } from "../components/CartSystem";
 import { LightBeamCursor, PageMotionFrame, ScrollLightProgress } from "../components/LuxuryEnhancements";
-
-const kiswaniSans = IBM_Plex_Sans_Arabic({
-  variable: "--font-kiswani-sans",
-  subsets: ["arabic", "latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kiswani-website-82jb.vercel.app"),
@@ -26,13 +20,13 @@ export const metadata: Metadata = {
     description: "Decorative and technical lighting shaped for distinctive interiors and architectural projects.",
     locale: "en_US",
     alternateLocale: ["ar_PS", "he_IL"],
-    images: [{ url: "/og.png", alt: "Warm architectural lighting by Kiswani Lights" }],
+    images: [{ url: "/og-v2.jpg", width: 1200, height: 630, alt: "Kiswani Lights architectural lighting" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Kiswani Lights | Architectural lighting for memorable spaces",
     description: "Decorative and technical lighting shaped for distinctive interiors and architectural projects.",
-    images: ["/og.png"],
+    images: ["/og-v2.jpg"],
   },
   icons: {
     icon: "/images/kiswani-logo.png",
@@ -46,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={kiswaniSans.variable}>
+    <html lang="en" suppressHydrationWarning>
       <body className="antialiased"><CartProvider><PageMotionFrame>{children}</PageMotionFrame><ScrollLightProgress /><LightBeamCursor /></CartProvider></body>
     </html>
   );

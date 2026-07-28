@@ -3,10 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #0f1822;
+  --font-kiswani-sans: "IBM Plex Sans Arabic";
   --primary: #ffda01;
   --accent: #ffa300;
   --kiswani-yellow: #ffda01;
   --kiswani-yellow-warm: #ffa300;
+  --kiswani-gold: #ae6b0d;
   --kiswani-ink: #0f1822;
   --kiswani-warm-black: #1e2722;
   --kiswani-graphite: #50555b;
@@ -82,6 +84,117 @@ a {
 
 .image-vignette {
   background: linear-gradient(to top, rgb(15 24 34 / 68%), transparent 42%);
+}
+
+.gold-hero-geometry,
+.gold-contact-geometry {
+  border-block-start: 1px solid rgb(174 107 13 / 78%);
+  border-inline-end: 1px solid rgb(174 107 13 / 78%);
+  height: clamp(8rem, 13vw, 12rem);
+  pointer-events: none;
+  position: absolute;
+  width: clamp(8rem, 13vw, 12rem);
+}
+
+.gold-hero-geometry {
+  inset-block-start: 9%;
+  inset-inline-end: 6%;
+}
+
+.gold-contact-geometry {
+  inset-block-start: 9%;
+  inset-inline-end: 7%;
+}
+
+.gold-hero-geometry::before,
+.gold-contact-geometry::before {
+  border: 1px solid rgb(174 107 13 / 88%);
+  content: "";
+  height: 1.7rem;
+  inset-block-start: 1.25rem;
+  inset-inline-end: 1.25rem;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 1.7rem;
+}
+
+.gold-hero-geometry::after,
+.gold-contact-geometry::after {
+  background: rgb(174 107 13 / 82%);
+  content: "";
+  height: 1px;
+  inset-block-start: 4.75rem;
+  inset-inline-end: -2.25rem;
+  position: absolute;
+  width: 5.5rem;
+}
+
+.gold-image-corners::before,
+.gold-image-corners::after {
+  content: "";
+  height: 2.75rem;
+  pointer-events: none;
+  position: absolute;
+  width: 2.75rem;
+  z-index: 20;
+}
+
+.gold-image-corners::before {
+  border-block-start: 1px solid var(--kiswani-gold);
+  border-inline-start: 1px solid var(--kiswani-gold);
+  inset-block-start: 0.9rem;
+  inset-inline-start: 0.9rem;
+}
+
+.gold-image-corners::after {
+  border-block-end: 1px solid var(--kiswani-gold);
+  border-inline-end: 1px solid var(--kiswani-gold);
+  inset-block-end: 0.9rem;
+  inset-inline-end: 0.9rem;
+}
+
+.gold-motif-divider {
+  align-items: center;
+  background: #f4f2ed;
+  display: flex;
+  gap: 1rem;
+  height: 4.5rem;
+  justify-content: center;
+}
+
+.gold-motif-divider::before,
+.gold-motif-divider::after {
+  background: rgb(174 107 13 / 55%);
+  content: "";
+  height: 1px;
+  max-width: 8rem;
+  width: 16vw;
+}
+
+.gold-motif-divider > span {
+  border: 1px solid var(--kiswani-gold);
+  display: block;
+  height: 0.7rem;
+  transform: rotate(45deg);
+  width: 0.7rem;
+}
+
+.gold-section-rail {
+  background: var(--kiswani-gold);
+  height: 22%;
+  inset-block-start: 18%;
+  inset-inline-start: 0;
+  position: absolute;
+  width: 0.35rem;
+}
+
+.gold-section-rail::after {
+  border-inline-start: 1px solid rgb(174 107 13 / 42%);
+  content: "";
+  height: 150%;
+  inset-block-start: -25%;
+  inset-inline-start: 0.9rem;
+  position: absolute;
 }
 
 .hide-scrollbar::-webkit-scrollbar {

@@ -282,6 +282,7 @@ function Hero({ language }: { language: Language }) {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,11,14,0.94)_0%,rgba(7,11,14,0.72)_42%,rgba(7,11,14,0.18)_72%,rgba(7,11,14,0.42)_100%)] rtl:bg-[linear-gradient(270deg,rgba(7,11,14,0.94)_0%,rgba(7,11,14,0.72)_42%,rgba(7,11,14,0.18)_72%,rgba(7,11,14,0.42)_100%)]" aria-hidden="true" />
       <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(7,11,14,0.88)_0%,transparent_45%)]" aria-hidden="true" />
       <div className="absolute inset-x-5 top-5 bottom-5 border border-white/10 sm:inset-x-8 sm:top-8 sm:bottom-8" aria-hidden="true" />
+      <div className="gold-hero-geometry z-10 hidden lg:block" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-96px)] max-w-[1440px] items-end px-8 pb-14 pt-28 sm:px-16 sm:pb-20 lg:items-center lg:px-20 lg:py-20">
         <motion.div initial={reduced ? false : "hidden"} animate="show" variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.11, delayChildren: 0.12 } } }} style={{ y: reduced ? 0 : contentParallax }} className="w-full max-w-[810px]">
@@ -315,7 +316,7 @@ function CategoryCard({ category, index, language }: { category: (typeof categor
   const detail = getCategoryDetail(category, language);
   return (
     <motion.a href={`/collections/${category.slug}`} initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.22 }} whileHover={{ y: reducedMotion ? 0 : -10 }} onPointerMove={(event) => { if (event.pointerType !== "mouse" || reducedMotion) return; const bounds = event.currentTarget.getBoundingClientRect(); const x = (event.clientX - bounds.left) / bounds.width; const y = (event.clientY - bounds.top) / bounds.height; rotateY.set((x - 0.5) * 5); rotateX.set((0.5 - y) * 5); glowX.set(x * 100); glowY.set(y * 100); }} onPointerLeave={() => { rotateX.set(0); rotateY.set(0); glowX.set(50); glowY.set(50); }} style={{ rotateX: smoothRotateX, rotateY: smoothRotateY, transformPerspective: 1200 }} transition={{ duration: reducedMotion ? 0 : 0.7, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }} className={`group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01] ${index % 2 ? "xl:translate-y-10" : ""}`}>
-      <div className="light-sweep relative aspect-[3/4] overflow-hidden bg-[#070B0E] shadow-[0_22px_70px_rgba(7,11,14,0.16)]">
+      <div className="gold-image-corners light-sweep relative aspect-[3/4] overflow-hidden bg-[#070B0E] shadow-[0_22px_70px_rgba(7,11,14,0.16)]">
         <Media src={category.image} alt={name} sizes="(max-width: 768px) 100vw, 25vw" className="object-cover object-center transition-transform duration-[1100ms] ease-out group-hover:scale-[1.045]" />
         <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(7,11,14,0.96)_0%,rgba(7,11,14,0.22)_58%,rgba(7,11,14,0.12)_100%)]" />
         <motion.div aria-hidden="true" style={{ background: glow }} className="absolute inset-0 opacity-0 mix-blend-screen transition-opacity duration-500 group-hover:opacity-100" />
@@ -323,6 +324,67 @@ function CategoryCard({ category, index, language }: { category: (typeof categor
         <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#FFDA01]">KISWANI / 2026</p><h3 className="mt-3 text-3xl font-semibold leading-tight tracking-[-0.035em] text-white">{name}</h3><p className="mt-3 max-w-sm text-sm leading-6 text-white/60">{detail}</p><span className="mt-6 flex h-11 w-11 items-center justify-center border border-white/35 text-white transition-all group-hover:border-[#FFDA01] group-hover:bg-[#FFDA01] group-hover:text-[#0F1822]"><ChevronRight size={17} className={isRtlLanguage(language) ? "rotate-180" : ""} /></span></div>
       </div>
     </motion.a>
+  );
+}
+
+function VisualStories({ language }: { language: Language }) {
+  const stories = [
+    {
+      href: "/collections/decorative",
+      image: "/images/editorial/story-lounge.webp",
+      label: localize(language, "Sculptural light for shared spaces", "ضوء نحتي للمساحات المشتركة", "אור פיסולי לחללים משותפים"),
+      detail: localize(language, "Dining & lounge", "غرف الطعام والجلوس", "פינות אוכל וסלון"),
+    },
+    {
+      href: "/collections/technical",
+      image: "/images/editorial/story-stair.webp",
+      label: localize(language, "Guidance after dark", "إضاءة ترشدك بعد الغروب", "הכוונה לאחר החשכה"),
+      detail: localize(language, "Stairs & circulation", "السلالم والممرات", "מדרגות ומעברים"),
+    },
+    {
+      href: "/collections/accent",
+      image: "/images/editorial/story-wall.webp",
+      label: localize(language, "Layers of ambient light", "طبقات من الإضاءة المحيطية", "שכבות של אור אווירה"),
+      detail: localize(language, "Walls & quiet corners", "الجدران والزوايا الهادئة", "קירות ופינות שקטות"),
+    },
+  ];
+
+  return (
+    <section className="relative overflow-hidden bg-[#F4F2ED] px-4 py-28 sm:px-8 sm:py-40">
+      <div className="gold-section-rail" aria-hidden="true" />
+      <div className="mx-auto max-w-[1440px]">
+        <div className="grid gap-10 lg:grid-cols-[1fr_0.62fr] lg:items-end">
+          <SectionIntro
+            kicker={localize(language, "LIGHT IN REAL SPACES", "الضوء في مساحات حقيقية", "אור בחללים אמיתיים")}
+            title={localize(language, "One fixture can change the rhythm of the whole room.", "قطعة إنارة واحدة قادرة على تغيير إيقاع المكان كله.", "גוף תאורה אחד יכול לשנות את הקצב של החלל כולו.")}
+          />
+          <motion.p initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.7, delay: 0.1 }} className="max-w-xl text-base leading-8 text-[#50555B] lg:justify-self-end">
+            {localize(language, "Explore warm, believable interiors where the fixture, materials, and atmosphere work as one composition.", "اكتشف مساحات دافئة وواقعية تتكامل فيها قطعة الإنارة والخامات والأجواء ضمن مشهد واحد.", "גלו חללים חמים ואמינים שבהם גוף התאורה, החומרים והאווירה פועלים כקומפוזיציה אחת.")}
+          </motion.p>
+        </div>
+
+        <div className="mt-14 grid gap-3 lg:grid-cols-[1.45fr_0.55fr]">
+          <motion.a href={stories[0].href} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }} className="gold-image-corners group light-sweep relative min-h-[520px] overflow-hidden bg-[#070B0E] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01] sm:min-h-[680px]">
+            <Media src={stories[0].image} alt={stories[0].label} sizes="(max-width: 1024px) 100vw, 68vw" className="object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]" />
+            <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(5,7,9,0.9)_0%,rgba(5,7,9,0.05)_62%)]" />
+            <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-8 p-7 text-white sm:p-10">
+              <div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#FFDA01]">{stories[0].detail}</p><h3 className="mt-3 max-w-2xl text-3xl font-semibold leading-tight sm:text-5xl">{stories[0].label}</h3></div>
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-white/35 transition-colors group-hover:border-[#FFDA01] group-hover:bg-[#FFDA01] group-hover:text-[#0F1822]"><ArrowUpRight size={19} /></span>
+            </div>
+          </motion.a>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+            {stories.slice(1).map((story, index) => (
+              <motion.a key={story.image} href={story.href} initial={{ opacity: 0, x: index === 0 ? 24 : -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.24 }} transition={{ duration: 0.7, delay: 0.08 + index * 0.08, ease: [0.22, 1, 0.36, 1] }} className="gold-image-corners group relative min-h-[360px] overflow-hidden bg-[#070B0E] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01] sm:min-h-[440px] lg:min-h-0">
+                <Media src={story.image} alt={story.label} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 32vw" className="object-cover object-center transition-transform duration-[1000ms] ease-out group-hover:scale-[1.045]" />
+                <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(5,7,9,0.92)_0%,transparent_66%)]" />
+                <div className="absolute inset-x-0 bottom-0 z-10 p-6 text-white sm:p-7"><p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[#FFDA01]">{story.detail}</p><div className="mt-3 flex items-end justify-between gap-4"><h3 className="max-w-sm text-2xl font-semibold leading-tight">{story.label}</h3><ArrowUpRight size={18} className="shrink-0 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></div></div>
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -590,10 +652,13 @@ export function KiswaniExperience() {
         <Hero language={language} />
 
         <section className="border-y border-white/10 bg-[#070B0E] px-4 py-3 text-white sm:px-8"><div className="mx-auto grid max-w-[1440px] gap-px bg-white/10 sm:grid-cols-3">{[["90+", current.statOne], ["48H", current.statTwo], ["360°", current.statThree]].map(([value, label], index) => <AnimatedMetric key={label} value={value} label={label} index={index} />)}</div></section>
+        <div className="gold-motif-divider" aria-hidden="true"><span /></div>
 
         <section className="overflow-hidden bg-[#F4F2ED] px-4 py-28 sm:px-8 sm:py-40"><div className="mx-auto grid max-w-[1440px] gap-12 lg:grid-cols-[0.24fr_1.2fr_0.72fr] lg:items-start"><motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}><span className="text-6xl font-light tracking-[-0.06em] text-[#A3A7AA]">02</span><motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.15 }} className="mt-6 h-px w-20 origin-left bg-[#FFDA01]" /></motion.div><motion.p initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }} className="brand-statement text-balance text-4xl font-semibold uppercase leading-[1.01] tracking-[-0.055em] text-[#0F1822] sm:text-6xl lg:text-7xl">{current.statement}</motion.p><motion.p initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.45 }} transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }} className="max-w-xl text-lg leading-8 text-[#50555B] lg:border-s lg:border-[#A3A7AA] lg:ps-10">{current.statementBody}</motion.p></div></section>
 
         <section id="collections" className="relative isolate overflow-hidden bg-[#E9E6DF] px-4 py-28 sm:px-8 sm:py-40"><WallSconceMotion /><div className="relative z-10 mx-auto max-w-[1440px]"><SectionIntro kicker={current.categoryKicker} title={current.categoryTitle} /><div className="mt-16 grid gap-3 pb-10 sm:grid-cols-2 xl:grid-cols-4">{categories.map((category, index) => <CategoryCard key={category.name} category={category} index={index} language={language} />)}</div></div></section>
+
+        <VisualStories language={language} />
 
         <LightingTypes language={language} />
         <section id="products" className="relative isolate overflow-hidden bg-white px-4 py-28 sm:px-8 sm:py-40"><TrackLightsMotion /><div className="relative z-10 mx-auto max-w-[1440px]"><div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-end"><SectionIntro kicker={current.productsKicker} title={current.productsTitle} /><label className="relative block w-full max-w-md"><span className="sr-only">{current.search}</span><Search size={18} className="pointer-events-none absolute start-5 top-1/2 -translate-y-1/2 text-[#73787C]" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={current.search} className="h-14 w-full border-0 border-b border-[#A3A7AA] bg-transparent pe-5 ps-12 text-sm text-[#0F1822] outline-none placeholder:text-[#73787C] focus:border-[#0F1822] focus:ring-0" /></label></div><motion.div layout className="mt-16 grid gap-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"><AnimatePresence mode="popLayout">{filtered.map((product) => <ProductCard key={product.code} product={product} language={language} open={setSelected} />)}</AnimatePresence></motion.div>{filtered.length === 0 && <div className="mt-12 border border-dashed border-[#A3A7AA] bg-[#CCCFCE]/15 px-6 py-16 text-center"><Search className="mx-auto text-[#73787C]" /><p className="mt-4 font-medium text-[#50555B]">{current.noResults}</p><button type="button" onClick={() => setQuery("")} className="mt-4 font-bold underline decoration-[#FFDA01] decoration-2 underline-offset-4">{current.clear}</button></div>}</div></section>
@@ -601,7 +666,20 @@ export function KiswaniExperience() {
         <LightingPortfolioStrip language={language} />
         <FeaturedProjectExperience language={language} />
 
-        <section id="contact" className="relative overflow-hidden bg-[#FFDA01] px-4 py-28 before:absolute before:inset-x-0 before:top-0 before:h-2 before:bg-[#070B0E] sm:px-8 sm:py-40"><div className="relative z-10 mx-auto grid max-w-[1440px] items-end gap-14 lg:grid-cols-[1fr_auto]"><div><div className="mb-10 flex h-16 w-16 items-center justify-center border border-[#0F1822]"><SunMedium size={30} strokeWidth={1.2} /></div><h2 className="max-w-5xl text-balance text-5xl font-semibold leading-[0.94] tracking-[-0.065em] sm:text-7xl lg:text-8xl">{current.contactTitle}</h2><p className="mt-8 max-w-2xl text-lg leading-8 text-[#0F1822]/70">{current.contactBody}</p></div><motion.a href="mailto:info@kiswanilights.com" whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="inline-flex min-h-16 items-center justify-center gap-3 bg-[#070B0E] px-9 text-sm font-bold text-white shadow-[0_18px_40px_rgba(7,11,14,0.2)]">{current.contactCta}<ArrowUpRight size={17} /></motion.a></div></section>
+        <section id="contact" className="relative isolate min-h-[700px] overflow-hidden bg-[#070B0E] px-4 py-28 text-white sm:px-8 sm:py-40">
+          <Media src="/images/editorial/contact-room.webp" alt={localize(language, "Warmly lit living space", "مساحة معيشة بإضاءة دافئة", "חלל מגורים בתאורה חמה")} sizes="100vw" className="object-cover object-center" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,7,9,0.94)_0%,rgba(5,7,9,0.78)_48%,rgba(5,7,9,0.22)_100%)] rtl:bg-[linear-gradient(270deg,rgba(5,7,9,0.94)_0%,rgba(5,7,9,0.78)_48%,rgba(5,7,9,0.22)_100%)]" />
+          <div className="absolute inset-5 border border-white/15 sm:inset-8" aria-hidden="true" />
+          <div className="gold-contact-geometry z-10 hidden lg:block" aria-hidden="true" />
+          <div className="relative z-10 mx-auto flex min-h-[476px] max-w-[1440px] items-end">
+            <div className="max-w-4xl">
+              <div className="mb-10 flex h-16 w-16 items-center justify-center bg-[#FFDA01] text-[#0F1822]"><SunMedium size={30} strokeWidth={1.2} /></div>
+              <h2 className="text-balance text-5xl font-semibold leading-[0.94] sm:text-7xl lg:text-8xl">{current.contactTitle}</h2>
+              <p className="mt-8 max-w-2xl text-lg leading-8 text-white/70">{current.contactBody}</p>
+              <motion.a href="mailto:info@kiswanilights.com" whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="mt-10 inline-flex min-h-16 items-center justify-center gap-3 bg-[#FFDA01] px-9 text-sm font-bold text-[#0F1822] shadow-[0_18px_40px_rgba(7,11,14,0.28)]">{current.contactCta}<ArrowUpRight size={17} /></motion.a>
+            </div>
+          </div>
+        </section>
       </main>
 
       <LuxuryFooter language={language} />
