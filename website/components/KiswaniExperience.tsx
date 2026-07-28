@@ -4,6 +4,7 @@ import Image from "next/image";
 import { AnimatePresence, motion, useInView, useMotionTemplate, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import {
   ArrowUpRight,
+  ChevronDown,
   ChevronRight,
   Gauge,
   LampDesk,
@@ -18,7 +19,7 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { categories, formatPrice, getCategoryDetail, getCategoryName, getProductCategory, getProductDescription, getProductName, products, type Product } from "../lib/catalog";
+import { categories, formatPrice, getCategoryDetail, getCategoryName, getProductCategory, getProductDescription, getProductName, getProductSlug, products, type Category, type Product } from "../lib/catalog";
 import { CinematicIntro } from "./CinematicIntro";
 import { CartDrawer, CartTrigger, useCart } from "./CartSystem";
 import { ContactProjectDrawer } from "./ContactProjectForm";
@@ -235,25 +236,237 @@ function SectionIntro({ kicker, title, dark = false }: { kicker: string; title: 
   );
 }
 
-export function Header({ language, setLanguage, rootPrefix = "" }: { language: Language; setLanguage: (value: Language) => void; rootPrefix?: string }) {
+export function Header({
+  language,
+  setLanguage,
+  rootPrefix = "",
+  onSearch,
+}: {
+  language: Language;
+  setLanguage: (value: Language) => void;
+  rootPrefix?: string;
+  onSearch?: (value: string) => void;
+}) {
   const [open, setOpen] = useState(false);
+  const [headerSearch, setHeaderSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const reducedMotion = useReducedMotion();
-  const current = copy[language];
-  const links = ["#collections", "#types", "#projects", "#contact"];
+  const categoryLinks: Array<{ label: string; href: string; category?: Category }> = [
+    { label: localize(language, "Shop all", "جميع المنتجات", "כל המוצרים"), href: `${rootPrefix}#products` },
+    { label: localize(language, "Decorative", "إنارة ديكورية", "תאורה דקורטיבית"), href: "/collections/decorative", category: categories[0] },
+    { label: localize(language, "Interior", "إنارة داخلية", "תאורת פנים"), href: "/collections/interior", category: categories[1] },
+    { label: localize(language, "Technical", "إنارة تقنية", "תאורה טכנית"), href: "/collections/technical", category: categories[2] },
+    { label: localize(language, "Accent", "إنارة مميزة", "תאורת אווירה"), href: "/collections/accent", category: categories[3] },
+    { label: localize(language, "Projects", "المشاريع", "פרויקטים"), href: `${rootPrefix}#projects` },
+  ];
+  const activeProducts = activeCategory ? products.filter((product) => product.categorySlug === activeCategory.slug).slice(0, 4) : [];
+
+  const submitSearch = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const value = headerSearch.trim();
+    if (!value) return;
+
+    setOpen(false);
+    if (onSearch) {
+      onSearch(value);
+      window.setTimeout(() => {
+        document.getElementById("products")?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
+      }, 0);
+      return;
+    }
+
+    window.location.assign(`/?search=${encodeURIComponent(value)}#products`);
+  };
+
+  const searchForm = (mobile = false) => (
+    <form onSubmit={submitSearch} role="search" className={`flex h-11 min-w-0 border border-white/25 bg-[#111315] transition-colors focus-within:border-[#FFDA01] ${mobile ? "w-full" : "w-full max-w-[520px]"}`}>
+      <label className="relative min-w-0 flex-1">
+        <span className="sr-only">{localize(language, "Search products", "ابحث عن المنتجات", "חיפוש מוצרים")}</span>
+        <Search size={18} className="pointer-events-none absolute start-4 top-1/2 -translate-y-1/2 text-white/75" aria-hidden="true" />
+        <input
+          value={headerSearch}
+          onChange={(event) => setHeaderSearch(event.target.value)}
+          placeholder={localize(language, "Search products", "ابحث عن المنتجات", "חיפוש מוצרים")}
+          className="h-full w-full border-0 bg-transparent pe-3 ps-12 text-sm text-white outline-none placeholder:text-white/45"
+        />
+      </label>
+      <button type="submit" className="shrink-0 px-4 text-[10px] font-bold uppercase text-[#FFDA01] transition-colors hover:bg-[#FFDA01] hover:text-[#0F1822] sm:px-6">
+        {localize(language, "Search", "بحث", "חיפוש")}
+      </button>
+    </form>
+  );
+
   return (
-    <motion.header initial={reducedMotion ? false : { opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reducedMotion ? 0 : 0.65, ease: [0.22, 1, 0.36, 1] }} className="sticky top-0 z-50 border-b border-white/10 bg-[#050709]/95 text-white shadow-[0_18px_60px_rgba(0,0,0,0.34)] backdrop-blur-xl">
-      <div className="h-[3px] bg-[#FFDA01]" />
-      <div className="hidden border-b border-white/[0.07] lg:block">
-        <div className="mx-auto flex h-8 max-w-[1440px] items-center justify-between px-8 text-[9px] font-semibold uppercase tracking-[0.2em] text-[#73787C]"><span>{localize(language, "Lighting is the soul of the space", "الإضاءة هي روح المكان", "התאורה היא הנשמה של החלל")}</span><div className="flex items-center gap-7"><a href="tel:+970599671209" className="transition-colors hover:text-[#FFDA01]">+970 599 67 12 09</a><span>{localize(language, "Ramallah · Palestine", "رام الله · فلسطين", "רמאללה · פלסטין")}</span></div></div>
+    <motion.header
+      initial={reducedMotion ? false : { opacity: 0, y: -14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: reducedMotion ? 0 : 0.65, ease: [0.22, 1, 0.36, 1] }}
+      className="sticky top-0 z-50 shadow-[0_12px_34px_rgba(0,0,0,0.18)]"
+    >
+      <div className="bg-[#FFDA01] text-[#0F1822]">
+        <div className="mx-auto flex h-[30px] max-w-[1440px] items-center justify-center px-4 text-center text-[9px] font-bold uppercase sm:justify-between sm:px-8 sm:text-[10px]">
+          <span>{localize(language, "Direct project support · Delivery across Palestine", "دعم مباشر للمشاريع · توصيل في جميع أنحاء فلسطين", "תמיכה ישירה בפרויקטים · משלוחים ברחבי פלסטין")}</span>
+          <a href={`${rootPrefix}#contact`} className="hidden items-center gap-2 transition-opacity hover:opacity-65 sm:inline-flex">
+            {localize(language, "Kiswani for professionals", "كسواني للمحترفين", "Kiswani למקצוענים")}
+            <ArrowUpRight size={12} aria-hidden="true" />
+          </a>
+        </div>
       </div>
-      <div className="relative mx-auto flex h-[88px] max-w-[1440px] items-center justify-between px-4 sm:h-[96px] sm:px-8">
-        <a href={`${rootPrefix}#top`} aria-label="Kiswani Lights home" className="relative block h-14 w-44 shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01] sm:h-16 sm:w-56"><Image unoptimized src="/images/kiswani-logo-original-white.png" alt="Kiswani Lights" fill priority sizes="(max-width: 640px) 176px, 224px" className="object-contain object-left rtl:object-right" /></a>
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 xl:flex" aria-label="Primary navigation">{current.nav.map((item, index) => <a key={item} href={`${rootPrefix}${links[index]}`} className="group relative py-4 text-[12px] font-semibold uppercase tracking-[0.08em] text-[#A3A7AA] transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01]"><span className="me-2 text-[8px] text-[#50555B]">0{index + 1}</span>{item}<span className="absolute inset-x-0 bottom-1 h-px origin-left scale-x-0 bg-[#FFDA01] transition-transform duration-300 group-hover:scale-x-100" /></a>)}</nav>
-        <div className="hidden items-center gap-2 xl:flex"><CartTrigger language={language} /><label className="relative"><span className="sr-only">Select language</span><select value={language} onChange={(event) => setLanguage(event.target.value as Language)} className="h-11 appearance-none border border-white/15 bg-[#050709] pe-8 ps-3 text-[10px] font-bold tracking-[0.1em] text-white outline-none transition-colors hover:border-[#FFDA01] focus:border-[#FFDA01]"><option value="en">EN</option><option value="ar">العربية</option><option value="he">עברית</option></select><span aria-hidden="true" className="pointer-events-none absolute end-3 top-1/2 -translate-y-1/2 text-[8px] text-[#FFDA01]">▼</span></label><a href={`${rootPrefix}#contact`} className="group inline-flex h-11 items-center gap-3 bg-[#FFDA01] px-5 text-xs font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100]"><span>{current.project}</span><ArrowUpRight size={15} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></a></div>
-        <div className="flex items-center gap-2 xl:hidden"><CartTrigger compact language={language} /><button type="button" onClick={() => setOpen(!open)} className="flex h-11 w-11 items-center justify-center border border-white/20 text-white transition-colors hover:border-[#FFDA01] hover:text-[#FFDA01]" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation">{open ? <X size={19} /> : <Menu size={19} />}</button></div>
-        <div className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+      <div className="bg-[#111315] text-white">
+        <div className="mx-auto grid h-[76px] max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-8 xl:grid-cols-[250px_minmax(300px,520px)_1fr] xl:gap-8">
+          <a href={`${rootPrefix}#top`} aria-label="Kiswani Lights home" className="relative block h-12 w-44 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01] lg:h-14 lg:w-52">
+            <Image unoptimized src="/images/kiswani-logo-original-white.png" alt="Kiswani Lights" fill priority sizes="(max-width: 1024px) 176px, 208px" className="object-contain object-left rtl:object-right" />
+          </a>
+
+          <div className="hidden xl:block">{searchForm()}</div>
+
+          <div className="flex items-center justify-end gap-2">
+            <a href={`${rootPrefix}#contact`} className="hidden h-11 items-center border border-white/25 px-4 text-[10px] font-bold uppercase text-white transition-colors hover:border-[#FFDA01] hover:text-[#FFDA01] xl:inline-flex">
+              {localize(language, "Contact", "تواصل معنا", "יצירת קשר")}
+            </a>
+            <label className="relative hidden xl:block">
+              <span className="sr-only">Select language</span>
+              <select value={language} onChange={(event) => setLanguage(event.target.value as Language)} className="h-11 appearance-none border border-white/25 bg-[#111315] pe-8 ps-3 text-[10px] font-bold text-white outline-none transition-colors hover:border-[#FFDA01] focus:border-[#FFDA01]">
+                <option value="en">EN</option>
+                <option value="ar">العربية</option>
+                <option value="he">עברית</option>
+              </select>
+              <ChevronDown size={12} aria-hidden="true" className="pointer-events-none absolute end-3 top-1/2 -translate-y-1/2 text-[#FFDA01]" />
+            </label>
+            <div className="hidden xl:block"><CartTrigger language={language} /></div>
+            <div className="flex items-center gap-2 xl:hidden">
+              <CartTrigger compact language={language} />
+              <button type="button" onClick={() => setOpen(!open)} className="flex h-11 w-11 items-center justify-center border border-white/25 text-white transition-colors hover:border-[#FFDA01] hover:text-[#FFDA01]" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation">
+                {open ? <X size={19} /> : <Menu size={19} />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 px-4 pb-3 sm:px-8 xl:hidden">
+          <div className="mx-auto max-w-[1440px]">{searchForm(true)}</div>
+        </div>
       </div>
-      <AnimatePresence>{open && <motion.div id="mobile-navigation" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.3 }} className="border-t border-white/10 bg-[#050709] p-4 shadow-2xl xl:hidden"><nav className="grid" aria-label="Mobile navigation">{current.nav.map((item, index) => <a key={item} href={`${rootPrefix}${links[index]}`} onClick={() => setOpen(false)} className="flex items-center justify-between border-b border-white/10 px-2 py-5 text-sm font-semibold text-white transition-colors hover:text-[#FFDA01]"><span>{item}</span><span className="text-[9px] text-[#50555B]">0{index + 1}</span></a>)}</nav><label className="mt-4 block"><span className="sr-only">Select language</span><select value={language} onChange={(event) => setLanguage(event.target.value as Language)} className="h-12 w-full border-0 bg-[#FFDA01] px-4 text-center text-sm font-bold text-[#0F1822] outline-none"><option value="en">English</option><option value="ar">العربية</option><option value="he">עברית</option></select></label></motion.div>}</AnimatePresence>
+
+      <div className="relative hidden xl:block" onMouseLeave={() => setActiveCategory(null)}>
+        <nav className="flex h-[52px] items-stretch bg-white text-[#0F1822]" aria-label="Product categories">
+          <div className="mx-auto flex w-full max-w-[1440px] items-stretch justify-between px-8">
+            {categoryLinks.map(({ label, href, category }) => {
+              const expanded = Boolean(category && activeCategory?.slug === category.slug);
+              return (
+                <a
+                  key={href}
+                  href={href}
+                  onMouseEnter={() => setActiveCategory(category ?? null)}
+                  onFocus={() => setActiveCategory(category ?? null)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Escape") setActiveCategory(null);
+                  }}
+                  aria-expanded={category ? expanded : undefined}
+                  aria-controls={category ? "collection-mega-menu" : undefined}
+                  className={`group relative flex min-w-0 items-center justify-center gap-2 px-4 text-[11px] font-bold uppercase transition-colors ${expanded ? "text-[#8A7400]" : "hover:text-[#8A7400]"}`}
+                >
+                  <span>{label}</span>
+                  {category && <ChevronDown size={12} className={`text-[#9A8100] transition-transform ${expanded ? "rotate-180" : ""}`} aria-hidden="true" />}
+                  <span className={`absolute inset-x-4 bottom-0 h-[3px] origin-center bg-[#FFDA01] transition-transform ${expanded ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} aria-hidden="true" />
+                </a>
+              );
+            })}
+          </div>
+        </nav>
+
+        <AnimatePresence>
+          {activeCategory && (
+            <motion.div
+              id="collection-mega-menu"
+              initial={reducedMotion ? false : { opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: reducedMotion ? 0 : 0.24, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-x-0 top-full z-50 border-t border-[#E4E0D8] bg-[#F4F2ED] shadow-[0_28px_55px_rgba(0,0,0,0.22)]"
+            >
+              <div className="mx-auto grid h-[460px] max-w-[1440px] grid-cols-[0.42fr_0.58fr] border-x border-[#E4E0D8] bg-white">
+                <div className="flex min-w-0 flex-col px-12 py-10">
+                  <p className="text-[10px] font-bold uppercase text-[#8A7400]">
+                    {localize(language, "Lighting collection", "مجموعة إنارة", "קולקציית תאורה")}
+                  </p>
+                  <h2 className="mt-4 max-w-lg text-4xl font-semibold leading-none text-[#0F1822]">
+                    {getCategoryName(activeCategory, language)}
+                  </h2>
+                  <p className="mt-5 max-w-xl text-sm leading-6 text-[#73787C]">
+                    {getCategoryDetail(activeCategory, language)}
+                  </p>
+                  <a href={`/collections/${activeCategory.slug}`} className="group/link mt-7 flex min-h-11 items-center justify-between border-y border-[#D8D4CC] text-xs font-bold uppercase text-[#8A7400]">
+                    <span>{localize(language, "View full collection", "عرض المجموعة كاملة", "צפייה בקולקציה המלאה")}</span>
+                    <ArrowUpRight size={15} className="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden="true" />
+                  </a>
+                  <div className="mt-1 grid">
+                    {activeProducts.map((product) => (
+                      <a key={product.code} href={`/products/${getProductSlug(product)}`} className="flex min-h-10 items-center justify-between border-b border-[#E4E0D8] text-xs font-semibold text-[#0F1822] transition-colors hover:text-[#8A7400]">
+                        <span>{getProductName(product, language)}</span>
+                        <span className="text-[9px] text-[#A3A7AA]">{product.code}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <a href={`/collections/${activeCategory.slug}`} className="group/image relative isolate block min-w-0 overflow-hidden bg-[#070B0E]">
+                  <Image
+                    unoptimized
+                    src={activeCategory.image}
+                    alt={getCategoryName(activeCategory, language)}
+                    fill
+                    sizes="(min-width: 1280px) 58vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover/image:scale-[1.025]"
+                  />
+                  <span className="absolute inset-0 bg-[linear-gradient(0deg,rgba(7,11,14,0.84)_0%,rgba(7,11,14,0.08)_62%)]" aria-hidden="true" />
+                  <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-8 p-10 text-white">
+                    <span>
+                      <span className="text-[10px] font-bold uppercase text-[#FFDA01]">
+                        {localize(language, "Explore the collection", "استكشف المجموعة", "לגלות את הקולקציה")}
+                      </span>
+                      <span className="mt-2 block text-3xl font-semibold">{getCategoryName(activeCategory, language)}</span>
+                    </span>
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center bg-[#FFDA01] text-[#0F1822]">
+                      <ArrowUpRight size={19} aria-hidden="true" />
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div id="mobile-navigation" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="border-t border-[#DADADA] bg-white p-4 text-[#0F1822] shadow-2xl xl:hidden">
+            <nav className="grid" aria-label="Mobile product categories">
+              {categoryLinks.map(({ label, href }, index) => (
+                <a key={href} href={href} onClick={() => setOpen(false)} className="flex min-h-12 items-center justify-between border-b border-[#E4E4E4] px-2 text-sm font-semibold transition-colors hover:bg-[#FFDA01]">
+                  <span>{label}</span>
+                  <span className="text-[9px] text-[#73787C]">0{index + 1}</span>
+                </a>
+              ))}
+            </nav>
+            <div className="mt-4 grid grid-cols-[1fr_auto] gap-3">
+              <label>
+                <span className="sr-only">Select language</span>
+                <select value={language} onChange={(event) => setLanguage(event.target.value as Language)} className="h-12 w-full border border-[#0F1822] bg-white px-4 text-sm font-bold text-[#0F1822] outline-none focus:border-[#FFDA01]">
+                  <option value="en">English</option>
+                  <option value="ar">العربية</option>
+                  <option value="he">עברית</option>
+                </select>
+              </label>
+              <a href={`${rootPrefix}#contact`} onClick={() => setOpen(false)} className="inline-flex h-12 items-center justify-center gap-2 bg-[#FFDA01] px-5 text-xs font-bold text-[#0F1822]">
+                {localize(language, "Contact", "تواصل", "יצירת קשר")}
+                <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
@@ -275,7 +488,7 @@ function Hero({ language }: { language: Language }) {
   }, [reduced]);
 
   return (
-    <section ref={heroRef} id="top" className="relative isolate min-h-[calc(100svh-96px)] overflow-hidden bg-[#070B0E]">
+    <section ref={heroRef} id="top" className="relative isolate min-h-[calc(100svh-158px)] overflow-hidden bg-[#070B0E]">
       <AnimatePresence mode="wait">
         <motion.div key={scene.image} initial={reduced ? false : { opacity: 0, scale: 1.025 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} style={{ y: reduced ? 0 : imageParallax }} className="absolute inset-0">
           <Media src={scene.image} alt={getCategoryName(scene, language)} sizes="100vw" priority={active === 0} className="object-center lg:object-[center_48%]" />
@@ -286,7 +499,7 @@ function Hero({ language }: { language: Language }) {
       <div className="absolute inset-x-5 top-5 bottom-5 border border-white/10 sm:inset-x-8 sm:top-8 sm:bottom-8" aria-hidden="true" />
       <div className="gold-hero-geometry z-10 hidden lg:block" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-96px)] max-w-[1440px] items-end px-8 pb-14 pt-28 sm:px-16 sm:pb-20 lg:items-center lg:px-20 lg:py-20">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-158px)] max-w-[1440px] items-end px-8 pb-14 pt-28 sm:px-16 sm:pb-20 lg:items-center lg:px-20 lg:py-20">
         <motion.div initial={reduced ? false : "hidden"} animate="show" variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.11, delayChildren: 0.12 } } }} style={{ y: reduced ? 0 : contentParallax }} className="w-full max-w-[810px]">
           <motion.div variants={heroReveal} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="mb-7 flex items-center gap-4"><motion.span initial={reduced ? false : { scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: reduced ? 0 : 0.3, duration: reduced ? 0 : 0.7 }} className="h-px w-16 origin-left bg-[#FFDA01]" /><p className="brand-kicker text-xs font-semibold uppercase tracking-[0.28em] text-[#FFDA01]">{current.heroKicker}</p></motion.div>
           <motion.h1 variants={heroReveal} transition={{ duration: 0.78, ease: [0.22, 1, 0.36, 1] }} className={`text-balance text-5xl font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:text-7xl lg:text-[92px] ${language === "en" ? "uppercase" : ""}`}><span className="block">{current.heroLead}</span><span className="mt-2 block text-[#FFDA01]">{current.heroAccent}</span></motion.h1>
@@ -649,8 +862,14 @@ export function KiswaniExperience() {
   const filtered = useMemo(() => { const value = query.trim().toLowerCase(); return value ? products.filter((product) => [product.name, product.arabic, product.category, product.categoryAr, product.code].join(" ").toLowerCase().includes(value)) : products.slice(0, 8); }, [query]);
 
   useEffect(() => {
-    if (window.location.hash !== "#contact") return;
-    const timer = window.setTimeout(() => setContactOpen(true), 0);
+    const requestedSearch = new URLSearchParams(window.location.search).get("search");
+    const shouldOpenContact = window.location.hash === "#contact";
+    if (!requestedSearch && !shouldOpenContact) return;
+
+    const timer = window.setTimeout(() => {
+      if (requestedSearch) setQuery(requestedSearch);
+      if (shouldOpenContact) setContactOpen(true);
+    }, 0);
     return () => window.clearTimeout(timer);
   }, []);
 
@@ -672,7 +891,7 @@ export function KiswaniExperience() {
   return (
     <div onClick={handleContactNavigation} lang={language} dir={isRtlLanguage(language) ? "rtl" : "ltr"} className="min-h-screen bg-white text-[#0F1822]">
       <CinematicIntro />
-      <Header language={language} setLanguage={setLanguage} />
+      <Header language={language} setLanguage={setLanguage} onSearch={setQuery} />
       <main>
         <Hero language={language} />
 
