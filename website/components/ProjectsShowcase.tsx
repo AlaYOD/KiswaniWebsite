@@ -186,6 +186,74 @@ const projects: ProjectStudy[] = [
       he: "תאורת קיר ללא סנוור מכוונת את התנועה במדרגות ושומרת על האווירה האדריכלית הכהה.",
     },
   },
+  {
+    id: "ramallah-entry-hall",
+    title: {
+      en: "Warm ring entrance",
+      ar: "مدخل بحلقة ضوئية دافئة",
+      he: "מבואת כניסה עם טבעת אור חמה",
+    },
+    category: "residential",
+    location: { en: "Ramallah", ar: "رام الله", he: "רמאללה" },
+    year: "2026",
+    image: "/images/projects/entry-hall.webp",
+    summary: {
+      en: "A broad ring pendant defines the double-height entrance while warm reflected light reveals the timber ceiling and clean architectural lines.",
+      ar: "حلقة ضوئية واسعة تحدد مركز المدخل المرتفع، بينما يكشف الضوء الدافئ المنعكس تفاصيل السقف الخشبي والخطوط المعمارية الهادئة.",
+      he: "גוף טבעתי רחב מגדיר את מרכז המבואה הגבוהה, בעוד אור מוחזר וחם חושף את תקרת העץ ואת הקווים האדריכליים הנקיים.",
+    },
+  },
+  {
+    id: "jericho-terrace",
+    title: {
+      en: "Evening terrace glow",
+      ar: "وهج دافئ لشرفة مسائية",
+      he: "זוהר חם למרפסת ערב",
+    },
+    category: "hospitality",
+    location: { en: "Jericho", ar: "أريحا", he: "יריחו" },
+    year: "2026",
+    image: "/images/projects/terrace-wall-light.webp",
+    summary: {
+      en: "A shaded wall fixture gives the terrace a soft pool of light, balancing visual comfort with a welcoming evening atmosphere.",
+      ar: "مصباح جداري بغطاء قماشي يصنع بقعة ضوء ناعمة، ويوازن بين الراحة البصرية والأجواء المسائية الترحيبية.",
+      he: "גוף קיר מוצל יוצר בריכת אור רכה ומאזן בין נוחות חזותית לאווירת ערב מזמינה.",
+    },
+  },
+  {
+    id: "nablus-gallery",
+    title: {
+      en: "Golden gallery pendant",
+      ar: "قطعة معلقة ذهبية للمعرض",
+      he: "גוף תלוי מוזהב לגלריה",
+    },
+    category: "retail",
+    location: { en: "Nablus", ar: "نابلس", he: "שכם" },
+    year: "2026",
+    image: "/images/projects/ring-pendant.webp",
+    summary: {
+      en: "A luminous gold ring becomes the central display element, creating focused warmth against a restrained dark interior.",
+      ar: "تتحول الحلقة الذهبية المضيئة إلى العنصر البصري المركزي، وتمنح المساحة الداكنة وهجاً دافئاً ومركزاً.",
+      he: "טבעת זהובה ומוארת הופכת למוקד התצוגה המרכזי ויוצרת חמימות ממוקדת מול חלל כהה ומאופק.",
+    },
+  },
+  {
+    id: "bethlehem-wall-light",
+    title: {
+      en: "Glass accent wall",
+      ar: "إضاءة جدارية زجاجية مميزة",
+      he: "קיר דגש עם גוף זכוכית",
+    },
+    category: "residential",
+    location: { en: "Bethlehem", ar: "بيت لحم", he: "בית לחם" },
+    year: "2026",
+    image: "/images/projects/glass-wall-light.webp",
+    summary: {
+      en: "Textured glass casts a layered pattern across the wall, turning a compact accent fixture into an atmospheric architectural detail.",
+      ar: "ينثر الزجاج المحفور طبقات من الضوء على الجدار، ليحول القطعة الصغيرة إلى تفصيل معماري غني بالأجواء.",
+      he: "זכוכית בעלת מרקם מפזרת שכבות אור על הקיר והופכת גוף דגש קומפקטי לפרט אדריכלי מלא אווירה.",
+    },
+  },
 ];
 
 const projectSpans = [
@@ -274,10 +342,10 @@ export function ProjectsShowcase({ language }: { language: Language }) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: reducedMotion ? 1 : 0.98 }}
                   transition={{ duration: reducedMotion ? 0 : 0.48, ease: [0.22, 1, 0.36, 1] }}
-                  className={`gold-image-corners group relative min-h-[320px] overflow-hidden bg-[#070B0E] text-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01] md:min-h-[380px] ${projectSpans[index % projectSpans.length]}`}
+                  className={`gold-image-corners group relative min-h-[320px] overflow-hidden bg-[#070B0E] text-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01] md:min-h-[380px] ${visibleProjects.length % 2 === 1 && index === visibleProjects.length - 1 ? "lg:col-span-12" : projectSpans[index % projectSpans.length]}`}
                   aria-label={`${current.view}: ${project.title[language]}`}
                 >
-                  <Image src={project.image} alt={project.title[language]} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 58vw" className="object-cover object-center transition-transform duration-[1000ms] ease-out group-hover:scale-[1.035]" />
+                  <Image unoptimized src={project.image} alt={project.title[language]} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 58vw" className="object-cover object-center transition-transform duration-[1000ms] ease-out group-hover:scale-[1.035]" />
                   <span className="absolute inset-0 bg-[linear-gradient(0deg,rgba(5,7,9,0.94)_0%,rgba(5,7,9,0.08)_66%)]" aria-hidden="true" />
                   <span className="absolute inset-x-0 bottom-0 z-10 p-7 text-white sm:p-8">
                     <span className="flex items-center gap-2 text-xs font-semibold text-[#FFDA01]"><MapPin size={14} />{project.location[language]} / {project.year}</span>
@@ -315,7 +383,7 @@ export function ProjectsShowcase({ language }: { language: Language }) {
               className="relative grid w-full max-w-[1280px] overflow-hidden bg-white shadow-[0_40px_140px_rgba(0,0,0,0.46)] lg:grid-cols-[1.25fr_0.75fr]"
             >
               <button type="button" onClick={() => setSelected(null)} autoFocus className="absolute end-4 top-4 z-20 flex h-12 w-12 items-center justify-center bg-[#FFDA01] text-[#0F1822] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" aria-label={current.close}><X size={20} /></button>
-              <div className="relative min-h-[420px] bg-[#070B0E] sm:min-h-[620px]"><Image src={selected.image} alt={selected.title[language]} fill sizes="(max-width: 1024px) 100vw, 64vw" className="object-cover object-center" /></div>
+              <div className="relative min-h-[420px] bg-[#070B0E] sm:min-h-[620px]"><Image unoptimized src={selected.image} alt={selected.title[language]} fill sizes="(max-width: 1024px) 100vw, 64vw" className="object-cover object-center" /></div>
               <div className="flex flex-col justify-between p-7 sm:p-10 lg:p-12">
                 <div>
                   <div className="flex items-center gap-4"><span className="h-px w-12 bg-[#AE6B0D]" /><p className="text-xs font-bold uppercase text-[#AE6B0D]">{current.categories[selected.category]}</p></div>

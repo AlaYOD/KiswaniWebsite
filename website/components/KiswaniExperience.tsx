@@ -271,7 +271,7 @@ export function Header({
   const isCurrentNavItem = (href: string, category?: Category) => {
     if (category) return activeCollectionSlug === category.slug;
     if (href === "/projects") return pathname === "/projects";
-    return href.endsWith("#products") && pathname === "/";
+    return false;
   };
 
   const submitSearch = (event: React.FormEvent<HTMLFormElement>) => {
@@ -317,28 +317,23 @@ export function Header({
       className="sticky top-0 z-50 shadow-[0_12px_34px_rgba(0,0,0,0.18)]"
     >
       <div className="bg-[#FFDA01] text-[#0F1822]">
-        <div className="mx-auto flex h-9 max-w-[1440px] items-center justify-between gap-4 px-4 text-[9px] font-bold uppercase sm:px-8 sm:text-[10px]">
-          <div className="flex min-w-0 items-center gap-3 sm:gap-4">
-            <span className="hidden whitespace-nowrap xl:inline">
-              {localize(language, "Direct project support · Delivery across Palestine", "دعم مباشر للمشاريع · توصيل في جميع أنحاء فلسطين", "תמיכה ישירה בפרויקטים · משלוחים ברחבי פלסטין")}
-            </span>
+        <div className="mx-auto flex h-9 max-w-[1440px] items-center justify-center px-4 text-[9px] font-bold uppercase sm:px-8 sm:text-[10px]">
+          <div className="flex min-w-0 items-center justify-center gap-3 sm:gap-5">
             <a href="tel:+970599671209" className="inline-flex shrink-0 items-center gap-1.5 transition-opacity hover:opacity-65" aria-label={localize(language, "Call Kiswani Lights", "اتصل بكسواني للإنارة", "התקשרו לקיסוואני תאורה")}>
               <Phone size={11} strokeWidth={2.2} aria-hidden="true" />
               <span dir="ltr">+970 599 67 12 09</span>
             </a>
-            <a href="mailto:info@kiswanilights.com" className="hidden shrink-0 items-center gap-1.5 transition-opacity hover:opacity-65 md:inline-flex" aria-label={localize(language, "Email Kiswani Lights", "راسل كسواني للإنارة", "שלחו דוא״ל לקיסוואני תאורה")}>
-              <Mail size={11} strokeWidth={2.2} aria-hidden="true" />
-              <span className="normal-case">info@kiswanilights.com</span>
-            </a>
+            <span className="h-3 w-px shrink-0 bg-[#0F1822]/25" aria-hidden="true" />
             <a href="https://www.google.com/maps/search/?api=1&query=Ramallah%2C+Palestine" target="_blank" rel="noreferrer" className="inline-flex min-w-0 items-center gap-1.5 transition-opacity hover:opacity-65" aria-label={localize(language, "View Kiswani location on Google Maps", "اعرض موقع كسواني على خرائط جوجل", "הצגת מיקום קיסוואני במפות Google")}>
               <MapPin size={11} strokeWidth={2.2} className="shrink-0" aria-hidden="true" />
               <span className="truncate">{localize(language, "Ramallah, Palestine", "رام الله، فلسطين", "רמאללה, פלסטין")}</span>
             </a>
+            <span className="hidden h-3 w-px shrink-0 bg-[#0F1822]/25 md:block" aria-hidden="true" />
+            <a href="mailto:info@kiswanilights.com" className="hidden shrink-0 items-center gap-1.5 transition-opacity hover:opacity-65 md:inline-flex" aria-label={localize(language, "Email Kiswani Lights", "راسل كسواني للإنارة", "שלחו דוא״ל לקיסוואני תאורה")}>
+              <Mail size={11} strokeWidth={2.2} aria-hidden="true" />
+              <span className="normal-case">info@kiswanilights.com</span>
+            </a>
           </div>
-          <a href={`${rootPrefix}#contact`} className="hidden shrink-0 items-center gap-2 transition-opacity hover:opacity-65 lg:inline-flex">
-            {localize(language, "Kiswani for professionals", "كسواني للمحترفين", "Kiswani למקצוענים")}
-            <ArrowUpRight size={12} aria-hidden="true" />
-          </a>
         </div>
       </div>
 
