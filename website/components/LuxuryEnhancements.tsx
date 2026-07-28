@@ -51,25 +51,25 @@ export function KineticLightSculpture({ language }: { language: Language }) {
   ];
 
   return (
-    <section ref={sectionRef} className="relative isolate overflow-hidden bg-[#050709] px-4 py-24 text-white sm:px-8 sm:py-32 lg:py-40">
+    <section ref={sectionRef} className="relative isolate overflow-hidden bg-[#050709] px-4 py-16 text-white sm:px-8 sm:py-24 lg:py-28">
       <BrandEdgeOrnament side="start" />
       <BrandEdgeOrnament side="end" />
       <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_72%_48%,rgba(255,218,1,0.09),transparent_28%)]" />
       <div aria-hidden="true" className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(rgba(255,255,255,.6)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.6)_1px,transparent_1px)] [background-size:72px_72px]" />
       <motion.span aria-hidden="true" initial={{ scaleX: 0 }} animate={visible ? { scaleX: 1 } : undefined} transition={{ duration: reducedMotion ? 0 : 1.2, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-x-0 top-0 h-px origin-left bg-gradient-to-r from-transparent via-[#FFDA01] to-transparent" />
 
-      <div className="relative z-10 mx-auto grid max-w-[1440px] items-center gap-14 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
+      <div className="relative z-10 mx-auto grid max-w-[1440px] items-center gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
         <motion.div initial={{ opacity: 0, y: 28 }} animate={visible ? { opacity: 1, y: 0 } : undefined} transition={{ duration: reducedMotion ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] }}>
           <div className="flex items-center gap-4"><span className="h-[3px] w-14 bg-[#FFDA01]" /><p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#FFDA01]">{isArabic ? "منحوتة ضوئية تفاعلية" : "INTERACTIVE LIGHT SCULPTURE"}</p></div>
-          <h2 className="mt-7 max-w-2xl text-balance text-5xl font-semibold leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-7xl">{isArabic ? "هندسة تتحرك. وضوء يبدو حيّاً." : "Geometry in motion. Light that feels alive."}</h2>
-          <p className="mt-7 max-w-xl text-base leading-8 text-[#A3A7AA]">{isArabic ? "حرّك المؤشر فوق المنحوتة لترى العمق من كل زاوية، ثم شغّل الضوء أو أطفئه لتتغيّر الشخصية بالكامل." : "Move across the sculpture to explore its depth from every angle, then switch the light on or off to change its character completely."}</p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <h2 className="mt-5 max-w-2xl text-balance text-5xl font-semibold leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-7xl">{isArabic ? "هندسة تتحرك. وضوء يبدو حيّاً." : "Geometry in motion. Light that feels alive."}</h2>
+          <p className="mt-5 max-w-xl text-base leading-7 text-[#A3A7AA]">{isArabic ? "حرّك المؤشر فوق المنحوتة لترى العمق من كل زاوية، ثم شغّل الضوء أو أطفئه لتتغيّر الشخصية بالكامل." : "Move across the sculpture to explore its depth from every angle, then switch the light on or off to change its character completely."}</p>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
             <motion.button type="button" onClick={() => setIlluminated((value) => !value)} whileTap={{ scale: 0.97 }} aria-pressed={illuminated} className={`inline-flex min-h-14 items-center gap-3 px-6 text-sm font-bold transition-colors ${illuminated ? "bg-[#FFDA01] text-[#0F1822]" : "border border-white/20 bg-transparent text-white hover:border-[#FFDA01]"}`}><SunMedium size={18} />{illuminated ? (isArabic ? "الإضاءة تعمل" : "Light is on") : (isArabic ? "تشغيل الإضاءة" : "Turn light on")}</motion.button>
             <span className="text-xs leading-6 text-[#73787C]">{isArabic ? "تفاعل ثلاثي الأبعاد على الكمبيوتر" : "3D pointer interaction on desktop"}</span>
           </div>
         </motion.div>
 
-        <div onPointerMove={(event) => { if (event.pointerType !== "mouse" || reducedMotion) return; const bounds = event.currentTarget.getBoundingClientRect(); const x = (event.clientX - bounds.left) / bounds.width - 0.5; const y = (event.clientY - bounds.top) / bounds.height - 0.5; tiltY.set(x * 20); tiltX.set(-y * 14); }} onPointerLeave={() => { tiltX.set(-4); tiltY.set(8); }} className="relative min-h-[500px] cursor-grab overflow-hidden border border-white/10 bg-[#080D11] active:cursor-grabbing sm:min-h-[640px] [perspective:1200px]">
+        <div onPointerMove={(event) => { if (event.pointerType !== "mouse" || reducedMotion) return; const bounds = event.currentTarget.getBoundingClientRect(); const x = (event.clientX - bounds.left) / bounds.width - 0.5; const y = (event.clientY - bounds.top) / bounds.height - 0.5; tiltY.set(x * 20); tiltX.set(-y * 14); }} onPointerLeave={() => { tiltX.set(-4); tiltY.set(8); }} className="relative min-h-[420px] cursor-grab overflow-hidden border border-white/10 bg-[#080D11] active:cursor-grabbing sm:min-h-[520px] [perspective:1200px]">
           <motion.div animate={{ opacity: illuminated ? 0.42 : 0.05, scale: illuminated ? 1 : 0.72 }} transition={{ duration: reducedMotion ? 0 : 0.8 }} style={{ x: "-50%" }} className="pointer-events-none absolute left-1/2 top-[16%] h-[62%] w-[62%] rounded-full bg-[#FFDA01]/20 blur-[80px]" aria-hidden="true" />
           <div className="pointer-events-none absolute inset-8 border border-white/[0.08] sm:inset-12" aria-hidden="true" />
           <span className="absolute end-5 top-5 text-[9px] font-bold uppercase tracking-[0.2em] text-[#50555B]">X / Y / Z</span>
@@ -121,12 +121,12 @@ export function FeaturedProjectExperience({ language }: { language: Language }) 
   const featuredProducts = [products[3], products[6], products[8]];
 
   return (
-    <section ref={sectionRef} id="featured-project" className="relative isolate overflow-hidden bg-[#050709] px-4 py-24 text-white sm:px-8 sm:py-32 lg:py-40">
+    <section ref={sectionRef} id="featured-project" className="relative isolate overflow-hidden bg-[#050709] px-4 py-16 text-white sm:px-8 sm:py-24 lg:py-28">
       <motion.div aria-hidden="true" initial={{ scaleX: 0 }} animate={visible ? { scaleX: 1 } : undefined} transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-x-0 top-0 h-1 origin-left bg-[#FFDA01]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_78%_28%,rgba(255,218,1,0.08),transparent_32%)]" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-[1440px]">
-        <div className="mb-14 grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+        <div className="mb-10 grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
           <div>
             <div className="flex items-center gap-4"><span className="h-[3px] w-14 bg-[#FFDA01]" /><p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#FFDA01]">{isArabic ? "مشروع مميز" : "FEATURED PROJECT"}</p></div>
             <h2 className="mt-6 text-balance text-5xl font-semibold leading-[0.95] tracking-[-0.055em] sm:text-6xl lg:text-7xl">{isArabic ? "شاهد كيف يغيّر الضوء إحساس المكان." : "See how light changes the feeling of space."}</h2>
@@ -135,7 +135,7 @@ export function FeaturedProjectExperience({ language }: { language: Language }) 
         </div>
 
         <div className="relative overflow-hidden border border-white/10 bg-[#0F1822] shadow-[0_45px_140px_rgba(0,0,0,0.44)]">
-          <div className="relative min-h-[580px] sm:min-h-[720px] lg:min-h-[820px]">
+          <div className="relative min-h-[460px] sm:min-h-[560px] lg:min-h-[660px]">
             <motion.div initial={reducedMotion ? false : { scale: 1.085 }} animate={visible ? { scale: 1.025 } : undefined} transition={{ duration: reducedMotion ? 0 : 10, ease: "easeOut" }} className="absolute inset-0">
               <Image unoptimized src="/images/editorial/project-dining.webp" alt={isArabic ? "مشروع إنارة داخلي قبل تشغيل الإضاءة" : "Interior lighting project before illumination"} fill sizes="100vw" className="object-cover object-center brightness-[0.42] saturate-[0.58]" />
             </motion.div>
@@ -194,7 +194,7 @@ export function LightingPortfolioStrip({ language }: { language: Language }) {
     ? ["ديكوري", "معماري", "إنارة تقنية", "تحكم DALI", "تعتيم TRIAC", "CRI 90+", "إنارة خارجية"]
     : ["DECORATIVE", "ARCHITECTURAL", "TECHNICAL LIGHTING", "DALI CONTROL", "TRIAC DIMMING", "CRI 90+", "OUTDOOR LIGHTING"];
   return (
-    <section className="overflow-hidden border-y border-[#CCCFCE] bg-[#F4F2ED] py-7" aria-label={isArabic ? "مجموعات وتقنيات الإنارة" : "Lighting collections and technologies"}>
+    <section className="overflow-hidden border-y border-[#CCCFCE] bg-[#F4F2ED] py-4" aria-label={isArabic ? "مجموعات وتقنيات الإنارة" : "Lighting collections and technologies"}>
       <div className="mx-auto flex max-w-[1440px] items-center gap-8 px-4 sm:px-8">
         <div className="shrink-0 border-e border-[#A3A7AA] pe-8"><p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#73787C]">{isArabic ? "مجموعات وتقنيات" : "COLLECTIONS & TECHNOLOGY"}</p></div>
         <div className="min-w-0 flex-1 overflow-hidden py-2 [mask-image:linear-gradient(90deg,transparent,black_5%,black_95%,transparent)]">

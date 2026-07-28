@@ -137,7 +137,7 @@ export function CollectionExperience({ category, collectionProducts }: { categor
               </label>
             </div>
 
-            <motion.div layout className="mt-16 grid gap-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+            <motion.div layout className="mt-16 grid auto-rows-fr gap-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
               <AnimatePresence mode="popLayout">
                 {filtered.map((product) => (
                   <ProductCard key={product.code} product={product} language={language} open={setSelected} />

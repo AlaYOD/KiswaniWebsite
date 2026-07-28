@@ -4,7 +4,7 @@ import { categories, getProductSlug, products } from "../lib/catalog";
 const origin = "https://kiswani-website-82jb.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about", "/support", "/privacy", "/terms"];
+  const staticRoutes = ["", "/projects", "/about", "/support", "/privacy", "/terms"];
   return [
     ...staticRoutes.map((pathname) => ({
       url: `${origin}${pathname}`,

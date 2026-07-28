@@ -234,7 +234,7 @@ export function ProjectsShowcase({ language }: { language: Language }) {
 
   return (
     <>
-      <section id="projects" className="relative overflow-hidden bg-white px-4 py-28 sm:px-8 sm:py-40">
+      <section id="projects" className="relative overflow-hidden bg-white px-4 py-16 sm:px-8 sm:py-24">
         <div className="gold-section-rail" aria-hidden="true" />
         <div className="mx-auto max-w-[1440px]">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.62fr] lg:items-end">
@@ -245,7 +245,7 @@ export function ProjectsShowcase({ language }: { language: Language }) {
             <p className="max-w-xl text-base leading-8 text-[#50555B] lg:justify-self-end">{current.body}</p>
           </div>
 
-          <div className="mt-12 flex flex-wrap gap-2" role="group" aria-label={current.kicker}>
+          <div className="mt-8 flex flex-wrap gap-2" role="group" aria-label={current.kicker}>
             {filters.map((item) => {
               const active = filter === item.value;
               return (
@@ -262,7 +262,7 @@ export function ProjectsShowcase({ language }: { language: Language }) {
             })}
           </div>
 
-          <motion.div layout className="mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-12">
+          <motion.div layout className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-12">
             <AnimatePresence mode="popLayout">
               {visibleProjects.map((project, index) => (
                 <motion.button
@@ -274,7 +274,7 @@ export function ProjectsShowcase({ language }: { language: Language }) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: reducedMotion ? 1 : 0.98 }}
                   transition={{ duration: reducedMotion ? 0 : 0.48, ease: [0.22, 1, 0.36, 1] }}
-                  className={`gold-image-corners group relative min-h-[390px] overflow-hidden bg-[#070B0E] text-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01] md:min-h-[460px] ${projectSpans[index % projectSpans.length]}`}
+                  className={`gold-image-corners group relative min-h-[320px] overflow-hidden bg-[#070B0E] text-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01] md:min-h-[380px] ${projectSpans[index % projectSpans.length]}`}
                   aria-label={`${current.view}: ${project.title[language]}`}
                 >
                   <Image src={project.image} alt={project.title[language]} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 58vw" className="object-cover object-center transition-transform duration-[1000ms] ease-out group-hover:scale-[1.035]" />
