@@ -169,10 +169,10 @@ export function CollectionExperience({ category, collectionProducts }: { categor
                 {localize(language, "Need help choosing the right light?", "هل تحتاج مساعدة في اختيار الإنارة المناسبة؟", "צריכים עזרה בבחירת התאורה המתאימה?")}
               </h2>
             </div>
-            <a href="mailto:info@kiswanilights.com" className="inline-flex min-h-14 items-center justify-center gap-3 bg-[#0F1822] px-8 text-sm font-bold text-white transition-transform hover:-translate-y-1">
+            <Link href="/#contact" className="inline-flex min-h-14 items-center justify-center gap-3 bg-[#0F1822] px-8 text-sm font-bold text-white transition-transform hover:-translate-y-1">
               {localize(language, "Talk to Kiswani", "تواصل مع كسواني", "שיחה עם Kiswani")}
               <ArrowRight size={17} className={isRtl ? "rotate-180" : ""} />
-            </a>
+            </Link>
           </div>
         </section>
       </main>

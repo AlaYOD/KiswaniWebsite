@@ -121,7 +121,7 @@ export function FeaturedProjectExperience({ language }: { language: Language }) 
   const featuredProducts = [products[3], products[6], products[8]];
 
   return (
-    <section ref={sectionRef} id="projects" className="relative isolate overflow-hidden bg-[#050709] px-4 py-24 text-white sm:px-8 sm:py-32 lg:py-40">
+    <section ref={sectionRef} id="featured-project" className="relative isolate overflow-hidden bg-[#050709] px-4 py-24 text-white sm:px-8 sm:py-32 lg:py-40">
       <motion.div aria-hidden="true" initial={{ scaleX: 0 }} animate={visible ? { scaleX: 1 } : undefined} transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-x-0 top-0 h-1 origin-left bg-[#FFDA01]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_78%_28%,rgba(255,218,1,0.08),transparent_32%)]" aria-hidden="true" />
 

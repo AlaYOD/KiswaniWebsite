@@ -21,7 +21,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { categories, formatPrice, getCategoryDetail, getCategoryName, getProductCategory, getProductDescription, getProductName, products, type Product } from "../lib/catalog";
 import { CinematicIntro } from "./CinematicIntro";
 import { CartDrawer, CartTrigger, useCart } from "./CartSystem";
+import { ContactProjectDrawer } from "./ContactProjectForm";
 import { FeaturedProjectExperience, LightingPortfolioStrip } from "./LuxuryEnhancements";
+import { ProjectsShowcase } from "./ProjectsShowcase";
 
 export type Language = "en" | "ar" | "he";
 
@@ -642,10 +644,33 @@ export function KiswaniExperience() {
   const [language, setLanguage] = useStoredLanguage();
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Product | null>(null);
+  const [contactOpen, setContactOpen] = useState(false);
   const current = copy[language];
   const filtered = useMemo(() => { const value = query.trim().toLowerCase(); return value ? products.filter((product) => [product.name, product.arabic, product.category, product.categoryAr, product.code].join(" ").toLowerCase().includes(value)) : products.slice(0, 8); }, [query]);
+
+  useEffect(() => {
+    if (window.location.hash !== "#contact") return;
+    const timer = window.setTimeout(() => setContactOpen(true), 0);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const closeContact = () => {
+    setContactOpen(false);
+    if (window.location.hash === "#contact") {
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+    }
+  };
+
+  const handleContactNavigation = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!(event.target instanceof Element)) return;
+    const link = event.target.closest<HTMLAnchorElement>('a[href$="#contact"]');
+    if (!link) return;
+    event.preventDefault();
+    setContactOpen(true);
+  };
+
   return (
-    <div lang={language} dir={isRtlLanguage(language) ? "rtl" : "ltr"} className="min-h-screen bg-white text-[#0F1822]">
+    <div onClick={handleContactNavigation} lang={language} dir={isRtlLanguage(language) ? "rtl" : "ltr"} className="min-h-screen bg-white text-[#0F1822]">
       <CinematicIntro />
       <Header language={language} setLanguage={setLanguage} />
       <main>
@@ -664,6 +689,7 @@ export function KiswaniExperience() {
         <section id="products" className="relative isolate overflow-hidden bg-white px-4 py-28 sm:px-8 sm:py-40"><TrackLightsMotion /><div className="relative z-10 mx-auto max-w-[1440px]"><div className="flex flex-col justify-between gap-10 lg:flex-row lg:items-end"><SectionIntro kicker={current.productsKicker} title={current.productsTitle} /><label className="relative block w-full max-w-md"><span className="sr-only">{current.search}</span><Search size={18} className="pointer-events-none absolute start-5 top-1/2 -translate-y-1/2 text-[#73787C]" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={current.search} className="h-14 w-full border-0 border-b border-[#A3A7AA] bg-transparent pe-5 ps-12 text-sm text-[#0F1822] outline-none placeholder:text-[#73787C] focus:border-[#0F1822] focus:ring-0" /></label></div><motion.div layout className="mt-16 grid gap-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"><AnimatePresence mode="popLayout">{filtered.map((product) => <ProductCard key={product.code} product={product} language={language} open={setSelected} />)}</AnimatePresence></motion.div>{filtered.length === 0 && <div className="mt-12 border border-dashed border-[#A3A7AA] bg-[#CCCFCE]/15 px-6 py-16 text-center"><Search className="mx-auto text-[#73787C]" /><p className="mt-4 font-medium text-[#50555B]">{current.noResults}</p><button type="button" onClick={() => setQuery("")} className="mt-4 font-bold underline decoration-[#FFDA01] decoration-2 underline-offset-4">{current.clear}</button></div>}</div></section>
 
         <LightingPortfolioStrip language={language} />
+        <ProjectsShowcase language={language} />
         <FeaturedProjectExperience language={language} />
 
         <section id="contact" className="relative isolate min-h-[700px] overflow-hidden bg-[#070B0E] px-4 py-28 text-white sm:px-8 sm:py-40">
@@ -676,7 +702,7 @@ export function KiswaniExperience() {
               <div className="mb-10 flex h-16 w-16 items-center justify-center bg-[#FFDA01] text-[#0F1822]"><SunMedium size={30} strokeWidth={1.2} /></div>
               <h2 className="text-balance text-5xl font-semibold leading-[0.94] sm:text-7xl lg:text-8xl">{current.contactTitle}</h2>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-white/70">{current.contactBody}</p>
-              <motion.a href="mailto:info@kiswanilights.com" whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="mt-10 inline-flex min-h-16 items-center justify-center gap-3 bg-[#FFDA01] px-9 text-sm font-bold text-[#0F1822] shadow-[0_18px_40px_rgba(7,11,14,0.28)]">{current.contactCta}<ArrowUpRight size={17} /></motion.a>
+              <motion.button type="button" onClick={() => setContactOpen(true)} whileHover={{ y: -4 }} whileTap={{ scale: 0.98 }} className="mt-10 inline-flex min-h-16 items-center justify-center gap-3 bg-[#FFDA01] px-9 text-sm font-bold text-[#0F1822] shadow-[0_18px_40px_rgba(7,11,14,0.28)] transition-colors hover:bg-[#FFD100]">{current.contactCta}<ArrowUpRight size={17} /></motion.button>
             </div>
           </div>
         </section>
@@ -685,6 +711,7 @@ export function KiswaniExperience() {
       <LuxuryFooter language={language} />
 
       <AnimatePresence>{selected && <ProductModal product={selected} language={language} close={() => setSelected(null)} />}</AnimatePresence>
+      <AnimatePresence>{contactOpen && <ContactProjectDrawer language={language} onClose={closeContact} />}</AnimatePresence>
       <CartDrawer language={language} />
     </div>
   );
