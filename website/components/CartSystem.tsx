@@ -16,7 +16,7 @@ type CartContextValue = {
   lines: CartLine[];
   count: number;
   isOpen: boolean;
-  add: (product: Product) => void;
+  add: (product: Product, quantity?: number) => void;
   remove: (code: string) => void;
   update: (code: string, quantity: number) => void;
   clear: () => void;
@@ -61,14 +61,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       lines,
       count: lines.reduce((total, line) => total + line.quantity, 0),
       isOpen,
-      add: (product) => {
+      add: (product, quantity = 1) => {
+        const qtyToAdd = Math.max(1, Math.floor(quantity));
         setLines((current) => {
           const existing = current.find((line) => line.code === product.code);
           return existing
             ? current.map((line) =>
-                line.code === product.code ? { ...line, quantity: line.quantity + 1 } : line,
+                line.code === product.code ? { ...line, quantity: line.quantity + qtyToAdd } : line,
               )
-            : [...current, { code: product.code, quantity: 1 }];
+            : [...current, { code: product.code, quantity: qtyToAdd }];
         });
         setIsOpen(true);
       },
@@ -254,20 +255,33 @@ export function CartDrawer({ language }: { language: Language }) {
                             </div>
                             <p className="text-sm font-bold text-[#0F1822]">{formatPrice(lineTotal, language)}</p>
                           </div>
-                          <div className="mt-3 inline-flex items-center border border-[#A3A7AA]">
+                          <div className="mt-3 inline-flex items-center border border-[#A3A7AA] bg-white">
                             <button
                               type="button"
                               onClick={() => update(product.code, line.quantity - 1)}
-                              className="flex h-9 w-9 items-center justify-center"
+                              className="flex h-9 w-9 items-center justify-center text-[#0F1822] hover:bg-[#F4F2ED]"
                               aria-label="Decrease quantity"
                             >
                               <Minus size={14} />
                             </button>
-                            <span className="min-w-8 text-center text-sm font-semibold">{line.quantity}</span>
+                            <input
+                              type="number"
+                              min="1"
+                              max="999"
+                              value={line.quantity}
+                              onChange={(e) => {
+                                const val = parseInt(e.target.value, 10);
+                                if (!isNaN(val) && val > 0) {
+                                  update(product.code, val);
+                                }
+                              }}
+                              className="w-12 text-center text-sm font-semibold text-[#0F1822] outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none focus:bg-[#FFDA01]/20"
+                              aria-label="Quantity"
+                            />
                             <button
                               type="button"
                               onClick={() => update(product.code, line.quantity + 1)}
-                              className="flex h-9 w-9 items-center justify-center"
+                              className="flex h-9 w-9 items-center justify-center text-[#0F1822] hover:bg-[#F4F2ED]"
                               aria-label="Increase quantity"
                             >
                               <Plus size={14} />

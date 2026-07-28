@@ -14,6 +14,8 @@ type CheckoutLine = { code: string; quantity: number };
 export function CheckoutExperience() {
   const [language, setLanguage] = useStoredLanguage();
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const { lines, count, remove, update, clear } = useCart();
   const isArabic = language === "ar";
   const isRtl = isRtlLanguage(language);
@@ -27,8 +29,10 @@ export function CheckoutExperience() {
   );
   const subtotal = items.reduce((total, { line, product }) => total + product.price * line.quantity, 0);
 
-  const submitOrder = (event: React.FormEvent<HTMLFormElement>) => {
+  const submitOrder = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setError("");
+    setSent(false);
 
     const data = new FormData(event.currentTarget);
     const itemLines = items
@@ -48,9 +52,9 @@ export function CheckoutExperience() {
           "----------------------------------",
           "👤 *بيانات الزبون:*",
           `• *الاسم:* ${data.get("name")}`,
-          `• *رقم الهاتف:* ${data.get("phone")}`,
+          `• *رقم الواتساب:* ${data.get("phone")}`,
           data.get("email") ? `• *البريد الإلكتروني:* ${data.get("email")}` : null,
-          `• *المدينة:* ${data.get("city")}`,
+          `• *الموقع:* ${data.get("city")}`,
           `• *نوع المشروع:* ${data.get("projectType")}`,
           data.get("address") ? `• *العنوان:* ${data.get("address")}` : null,
           data.get("notes") ? `• *ملاحظات الطلب:* ${data.get("notes")}` : null,
@@ -72,9 +76,9 @@ export function CheckoutExperience() {
           "----------------------------------",
           "👤 *CUSTOMER DETAILS:*",
           `• *Name:* ${data.get("name")}`,
-          `• *Phone:* ${data.get("phone")}`,
+          `• *WhatsApp:* ${data.get("phone")}`,
           data.get("email") ? `• *Email:* ${data.get("email")}` : null,
-          `• *City:* ${data.get("city")}`,
+          `• *Location:* ${data.get("city")}`,
           `• *Project Type:* ${data.get("projectType")}`,
           data.get("address") ? `• *Address:* ${data.get("address")}` : null,
           data.get("notes") ? `• *Notes:* ${data.get("notes")}` : null,
@@ -92,8 +96,41 @@ export function CheckoutExperience() {
           .filter(Boolean)
           .join("\n");
 
-    window.open(`https://wa.me/970599671209?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
-    setSent(true);
+    setSubmitting(true);
+
+    try {
+      const location = [data.get("city"), data.get("address")]
+        .map((value) => (typeof value === "string" ? value.trim() : ""))
+        .filter(Boolean)
+        .join(" - ");
+      const response = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          whatsapp: data.get("phone"),
+          location,
+          projectType: data.get("projectType"),
+          notes: data.get("notes"),
+          language,
+          lines,
+          whatsappMessage: message,
+        }),
+      });
+
+      if (!response.ok) {
+        const result = (await response.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(result?.error || "Could not save the order. Please try again.");
+      }
+
+      window.open(`https://wa.me/970599671209?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+      setSent(true);
+    } catch (submitError) {
+      setError(submitError instanceof Error ? submitError.message : "Could not save the order. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -244,15 +281,15 @@ export function CheckoutExperience() {
                   <input required name="name" className="h-13 border border-[#CCCFCE] bg-[#F4F2ED]/50 px-4 font-normal outline-none focus:border-[#0F1822]" />
                 </label>
                 <label className="grid gap-2 text-sm font-semibold">
-                  {isArabic ? "رقم الهاتف" : "Phone number"}
+                  {isArabic ? "رقم الواتساب" : "WhatsApp number"}
                   <input required name="phone" inputMode="tel" className="h-13 border border-[#CCCFCE] bg-[#F4F2ED]/50 px-4 font-normal outline-none focus:border-[#0F1822]" />
                 </label>
                 <label className="grid gap-2 text-sm font-semibold">
-                  {isArabic ? "البريد الإلكتروني (اختياري)" : "Email"}
-                  <input name="email" type="email" className="h-13 border border-[#CCCFCE] bg-[#F4F2ED]/50 px-4 font-normal outline-none focus:border-[#0F1822]" />
+                  {isArabic ? "البريد الإلكتروني" : "Email"}
+                  <input required name="email" type="email" className="h-13 border border-[#CCCFCE] bg-[#F4F2ED]/50 px-4 font-normal outline-none focus:border-[#0F1822]" />
                 </label>
                 <label className="grid gap-2 text-sm font-semibold">
-                  {isArabic ? "المدينة / المنطقة" : "City"}
+                  {isArabic ? "المدينة / المنطقة" : "Location"}
                   <input required name="city" className="h-13 border border-[#CCCFCE] bg-[#F4F2ED]/50 px-4 font-normal outline-none focus:border-[#0F1822]" />
                 </label>
                 <label className="grid gap-2 text-sm font-semibold sm:col-span-2">
@@ -277,13 +314,18 @@ export function CheckoutExperience() {
               </div>
 
               <button
-                disabled={count === 0}
+                disabled={count === 0 || submitting}
                 type="submit"
                 className="mt-7 inline-flex min-h-15 w-full items-center justify-center gap-3 bg-[#FFDA01] px-7 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100] disabled:cursor-not-allowed disabled:bg-[#CCCFCE] disabled:text-[#73787C]"
               >
                 <Send size={17} />
-                {isArabic ? "إرسال الطلب عبر الواتساب" : "Send order via WhatsApp"}
+                {submitting ? (isArabic ? "جاري حفظ الطلب..." : "Saving order...") : isArabic ? "إرسال الطلب عبر الواتساب" : "Send order via WhatsApp"}
               </button>
+              {error && (
+                <p className="mt-4 border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700">
+                  {error}
+                </p>
+              )}
               {sent && (
                 <motion.p
                   initial={{ opacity: 0, y: 6 }}

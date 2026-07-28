@@ -10,6 +10,8 @@ import {
   LampFloor,
   Lightbulb,
   Menu,
+  Minus,
+  Plus,
   Search,
   ShoppingBag,
   SunMedium,
@@ -326,19 +328,76 @@ function CategoryCard({ category, index, language }: { category: (typeof categor
 
 export function ProductCard({ product, language, open }: { product: Product; language: Language; open: (product: Product) => void }) {
   const { add } = useCart();
+  const [quantity, setQuantity] = useState(1);
   const name = getProductName(product, language);
   const category = getProductCategory(product, language);
   const description = getProductDescription(product, language);
   return (
-    <motion.article layout initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} whileHover={{ y: -6 }} transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }} className="group overflow-hidden bg-[#F4F2ED] shadow-[0_18px_55px_rgba(7,11,14,0.06)] transition-shadow hover:shadow-[0_26px_80px_rgba(7,11,14,0.14)]">
-      <div className="relative aspect-[4/5] overflow-hidden bg-[#CCCFCE]/25"><Media src={product.image} alt={name} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw" className="object-cover object-center transition-transform duration-[1000ms] ease-out group-hover:scale-[1.035]" /><div className="absolute inset-0 bg-gradient-to-t from-[#070B0E]/35 via-transparent to-transparent" /><div className="absolute inset-x-0 top-0 flex items-center justify-between p-5"><span className="bg-[#FFDA01] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-[#0F1822]">{category}</span><span className="bg-[#070B0E]/85 px-3 py-2 text-[11px] tracking-[0.08em] text-white backdrop-blur-sm">{product.code}</span></div></div>
-      <div className="p-5 xl:p-6"><div className="flex items-center justify-between gap-4"><span className="h-px w-12 bg-[#FFDA01]" /><span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#73787C]">KISWANI LIGHTS</span></div><h3 className="mt-6 text-xl font-semibold tracking-[-0.025em] text-[#0F1822] xl:text-2xl">{name}</h3><p className="mt-3 line-clamp-2 text-sm leading-6 text-[#50555B]">{description}</p><div className="mt-4"><p className="text-lg font-bold tracking-[-0.02em] text-[#0F1822]">{formatPrice(product.price, language)}</p><p className="mt-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[#73787C]">{localize(language, "Initial price", "Initial price", "Initial price")}</p></div><div className="mt-6 grid grid-cols-[1fr_auto] gap-2"><button type="button" onClick={() => add(product)} className="inline-flex min-h-12 items-center justify-center gap-2 bg-[#FFDA01] px-4 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100]"><ShoppingBag size={16} />{localize(language, "Add to cart", "أضف إلى السلة", "הוספה לסל")}</button><button type="button" onClick={() => open(product)} className="flex h-12 w-12 items-center justify-center bg-[#0F1822] text-white transition-colors hover:bg-[#50555B]" aria-label={copy[language].view}><ArrowUpRight size={16} /></button></div></div>
+    <motion.article layout initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} whileHover={{ y: -6 }} transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }} className="group overflow-hidden bg-[#F4F2ED] shadow-[0_18px_55px_rgba(7,11,14,0.06)] transition-shadow hover:shadow-[0_26px_80px_rgba(7,11,14,0.14)] flex flex-col justify-between">
+      <div>
+        <div className="relative aspect-[4/5] overflow-hidden bg-[#CCCFCE]/25"><Media src={product.image} alt={name} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw" className="object-cover object-center transition-transform duration-[1000ms] ease-out group-hover:scale-[1.035]" /><div className="absolute inset-0 bg-gradient-to-t from-[#070B0E]/35 via-transparent to-transparent" /><div className="absolute inset-x-0 top-0 flex items-center justify-between p-5"><span className="bg-[#FFDA01] px-3 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-[#0F1822]">{category}</span><span className="bg-[#070B0E]/85 px-3 py-2 text-[11px] tracking-[0.08em] text-white backdrop-blur-sm">{product.code}</span></div></div>
+        <div className="p-5 xl:p-6 pb-2">
+          <div className="flex items-center justify-between gap-4"><span className="h-px w-12 bg-[#FFDA01]" /><span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#73787C]">KISWANI LIGHTS</span></div>
+          <h3 className="mt-6 text-xl font-semibold tracking-[-0.025em] text-[#0F1822] xl:text-2xl">{name}</h3>
+          <p className="mt-3 line-clamp-2 text-sm leading-6 text-[#50555B]">{description}</p>
+          <div className="mt-4 flex items-baseline justify-between gap-2">
+            <div>
+              <p className="text-lg font-bold tracking-[-0.02em] text-[#0F1822]">{formatPrice(product.price, language)}</p>
+              <p className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.12em] text-[#73787C]">{localize(language, "Initial price", "Initial price", "Initial price")}</p>
+            </div>
+            {quantity > 1 && (
+              <span className="text-xs font-bold text-[#0F1822]">
+                {localize(language, "Total: ", "الإجمالي: ", "סה\"כ: ")}{formatPrice(product.price * quantity, language)}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="p-5 xl:p-6 pt-2">
+        <div className="mt-4 flex items-center justify-between gap-3">
+          <span className="text-[11px] font-bold uppercase text-[#73787C]">{localize(language, "Qty", "الكمية", "כמות")}:</span>
+          <div className="inline-flex items-center border border-[#CCCFCE] bg-white">
+            <button
+              type="button"
+              onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+              className="flex h-8 w-8 items-center justify-center text-[#0F1822] hover:bg-[#F4F2ED]"
+              aria-label="Decrease quantity"
+            >
+              <Minus size={14} />
+            </button>
+            <input
+              type="number"
+              min="1"
+              max="999"
+              value={quantity}
+              onChange={(e) => {
+                const val = parseInt(e.target.value, 10);
+                if (!isNaN(val) && val > 0) setQuantity(val);
+              }}
+              className="w-10 text-center text-xs font-semibold text-[#0F1822] outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            />
+            <button
+              type="button"
+              onClick={() => setQuantity((q) => q + 1)}
+              className="flex h-8 w-8 items-center justify-center text-[#0F1822] hover:bg-[#F4F2ED]"
+              aria-label="Increase quantity"
+            >
+              <Plus size={14} />
+            </button>
+          </div>
+        </div>
+        <div className="mt-4 grid grid-cols-[1fr_auto] gap-2">
+          <button type="button" onClick={() => add(product, quantity)} className="inline-flex min-h-12 items-center justify-center gap-2 bg-[#FFDA01] px-4 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100]"><ShoppingBag size={16} />{localize(language, "Add to cart", "أضف إلى السلة", "הוספה לסל")}</button>
+          <button type="button" onClick={() => open(product)} className="flex h-12 w-12 items-center justify-center bg-[#0F1822] text-white transition-colors hover:bg-[#50555B]" aria-label={copy[language].view}><ArrowUpRight size={16} /></button>
+        </div>
+      </div>
     </motion.article>
   );
 }
 
 export function ProductModal({ product, language, close }: { product: Product; language: Language; close: () => void }) {
   const { add } = useCart();
+  const [quantity, setQuantity] = useState(1);
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => event.key === "Escape" && close();
     document.addEventListener("keydown", onKey); document.body.style.overflow = "hidden";
@@ -352,7 +411,40 @@ export function ProductModal({ product, language, close }: { product: Product; l
       <motion.div role="dialog" aria-modal="true" aria-labelledby="product-title" initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 20, opacity: 0 }} className="relative grid max-h-[92vh] w-full max-w-5xl overflow-y-auto bg-white sm:grid-cols-[0.92fr_1.08fr]">
         <button type="button" onClick={close} autoFocus className="absolute end-4 top-4 z-20 flex h-11 w-11 items-center justify-center bg-[#FFDA01] text-[#0F1822]" aria-label="Close product details"><X size={18} /></button>
         <div className="relative min-h-[380px] bg-[#CCCFCE]/25 sm:min-h-[680px]"><Media src={product.image} alt={name} sizes="(max-width: 640px) 100vw, 46vw" className="object-top" /></div>
-        <div className="p-7 sm:p-10 lg:p-12"><div className="h-[3px] w-14 bg-[#FFDA01]" /><p className="mt-7 text-xs font-bold tracking-[0.16em] text-[#73787C]">{product.code}</p><h2 id="product-title" className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-[#0F1822]">{name}</h2><div className="mt-5 flex items-end justify-between gap-5 border-b border-[#CCCFCE] pb-5"><p className="text-3xl font-bold tracking-[-0.04em] text-[#0F1822]">{formatPrice(product.price, language)}</p><p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#73787C]">{localize(language, "Initial price", "Initial price", "Initial price")}</p></div><p className="mt-5 leading-7 text-[#50555B]">{description}</p><div className="mt-8 border border-[#CCCFCE]"><table className="w-full text-sm"><caption className="sr-only">Technical specifications</caption><tbody>{product.specs.map(([label, value]) => <tr key={label} className="border-b border-[#CCCFCE] last:border-0"><th scope="row" className="bg-[#CCCFCE]/20 px-4 py-4 text-start font-medium text-[#50555B]">{label}</th><td className="px-4 py-4 text-end font-semibold text-[#0F1822]">{value}</td></tr>)}</tbody></table></div><p className="mt-6 text-sm text-[#73787C]">{localize(language, "Initial catalog price. Availability, delivery, and final approval are confirmed before processing.", "Initial catalog price. Availability, delivery, and final approval are confirmed before processing.", "Initial catalog price. Availability, delivery, and final approval are confirmed before processing.")}</p><div className="mt-6 grid gap-3"><button type="button" onClick={() => { add(product); close(); }} className="inline-flex min-h-12 items-center justify-center gap-2 bg-[#FFDA01] px-6 text-sm font-bold text-[#0F1822]"><ShoppingBag size={16} />{localize(language, "Add to cart", "أضف إلى السلة", "הוספה לסל")}</button><button type="button" onClick={close} className="min-h-12 border border-[#0F1822] px-6 text-sm font-bold text-[#0F1822]">{current.close}</button></div></div>
+        <div className="p-7 sm:p-10 lg:p-12"><div className="h-[3px] w-14 bg-[#FFDA01]" /><p className="mt-7 text-xs font-bold tracking-[0.16em] text-[#73787C]">{product.code}</p><h2 id="product-title" className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-[#0F1822]">{name}</h2><div className="mt-5 flex items-end justify-between gap-5 border-b border-[#CCCFCE] pb-5"><div><p className="text-3xl font-bold tracking-[-0.04em] text-[#0F1822]">{formatPrice(product.price, language)}</p><p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#73787C]">{localize(language, "Initial price", "Initial price", "Initial price")}</p></div>{quantity > 1 && <div className="text-end"><p className="text-sm font-bold text-[#0F1822]">{formatPrice(product.price * quantity, language)}</p><p className="text-[10px] text-[#73787C]">{localize(language, "Total for quantity", "إجمالي السعر", "סה\"כ לכמות")}</p></div>}</div><p className="mt-5 leading-7 text-[#50555B]">{description}</p><div className="mt-8 border border-[#CCCFCE]"><table className="w-full text-sm"><caption className="sr-only">Technical specifications</caption><tbody>{product.specs.map(([label, value]) => <tr key={label} className="border-b border-[#CCCFCE] last:border-0"><th scope="row" className="bg-[#CCCFCE]/20 px-4 py-4 text-start font-medium text-[#50555B]">{label}</th><td className="px-4 py-4 text-end font-semibold text-[#0F1822]">{value}</td></tr>)}</tbody></table></div><p className="mt-6 text-sm text-[#73787C]">{localize(language, "Initial catalog price. Availability, delivery, and final approval are confirmed before processing.", "Initial catalog price. Availability, delivery, and final approval are confirmed before processing.", "Initial catalog price. Availability, delivery, and final approval are confirmed before processing.")}</p>
+        <div className="mt-6 flex items-center justify-between gap-4 border-t border-[#CCCFCE] pt-4">
+          <span className="text-xs font-bold text-[#0F1822]">{localize(language, "Quantity:", "الكمية المطلوبة:", "כמות:")}</span>
+          <div className="inline-flex items-center border border-[#CCCFCE] bg-white">
+            <button
+              type="button"
+              onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+              className="flex h-9 w-9 items-center justify-center text-[#0F1822] hover:bg-[#F4F2ED]"
+              aria-label="Decrease quantity"
+            >
+              <Minus size={14} />
+            </button>
+            <input
+              type="number"
+              min="1"
+              max="999"
+              value={quantity}
+              onChange={(e) => {
+                const val = parseInt(e.target.value, 10);
+                if (!isNaN(val) && val > 0) setQuantity(val);
+              }}
+              className="w-12 text-center text-sm font-semibold text-[#0F1822] outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            />
+            <button
+              type="button"
+              onClick={() => setQuantity((q) => q + 1)}
+              className="flex h-9 w-9 items-center justify-center text-[#0F1822] hover:bg-[#F4F2ED]"
+              aria-label="Increase quantity"
+            >
+              <Plus size={14} />
+            </button>
+          </div>
+        </div>
+        <div className="mt-4 grid gap-3"><button type="button" onClick={() => { add(product, quantity); close(); }} className="inline-flex min-h-12 items-center justify-center gap-2 bg-[#FFDA01] px-6 text-sm font-bold text-[#0F1822]"><ShoppingBag size={16} />{localize(language, "Add to cart", "أضف إلى السلة", "הוספה לסל")}</button><button type="button" onClick={close} className="min-h-12 border border-[#0F1822] px-6 text-sm font-bold text-[#0F1822]">{current.close}</button></div></div>
       </motion.div>
     </motion.div>
   );

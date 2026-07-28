@@ -18,4 +18,5 @@
 ## 🚀 Recent Progress
 - Built formatted WhatsApp order submission logic.
 - Applied Arabic localization for checkout forms & cart drawer.
+- Implemented quantity selectors (`-` / input / `+`) across product details page, product cards, quick view modals, and cart drawer.
 - Validated Next.js production build.

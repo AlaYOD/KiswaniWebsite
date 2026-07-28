@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Download, FileText, MessageCircle, ShoppingBag } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Download, FileText, MessageCircle, Minus, Plus, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import { formatPrice, getProductCategory, getProductDescription, getProductGallery, getProductName, getProductSlug, getRelatedProducts, type Product } from "../lib/catalog";
 import { CartDrawer, useCart } from "./CartSystem";
@@ -13,6 +13,7 @@ export function ProductExperience({ product }: { product: Product }) {
   const [language, setLanguage] = useStoredLanguage();
   const gallery = getProductGallery(product);
   const [selectedImage, setSelectedImage] = useState(gallery[0]);
+  const [quantity, setQuantity] = useState(1);
   const selectedImageIndex = gallery.indexOf(selectedImage);
   const { add } = useCart();
   const isRtl = isRtlLanguage(language);
@@ -72,8 +73,54 @@ export function ProductExperience({ product }: { product: Product }) {
                 <div className="mt-8 flex items-start gap-3 border-s-2 border-[#FFDA01] ps-5"><Check size={17} className="mt-0.5 shrink-0 text-[#FFDA01]" /><p className="text-sm leading-6 text-[#A3A7AA]">{localize(language, "Initial price, availability, and delivery timing are confirmed with the Kiswani team before final approval.", "السعر الأولي والتوفر وموعد التسليم يتم تأكيدها مع فريق كسواني قبل اعتماد الطلب النهائي.", "מחיר ראשוני, זמינות וזמן אספקה יאושרו עם צוות Kiswani לפני אישור סופי.")}</p></div>
               </div>
 
-              <div className="mt-12 grid gap-3">
-                <motion.button type="button" onClick={() => add(product)} whileTap={{ scale: 0.985 }} className="inline-flex min-h-15 items-center justify-center gap-3 bg-[#FFDA01] px-7 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100]"><ShoppingBag size={18} />{localize(language, "Add to project cart", "أضف إلى سلة الطلب", "הוספה לסל הפרויקט")}</motion.button>
+              <div className="mt-8 border-t border-white/10 pt-6">
+                <label htmlFor="product-qty" className="block text-xs font-bold uppercase tracking-[0.18em] text-[#73787C]">
+                  {localize(language, "Select Quantity", "الكمية المطلوبة", "בחירת כמות")}
+                </label>
+                <div className="mt-3 flex flex-wrap items-center justify-between gap-4">
+                  <div className="inline-flex items-center border border-white/20 bg-[#151A1D]">
+                    <button
+                      type="button"
+                      onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                      className="flex h-12 w-12 items-center justify-center text-white transition-colors hover:bg-white/10"
+                      aria-label="Decrease quantity"
+                    >
+                      <Minus size={16} />
+                    </button>
+                    <input
+                      id="product-qty"
+                      type="number"
+                      min="1"
+                      max="999"
+                      value={quantity}
+                      onChange={(e) => {
+                        const val = parseInt(e.target.value, 10);
+                        if (!isNaN(val) && val > 0) setQuantity(val);
+                      }}
+                      className="w-16 bg-transparent text-center text-base font-bold text-white outline-none focus:text-[#FFDA01] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setQuantity((q) => q + 1)}
+                      className="flex h-12 w-12 items-center justify-center text-white transition-colors hover:bg-white/10"
+                      aria-label="Increase quantity"
+                    >
+                      <Plus size={16} />
+                    </button>
+                  </div>
+                  {quantity > 1 && (
+                    <div className="text-end">
+                      <span className="block text-[10px] font-bold uppercase tracking-[0.12em] text-[#73787C]">
+                        {localize(language, "Total Price", "إجمالي السعر", "סה\"כ מחיר")}
+                      </span>
+                      <span className="text-lg font-bold text-[#FFDA01]">{formatPrice(product.price * quantity, language)}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="mt-6 grid gap-3">
+                <motion.button type="button" onClick={() => add(product, quantity)} whileTap={{ scale: 0.985 }} className="inline-flex min-h-15 items-center justify-center gap-3 bg-[#FFDA01] px-7 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100]"><ShoppingBag size={18} />{localize(language, "Add to project cart", "أضف إلى سلة الطلب", "הוספה לסל הפרויקט")}</motion.button>
                 <div className="grid grid-cols-2 gap-3">
                   <a href={`/downloads/${product.code}.pdf`} download className="inline-flex min-h-13 items-center justify-center gap-2 border border-white/15 px-4 text-xs font-bold text-white transition-colors hover:border-[#FFDA01]"><Download size={16} />{localize(language, "Datasheet PDF", "ملف المواصفات", "מפרט PDF")}</a>
                   <a href={`https://wa.me/970599671209?text=${message}`} target="_blank" rel="noreferrer" className="inline-flex min-h-13 items-center justify-center gap-2 border border-white/15 px-4 text-xs font-bold text-white transition-colors hover:border-[#FFDA01]"><MessageCircle size={16} />{localize(language, "Ask about it", "استفسر الآن", "בירור עכשיו")}</a>
