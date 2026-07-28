@@ -917,7 +917,7 @@ export function LuxuryFooter({ language, rootPrefix = "" }: { language: Language
         <div className="grid gap-16 border-b border-white/10 pb-20 md:grid-cols-2 lg:grid-cols-[1.2fr_0.48fr_0.56fr_0.6fr] lg:gap-14 xl:gap-20">
           <div>
             <div className="relative h-24 w-72 sm:h-28 sm:w-80"><Image unoptimized src="/images/kiswani-logo-original-white.png" alt="Kiswani Lights" fill sizes="320px" className="object-contain object-left rtl:object-right" /></div>
-            <motion.p initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.6 }} transition={{ duration: 0.7 }} className="mt-10 max-w-3xl text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl lg:text-6xl">{localize(language, "Lighting is not decoration. It is the soul of the space.", "الإضاءة ليست مجرد قطعة ديكور، بل هي روح المكان.", "תאורה אינה קישוט. היא הנשמה של החלל.")}</motion.p>
+            <motion.p initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.6 }} transition={{ duration: 0.7 }} className="mt-8 max-w-2xl text-balance text-2xl font-semibold leading-tight sm:text-3xl lg:text-4xl">{localize(language, "Lighting is not decoration. It is the soul of the space.", "الإضاءة ليست مجرد قطعة ديكور، بل هي روح المكان.", "תאורה אינה קישוט. היא הנשמה של החלל.")}</motion.p>
             <div className="mt-10 flex items-center gap-4"><span className="h-[3px] w-16 bg-[#FFDA01]" /><span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#73787C]">Decorative · Technical · Architectural</span></div>
           </div>
           <div>
