@@ -1,4 +1,4 @@
-﻿import { products } from "./catalog-products";
+import { products } from "./catalog-products";
 export { products } from "./catalog-products";
 
 export type CategorySlug = "decorative" | "interior" | "technical" | "accent";
@@ -22,6 +22,7 @@ export type Product = {
   code: string;
   price: number;
   image: string;
+  gallery?: string[];
   description: string;
   descriptionAr: string;
   specs: Array<[string, string]>;
@@ -235,7 +236,9 @@ export function getProductBySlug(slug: string) {
 }
 
 export function getProductGallery(product: Product) {
-  return [product.image, `${product.image}?view=detail`, `${product.image}?view=ambient`];
+  const suppliedImages = Array.from(new Set([product.image, ...(product.gallery ?? [])]));
+  const focusedViews = ["detail", "ambient", "material"].map((view) => `${product.image}?view=${view}`);
+  return [...suppliedImages, ...focusedViews].slice(0, 4);
 }
 
 export function getRelatedProducts(product: Product) {

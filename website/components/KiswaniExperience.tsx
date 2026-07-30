@@ -23,7 +23,19 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { categories, formatPrice, getCategoryDetail, getCategoryName, getProductDescription, getProductName, products, type Product } from "../lib/catalog";
+import {
+  categories,
+  formatPrice,
+  getCategoryDetail,
+  getCategoryName,
+  getProductCategory,
+  getProductDescription,
+  getProductGallery,
+  getProductName,
+  getProductSlug,
+  products,
+  type Product,
+} from "../lib/catalog";
 import { productMapGroups, type LocalizedText, type ProductMapGroup } from "../lib/product-map";
 import { CinematicIntro } from "./CinematicIntro";
 import { CartDrawer, CartTrigger, useCart } from "./CartSystem";
@@ -31,6 +43,13 @@ import { ContactProjectDrawer } from "./ContactProjectForm";
 import { FeaturedProjectExperience, LightingPortfolioStrip } from "./LuxuryEnhancements";
 
 export type Language = "en" | "ar" | "he";
+
+const productDetailGalleryImageClasses = [
+  "object-center",
+  "scale-[1.2] object-[58%_42%]",
+  "scale-[1.13] object-[28%_55%]",
+  "scale-[1.24] object-[72%_42%]",
+] as const;
 
 export function isRtlLanguage(language: Language) {
   return language !== "en";
@@ -879,61 +898,230 @@ export function ProductCard({ product, language, open }: { product: Product; lan
     </motion.article>
   );
 }
+
 export function ProductModal({ product, language, close }: { product: Product; language: Language; close: () => void }) {
   const { add } = useCart();
   const [quantity, setQuantity] = useState(1);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => event.key === "Escape" && close();
-    document.addEventListener("keydown", onKey); document.body.style.overflow = "hidden";
-    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
   }, [close]);
-  const current = copy[language];
+
   const name = getProductName(product, language);
+  const category = getProductCategory(product, language);
   const description = getProductDescription(product, language);
+  const gallery = getProductGallery(product);
+  const selectedImage = gallery[selectedImageIndex] ?? gallery[0];
+  const galleryLabels = [
+    localize(language, "Full product view", "صورة المنتج كاملة", "תצוגת מוצר מלאה"),
+    localize(language, "Product detail view", "صورة مقربة للمنتج", "תצוגת פרטי המוצר"),
+    localize(language, "Lighting detail view", "تفاصيل الإضاءة", "תצוגת פרטי התאורה"),
+    localize(language, "Material detail view", "تفاصيل الخامة", "תצוגת פרטי החומר"),
+  ];
+
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(event) => event.target === event.currentTarget && close()} className="fixed inset-0 z-[70] flex items-end justify-center bg-[#0F1822]/80 sm:items-center sm:p-6">
-      <motion.div role="dialog" aria-modal="true" aria-labelledby="product-title" initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 20, opacity: 0 }} className="relative grid max-h-[92vh] w-full max-w-5xl overflow-y-auto bg-white sm:grid-cols-[0.92fr_1.08fr]">
-        <button type="button" onClick={close} autoFocus className="absolute end-4 top-4 z-20 flex h-11 w-11 items-center justify-center bg-[#FFDA01] text-[#0F1822]" aria-label="Close product details"><X size={18} /></button>
-        <div className="relative min-h-[380px] bg-[#CCCFCE]/25 sm:min-h-[680px]"><Media src={product.image} alt={name} sizes="(max-width: 640px) 100vw, 46vw" className="object-top" /></div>
-        <div className="p-7 sm:p-10 lg:p-12"><div className="h-[3px] w-14 bg-[#FFDA01]" /><p className="mt-7 text-xs font-bold tracking-[0.16em] text-[#73787C]">{product.code}</p><h2 id="product-title" className="mt-3 text-4xl font-semibold tracking-[-0.04em] text-[#0F1822]">{name}</h2><div className="mt-5 flex items-end justify-between gap-5 border-b border-[#CCCFCE] pb-5"><div><p className="text-3xl font-bold tracking-[-0.04em] text-[#0F1822]">{formatPrice(product.price, language)}</p><p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#73787C]">{localize(language, "Initial price", "Initial price", "Initial price")}</p></div>{quantity > 1 && <div className="text-end"><p className="text-sm font-bold text-[#0F1822]">{formatPrice(product.price * quantity, language)}</p><p className="text-[10px] text-[#73787C]">{localize(language, "Total for quantity", "إجمالي السعر", "סה\"כ לכמות")}</p></div>}</div><p className="mt-5 leading-7 text-[#50555B]">{description}</p><div className="mt-8 border border-[#CCCFCE]"><table className="w-full text-sm"><caption className="sr-only">Technical specifications</caption><tbody>{product.specs.map(([label, value]) => <tr key={label} className="border-b border-[#CCCFCE] last:border-0"><th scope="row" className="bg-[#CCCFCE]/20 px-4 py-4 text-start font-medium text-[#50555B]">{label}</th><td className="px-4 py-4 text-end font-semibold text-[#0F1822]">{value}</td></tr>)}</tbody></table></div><p className="mt-6 text-sm text-[#73787C]">{localize(language, "Initial catalog price. Availability, delivery, and final approval are confirmed before processing.", "Initial catalog price. Availability, delivery, and final approval are confirmed before processing.", "Initial catalog price. Availability, delivery, and final approval are confirmed before processing.")}</p>
-        <div className="mt-6 flex items-center justify-between gap-4 border-t border-[#CCCFCE] pt-4">
-          <span className="text-xs font-bold text-[#0F1822]">{localize(language, "Quantity:", "الكمية المطلوبة:", "כמות:")}</span>
-          <div className="inline-flex items-center border border-[#CCCFCE] bg-white">
-            <button
-              type="button"
-              onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-              className="flex h-9 w-9 items-center justify-center text-[#0F1822] hover:bg-[#F4F2ED]"
-              aria-label="Decrease quantity"
-            >
-              <Minus size={14} />
-            </button>
-            <input
-              type="number"
-              min="1"
-              max="999"
-              value={quantity}
-              onChange={(e) => {
-                const val = parseInt(e.target.value, 10);
-                if (!isNaN(val) && val > 0) setQuantity(val);
-              }}
-              className="w-12 text-center text-sm font-semibold text-[#0F1822] outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-            />
-            <button
-              type="button"
-              onClick={() => setQuantity((q) => q + 1)}
-              className="flex h-9 w-9 items-center justify-center text-[#0F1822] hover:bg-[#F4F2ED]"
-              aria-label="Increase quantity"
-            >
-              <Plus size={14} />
-            </button>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onMouseDown={(event) => event.target === event.currentTarget && close()}
+      className="fixed inset-0 z-[70] flex items-end justify-center bg-[#0F1822]/88 sm:items-center sm:p-4 lg:p-7"
+    >
+      <motion.div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="product-title"
+        initial={{ y: 30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 20, opacity: 0 }}
+        className="relative max-h-[96vh] w-full max-w-[1320px] overflow-y-auto bg-[#F8F6F1] lg:grid lg:grid-cols-[1.08fr_0.92fr]"
+      >
+        <button
+          type="button"
+          onClick={close}
+          autoFocus
+          className="absolute end-4 top-4 z-30 flex h-11 w-11 items-center justify-center bg-[#FFDA01] text-[#0F1822] transition-colors hover:bg-[#FFD100] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          aria-label={localize(language, "Close product details", "إغلاق تفاصيل المنتج", "סגירת פרטי המוצר")}
+        >
+          <X size={18} />
+        </button>
+
+        <div className="bg-[#0B1015] p-3 sm:p-5 lg:sticky lg:top-0 lg:self-start">
+          <div className="relative aspect-[4/3] overflow-hidden bg-[#151A1D] sm:aspect-[5/4] lg:h-[620px] lg:aspect-auto xl:h-[680px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedImage}
+                initial={{ opacity: 0, scale: 1.015 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0 overflow-hidden"
+              >
+                <Media
+                  src={selectedImage}
+                  alt={`${name} — ${galleryLabels[selectedImageIndex]}`}
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className={`object-cover ${productDetailGalleryImageClasses[selectedImageIndex] ?? productDetailGalleryImageClasses[0]}`}
+                />
+              </motion.div>
+            </AnimatePresence>
+            <div className="pointer-events-none absolute inset-5 border border-white/15 sm:inset-7" aria-hidden="true" />
+            <span className="absolute start-5 top-5 bg-[#FFDA01] px-3 py-2 text-[10px] font-bold tracking-[0.14em] text-[#0F1822] sm:start-7 sm:top-7 sm:px-4 sm:py-3">
+              {product.code}
+            </span>
+            <span className="absolute bottom-5 end-5 bg-[#0B1015]/85 px-3 py-2 text-[10px] font-bold tracking-[0.14em] text-white backdrop-blur-sm sm:bottom-7 sm:end-7">
+              {String(selectedImageIndex + 1).padStart(2, "0")} / {String(gallery.length).padStart(2, "0")}
+            </span>
+          </div>
+
+          <div className="mt-3 grid grid-cols-4 gap-2 sm:gap-3">
+            {gallery.map((image, index) => (
+              <button
+                key={image}
+                type="button"
+                onClick={() => setSelectedImageIndex(index)}
+                aria-label={galleryLabels[index]}
+                aria-pressed={selectedImageIndex === index}
+                className={`relative aspect-[4/3] overflow-hidden border-2 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFDA01] ${selectedImageIndex === index ? "border-[#FFDA01]" : "border-transparent hover:border-white/40"}`}
+              >
+                <Media
+                  src={image}
+                  alt=""
+                  sizes="(max-width: 1024px) 25vw, 14vw"
+                  className={`object-cover ${productDetailGalleryImageClasses[index] ?? productDetailGalleryImageClasses[0]}`}
+                />
+                <span className="absolute inset-0 bg-[#050709]/10" />
+                <span className="absolute bottom-2 start-2 text-[9px] font-bold tracking-[0.12em] text-white">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </button>
+            ))}
           </div>
         </div>
-        <div className="mt-4 grid gap-3"><button type="button" onClick={() => { add(product, quantity); close(); }} className="inline-flex min-h-12 items-center justify-center gap-2 bg-[#FFDA01] px-6 text-sm font-bold text-[#0F1822]"><ShoppingBag size={16} />{localize(language, "Add to cart", "أضف إلى السلة", "הוספה לסל")}</button><button type="button" onClick={close} className="min-h-12 border border-[#0F1822] px-6 text-sm font-bold text-[#0F1822]">{current.close}</button></div></div>
+
+        <div className="p-6 sm:p-10 lg:p-12 xl:p-14">
+          <div className="flex items-center gap-4">
+            <span className="h-[3px] w-14 bg-[#FFDA01]" />
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#50555B]">{category}</p>
+          </div>
+
+          <h2 id="product-title" className="mt-7 text-balance text-4xl font-semibold leading-[0.98] tracking-[-0.045em] text-[#0F1822] sm:text-5xl">
+            {name}
+          </h2>
+
+          <div className="mt-7 flex flex-wrap items-end justify-between gap-5 border-y border-[#D7D2C8] py-6">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#73787C]">
+                {localize(language, "Initial catalog price", "السعر الأولي", "מחיר קטלוג ראשוני")}
+              </p>
+              <p className="mt-2 text-3xl font-bold tracking-[-0.04em] text-[#0F1822]">
+                {formatPrice(product.price, language)}
+              </p>
+            </div>
+            {quantity > 1 && (
+              <div className="text-end">
+                <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#73787C]">
+                  {localize(language, "Quantity total", "إجمالي الكمية", "סה״כ לכמות")}
+                </p>
+                <p className="mt-2 text-lg font-bold text-[#0F1822]">{formatPrice(product.price * quantity, language)}</p>
+              </div>
+            )}
+          </div>
+
+          <p className="mt-6 text-base leading-8 text-[#50555B]">{description}</p>
+
+          <div className="mt-9">
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <h3 className="text-sm font-bold uppercase tracking-[0.14em] text-[#0F1822]">
+                {localize(language, "Technical specifications", "المواصفات الفنية", "מפרט טכני")}
+              </h3>
+              <span className="text-[10px] font-semibold tracking-[0.14em] text-[#73787C]">{product.code}</span>
+            </div>
+            <div className="border-t border-[#A3A7AA]">
+              {product.specs.map(([label, value], index) => (
+                <div key={label} className="grid grid-cols-[auto_1fr_auto] items-center gap-4 border-b border-[#D7D2C8] py-4">
+                  <span className="text-[9px] font-semibold text-[#A3A7AA]">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="text-sm text-[#50555B]">{label}</span>
+                  <strong className="text-end text-sm text-[#0F1822]">{value}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-6 border-s-2 border-[#FFDA01] ps-4 text-xs leading-6 text-[#73787C]">
+            {localize(
+              language,
+              "Initial catalog price. Availability, delivery, and final approval are confirmed before processing.",
+              "السعر المعروض أولي. يتم تأكيد التوفر والتسليم والاعتماد النهائي قبل تنفيذ الطلب.",
+              "המחיר המוצג ראשוני. זמינות, משלוח ואישור סופי יאושרו לפני ביצוע ההזמנה.",
+            )}
+          </p>
+
+          <div className="mt-8 flex items-center justify-between gap-4 border-t border-[#D7D2C8] pt-6">
+            <label htmlFor="modal-product-quantity" className="text-xs font-bold uppercase tracking-[0.12em] text-[#50555B]">
+              {localize(language, "Quantity", "الكمية", "כמות")}
+            </label>
+            <div className="inline-flex items-center border border-[#CCCFCE] bg-white">
+              <button
+                type="button"
+                onClick={() => setQuantity((value) => Math.max(1, value - 1))}
+                className="flex h-11 w-11 items-center justify-center text-[#0F1822] transition-colors hover:bg-[#F4F2ED] focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-[#0F1822]"
+                aria-label={localize(language, "Decrease quantity", "تقليل الكمية", "הפחתת כמות")}
+              >
+                <Minus size={15} />
+              </button>
+              <input
+                id="modal-product-quantity"
+                type="number"
+                min="1"
+                max="999"
+                value={quantity}
+                onChange={(event) => {
+                  const value = parseInt(event.target.value, 10);
+                  if (!isNaN(value) && value > 0) setQuantity(Math.min(999, value));
+                }}
+                className="h-11 w-14 border-x border-[#CCCFCE] bg-white text-center text-sm font-bold text-[#0F1822] outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FFDA01] [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+              />
+              <button
+                type="button"
+                onClick={() => setQuantity((value) => Math.min(999, value + 1))}
+                className="flex h-11 w-11 items-center justify-center text-[#0F1822] transition-colors hover:bg-[#F4F2ED] focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-[#0F1822]"
+                aria-label={localize(language, "Increase quantity", "زيادة الكمية", "הגדלת כמות")}
+              >
+                <Plus size={15} />
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <button
+              type="button"
+              onClick={() => add(product, quantity)}
+              className="inline-flex min-h-13 items-center justify-center gap-2 bg-[#FFDA01] px-5 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F1822]"
+            >
+              <ShoppingBag size={17} />
+              {localize(language, "Add to cart", "أضف إلى السلة", "הוספה לסל")}
+            </button>
+            <a
+              href={`/products/${getProductSlug(product)}`}
+              className="inline-flex min-h-13 items-center justify-center gap-2 border border-[#0F1822] px-5 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#0F1822] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFDA01]"
+            >
+              {localize(language, "Full product page", "صفحة المنتج الكاملة", "עמוד מוצר מלא")}
+              <ArrowUpRight size={16} />
+            </a>
+          </div>
+        </div>
       </motion.div>
     </motion.div>
   );
 }
-
 function LightingTypes({ language }: { language: Language }) {
   const current = copy[language];
   const sectionRef = useRef<HTMLElement>(null);

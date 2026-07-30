@@ -9,6 +9,13 @@ import { formatPrice, getProductCategory, getProductDescription, getProductGalle
 import { CartDrawer, useCart } from "./CartSystem";
 import { Header, LuxuryFooter, isRtlLanguage, localize, useStoredLanguage } from "./KiswaniExperience";
 
+const productGalleryImageClasses = [
+  "object-center",
+  "scale-[1.2] object-[58%_42%]",
+  "scale-[1.13] object-[28%_55%]",
+  "scale-[1.24] object-[72%_42%]",
+] as const;
+
 export function ProductExperience({ product }: { product: Product }) {
   const [language, setLanguage] = useStoredLanguage();
   const gallery = getProductGallery(product);
@@ -41,15 +48,15 @@ export function ProductExperience({ product }: { product: Product }) {
               <div className="relative min-h-[500px] overflow-hidden bg-[#151A1D] sm:min-h-[680px] lg:min-h-[790px]">
                 <AnimatePresence mode="wait">
                   <motion.div key={selectedImage} initial={{ opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} className="absolute inset-0">
-                    <Image unoptimized src={selectedImage} alt={`${name} - ${localize(language, "product view", "صورة المنتج", "תצוגת מוצר")}`} fill priority sizes="(max-width: 1024px) 100vw, 57vw" className={`object-cover ${selectedImageIndex === 0 ? "object-center" : selectedImageIndex === 1 ? "scale-[1.2] object-[58%_42%]" : "scale-[1.13] object-[28%_55%]"}`} />
+                    <Image unoptimized src={selectedImage} alt={`${name} - ${localize(language, "product view", "صورة المنتج", "תצוגת מוצר")}`} fill priority sizes="(max-width: 1024px) 100vw, 57vw" className={`object-cover ${productGalleryImageClasses[selectedImageIndex] ?? productGalleryImageClasses[0]}`} />
                   </motion.div>
                 </AnimatePresence>
                 <div className="pointer-events-none absolute inset-7 border border-white/15" aria-hidden="true" />
                 <span className="absolute start-7 top-7 bg-[#FFDA01] px-4 py-3 text-[10px] font-bold tracking-[0.12em] text-[#0F1822]">{product.code}</span>
               </div>
 
-              <div className="mt-3 grid grid-cols-3 gap-3">
-                {gallery.map((image, index) => <button key={image} type="button" onClick={() => setSelectedImage(image)} aria-label={`${localize(language, "View image", "عرض الصورة", "צפייה בתמונה")} ${index + 1}`} aria-pressed={selectedImage === image} className={`relative aspect-[16/10] overflow-hidden border-2 transition-colors ${selectedImage === image ? "border-[#FFDA01]" : "border-transparent hover:border-white/35"}`}><Image unoptimized src={image} alt="" fill sizes="20vw" className={`object-cover ${index === 0 ? "object-center" : index === 1 ? "scale-[1.2] object-[58%_42%]" : "scale-[1.13] object-[28%_55%]"}`} /><span className="absolute inset-0 bg-[#050709]/10" /></button>)}
+              <div className="mt-3 grid grid-cols-4 gap-2 sm:gap-3">
+                {gallery.map((image, index) => <button key={image} type="button" onClick={() => setSelectedImage(image)} aria-label={`${localize(language, "View image", "عرض الصورة", "צפייה בתמונה")} ${index + 1}`} aria-pressed={selectedImage === image} className={`relative aspect-[16/10] overflow-hidden border-2 transition-colors ${selectedImage === image ? "border-[#FFDA01]" : "border-transparent hover:border-white/35"}`}><Image unoptimized src={image} alt="" fill sizes="20vw" className={`object-cover ${productGalleryImageClasses[index] ?? productGalleryImageClasses[0]}`} /><span className="absolute inset-0 bg-[#050709]/10" /></button>)}
               </div>
             </div>
 
