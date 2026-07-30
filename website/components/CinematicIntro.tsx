@@ -82,14 +82,14 @@ export function CinematicIntro() {
               transition={{ duration: 0.85, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
               className="flex w-full max-w-3xl flex-col items-center text-center"
             >
-              <div className="relative h-28 w-[min(78vw,430px)] sm:h-36">
+              <div className="relative h-32 w-[min(86vw,560px)] sm:h-44">
                 <Image
-                  src="/images/kiswani-logo-original-white.png"
+                  src="/images/kiswani-logo-since-1994.png"
                   alt="Kiswani Lights"
                   fill
                   priority
                   unoptimized
-                  sizes="(max-width: 640px) 78vw, 430px"
+                  sizes="(max-width: 640px) 86vw, 560px"
                   className="object-contain"
                 />
               </div>

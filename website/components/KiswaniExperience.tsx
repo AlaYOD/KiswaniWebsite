@@ -23,7 +23,8 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { categories, formatPrice, getCategoryDetail, getCategoryName, getProductCategory, getProductDescription, getProductName, getProductSlug, products, type Category, type Product } from "../lib/catalog";
+import { categories, formatPrice, getCategoryDetail, getCategoryName, getProductCategory, getProductDescription, getProductName, products, type Product } from "../lib/catalog";
+import { productMapGroups, type LocalizedText, type ProductMapGroup } from "../lib/product-map";
 import { CinematicIntro } from "./CinematicIntro";
 import { CartDrawer, CartTrigger, useCart } from "./CartSystem";
 import { ContactProjectDrawer } from "./ContactProjectForm";
@@ -37,6 +38,18 @@ export function isRtlLanguage(language: Language) {
 
 export function localize(language: Language, english: string, arabic: string, hebrew: string) {
   return language === "ar" ? arabic : language === "he" ? hebrew : english;
+}
+
+function localizedText(language: Language, value: LocalizedText) {
+  return language === "ar" ? value.ar : language === "he" ? value.he : value.en;
+}
+
+function collectionGroupHref(group: ProductMapGroup, sectionEn?: string, itemEn?: string) {
+  const params = new URLSearchParams();
+  if (sectionEn) params.set("category", sectionEn);
+  if (itemEn) params.set("subcategory", itemEn);
+  const query = params.toString();
+  return `/collections/${group.id}${query ? `?${query}` : ""}`;
 }
 
 export function useStoredLanguage(): [Language, (value: Language) => void] {
@@ -252,24 +265,17 @@ export function Header({
 }) {
   const [open, setOpen] = useState(false);
   const [headerSearch, setHeaderSearch] = useState("");
-  const [activeMenu, setActiveMenu] = useState<"all" | Category["slug"] | null>(null);
+  const [activeMenu, setActiveMenu] = useState<"all" | ProductMapGroup["id"] | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<ProductMapGroup["id"] | null>(productMapGroups[0]?.id ?? null);
   const reducedMotion = useReducedMotion();
   const pathname = usePathname();
-  const categoryLinks: Array<{ label: string; href: string; category?: Category; allCollections?: boolean }> = [
-    { label: localize(language, "Shop all", "جميع المنتجات", "כל המוצרים"), href: `${rootPrefix}#products`, allCollections: true },
-    { label: localize(language, "Decorative", "إنارة ديكورية", "תאורה דקורטיבית"), href: "/collections/decorative", category: categories[0] },
-    { label: localize(language, "Interior", "إنارة داخلية", "תאורת פנים"), href: "/collections/interior", category: categories[1] },
-    { label: localize(language, "Technical", "إنارة تقنية", "תאורה טכנית"), href: "/collections/technical", category: categories[2] },
-    { label: localize(language, "Accent", "إنارة مميزة", "תאורת אווירה"), href: "/collections/accent", category: categories[3] },
+  const categoryLinks: Array<{ label: string; href: string; group?: ProductMapGroup; allCollections?: boolean }> = [
+    { label: localize(language, "Shop all", "عرض جميع المنتجات", "צפייה בכל המוצרים"), href: `${rootPrefix}#products`, allCollections: true },
+    ...productMapGroups.map((group) => ({ label: localizedText(language, group.label), href: collectionGroupHref(group), group })),
     { label: localize(language, "Projects", "المشاريع", "פרויקטים"), href: "/projects" },
   ];
-  const activeCategory = activeMenu && activeMenu !== "all" ? categories.find((category) => category.slug === activeMenu) ?? null : null;
-  const activeProducts = activeCategory ? products.filter((product) => product.categorySlug === activeCategory.slug).slice(0, 4) : [];
-  const productSlug = pathname.startsWith("/products/") ? pathname.split("/")[2] : "";
-  const productCategory = productSlug ? products.find((product) => getProductSlug(product) === productSlug)?.categorySlug : undefined;
-  const activeCollectionSlug = pathname.startsWith("/collections/") ? pathname.split("/")[2] : productCategory;
-  const isCurrentNavItem = (href: string, category?: Category) => {
-    if (category) return activeCollectionSlug === category.slug;
+  const activeGroup = activeMenu && activeMenu !== "all" ? productMapGroups.find((group) => group.id === activeMenu) ?? null : null;
+  const isCurrentNavItem = (href: string) => {
     if (href === "/projects") return pathname === "/projects";
     return false;
   };
@@ -339,8 +345,16 @@ export function Header({
 
       <div className="bg-[#111315] text-white">
         <div className="mx-auto grid h-[76px] max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-8 xl:grid-cols-[250px_minmax(300px,520px)_1fr] xl:gap-8">
-          <a href={`${rootPrefix}#top`} aria-label="Kiswani Lights home" className="relative block h-12 w-44 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01] lg:h-14 lg:w-52">
-            <Image unoptimized src="/images/kiswani-logo-original-white.png" alt="Kiswani Lights" fill priority sizes="(max-width: 1024px) 176px, 208px" className="object-contain object-left rtl:object-right" />
+          <a href={`${rootPrefix}#top`} aria-label="Kiswani Lights home" className="relative block h-[52px] w-[clamp(8.5rem,40vw,9.625rem)] shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01] sm:h-14 sm:w-[166px] lg:h-[60px] lg:w-[178px]">
+            <Image
+              unoptimized
+              src="/images/kiswani-logo-header-lockup.png"
+              alt="Kiswani Lights"
+              fill
+              priority
+              sizes="(max-width: 640px) 154px, (max-width: 1024px) 166px, 178px"
+              style={{ objectFit: "contain", objectPosition: isRtlLanguage(language) ? "right center" : "left center" }}
+            />
           </a>
 
           <div className="hidden xl:block">{searchForm()}</div>
@@ -376,10 +390,10 @@ export function Header({
       <div className="relative hidden xl:block" onMouseLeave={() => setActiveMenu(null)}>
         <nav className="flex h-[52px] items-stretch bg-white text-[#0F1822]" aria-label="Product categories">
           <div className="mx-auto flex w-full max-w-[1440px] items-stretch justify-between px-8">
-            {categoryLinks.map(({ label, href, category, allCollections }) => {
-              const menuKey = allCollections ? "all" : category?.slug ?? null;
+            {categoryLinks.map(({ label, href, group, allCollections }) => {
+              const menuKey = allCollections ? "all" : group?.id ?? null;
               const expanded = Boolean(menuKey && activeMenu === menuKey);
-              const currentPage = isCurrentNavItem(href, category);
+              const currentPage = isCurrentNavItem(href);
               const highlighted = expanded || (currentPage && !activeMenu);
               return (
                 <a
@@ -436,90 +450,76 @@ export function Header({
                   </div>
 
                   <div className="grid min-w-0 grid-cols-4">
-                    {categories.map((category) => {
-                      const categoryProducts = products.filter((product) => product.categorySlug === category.slug);
-                      return (
-                        <a key={category.slug} href={`/collections/${category.slug}`} className="group/all-card flex min-w-0 flex-col border-s border-[#E4E0D8] bg-white">
-                          <span className="relative block h-[220px] overflow-hidden bg-[#070B0E]">
-                            <Image
-                              unoptimized
-                              src={category.image}
-                              alt={getCategoryName(category, language)}
-                              fill
-                              sizes="18vw"
-                              className="object-cover transition-transform duration-700 group-hover/all-card:scale-[1.04]"
-                            />
-                            <span className="absolute inset-0 bg-[linear-gradient(0deg,rgba(7,11,14,0.68)_0%,transparent_58%)]" aria-hidden="true" />
-                            <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5 text-white">
-                              <span className="text-lg font-semibold leading-tight">{getCategoryName(category, language)}</span>
-                              <ArrowUpRight size={16} className="shrink-0 text-[#FFDA01]" aria-hidden="true" />
-                            </span>
+                    {productMapGroups.map((group) => (
+                      <a key={group.id} href={collectionGroupHref(group)} className="group/all-card flex min-w-0 flex-col border-s border-[#E4E0D8] bg-white">
+                        <span className="relative block h-[220px] overflow-hidden bg-[#070B0E]">
+                          <Image unoptimized src={group.image} alt={localizedText(language, group.label)} fill sizes="18vw" className="object-cover transition-transform duration-700 group-hover/all-card:scale-[1.04]" />
+                          <span className="absolute inset-0 bg-[linear-gradient(0deg,rgba(7,11,14,0.68)_0%,transparent_58%)]" aria-hidden="true" />
+                          <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5 text-white">
+                            <span className="text-lg font-semibold leading-tight">{localizedText(language, group.label)}</span>
+                            <ArrowUpRight size={16} className="shrink-0 text-[#FFDA01]" aria-hidden="true" />
                           </span>
-                          <span className="flex flex-1 flex-col p-5">
-                            <span className="text-[9px] font-bold uppercase text-[#8A7400]">
-                              {categoryProducts.length} {localize(language, "products", "منتج", "מוצרים")}
-                            </span>
-                            <span className="mt-3 grid gap-2">
-                              {categoryProducts.slice(0, 3).map((product) => (
-                                <span key={product.code} className="truncate border-b border-[#ECE8E1] pb-2 text-xs font-semibold text-[#50555B]">
-                                  {getProductName(product, language)}
-                                </span>
-                              ))}
-                            </span>
+                        </span>
+                        <span className="flex flex-1 flex-col p-5">
+                          <span className="text-[9px] font-bold uppercase text-[#8A7400]">
+                            {group.sections.reduce((total, section) => total + section.items.length, 0)} {localize(language, "categories", "categories", "categories")}
                           </span>
-                        </a>
-                      );
-                    })}
-                  </div>
-                </div>
-              ) : activeCategory ? (
-              <div className="mx-auto grid h-[460px] max-w-[1440px] grid-cols-[0.42fr_0.58fr] border-x border-[#E4E0D8] bg-white">
-                <div className="flex min-w-0 flex-col px-12 py-10">
-                  <p className="text-[10px] font-bold uppercase text-[#8A7400]">
-                    {localize(language, "Lighting collection", "مجموعة إنارة", "קולקציית תאורה")}
-                  </p>
-                  <h2 className="mt-4 max-w-lg text-4xl font-semibold leading-none text-[#0F1822]">
-                    {getCategoryName(activeCategory, language)}
-                  </h2>
-                  <p className="mt-5 max-w-xl text-sm leading-6 text-[#73787C]">
-                    {getCategoryDetail(activeCategory, language)}
-                  </p>
-                  <a href={`/collections/${activeCategory.slug}`} className="group/link mt-7 flex min-h-11 items-center justify-between border-y border-[#D8D4CC] text-xs font-bold uppercase text-[#8A7400]">
-                    <span>{localize(language, "View full collection", "عرض المجموعة كاملة", "צפייה בקולקציה המלאה")}</span>
-                    <ArrowUpRight size={15} className="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden="true" />
-                  </a>
-                  <div className="mt-1 grid">
-                    {activeProducts.map((product) => (
-                      <a key={product.code} href={`/products/${getProductSlug(product)}`} className="flex min-h-10 items-center justify-between border-b border-[#E4E0D8] text-xs font-semibold text-[#0F1822] transition-colors hover:text-[#8A7400]">
-                        <span>{getProductName(product, language)}</span>
-                        <span className="text-[9px] text-[#A3A7AA]">{product.code}</span>
+                          <span className="mt-3 grid gap-2">
+                            {group.sections.slice(0, 3).map((section) => (
+                              <span key={section.label.en} className="truncate border-b border-[#ECE8E1] pb-2 text-xs font-semibold text-[#50555B]">
+                                {localizedText(language, section.label)}
+                              </span>
+                            ))}
+                          </span>
+                        </span>
                       </a>
                     ))}
                   </div>
                 </div>
-
-                <a href={`/collections/${activeCategory.slug}`} className="group/image relative isolate block min-w-0 overflow-hidden bg-[#070B0E]">
-                  <Image
-                    unoptimized
-                    src={activeCategory.image}
-                    alt={getCategoryName(activeCategory, language)}
-                    fill
-                    sizes="(min-width: 1280px) 58vw, 100vw"
-                    className="object-cover transition-transform duration-700 group-hover/image:scale-[1.025]"
-                  />
-                  <span className="absolute inset-0 bg-[linear-gradient(0deg,rgba(7,11,14,0.84)_0%,rgba(7,11,14,0.08)_62%)]" aria-hidden="true" />
-                  <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-8 p-10 text-white">
-                    <span>
-                      <span className="text-[10px] font-bold uppercase text-[#FFDA01]">
-                        {localize(language, "Explore the collection", "استكشف المجموعة", "לגלות את הקולקציה")}
-                      </span>
-                      <span className="mt-2 block text-3xl font-semibold">{getCategoryName(activeCategory, language)}</span>
-                    </span>
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center bg-[#FFDA01] text-[#0F1822]">
-                      <ArrowUpRight size={19} aria-hidden="true" />
-                    </span>
-                  </span>
-                </a>
+              ) : activeGroup ? (
+              <div className="mx-auto grid h-[460px] max-w-[1440px] grid-cols-[0.34fr_0.66fr] border-x border-[#E4E0D8] bg-white">
+                <div className="flex min-w-0 flex-col justify-between bg-[#F4F2ED] px-10 py-10">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase text-[#8A7400]">{localize(language, "Product map", "Product map", "Product map")}</p>
+                    <h2 className="mt-4 max-w-lg text-4xl font-semibold leading-none text-[#0F1822]">{localizedText(language, activeGroup.label)}</h2>
+                    <p className="mt-5 max-w-xl text-sm leading-6 text-[#73787C]">{localizedText(language, activeGroup.description)}</p>
+                  </div>
+                  <a href={collectionGroupHref(activeGroup)} className="group/link mt-7 flex min-h-11 items-center justify-between border-y border-[#D8D4CC] text-xs font-bold uppercase text-[#8A7400]">
+                    <span>{localize(language, "Browse this group", "Browse this group", "Browse this group")}</span>
+                    <ArrowUpRight size={15} className="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden="true" />
+                  </a>
+                </div>
+                <div className="hide-scrollbar min-w-0 overflow-x-auto bg-[#E4E0D8] p-px">
+                  <div className={`grid min-h-full w-max min-w-full grid-flow-col ${activeGroup.id === "i-lite" ? "auto-cols-[minmax(210px,240px)] gap-0" : "auto-cols-[minmax(260px,1fr)] gap-px"}`}>
+                    {activeGroup.sections.map((section) => (
+                      <div key={section.label.en} className={`flex flex-col bg-white ${activeGroup.id === "i-lite" ? "h-[360px] min-w-[210px] max-w-[240px]" : "h-[458px] min-w-[260px] max-w-[320px]"}`}>
+                        <a href={collectionGroupHref(activeGroup, section.label.en)} className={`group/section relative block shrink-0 overflow-hidden bg-[#070B0E] ${activeGroup.id === "i-lite" ? "h-28" : "h-36"}`}>
+                          <Image unoptimized src={section.image} alt={localizedText(language, section.label)} fill sizes="430px" className="object-cover transition-transform duration-700 group-hover/section:scale-[1.04]" />
+                          <span className="absolute inset-0 bg-[linear-gradient(0deg,rgba(7,11,14,0.78)_0%,rgba(7,11,14,0.08)_68%)]" aria-hidden="true" />
+                          <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5 text-white">
+                            <span className="text-base font-semibold leading-tight">{localizedText(language, section.label)}</span>
+                            <ArrowUpRight size={15} className="shrink-0 text-[#FFDA01]" aria-hidden="true" />
+                          </span>
+                        </a>
+                        <div className={`flex min-h-0 flex-1 flex-col ${activeGroup.id === "i-lite" ? "p-3" : "p-5"}`}>
+                          <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#8A7400]">
+                            {section.items.length} categories
+                          </p>
+                          <div className={`min-h-0 flex-1 hide-scrollbar overflow-y-auto pe-2 ${activeGroup.id === "i-lite" ? "mt-2" : "mt-4"}`}>
+                            <div className="grid gap-1">
+                              {section.items.map((item) => (
+                                <a key={`${section.label.en}-${item.label.en}`} href={collectionGroupHref(activeGroup, section.label.en, item.label.en)} className="group/item flex min-h-10 items-center justify-between border-b border-[#ECE8E1] text-xs font-semibold text-[#50555B] transition-colors hover:text-[#0F1822]">
+                                  <span className="line-clamp-2 pe-3">{localizedText(language, item.label)}</span>
+                                  <ChevronRight size={13} className="shrink-0 text-[#A3A7AA] transition-transform group-hover/item:translate-x-1 rtl:rotate-180 rtl:group-hover/item:-translate-x-1" aria-hidden="true" />
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
               ) : null}
             </motion.div>
@@ -529,30 +529,123 @@ export function Header({
 
       <AnimatePresence>
         {open && (
-          <motion.div id="mobile-navigation" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="border-t border-[#DADADA] bg-white p-4 text-[#0F1822] shadow-2xl xl:hidden">
-            <nav className="grid" aria-label="Mobile product categories">
-              {categoryLinks.map(({ label, href }, index) => (
-                <a key={href} href={href} onClick={() => setOpen(false)} className="flex min-h-12 items-center justify-between border-b border-[#E4E4E4] px-2 text-sm font-semibold transition-colors hover:bg-[#FFDA01]">
-                  <span>{label}</span>
-                  <span className="text-[9px] text-[#73787C]">0{index + 1}</span>
+          <>
+            <motion.button
+              type="button"
+              aria-label={localize(language, "Close menu overlay", "Close menu overlay", "Close menu overlay")}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 z-40 bg-[#0F1822]/45 backdrop-blur-[1px] xl:hidden"
+            />
+            <motion.aside
+              id="mobile-navigation"
+              initial={reducedMotion ? false : { x: isRtlLanguage(language) ? "100%" : "-100%" }}
+              animate={{ x: 0 }}
+              exit={reducedMotion ? { opacity: 0 } : { x: isRtlLanguage(language) ? "100%" : "-100%" }}
+              transition={{ duration: reducedMotion ? 0 : 0.34, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed inset-y-0 start-0 z-50 flex w-[min(70vw,350px)] flex-col bg-white text-[#0F1822] shadow-[18px_0_55px_rgba(0,0,0,0.25)] rtl:shadow-[-18px_0_55px_rgba(0,0,0,0.25)] xl:hidden"
+            >
+              <div className="flex h-[72px] shrink-0 items-center justify-between border-b border-white/10 bg-[#111315] px-4">
+                <div className="relative h-[50px] w-[clamp(7.5rem,42vw,9.25rem)] shrink-0">
+                  <Image
+                    unoptimized
+                    src="/images/kiswani-logo-header-lockup.png"
+                    alt="Kiswani Lights"
+                    fill
+                    sizes="148px"
+                    style={{ objectFit: "contain", objectPosition: isRtlLanguage(language) ? "right center" : "left center" }}
+                  />
+                </div>
+                <button type="button" onClick={() => setOpen(false)} className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/20 text-white transition-colors hover:border-[#FFDA01] hover:bg-[#FFDA01] hover:text-[#0F1822]" aria-label={localize(language, "Close menu", "Close menu", "Close menu")}>
+                  <X size={20} strokeWidth={1.8} />
+                </button>
+              </div>
+
+              <nav className="hide-scrollbar min-h-0 flex-1 overflow-y-auto px-5 py-3" aria-label="Mobile product categories">
+                <div className="divide-y divide-[#E4E0D8] border-y border-[#E4E0D8]">
+                  {productMapGroups.map((group) => {
+                    const expanded = mobileExpanded === group.id;
+                    return (
+                      <div key={group.id} className="bg-white">
+                        <button
+                          type="button"
+                          onClick={() => setMobileExpanded(expanded ? null : group.id)}
+                          className="flex min-h-[72px] w-full items-center justify-between gap-4 text-start text-[17px] font-medium text-[#0F1822] transition-colors hover:text-[#8A7400]"
+                          aria-expanded={expanded}
+                        >
+                          <span className="flex min-w-0 items-center gap-3">
+                            <span className="relative h-12 w-16 shrink-0 overflow-hidden bg-[#070B0E]">
+                              <Image unoptimized src={group.image} alt="" fill sizes="64px" className="object-cover" />
+                              <span className="absolute inset-0 bg-[#0F1822]/15" aria-hidden="true" />
+                            </span>
+                            <span className="truncate">{localizedText(language, group.label)}</span>
+                          </span>
+                          <ChevronDown size={16} className={`shrink-0 text-[#50555B] transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} aria-hidden="true" />
+                        </button>
+                        <AnimatePresence initial={false}>
+                          {expanded && (
+                            <motion.div
+                              initial={reducedMotion ? false : { height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={reducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                              transition={{ duration: reducedMotion ? 0 : 0.26, ease: [0.22, 1, 0.36, 1] }}
+                              className="overflow-hidden"
+                            >
+                              <div className="pb-4">
+                                {group.sections.map((section) => (
+                                  <div key={section.label.en} className={`overflow-hidden border border-[#E4E0D8] bg-white ${group.id === "i-lite" ? "mb-1" : "mb-3"}`}>
+                                    <a href={collectionGroupHref(group, section.label.en)} onClick={() => setOpen(false)} className={`relative block overflow-hidden bg-[#070B0E] ${group.id === "i-lite" ? "h-16" : "h-24"}`}>
+                                      <Image unoptimized src={section.image} alt={localizedText(language, section.label)} fill sizes="280px" className="object-cover" />
+                                      <span className="absolute inset-0 bg-[linear-gradient(0deg,rgba(7,11,14,0.78)_0%,rgba(7,11,14,0.1)_75%)]" aria-hidden="true" />
+                                      <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-3 text-white">
+                                        <span className="text-sm font-semibold leading-tight">{localizedText(language, section.label)}</span>
+                                        <ArrowUpRight size={13} className="shrink-0 text-[#FFDA01]" aria-hidden="true" />
+                                      </span>
+                                    </a>
+                                    <div className={`hide-scrollbar overflow-y-auto px-3 pe-2 pt-1 ${group.id === "i-lite" ? "max-h-28 pb-2" : "max-h-44 pb-3"}`}>
+                                      {section.items.map((item) => (
+                                        <a key={`${group.id}-${section.label.en}-${item.label.en}`} href={collectionGroupHref(group, section.label.en, item.label.en)} onClick={() => setOpen(false)} className="flex min-h-10 items-center justify-between border-b border-[#F0EDE6] text-sm text-[#50555B] transition-colors hover:text-[#0F1822]">
+                                          <span className="pe-3">{localizedText(language, item.label)}</span>
+                                          <ChevronRight size={13} className="shrink-0 text-[#A3A7AA] rtl:rotate-180" aria-hidden="true" />
+                                        </a>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <a href="/projects" onClick={() => setOpen(false)} className="mt-3 flex min-h-[56px] items-center justify-between border-b border-[#E4E0D8] text-[17px] font-medium text-[#0F1822] transition-colors hover:text-[#8A7400]">
+                  <span>{localize(language, "Projects", "المشاريع", "פרויקטים")}</span>
+                  <ChevronRight size={15} className="text-[#50555B] rtl:rotate-180" aria-hidden="true" />
                 </a>
-              ))}
-            </nav>
-            <div className="mt-4 grid grid-cols-[1fr_auto] gap-3">
-              <label>
-                <span className="sr-only">Select language</span>
-                <select value={language} onChange={(event) => setLanguage(event.target.value as Language)} className="h-12 w-full border border-[#0F1822] bg-white px-4 text-sm font-bold text-[#0F1822] outline-none focus:border-[#FFDA01]">
-                  <option value="en">English</option>
-                  <option value="ar">العربية</option>
-                  <option value="he">עברית</option>
-                </select>
-              </label>
-              <a href={`${rootPrefix}#contact`} onClick={() => setOpen(false)} className="inline-flex h-12 items-center justify-center gap-2 bg-[#FFDA01] px-5 text-xs font-bold text-[#0F1822]">
-                {localize(language, "Contact", "تواصل", "יצירת קשר")}
-                <ArrowUpRight size={15} aria-hidden="true" />
-              </a>
-            </div>
-          </motion.div>
+              </nav>
+
+              <div className="shrink-0 border-t border-[#E4E0D8] bg-[#F4F2ED] p-5">
+                <label className="block">
+                  <span className="sr-only">Select language</span>
+                  <select value={language} onChange={(event) => setLanguage(event.target.value as Language)} className="h-12 w-full border border-[#0F1822] bg-white px-4 text-sm font-bold text-[#0F1822] outline-none focus:border-[#FFDA01]">
+                    <option value="en">English</option>
+                    <option value="ar">العربية</option>
+                    <option value="he">עברית</option>
+                  </select>
+                </label>
+                <a href={`${rootPrefix}#contact`} onClick={() => setOpen(false)} className="mt-3 inline-flex h-12 w-full items-center justify-center gap-2 bg-[#FFDA01] px-5 text-xs font-bold text-[#0F1822]">
+                  {localize(language, "Contact", "تواصل معنا", "יצירת קשר")}
+                  <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+              </div>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </motion.header>
@@ -884,15 +977,59 @@ function TrackLightsMotion() {
   return (
     <div ref={fixtureRef} aria-hidden="true" className="pointer-events-none absolute end-6 top-0 z-0 hidden h-[520px] w-[560px] xl:block">
       <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: active ? 1 : 0 }} transition={{ duration: reducedMotion ? 0 : 0.9, ease: [0.22, 1, 0.36, 1] }} className="absolute end-0 top-7 h-1 w-[460px] origin-right bg-[#0F1822]" />
-      {angles.map((angle, index) => (
-        <div key={angle} className="absolute top-7 h-[470px] w-36" style={{ right: 28 + index * 142 }}>
-          <motion.div animate={{ scaleY: active ? 1 : 0 }} transition={{ delay: reducedMotion ? 0 : 0.18 + index * 0.1, duration: reducedMotion ? 0 : 0.55 }} className="mx-auto h-10 w-px origin-top bg-[#50555B]" />
-          <motion.div animate={{ opacity: active ? 1 : 0, rotate: active ? angle : angle - 25 }} transition={{ delay: reducedMotion ? 0 : 0.3 + index * 0.12, duration: reducedMotion ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }} className="mx-auto w-40 origin-top">
-            <div className="relative mx-auto h-14 w-9 rounded-b-2xl bg-[#1E2722] shadow-lg"><span className="absolute inset-x-1 bottom-1 h-3 rounded-full bg-[#FFDA01]" /></div>
-            <motion.div animate={{ opacity: active ? [0, 0.34, 0.08, 0.25] : 0, scaleY: active ? 1 : 0.75 }} transition={{ delay: reducedMotion ? 0 : 0.15 + index * 0.04, duration: reducedMotion ? 0 : 1.15, times: [0, 0.2, 0.35, 1] }} className="mx-auto -mt-1 h-[350px] w-40 origin-top bg-[linear-gradient(180deg,rgba(255,218,1,0.22),rgba(255,218,1,0.03)_72%,transparent)] blur-[7px] [clip-path:polygon(43%_0,57%_0,100%_100%,0_100%)]" />
-          </motion.div>
-        </div>
-      ))}
+      {angles.map((angle, index) => {
+        const sway = index === 1 ? 2.2 : 3.2;
+        const direction = index === 2 ? -1 : 1;
+        const motionDelay = 0.95 + index * 0.28;
+        const motionDuration = 5.8 + index * 0.65;
+
+        return (
+          <div key={angle} className="absolute top-7 h-[470px] w-36" style={{ right: 28 + index * 142 }}>
+            <motion.div animate={{ scaleY: active ? 1 : 0 }} transition={{ delay: reducedMotion ? 0 : 0.18 + index * 0.1, duration: reducedMotion ? 0 : 0.55 }} className="mx-auto h-10 w-px origin-top bg-[#50555B]" />
+            <motion.div animate={{ opacity: active ? 1 : 0, rotate: active ? angle : angle - 25 }} transition={{ delay: reducedMotion ? 0 : 0.3 + index * 0.12, duration: reducedMotion ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }} className="mx-auto w-40 origin-top">
+              <motion.div
+                animate={reducedMotion || !active ? { rotate: 0, y: 0 } : { rotate: [0, direction * sway, 0, direction * -sway, 0], y: [0, 1, 0, -1, 0] }}
+                transition={reducedMotion ? { duration: 0 } : active ? { delay: motionDelay, duration: motionDuration, repeat: Infinity, ease: "easeInOut" } : { duration: 0.35 }}
+                className="origin-top will-change-transform"
+              >
+                <div className="relative mx-auto h-14 w-9 rounded-b-2xl bg-[#1E2722] shadow-lg">
+                  <motion.span
+                    animate={
+                      reducedMotion
+                        ? { opacity: active ? 1 : 0.65, boxShadow: active ? "0 0 18px rgba(255,218,1,0.55)" : "0 0 0 rgba(255,218,1,0)" }
+                        : active
+                          ? {
+                              opacity: [0.74, 1, 0.82, 0.96, 0.74],
+                              boxShadow: [
+                                "0 0 10px rgba(255,218,1,0.38)",
+                                "0 0 24px rgba(255,218,1,0.72)",
+                                "0 0 14px rgba(255,218,1,0.46)",
+                                "0 0 21px rgba(255,218,1,0.64)",
+                                "0 0 10px rgba(255,218,1,0.38)",
+                              ],
+                            }
+                          : { opacity: 0.65, boxShadow: "0 0 0 rgba(255,218,1,0)" }
+                    }
+                    transition={reducedMotion ? { duration: 0 } : active ? { delay: motionDelay + 0.12, duration: 4.2 + index * 0.4, repeat: Infinity, ease: "easeInOut" } : { duration: 0.3 }}
+                    className="absolute inset-x-1 bottom-1 h-3 rounded-full bg-[#FFDA01]"
+                  />
+                </div>
+                <motion.div
+                  animate={
+                    reducedMotion
+                      ? { opacity: active ? 0.25 : 0, scaleX: 1, scaleY: active ? 1 : 0.75 }
+                      : active
+                        ? { opacity: [0.18, 0.32, 0.21, 0.29, 0.18], scaleX: [0.96, 1.02, 0.98, 1.01, 0.96], scaleY: [0.96, 1.03, 0.98, 1.01, 0.96] }
+                        : { opacity: 0, scaleX: 0.94, scaleY: 0.75 }
+                  }
+                  transition={reducedMotion ? { duration: 0 } : active ? { delay: motionDelay + 0.18, duration: 4.6 + index * 0.45, repeat: Infinity, ease: "easeInOut" } : { duration: 0.35 }}
+                  className="mx-auto -mt-1 h-[350px] w-40 origin-top bg-[linear-gradient(180deg,rgba(255,218,1,0.22),rgba(255,218,1,0.03)_72%,transparent)] blur-[7px] [clip-path:polygon(43%_0,57%_0,100%_100%,0_100%)] will-change-transform"
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -916,7 +1053,7 @@ export function LuxuryFooter({ language, rootPrefix = "" }: { language: Language
       <div className="relative z-10 mx-auto max-w-[1440px] pt-20 sm:pt-28">
         <div className="grid gap-16 border-b border-white/10 pb-20 md:grid-cols-2 lg:grid-cols-[1.2fr_0.48fr_0.56fr_0.6fr] lg:gap-14 xl:gap-20">
           <div>
-            <div className="relative h-24 w-72 sm:h-28 sm:w-80"><Image unoptimized src="/images/kiswani-logo-original-white.png" alt="Kiswani Lights" fill sizes="320px" className="object-contain object-left rtl:object-right" /></div>
+            <div className="relative h-24 w-80 sm:h-28 sm:w-[430px]"><Image unoptimized src="/images/kiswani-logo-since-1994.png" alt="Kiswani Lights" fill sizes="430px" className="object-contain object-left rtl:object-right" /></div>
             <motion.p initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.6 }} transition={{ duration: 0.7 }} className="mt-8 max-w-2xl text-balance text-2xl font-semibold leading-tight sm:text-3xl lg:text-4xl">{localize(language, "Lighting is not decoration. It is the soul of the space.", "الإضاءة ليست مجرد قطعة ديكور، بل هي روح المكان.", "תאורה אינה קישוט. היא הנשמה של החלל.")}</motion.p>
             <div className="mt-10 flex items-center gap-4"><span className="h-[3px] w-16 bg-[#FFDA01]" /><span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#73787C]">Decorative · Technical · Architectural</span></div>
           </div>
