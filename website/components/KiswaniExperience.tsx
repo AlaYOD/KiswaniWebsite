@@ -932,7 +932,7 @@ export function ProductModal({ product, language, close }: { product: Product; l
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onMouseDown={(event) => event.target === event.currentTarget && close()}
-      className="fixed inset-0 z-[70] flex items-end justify-center bg-[#0F1822]/88 sm:items-center sm:p-4 lg:p-7"
+      className="fixed inset-0 z-[70] flex items-end justify-center bg-[#0F1822]/88 sm:items-center sm:p-3 lg:p-5 xl:p-6"
     >
       <motion.div
         role="dialog"
@@ -941,20 +941,22 @@ export function ProductModal({ product, language, close }: { product: Product; l
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 20, opacity: 0 }}
-        className="relative max-h-[96vh] w-full max-w-[1320px] overflow-y-auto bg-[#F8F6F1] lg:grid lg:grid-cols-[1.08fr_0.92fr]"
+        className="relative h-[100dvh] max-h-[100dvh] w-full max-w-[1320px] overflow-y-auto bg-[#F8F6F1] sm:h-auto sm:max-h-[94dvh] lg:grid lg:grid-cols-[1.08fr_0.92fr]"
       >
-        <button
-          type="button"
-          onClick={close}
-          autoFocus
-          className="absolute end-4 top-4 z-30 flex h-11 w-11 items-center justify-center bg-[#FFDA01] text-[#0F1822] transition-colors hover:bg-[#FFD100] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          aria-label={localize(language, "Close product details", "إغلاق تفاصيل المنتج", "סגירת פרטי המוצר")}
-        >
-          <X size={18} />
-        </button>
+        <div className="pointer-events-none sticky top-0 z-30 col-span-full h-0">
+          <button
+            type="button"
+            onClick={close}
+            autoFocus
+            className="pointer-events-auto absolute end-3 top-3 flex h-11 w-11 items-center justify-center bg-[#FFDA01] text-[#0F1822] transition-colors hover:bg-[#FFD100] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:end-4 sm:top-4"
+            aria-label={localize(language, "Close product details", "إغلاق تفاصيل المنتج", "סגירת פרטי המוצר")}
+          >
+            <X size={18} />
+          </button>
+        </div>
 
-        <div className="bg-[#0B1015] p-3 sm:p-5 lg:sticky lg:top-0 lg:self-start">
-          <div className="relative aspect-[4/3] overflow-hidden bg-[#151A1D] sm:aspect-[5/4] lg:h-[620px] lg:aspect-auto xl:h-[680px]">
+        <div className="min-w-0 bg-[#0B1015] p-2.5 sm:p-4 lg:sticky lg:top-0 lg:self-start">
+          <div className="relative h-[min(58dvh,420px)] min-h-[240px] overflow-hidden bg-[#151A1D] sm:h-[min(58dvh,520px)] sm:min-h-[280px] lg:h-[calc(94dvh_-_160px)] lg:min-h-[420px] lg:max-h-[650px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedImage}
@@ -972,16 +974,16 @@ export function ProductModal({ product, language, close }: { product: Product; l
                 />
               </motion.div>
             </AnimatePresence>
-            <div className="pointer-events-none absolute inset-5 border border-white/15 sm:inset-7" aria-hidden="true" />
-            <span className="absolute start-5 top-5 bg-[#FFDA01] px-3 py-2 text-[10px] font-bold tracking-[0.14em] text-[#0F1822] sm:start-7 sm:top-7 sm:px-4 sm:py-3">
+            <div className="pointer-events-none absolute inset-3 border border-white/15 sm:inset-5" aria-hidden="true" />
+            <span className="absolute start-3 top-3 bg-[#FFDA01] px-3 py-2 text-[10px] font-bold tracking-[0.14em] text-[#0F1822] sm:start-5 sm:top-5 sm:px-4 sm:py-3">
               {product.code}
             </span>
-            <span className="absolute bottom-5 end-5 bg-[#0B1015]/85 px-3 py-2 text-[10px] font-bold tracking-[0.14em] text-white backdrop-blur-sm sm:bottom-7 sm:end-7">
+            <span className="absolute bottom-3 end-3 bg-[#0B1015]/85 px-3 py-2 text-[10px] font-bold tracking-[0.14em] text-white backdrop-blur-sm sm:bottom-5 sm:end-5">
               {String(selectedImageIndex + 1).padStart(2, "0")} / {String(gallery.length).padStart(2, "0")}
             </span>
           </div>
 
-          <div className="mt-3 grid grid-cols-4 gap-2 sm:gap-3">
+          <div className="mt-2 grid grid-cols-4 gap-2 sm:gap-3">
             {gallery.map((image, index) => (
               <button
                 key={image}
@@ -1006,17 +1008,17 @@ export function ProductModal({ product, language, close }: { product: Product; l
           </div>
         </div>
 
-        <div className="p-6 sm:p-10 lg:p-12 xl:p-14">
+        <div className="min-w-0 p-5 sm:p-7 lg:p-8 xl:p-10">
           <div className="flex items-center gap-4">
             <span className="h-[3px] w-14 bg-[#FFDA01]" />
             <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#50555B]">{category}</p>
           </div>
 
-          <h2 id="product-title" className="mt-7 text-balance text-4xl font-semibold leading-[0.98] tracking-[-0.045em] text-[#0F1822] sm:text-5xl">
+          <h2 id="product-title" className="mt-5 break-words text-balance text-3xl font-semibold leading-[1] tracking-[-0.04em] text-[#0F1822] sm:text-4xl xl:text-5xl">
             {name}
           </h2>
 
-          <div className="mt-7 flex flex-wrap items-end justify-between gap-5 border-y border-[#D7D2C8] py-6">
+          <div className="mt-5 flex flex-wrap items-end justify-between gap-4 border-y border-[#D7D2C8] py-4">
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#73787C]">
                 {localize(language, "Initial catalog price", "السعر الأولي", "מחיר קטלוג ראשוני")}
@@ -1035,10 +1037,10 @@ export function ProductModal({ product, language, close }: { product: Product; l
             )}
           </div>
 
-          <p className="mt-6 text-base leading-8 text-[#50555B]">{description}</p>
+          <p className="mt-4 text-base leading-7 text-[#50555B]">{description}</p>
 
-          <div className="mt-9">
-            <div className="mb-4 flex items-center justify-between gap-4">
+          <div className="mt-6">
+            <div className="mb-3 flex items-center justify-between gap-4">
               <h3 className="text-sm font-bold uppercase tracking-[0.14em] text-[#0F1822]">
                 {localize(language, "Technical specifications", "المواصفات الفنية", "מפרט טכני")}
               </h3>
@@ -1046,16 +1048,16 @@ export function ProductModal({ product, language, close }: { product: Product; l
             </div>
             <div className="border-t border-[#A3A7AA]">
               {product.specs.map(([label, value], index) => (
-                <div key={label} className="grid grid-cols-[auto_1fr_auto] items-center gap-4 border-b border-[#D7D2C8] py-4">
+                <div key={label} className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-4 gap-y-1 border-b border-[#D7D2C8] py-3 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center">
                   <span className="text-[9px] font-semibold text-[#A3A7AA]">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="text-sm text-[#50555B]">{label}</span>
-                  <strong className="text-end text-sm text-[#0F1822]">{value}</strong>
+                  <span className="break-words text-sm text-[#50555B]">{label}</span>
+                  <strong className="col-start-2 break-words text-sm text-[#0F1822] sm:col-auto sm:text-end">{value}</strong>
                 </div>
               ))}
             </div>
           </div>
 
-          <p className="mt-6 border-s-2 border-[#FFDA01] ps-4 text-xs leading-6 text-[#73787C]">
+          <p className="mt-4 border-s-2 border-[#FFDA01] ps-4 text-xs leading-6 text-[#73787C]">
             {localize(
               language,
               "Initial catalog price. Availability, delivery, and final approval are confirmed before processing.",
@@ -1064,7 +1066,7 @@ export function ProductModal({ product, language, close }: { product: Product; l
             )}
           </p>
 
-          <div className="mt-8 flex items-center justify-between gap-4 border-t border-[#D7D2C8] pt-6">
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-[#D7D2C8] pt-4">
             <label htmlFor="modal-product-quantity" className="text-xs font-bold uppercase tracking-[0.12em] text-[#50555B]">
               {localize(language, "Quantity", "الكمية", "כמות")}
             </label>
@@ -1100,7 +1102,7 @@ export function ProductModal({ product, language, close }: { product: Product; l
             </div>
           </div>
 
-          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <button
               type="button"
               onClick={() => add(product, quantity)}
@@ -1122,6 +1124,7 @@ export function ProductModal({ product, language, close }: { product: Product; l
     </motion.div>
   );
 }
+
 function LightingTypes({ language }: { language: Language }) {
   const current = copy[language];
   const sectionRef = useRef<HTMLElement>(null);
