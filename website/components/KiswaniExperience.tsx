@@ -23,7 +23,7 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { categories, formatPrice, getCategoryDetail, getCategoryName, getProductCategory, getProductDescription, getProductName, products, type Product } from "../lib/catalog";
+import { categories, formatPrice, getCategoryDetail, getCategoryName, getProductDescription, getProductName, products, type Product } from "../lib/catalog";
 import { productMapGroups, type LocalizedText, type ProductMapGroup } from "../lib/product-map";
 import { CinematicIntro } from "./CinematicIntro";
 import { CartDrawer, CartTrigger, useCart } from "./CartSystem";
@@ -788,71 +788,97 @@ export function ProductCard({ product, language, open }: { product: Product; lan
   const { add } = useCart();
   const [quantity, setQuantity] = useState(1);
   const name = getProductName(product, language);
-  const category = getProductCategory(product, language);
-  const description = getProductDescription(product, language);
+
   return (
-    <motion.article layout initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} whileHover={{ y: -6 }} transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }} className="group flex h-full flex-col overflow-hidden bg-[#F4F2ED] shadow-[0_18px_55px_rgba(7,11,14,0.06)] transition-shadow hover:shadow-[0_26px_80px_rgba(7,11,14,0.14)]">
-      <div className="flex flex-1 flex-col">
-        <div className="relative aspect-[4/3] overflow-hidden bg-[#CCCFCE]/25"><Media src={product.image} alt={name} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw" className="object-cover object-center transition-transform duration-[1000ms] ease-out group-hover:scale-[1.035]" /><div className="absolute inset-0 bg-gradient-to-t from-[#070B0E]/35 via-transparent to-transparent" /><div className="absolute inset-x-0 top-0 flex items-center justify-between p-4"><span className="bg-[#FFDA01] px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] text-[#0F1822]">{category}</span><span className="bg-[#070B0E]/85 px-3 py-1.5 text-[11px] tracking-[0.08em] text-white backdrop-blur-sm">{product.code}</span></div></div>
-        <div className="p-4 pb-0 xl:p-5 xl:pb-0">
-          <div className="flex items-center justify-between gap-4"><span className="h-px w-12 bg-[#FFDA01]" /><span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#73787C]">KISWANI LIGHTS</span></div>
-          <h3 className="mt-4 line-clamp-2 h-16 text-xl font-semibold leading-8 tracking-[-0.025em] text-[#0F1822] xl:text-2xl">{name}</h3>
-          <p className="mt-2 line-clamp-2 h-10 text-sm leading-5 text-[#50555B]">{description}</p>
-          <div className="mt-3 flex items-baseline justify-between gap-2">
-            <div>
-              <p className="text-lg font-bold tracking-[-0.02em] text-[#0F1822]">{formatPrice(product.price, language)}</p>
-              <p className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.12em] text-[#73787C]">{localize(language, "Initial price", "Initial price", "Initial price")}</p>
+    <motion.article
+      layout
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
+      className="group flex h-full min-h-[530px] flex-col overflow-hidden border border-[#DEDAD1] bg-white shadow-[0_16px_45px_rgba(15,24,34,0.055)] transition-[border-color,box-shadow] duration-500 hover:border-[#C7C1B6] hover:shadow-[0_28px_75px_rgba(15,24,34,0.13)]"
+    >
+      <button
+        type="button"
+        onClick={() => open(product)}
+        className="relative block aspect-square w-full shrink-0 overflow-hidden bg-[#F4F2ED] text-start focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#FFDA01]"
+        aria-label={copy[language].view}
+      >
+        <Media
+          src={product.image}
+          alt={name}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+          className="object-cover object-center transition-transform duration-[1100ms] ease-out group-hover:scale-[1.045]"
+        />
+        <span className="absolute inset-x-0 bottom-0 h-px origin-start scale-x-0 bg-[#FFDA01] transition-transform duration-500 group-hover:scale-x-100" />
+      </button>
+
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <button
+          type="button"
+          onClick={() => open(product)}
+          className="block text-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01]"
+        >
+          <h3 className="line-clamp-2 h-14 text-xl font-semibold leading-7 tracking-[-0.025em] text-[#0F1822] transition-colors group-hover:text-[#50555B]">
+            {name}
+          </h3>
+        </button>
+
+        <p className="mt-3 text-2xl font-bold tracking-[-0.035em] text-[#0F1822]">
+          {formatPrice(product.price, language)}
+        </p>
+
+        <div className="mt-auto border-t border-[#DEDAD1] pt-5">
+          <div className="flex items-center justify-between gap-4">
+            <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#50555B]">
+              {localize(language, "Qty", "الكمية", "כמות")}
+            </span>
+            <div className="inline-flex items-center border border-[#CCCFCE] bg-[#FAF9F6]">
+              <button
+                type="button"
+                onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                className="flex h-11 w-11 items-center justify-center text-[#0F1822] transition-colors hover:bg-white focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-[#0F1822]"
+                aria-label={localize(language, "Decrease quantity", "تقليل الكمية", "הפחתת כמות")}
+              >
+                <Minus size={15} />
+              </button>
+              <input
+                type="number"
+                min="1"
+                max="999"
+                value={quantity}
+                onChange={(event) => {
+                  const value = parseInt(event.target.value, 10);
+                  if (!isNaN(value) && value > 0) setQuantity(Math.min(999, value));
+                }}
+                aria-label={localize(language, "Quantity", "الكمية", "כמות")}
+                className="h-11 w-12 border-x border-[#CCCFCE] bg-white text-center text-sm font-bold text-[#0F1822] outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FFDA01] [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+              />
+              <button
+                type="button"
+                onClick={() => setQuantity((q) => Math.min(999, q + 1))}
+                className="flex h-11 w-11 items-center justify-center text-[#0F1822] transition-colors hover:bg-white focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-[#0F1822]"
+                aria-label={localize(language, "Increase quantity", "زيادة الكمية", "הגדלת כמות")}
+              >
+                <Plus size={15} />
+              </button>
             </div>
-            {quantity > 1 && (
-              <span className="text-xs font-bold text-[#0F1822]">
-                {localize(language, "Total: ", "الإجمالي: ", "סה\"כ: ")}{formatPrice(product.price * quantity, language)}
-              </span>
-            )}
           </div>
-        </div>
-      </div>
-      <div className="px-4 pb-4 pt-0 xl:px-5 xl:pb-5">
-        <div className="mt-3 flex items-center justify-between gap-3">
-          <span className="text-[11px] font-bold uppercase text-[#73787C]">{localize(language, "Qty", "الكمية", "כמות")}:</span>
-          <div className="inline-flex items-center border border-[#CCCFCE] bg-white">
-            <button
-              type="button"
-              onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-              className="flex h-8 w-8 items-center justify-center text-[#0F1822] hover:bg-[#F4F2ED]"
-              aria-label="Decrease quantity"
-            >
-              <Minus size={14} />
-            </button>
-            <input
-              type="number"
-              min="1"
-              max="999"
-              value={quantity}
-              onChange={(e) => {
-                const val = parseInt(e.target.value, 10);
-                if (!isNaN(val) && val > 0) setQuantity(val);
-              }}
-              className="w-10 text-center text-xs font-semibold text-[#0F1822] outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-            />
-            <button
-              type="button"
-              onClick={() => setQuantity((q) => q + 1)}
-              className="flex h-8 w-8 items-center justify-center text-[#0F1822] hover:bg-[#F4F2ED]"
-              aria-label="Increase quantity"
-            >
-              <Plus size={14} />
-            </button>
-          </div>
-        </div>
-        <div className="mt-3 grid grid-cols-[1fr_auto] gap-2">
-          <button type="button" onClick={() => add(product, quantity)} className="inline-flex min-h-12 items-center justify-center gap-2 bg-[#FFDA01] px-4 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100]"><ShoppingBag size={16} />{localize(language, "Add to cart", "أضف إلى السلة", "הוספה לסל")}</button>
-          <button type="button" onClick={() => open(product)} className="flex h-12 w-12 items-center justify-center bg-[#0F1822] text-white transition-colors hover:bg-[#50555B]" aria-label={copy[language].view}><ArrowUpRight size={16} /></button>
+
+          <button
+            type="button"
+            onClick={() => add(product, quantity)}
+            className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-[#FFDA01] px-5 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F1822]"
+          >
+            <ShoppingBag size={17} />
+            {localize(language, "Add to cart", "أضف إلى السلة", "הוספה לסל")}
+          </button>
         </div>
       </div>
     </motion.article>
   );
 }
-
 export function ProductModal({ product, language, close }: { product: Product; language: Language; close: () => void }) {
   const { add } = useCart();
   const [quantity, setQuantity] = useState(1);
@@ -978,17 +1004,17 @@ function TrackLightsMotion() {
     <div ref={fixtureRef} aria-hidden="true" className="pointer-events-none absolute end-6 top-0 z-0 hidden h-[520px] w-[560px] xl:block">
       <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: active ? 1 : 0 }} transition={{ duration: reducedMotion ? 0 : 0.9, ease: [0.22, 1, 0.36, 1] }} className="absolute end-0 top-7 h-1 w-[460px] origin-right bg-[#0F1822]" />
       {angles.map((angle, index) => {
-        const sway = index === 1 ? 2.2 : 3.2;
+        const sway = index === 1 ? 5.5 : 8;
         const direction = index === 2 ? -1 : 1;
-        const motionDelay = 0.95 + index * 0.28;
-        const motionDuration = 5.8 + index * 0.65;
+        const motionDelay = 0.55 + index * 0.16;
+        const motionDuration = 3.8 + index * 0.4;
 
         return (
           <div key={angle} className="absolute top-7 h-[470px] w-36" style={{ right: 28 + index * 142 }}>
             <motion.div animate={{ scaleY: active ? 1 : 0 }} transition={{ delay: reducedMotion ? 0 : 0.18 + index * 0.1, duration: reducedMotion ? 0 : 0.55 }} className="mx-auto h-10 w-px origin-top bg-[#50555B]" />
             <motion.div animate={{ opacity: active ? 1 : 0, rotate: active ? angle : angle - 25 }} transition={{ delay: reducedMotion ? 0 : 0.3 + index * 0.12, duration: reducedMotion ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }} className="mx-auto w-40 origin-top">
               <motion.div
-                animate={reducedMotion || !active ? { rotate: 0, y: 0 } : { rotate: [0, direction * sway, 0, direction * -sway, 0], y: [0, 1, 0, -1, 0] }}
+                animate={reducedMotion || !active ? { rotate: 0, x: 0, y: 0 } : { rotate: [0, direction * sway, 0, direction * -sway, 0], x: [0, direction * 4, 0, direction * -4, 0], y: [0, 3, 0, -2.5, 0] }}
                 transition={reducedMotion ? { duration: 0 } : active ? { delay: motionDelay, duration: motionDuration, repeat: Infinity, ease: "easeInOut" } : { duration: 0.35 }}
                 className="origin-top will-change-transform"
               >
@@ -999,18 +1025,18 @@ function TrackLightsMotion() {
                         ? { opacity: active ? 1 : 0.65, boxShadow: active ? "0 0 18px rgba(255,218,1,0.55)" : "0 0 0 rgba(255,218,1,0)" }
                         : active
                           ? {
-                              opacity: [0.74, 1, 0.82, 0.96, 0.74],
+                              opacity: [0.62, 1, 0.72, 1, 0.62],
                               boxShadow: [
-                                "0 0 10px rgba(255,218,1,0.38)",
-                                "0 0 24px rgba(255,218,1,0.72)",
-                                "0 0 14px rgba(255,218,1,0.46)",
-                                "0 0 21px rgba(255,218,1,0.64)",
-                                "0 0 10px rgba(255,218,1,0.38)",
+                                "0 0 8px rgba(255,218,1,0.34)",
+                                "0 0 34px rgba(255,218,1,0.9)",
+                                "0 0 12px rgba(255,218,1,0.42)",
+                                "0 0 30px rgba(255,218,1,0.82)",
+                                "0 0 8px rgba(255,218,1,0.34)",
                               ],
                             }
                           : { opacity: 0.65, boxShadow: "0 0 0 rgba(255,218,1,0)" }
                     }
-                    transition={reducedMotion ? { duration: 0 } : active ? { delay: motionDelay + 0.12, duration: 4.2 + index * 0.4, repeat: Infinity, ease: "easeInOut" } : { duration: 0.3 }}
+                    transition={reducedMotion ? { duration: 0 } : active ? { delay: motionDelay + 0.08, duration: 2.8 + index * 0.25, repeat: Infinity, ease: "easeInOut" } : { duration: 0.3 }}
                     className="absolute inset-x-1 bottom-1 h-3 rounded-full bg-[#FFDA01]"
                   />
                 </div>
@@ -1019,10 +1045,10 @@ function TrackLightsMotion() {
                     reducedMotion
                       ? { opacity: active ? 0.25 : 0, scaleX: 1, scaleY: active ? 1 : 0.75 }
                       : active
-                        ? { opacity: [0.18, 0.32, 0.21, 0.29, 0.18], scaleX: [0.96, 1.02, 0.98, 1.01, 0.96], scaleY: [0.96, 1.03, 0.98, 1.01, 0.96] }
+                        ? { opacity: [0.14, 0.44, 0.2, 0.38, 0.14], scaleX: [0.9, 1.08, 0.95, 1.05, 0.9], scaleY: [0.92, 1.08, 0.96, 1.05, 0.92] }
                         : { opacity: 0, scaleX: 0.94, scaleY: 0.75 }
                   }
-                  transition={reducedMotion ? { duration: 0 } : active ? { delay: motionDelay + 0.18, duration: 4.6 + index * 0.45, repeat: Infinity, ease: "easeInOut" } : { duration: 0.35 }}
+                  transition={reducedMotion ? { duration: 0 } : active ? { delay: motionDelay + 0.12, duration: 3.1 + index * 0.3, repeat: Infinity, ease: "easeInOut" } : { duration: 0.35 }}
                   className="mx-auto -mt-1 h-[350px] w-40 origin-top bg-[linear-gradient(180deg,rgba(255,218,1,0.22),rgba(255,218,1,0.03)_72%,transparent)] blur-[7px] [clip-path:polygon(43%_0,57%_0,100%_100%,0_100%)] will-change-transform"
                 />
               </motion.div>
