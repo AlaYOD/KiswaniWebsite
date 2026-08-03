@@ -1,0 +1,21 @@
+
+> kiswani-lights-website@0.1.0 dev
+> vinext dev --host 127.0.0.1 --port 3001
+
+
+  vinext dev  (Vite 8.1.5)
+
+[2m1:45:14 PM[22m [36m[1m[vite][22m[39m [34m[2m(rsc)[22m[39m Re-optimizing dependencies because vite config has changed
+[2m1:45:14 PM[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m Re-optimizing dependencies because vite config has changed
+Using secrets defined in .env.local
+[2m1:45:15 PM[22m [36m[1m[vite][22m[39m [34m[2m(rsc)[22m[39m [optimizer] scanning dependencies...
+[2m1:45:15 PM[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [optimizer] scanning dependencies...
+[2m1:45:16 PM[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [optimizer] bundling dependencies...
+[2m1:45:16 PM[22m [36m[1m[vite][22m[39m [34m[2m(rsc)[22m[39m [optimizer] bundling dependencies...
+[2m1:45:21 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m Re-optimizing dependencies because vite config has changed
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m3001[22m/[39m
+  [32m➜[39m  [1mDebug[22m:   [2m[33mhttp://localhost:[1m3001[22m[2m/__debug[39m[22m
+[2m1:45:22 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [optimizer] bundling dependencies...
+ GET / 200 in 4.6s (compile: 1785753912.5s, render: 4.5s)
+ GET /collections/lighting-fixtures 200 in 212ms (compile: 1785753912.5s, render: 155ms)
+ GET /products/kl-sm-045 200 in 133ms (compile: 1785753912.5s, render: 123ms)

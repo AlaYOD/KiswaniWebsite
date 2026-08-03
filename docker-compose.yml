@@ -1,0 +1,61 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: kiswani_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: kiswani_root_secret_pass
+      MYSQL_DATABASE: kiswani_wordpress
+      MYSQL_USER: kiswani_wp
+      MYSQL_PASSWORD: kiswani_db_secret_pass
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-u", "root", "-pkiswani_root_secret_pass"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  wordpress:
+    image: wordpress:latest
+    container_name: kiswani_wordpress
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: kiswani_wp
+      WORDPRESS_DB_PASSWORD: kiswani_db_secret_pass
+      WORDPRESS_DB_NAME: kiswani_wordpress
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_CONFIG_EXTRA: |
+        /* Direct filesystem access & raised memory limit */
+        define('FS_METHOD', 'direct');
+        define('WP_MEMORY_LIMIT', '256M');
+        define('WP_DEBUG', true);
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+    volumes:
+      - wp_data:/var/www/html
+      - ./wordpress/kiswani-lights:/var/www/html/wp-content/themes/kiswani-lights
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: kiswani_phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8085:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: kiswani_root_secret_pass
+
+volumes:
+  db_data:
+  wp_data:

@@ -1,0 +1,23 @@
+file:///D:/Kiswani/website/node_modules/vinext/dist/server/socket-error-backstop.js:114
+		throw err;
+		^
+
+Error: EBUSY: resource busy or locked, watch 'D:\Kiswani\website\.audit\screenshots\profile3-home-next-desktop-1440\Default\Network\Cookies'
+    at FSWatcher.<computed> (node:internal/fs/watchers:321:19)
+    at Object.watch (node:fs:2548:36)
+    at createFsWatchInstance (file:///D:/Kiswani/website/node_modules/vite/dist/node/chunks/node.js:9201:16)
+    at setFsWatchListener (file:///D:/Kiswani/website/node_modules/vite/dist/node/chunks/node.js:9243:14)
+    at NodeFsHandler._watchWithNodeFs (file:///D:/Kiswani/website/node_modules/vite/dist/node/chunks/node.js:9358:20)
+    at NodeFsHandler._handleFile (file:///D:/Kiswani/website/node_modules/vite/dist/node/chunks/node.js:9402:24)
+    at NodeFsHandler._addToNodeFs (file:///D:/Kiswani/website/node_modules/vite/dist/node/chunks/node.js:9576:26)
+Emitted 'error' event on FSWatcher instance at:
+    at FSWatcher._handleError (file:///D:/Kiswani/website/node_modules/vite/dist/node/chunks/node.js:10375:146)
+    at NodeFsHandler._addToNodeFs (file:///D:/Kiswani/website/node_modules/vite/dist/node/chunks/node.js:9581:18) {
+  errno: -4082,
+  syscall: 'watch',
+  code: 'EBUSY',
+  path: 'D:\\Kiswani\\website\\.audit\\screenshots\\profile3-home-next-desktop-1440\\Default\\Network\\Cookies',
+  filename: 'D:\\Kiswani\\website\\.audit\\screenshots\\profile3-home-next-desktop-1440\\Default\\Network\\Cookies'
+}
+
+Node.js v24.16.0

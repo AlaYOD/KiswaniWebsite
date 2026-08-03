@@ -15,8 +15,17 @@
 - **Checkout Component**: [`website/components/CheckoutExperience.tsx`](file:///d:/Kiswani/website/components/CheckoutExperience.tsx) submits itemized Arabic & English messages with customer details, item codes, quantities, unit prices, line totals, and grand subtotal.
 - **Cart System**: [`website/components/CartSystem.tsx`](file:///d:/Kiswani/website/components/CartSystem.tsx) handles cart drawer state and checkout navigation.
 
+## 🐳 Docker Runtime Environment
+- **Docker Compose Config**: [`docker-compose.yml`](file:///d:/Kiswani/docker-compose.yml)
+- **WordPress Container**: `kiswani_wordpress` mapped to `http://localhost:8000`.
+- **MariaDB Container**: `kiswani_db` mapped to port `3307`.
+- **phpMyAdmin Container**: `kiswani_phpmyadmin` mapped to `http://localhost:8085`.
+- **Active Theme**: `kiswani-lights` with auto-seeded catalog data.
+
 ## 🚀 Recent Progress
 - Built formatted WhatsApp order submission logic.
 - Applied Arabic localization for checkout forms & cart drawer.
 - Implemented quantity selectors (`-` / input / `+`) across product details page, product cards, quick view modals, and cart drawer.
 - Validated Next.js production build.
+- Created Docker Compose environment for local WordPress site, initialized core, activated `kiswani-lights` theme, and verified live runtime at `http://localhost:8000`.
+
