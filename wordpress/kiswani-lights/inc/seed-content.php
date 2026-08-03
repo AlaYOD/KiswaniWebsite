@@ -12,111 +12,199 @@ if (!defined('ABSPATH')) {
 add_action('after_switch_theme', 'kiswani_seed_default_terms');
 function kiswani_seed_default_terms(): void
 {
-    $terms = [
-        'decorative' => ['Decorative lighting', 'Statement pieces that give the room its character.'],
-        'interior' => ['Interior lighting', 'Warm, considered light for everyday living.'],
-        'technical' => ['Technical lighting', 'Precise systems for architectural performance.'],
-        'accent' => ['Accent lighting', 'Focused moments that reveal material and mood.'],
-    ];
+    foreach (kiswani_static_categories() as $category) {
+        kiswani_upsert_catalog_term(
+            (string) ($category['name'] ?? 'Lighting'),
+            (string) ($category['slug'] ?? ''),
+            (string) ($category['detail'] ?? ''),
+            0,
+            'category',
+            (string) ($category['image'] ?? '')
+        );
+    }
 
-    foreach ($terms as $slug => [$name, $description]) {
-        if (!term_exists($slug, 'kiswani_product_collection')) {
-            wp_insert_term($name, 'kiswani_product_collection', [
-                'slug' => $slug,
-                'description' => $description,
-            ]);
+    foreach (kiswani_static_product_map_groups() as $group) {
+        $group_id = kiswani_upsert_catalog_term(
+            (string) ($group['label']['en'] ?? 'Collection'),
+            (string) ($group['id'] ?? ''),
+            (string) ($group['description']['en'] ?? ''),
+            0,
+            'collection',
+            (string) ($group['image'] ?? '')
+        );
+
+        foreach (($group['sections'] ?? []) as $section) {
+            $section_name = (string) ($section['label']['en'] ?? 'Category');
+            $section_slug = sanitize_title(($group['id'] ?? 'collection') . '-' . $section_name);
+            $section_id = kiswani_upsert_catalog_term(
+                $section_name,
+                $section_slug,
+                '',
+                $group_id,
+                'category',
+                (string) ($section['image'] ?? '')
+            );
+
+            foreach (($section['items'] ?? []) as $item) {
+                $item_name = (string) ($item['label']['en'] ?? 'Sub category');
+                $item_slug = sanitize_title($section_slug . '-' . $item_name);
+                kiswani_upsert_catalog_term(
+                    $item_name,
+                    $item_slug,
+                    (string) ($item['search'] ?? ''),
+                    $section_id,
+                    'subcategory',
+                    (string) ($item['image'] ?? '')
+                );
+            }
         }
     }
+}
+
+function kiswani_upsert_catalog_term(string $name, string $slug, string $description = '', int $parent = 0, string $type = 'category', string $image = ''): int
+{
+    $slug = sanitize_title($slug ?: $name);
+    if ($slug === '') {
+        return 0;
+    }
+
+    $term = get_term_by('slug', $slug, 'kiswani_product_collection');
+    if ($term instanceof WP_Term) {
+        wp_update_term($term->term_id, 'kiswani_product_collection', [
+            'name' => $name,
+            'description' => $description,
+            'parent' => $parent,
+        ]);
+        $term_id = (int) $term->term_id;
+    } else {
+        $result = wp_insert_term($name, 'kiswani_product_collection', [
+            'slug' => $slug,
+            'description' => $description,
+            'parent' => $parent,
+        ]);
+        if (is_wp_error($result)) {
+            return 0;
+        }
+        $term_id = (int) ($result['term_id'] ?? 0);
+    }
+
+    if ($term_id) {
+        update_term_meta($term_id, '_kiswani_term_type', $type);
+        update_term_meta($term_id, '_kiswani_term_image', $image);
+    }
+    return $term_id;
 }
 
 add_action('after_switch_theme', 'kiswani_seed_default_products');
 function kiswani_seed_default_products(): void
 {
-    if (get_posts(['post_type' => 'kiswani_product', 'posts_per_page' => 1, 'fields' => 'ids'])) {
-        return;
-    }
+    kiswani_seed_default_terms();
 
-    $products = [
-        ['Halo Chandelier', 'decorative', 'KL-HC-120', 'Layered glass and warm illumination for a confident, timeless centerpiece.', '96W', '3000K', '', '', '', '1200mm', 'Suspended', 'kiswani-decorative-2026.webp'],
-        ['Luma Tier', 'decorative', 'KL-LT-860', 'A refined tiered chandelier that brings a soft architectural rhythm to reception spaces.', '', '3000K', '', '', 'Smoke glass', '', 'Suspended', 'kiswani-decorative-2026.webp'],
-        ['Prism Cluster', 'decorative', 'KL-PC-450', 'A compact glass composition designed for entrances, lounges, and intimate dining rooms.', '', '3000K', '', '', 'Black', '', 'Suspended', 'kiswani-decorative-2026.webp'],
-        ['Flow Linear', 'interior', 'KL-FL-240', 'A flowing pendant that turns the dining table into a calm visual center.', '48W', '3000K', '', '90+', 'Black', '', 'Suspended', 'kiswani-hero-2026.webp'],
-        ['Orbit Floor', 'interior', 'KL-OF-180', 'A slender floor light for reading corners and softly layered living spaces.', '', '3000K', '', '', 'Graphite', '', 'Floor', 'kiswani-hero-2026.webp'],
-        ['Cove Wall', 'interior', 'KL-CW-320', 'A quiet wall light that washes textured surfaces with comfortable indirect light.', '12W', '3000K', 'Indirect', '', 'Warm black', '', 'Wall', 'kiswani-hero-2026.webp'],
-        ['Axis Seven', 'technical', 'KL-AS-700', 'Seven suspended light points create an architectural rhythm over long surfaces.', '7 x 8W', '2700K-4000K', '', '95', '', '', 'Suspended', 'kiswani-technical-2026.webp'],
-        ['Beam Track', 'technical', 'KL-BT-035', 'A flexible track spotlight for precise highlights and changing architectural layouts.', '35W', '3000K', '24°', '90+', '', '', 'Track', 'kiswani-technical-2026.webp'],
-        ['Recess Pro', 'technical', 'KL-RP-018', 'A discreet recessed downlight engineered for visual comfort and consistent performance.', '18W', '3000K', '', '90+', '', '95mm cutout', 'Recessed', 'kiswani-technical-2026.webp'],
-        ['Aura Pendant', 'accent', 'KL-AP-140', 'A luminous stone-like pendant that creates an intimate pool of bedside light.', '12W', '2700K', '', '', 'Black', '', 'Suspended', 'kiswani-accent-2026.webp'],
-        ['Line Wall', 'accent', 'KL-LW-600', 'A slim wall line that reveals texture without adding visual noise.', '18W', '3000K', '', '', '', '600mm', 'Wall', 'kiswani-accent-2026.webp'],
-        ['Mini Focus', 'accent', 'KL-MF-009', 'A compact adjustable spotlight for artwork, shelves, and material details.', '9W', '3000K', '18°', '95', '', '', 'Adjustable spotlight', 'kiswani-accent-2026.webp'],
-    ];
+    foreach (kiswani_static_products() as $product) {
+        $code = (string) ($product['code'] ?? '');
+        if ($code === '') {
+            continue;
+        }
 
-    foreach ($products as [$title, $collection_slug, $sku, $excerpt, $wattage, $cct, $beam, $cri, $finish, $dimensions, $installation, $image]) {
+        $existing = get_posts([
+            'post_type' => 'kiswani_product',
+            'post_status' => 'any',
+            'posts_per_page' => 1,
+            'fields' => 'ids',
+            'meta_key' => '_kiswani_sku',
+            'meta_value' => $code,
+        ]);
+
+        if (!empty($existing)) {
+            continue;
+        }
+
         $post_id = wp_insert_post([
             'post_type' => 'kiswani_product',
             'post_status' => 'publish',
-            'post_title' => $title,
-            'post_name' => strtolower($sku),
-            'post_excerpt' => $excerpt,
-            'post_content' => '<p>' . esc_html__('Confirm final technical data with the product supplier before publishing live catalog information.', 'kiswani-lights') . '</p>',
+            'post_title' => (string) ($product['name'] ?? $code),
+            'post_name' => strtolower($code),
+            'post_excerpt' => (string) ($product['description'] ?? ''),
+            'post_content' => '<p>' . esc_html((string) ($product['description'] ?? '')) . '</p>',
         ]);
 
         if (is_wp_error($post_id) || !$post_id) {
             continue;
         }
 
-        wp_set_object_terms($post_id, $collection_slug, 'kiswani_product_collection');
+        $collection_slug = (string) ($product['categorySlug'] ?? '');
+        if ($collection_slug !== '') {
+            wp_set_object_terms($post_id, $collection_slug, 'kiswani_product_collection');
+        }
 
-        $meta = [
-            'sku' => $sku,
-            'wattage' => $wattage,
-            'cct' => $cct,
-            'beam_angle' => $beam,
-            'cri' => $cri,
-            'finish' => $finish,
-            'dimensions' => $dimensions,
-            'installation' => $installation,
-            'availability' => __('Inquiry', 'kiswani-lights'),
-            'datasheet_url' => KISWANI_THEME_URI . '/assets/downloads/' . $sku . '.pdf',
-        ];
-        foreach ($meta as $key => $value) {
-            if ($value !== '') {
-                update_post_meta($post_id, '_kiswani_' . $key, $value);
+        update_post_meta($post_id, '_kiswani_sku', $code);
+        update_post_meta($post_id, '_kiswani_name_ar', (string) ($product['arabic'] ?? ''));
+        update_post_meta($post_id, '_kiswani_short_ar', (string) ($product['descriptionAr'] ?? ''));
+        update_post_meta($post_id, '_kiswani_availability', __('Inquiry', 'kiswani-lights'));
+        update_post_meta($post_id, '_kiswani_datasheet_url', KISWANI_THEME_URI . '/assets/downloads/' . $code . '.pdf');
+        update_post_meta($post_id, '_kiswani_price', (string) ($product['price'] ?? ''));
+
+        $specs = is_array($product['specs'] ?? null) ? $product['specs'] : [];
+        foreach ($specs as $spec) {
+            if (!is_array($spec) || count($spec) < 2) {
+                continue;
+            }
+            $label = strtolower((string) $spec[0]);
+            $value = (string) $spec[1];
+            $field = match (true) {
+                str_contains($label, 'power'), str_contains($label, 'watt') => 'wattage',
+                str_contains($label, 'temperature'), str_contains($label, 'cct') => 'cct',
+                str_contains($label, 'beam') => 'beam_angle',
+                str_contains($label, 'cri') => 'cri',
+                str_contains($label, 'finish'), str_contains($label, 'body') => 'finish',
+                str_contains($label, 'diameter'), str_contains($label, 'height'), str_contains($label, 'length'), str_contains($label, 'size'), str_contains($label, 'dimension') => 'dimensions',
+                str_contains($label, 'installation'), str_contains($label, 'socket') => 'installation',
+                default => '',
+            };
+            if ($field !== '' && kiswani_product_meta($post_id, $field) === '') {
+                update_post_meta($post_id, '_kiswani_' . $field, $value);
             }
         }
 
-        $attachment_id = kiswani_seed_attachment($image);
+        $attachment_id = kiswani_seed_attachment_from_source((string) ($product['image'] ?? ''));
         if ($attachment_id) {
             set_post_thumbnail($post_id, $attachment_id);
         }
     }
 }
 
-function kiswani_seed_attachment(string $file_name): int
+function kiswani_seed_attachment_from_source(string $source): int
 {
+    $source = strtok($source, '?') ?: $source;
+    $relative = ltrim($source, '/');
+    if (!str_starts_with($relative, 'images/')) {
+        return 0;
+    }
+
+    $file_name = basename($relative);
     $existing = get_posts([
         'post_type' => 'attachment',
         'posts_per_page' => 1,
         'fields' => 'ids',
         'meta_key' => '_kiswani_seed_asset',
-        'meta_value' => $file_name,
+        'meta_value' => $relative,
     ]);
     if (!empty($existing)) {
         return (int) $existing[0];
     }
 
-    $source = KISWANI_THEME_DIR . '/assets/images/' . $file_name;
-    if (!file_exists($source)) {
+    $source_file = KISWANI_THEME_DIR . '/assets/' . $relative;
+    if (!file_exists($source_file)) {
         return 0;
     }
 
-    $upload = wp_upload_bits($file_name, null, file_get_contents($source));
+    $upload = wp_upload_bits($file_name, null, file_get_contents($source_file));
     if (!empty($upload['error'])) {
         return 0;
     }
 
     $attachment_id = wp_insert_attachment([
-        'post_mime_type' => wp_check_filetype($upload['file'])['type'] ?: 'image/webp',
+        'post_mime_type' => wp_check_filetype($upload['file'])['type'] ?: 'image/jpeg',
         'post_title' => sanitize_file_name(pathinfo($file_name, PATHINFO_FILENAME)),
         'post_content' => '',
         'post_status' => 'inherit',
@@ -129,6 +217,6 @@ function kiswani_seed_attachment(string $file_name): int
     require_once ABSPATH . 'wp-admin/includes/image.php';
     $metadata = wp_generate_attachment_metadata($attachment_id, $upload['file']);
     wp_update_attachment_metadata($attachment_id, $metadata);
-    update_post_meta($attachment_id, '_kiswani_seed_asset', $file_name);
+    update_post_meta($attachment_id, '_kiswani_seed_asset', $relative);
     return (int) $attachment_id;
 }

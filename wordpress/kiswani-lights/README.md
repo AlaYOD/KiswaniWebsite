@@ -1,34 +1,42 @@
 # Kiswani Lights WordPress Theme
 
-This theme now runs the deployed Kiswani Next.js app as the public WordPress front end.
+This is a native WordPress theme for deploying the Kiswani Lights website on a standard WordPress host.
 
-## What Changed
+## What It Includes
 
-- WordPress remains the installable theme, admin area, CMS, custom post types, and Customizer surface.
-- Every public WordPress route renders a full-viewport Next.js app shell.
-- The current WordPress path and query string are passed to the same path on the Next.js deployment.
-- The Next.js app URL is configurable in `Appearance > Customize > Next.js app shell`.
-- Existing WordPress product/project CMS code remains available for admin use and future headless integrations.
+- Native WordPress homepage, catalog archive, collection/category pages, product detail pages, search, 404, and generic content templates.
+- Local theme assets copied from the Next.js site: product images, editorial images, logos, and datasheet PDFs.
+- Custom post type: `Products`.
+- Hierarchical taxonomy: `Lighting collections`, used for collections, categories, and subcategories.
+- Automatic catalog seed for the prepared Kiswani product catalog.
+- Front-end Catalog Manager page at `/catalog-manager/` for WordPress administrators.
 
-## Default Next.js App
+## Catalog Manager
 
-The theme defaults to:
+Open:
 
-`https://kiswani-website-82jb.vercel.app`
+`/catalog-manager/`
 
-Change this in the Customizer when the Next.js deployment URL changes or when pointing WordPress to production.
+Log in with the WordPress administrator/super user username and password. The manager lets administrators:
 
-## Recommended Setup
+- Add products.
+- Edit existing products.
+- Upload product images.
+- Set SKU, price, descriptions, and specifications.
+- Assign products to collections, categories, and subcategories.
+- Create or edit collection/category/subcategory terms.
+- Import the default catalog if the WordPress product list is empty.
 
-1. Upload the `kiswani-lights` theme folder or `kiswani-lights.zip` to WordPress.
+## Deployment
+
+1. Upload `kiswani-lights.zip` in `Appearance > Themes > Add New > Upload Theme`.
 2. Activate `Kiswani Lights`.
-3. Go to `Appearance > Customize > Next.js app shell` and confirm the Next.js app URL.
-4. Go to `Settings > Permalinks` and save once to refresh public route handling.
-5. Visit the WordPress front end; it should display the live Next.js app while the WordPress admin remains available.
+3. Visit `Settings > Permalinks` and click `Save Changes` once if routes need refreshing.
+4. Open `/catalog-manager/` and log in as a WordPress administrator.
+5. Confirm products and collections are present. If not, use `Import catalog`.
 
-## Important Notes
+## Notes
 
-- This is an app-shell integration, not a PHP rewrite of the React/Next application.
-- WordPress cannot execute a server-rendered Next.js app by itself; the Next app must remain deployed on Vercel or another Node-compatible host.
-- The configured Next.js URL must be publicly accessible and allow iframe embedding. Vercel preview/protected deployments can block embedding with `X-Frame-Options: DENY`.
-- If SEO must be served directly from WordPress HTML instead of the Next deployment, the next phase is a deeper reverse-proxy or full PHP theme rebuild, both of which are larger architecture changes.
+- This version does not use an iframe and does not require Vercel or a Node.js server.
+- WordPress is the runtime. Products and categories can be managed from WordPress.
+- The prepared static catalog remains bundled so a fresh WordPress install has Kiswani content immediately.
