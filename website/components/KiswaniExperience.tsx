@@ -285,7 +285,7 @@ export function Header({
   const [open, setOpen] = useState(false);
   const [headerSearch, setHeaderSearch] = useState("");
   const [activeMenu, setActiveMenu] = useState<"all" | ProductMapGroup["id"] | null>(null);
-  const [mobileExpanded, setMobileExpanded] = useState<ProductMapGroup["id"] | null>(productMapGroups[0]?.id ?? null);
+  const [mobileExpanded, setMobileExpanded] = useState<"all" | ProductMapGroup["id"] | null>("all");
   const reducedMotion = useReducedMotion();
   const pathname = usePathname();
   const categoryLinks: Array<{ label: string; href: string; group?: ProductMapGroup; allCollections?: boolean }> = [
@@ -565,7 +565,7 @@ export function Header({
               animate={{ x: 0 }}
               exit={reducedMotion ? { opacity: 0 } : { x: isRtlLanguage(language) ? "100%" : "-100%" }}
               transition={{ duration: reducedMotion ? 0 : 0.34, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-y-0 start-0 z-50 flex w-[min(70vw,350px)] flex-col bg-white text-[#0F1822] shadow-[18px_0_55px_rgba(0,0,0,0.25)] rtl:shadow-[-18px_0_55px_rgba(0,0,0,0.25)] xl:hidden"
+              className="fixed inset-y-0 start-0 z-50 flex w-[min(92vw,430px)] flex-col bg-white text-[#0F1822] shadow-[18px_0_55px_rgba(0,0,0,0.25)] rtl:shadow-[-18px_0_55px_rgba(0,0,0,0.25)] xl:hidden"
             >
               <div className="flex h-[72px] shrink-0 items-center justify-between border-b border-white/10 bg-[#111315] px-4">
                 <div className="relative h-[50px] w-[clamp(7.5rem,42vw,9.25rem)] shrink-0">
@@ -585,6 +585,65 @@ export function Header({
 
               <nav className="hide-scrollbar min-h-0 flex-1 overflow-y-auto px-5 py-3" aria-label="Mobile product categories">
                 <div className="divide-y divide-[#E4E0D8] border-y border-[#E4E0D8]">
+                  <div className="bg-white">
+                    <button
+                      type="button"
+                      onClick={() => setMobileExpanded(mobileExpanded === "all" ? null : "all")}
+                      className="flex min-h-[72px] w-full items-center justify-between gap-4 text-start text-[17px] font-medium text-[#0F1822] transition-colors hover:text-[#8A7400]"
+                      aria-expanded={mobileExpanded === "all"}
+                    >
+                      <span className="flex min-w-0 items-center gap-3">
+                        <span className="flex h-12 w-16 shrink-0 items-center justify-center bg-[#FFDA01] text-[#0F1822]">
+                          <ShoppingBag size={19} strokeWidth={1.8} aria-hidden="true" />
+                        </span>
+                        <span className="truncate">{localize(language, "Products", "عرض جميع المنتجات", "צפייה בכל המוצרים")}</span>
+                      </span>
+                      <ChevronDown size={16} className={`shrink-0 text-[#50555B] transition-transform duration-300 ${mobileExpanded === "all" ? "rotate-180" : ""}`} aria-hidden="true" />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {mobileExpanded === "all" && (
+                        <motion.div
+                          initial={reducedMotion ? false : { height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={reducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                          transition={{ duration: reducedMotion ? 0 : 0.26, ease: [0.22, 1, 0.36, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pb-4">
+                            <a href={`${rootPrefix}#products`} onClick={() => setOpen(false)} className="mb-3 flex min-h-12 items-center justify-between bg-[#0F1822] px-4 text-sm font-bold uppercase text-white transition-colors hover:text-[#FFDA01]">
+                              <span>{localize(language, "View all products", "عرض جميع المنتجات", "צפייה בכל המוצרים")}</span>
+                              <ArrowUpRight size={15} className="shrink-0 text-[#FFDA01]" aria-hidden="true" />
+                            </a>
+                            <div className="grid gap-3">
+                              {productMapGroups.map((group) => (
+                                <a key={`all-${group.id}`} href={collectionGroupHref(group)} onClick={() => setOpen(false)} className="group/all-card overflow-hidden border border-[#E4E0D8] bg-white transition-colors hover:border-[#FFDA01]">
+                                  <span className="relative block h-24 overflow-hidden bg-[#070B0E]">
+                                    <Image unoptimized src={group.image} alt={localizedText(language, group.label)} fill sizes="360px" className="object-cover transition-transform duration-700 group-hover/all-card:scale-[1.04]" />
+                                    <span className="absolute inset-0 bg-[linear-gradient(0deg,rgba(7,11,14,0.72)_0%,rgba(7,11,14,0.08)_68%)]" aria-hidden="true" />
+                                    <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-3 text-white">
+                                      <span className="text-sm font-semibold leading-tight">{localizedText(language, group.label)}</span>
+                                      <ArrowUpRight size={13} className="shrink-0 text-[#FFDA01]" aria-hidden="true" />
+                                    </span>
+                                  </span>
+                                  <span className="grid gap-2 p-3">
+                                    <span className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#8A7400]">
+                                      {group.sections.reduce((total, section) => total + section.items.length, 0)} {localize(language, "categories", "categories", "categories")}
+                                    </span>
+                                    {group.sections.slice(0, 3).map((section) => (
+                                      <span key={`all-${group.id}-${section.label.en}`} className="flex items-center justify-between border-b border-[#ECE8E1] pb-2 text-xs font-semibold text-[#50555B]">
+                                        <span className="truncate pe-3">{localizedText(language, section.label)}</span>
+                                        <ChevronRight size={12} className="shrink-0 text-[#A3A7AA] rtl:rotate-180" aria-hidden="true" />
+                                      </span>
+                                    ))}
+                                  </span>
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                   {productMapGroups.map((group) => {
                     const expanded = mobileExpanded === group.id;
                     return (
