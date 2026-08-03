@@ -511,3 +511,41 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     transition-duration: .01ms !important;
   }
 }
+
+/* Next.js app shell mode. */
+.kl-next-app-shell {
+  margin: 0;
+  background: #050709;
+}
+.kl-next-app {
+  min-height: 100vh;
+  background: #050709;
+}
+.kl-next-app__frame {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  border: 0;
+  background: #050709;
+}
+body.admin-bar .kl-next-app__frame {
+  top: 32px;
+  height: calc(100vh - 32px);
+}
+.kl-next-app__fallback {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  color: #fff;
+  text-align: center;
+}
+@media (max-width: 782px) {
+  body.admin-bar .kl-next-app__frame {
+    top: 46px;
+    height: calc(100vh - 46px);
+  }
+}
