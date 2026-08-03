@@ -285,7 +285,7 @@ export function Header({
   const [open, setOpen] = useState(false);
   const [headerSearch, setHeaderSearch] = useState("");
   const [activeMenu, setActiveMenu] = useState<"all" | ProductMapGroup["id"] | null>(null);
-  const [mobileExpanded, setMobileExpanded] = useState<"all" | ProductMapGroup["id"] | null>("all");
+  const [mobileExpanded, setMobileExpanded] = useState<"all" | ProductMapGroup["id"] | null>(null);
   const reducedMotion = useReducedMotion();
   const pathname = usePathname();
   const categoryLinks: Array<{ label: string; href: string; group?: ProductMapGroup; allCollections?: boolean }> = [
