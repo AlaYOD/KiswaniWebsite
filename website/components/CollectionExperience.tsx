@@ -54,10 +54,12 @@ export function CollectionExperience({ category, productMapGroup, collectionProd
   const [selected, setSelected] = useState<Product | null>(null);
   const [query, setQuery] = useState("");
   const isRtl = isRtlLanguage(language);
-  const activeSection = productMapGroup
-    ? productMapGroup.sections.find((section) => section.label.en === initialCategory) ?? productMapGroup.sections[0]
+  const activeSection = productMapGroup && initialCategory
+    ? productMapGroup.sections.find((section) => section.label.en === initialCategory)
     : undefined;
-  const activeItem = activeSection?.items.find((item) => item.label.en === initialSubcategory);
+  const activeItem = activeSection && initialSubcategory
+    ? activeSection.items.find((item) => item.label.en === initialSubcategory)
+    : undefined;
 
   const collectionName = productMapGroup ? localizedText(language, productMapGroup.label) : category ? getCategoryName(category, language) : "";
   const collectionDetail = productMapGroup ? localizedText(language, productMapGroup.description) : category ? getCategoryDetail(category, language) : "";
@@ -133,14 +135,14 @@ export function CollectionExperience({ category, productMapGroup, collectionProd
         </section>
 
         <nav aria-label="Collections" className="border-b border-white/10 bg-[#070B0E] px-4 sm:px-8">
-          <div className="hide-scrollbar mx-auto flex max-w-[1440px] gap-2 overflow-x-auto py-4">
+          <div className="mx-auto grid max-w-[1440px] gap-2 py-4 sm:flex sm:overflow-x-auto">
             {(productMapGroup ? productMapGroups : categories).map((item) => {
               const isProductMap = "sections" in item;
               const href = isProductMap ? groupHref(item) : `/collections/${item.slug}`;
               const active = isProductMap ? item.id === productMapGroup?.id : item.slug === category?.slug;
               const label = isProductMap ? localizedText(language, item.label) : getCategoryName(item, language);
               return (
-                <Link key={href} href={href} aria-current={active ? "page" : undefined} className={`whitespace-nowrap px-5 py-3 text-sm font-semibold transition-colors ${active ? "bg-[#FFDA01] text-[#0F1822]" : "border border-white/15 text-white/60 hover:border-white/50 hover:text-white"}`}>
+                <Link key={href} href={href} aria-current={active ? "page" : undefined} className={`flex min-h-12 items-center justify-between px-5 py-3 text-sm font-semibold transition-colors sm:whitespace-nowrap ${active ? "bg-[#FFDA01] text-[#0F1822]" : "border border-white/15 text-white/60 hover:border-white/50 hover:text-white"}`}>
                   {label}
                 </Link>
               );
@@ -148,7 +150,7 @@ export function CollectionExperience({ category, productMapGroup, collectionProd
           </div>
         </nav>
 
-        {productMapGroup && activeSection && (
+        {productMapGroup && (
           <section className="bg-[#F4F2ED] px-4 py-10 sm:px-8 sm:py-14">
             <div className="mx-auto max-w-[1440px]">
               <div className="mb-6 flex items-end justify-between gap-6">
@@ -158,11 +160,18 @@ export function CollectionExperience({ category, productMapGroup, collectionProd
                 </div>
               </div>
 
-              <div className="hide-scrollbar flex gap-3 overflow-x-auto pb-3">
+              <div className="grid gap-3 pb-3 sm:flex sm:overflow-x-auto">
+                <Link href={groupHref(productMapGroup)} className={`group/section relative flex min-h-24 flex-col justify-between overflow-hidden border p-5 transition-all sm:h-44 sm:min-w-[280px] ${!activeSection ? "border-[#FFDA01] bg-[#0F1822] text-white shadow-[0_18px_45px_rgba(15,24,34,0.18)]" : "border-white bg-white text-[#0F1822] hover:border-[#FFDA01]"}`}>
+                  <span className={`text-xs font-bold uppercase tracking-[0.2em] ${!activeSection ? "text-[#FFDA01]" : "text-[#8A7400]"}`}>{localize(language, "Full collection", "Full collection", "Full collection")}</span>
+                  <span className="flex items-end justify-between gap-4">
+                    <span className="text-2xl font-semibold leading-tight tracking-[-0.04em]">{localize(language, "All products", "All products", "All products")}</span>
+                    <span className={`flex h-9 w-9 shrink-0 items-center justify-center ${!activeSection ? "bg-[#FFDA01] text-[#0F1822]" : "bg-[#0F1822] text-[#FFDA01]"}`}><ArrowRight size={15} className={isRtl ? "rotate-180" : ""} /></span>
+                  </span>
+                </Link>
                 {productMapGroup.sections.map((section) => {
-                  const active = section.label.en === activeSection.label.en;
+                  const active = section.label.en === activeSection?.label.en;
                   return (
-                    <Link key={section.label.en} href={groupHref(productMapGroup, section)} className={`group/section relative h-44 min-w-[260px] overflow-hidden border transition-all sm:min-w-[310px] ${active ? "border-[#FFDA01] shadow-[0_18px_45px_rgba(15,24,34,0.18)]" : "border-white hover:border-[#FFDA01]"}`}>
+                    <Link key={section.label.en} href={groupHref(productMapGroup, section)} className={`group/section relative h-24 overflow-hidden border transition-all sm:h-44 sm:min-w-[310px] ${active ? "border-[#FFDA01] shadow-[0_18px_45px_rgba(15,24,34,0.18)]" : "border-white hover:border-[#FFDA01]"}`}>
                       <Image unoptimized src={section.image} alt={localizedText(language, section.label)} fill sizes="320px" className="object-cover transition-transform duration-700 group-hover/section:scale-[1.04]" />
                       <span className="absolute inset-0 bg-[linear-gradient(0deg,rgba(7,11,14,0.82)_0%,rgba(7,11,14,0.08)_72%)]" />
                       <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-white">
@@ -174,20 +183,20 @@ export function CollectionExperience({ category, productMapGroup, collectionProd
                 })}
               </div>
 
-              <div className="mt-7 border-y border-[#D8D4CC] py-5">
-                <div className="hide-scrollbar flex gap-2 overflow-x-auto pb-1">
-                  <Link href={groupHref(productMapGroup, activeSection)} className={`whitespace-nowrap px-4 py-3 text-sm font-bold transition-colors ${!activeItem ? "bg-[#0F1822] text-white" : "bg-white text-[#50555B] hover:text-[#0F1822]"}`}>{localize(language, "All", "All", "All")}</Link>
+              {activeSection && <div className="mt-7 border-y border-[#D8D4CC] py-5">
+                <div className="grid gap-2 pb-1 sm:flex sm:overflow-x-auto">
+                  <Link href={groupHref(productMapGroup, activeSection)} className={`flex min-h-11 items-center px-4 py-3 text-sm font-bold transition-colors sm:whitespace-nowrap ${!activeItem ? "bg-[#0F1822] text-white" : "bg-white text-[#50555B] hover:text-[#0F1822]"}`}>{localize(language, "All", "All", "All")}</Link>
                   {activeSection.items.map((item) => {
                     const active = item.label.en === activeItem?.label.en;
                     return (
-                      <Link key={item.label.en} href={groupHref(productMapGroup, activeSection, item)} className={`group/item flex min-w-[210px] items-center gap-3 border bg-white p-2 transition-all ${active ? "border-[#0F1822] shadow-[0_12px_30px_rgba(15,24,34,0.12)]" : "border-transparent hover:border-[#FFDA01]"}`}>
+                      <Link key={item.label.en} href={groupHref(productMapGroup, activeSection, item)} className={`group/item flex min-h-16 items-center gap-3 border bg-white p-2 transition-all sm:min-w-[210px] ${active ? "border-[#0F1822] shadow-[0_12px_30px_rgba(15,24,34,0.12)]" : "border-transparent hover:border-[#FFDA01]"}`}>
                         <span className="relative h-14 w-16 shrink-0 overflow-hidden bg-[#070B0E]"><Image unoptimized src={item.image} alt="" fill sizes="64px" className="object-cover" /></span>
                         <span className="min-w-0 text-sm font-semibold leading-tight text-[#0F1822]">{localizedText(language, item.label)}</span>
                       </Link>
                     );
                   })}
                 </div>
-              </div>
+              </div>}
             </div>
           </section>
         )}
@@ -210,7 +219,7 @@ export function CollectionExperience({ category, productMapGroup, collectionProd
             </div>
 
             <motion.div layout className="mt-16 grid auto-rows-fr gap-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-              <AnimatePresence mode="popLayout">{scopedProducts.map((product) => <ProductCard key={product.code} product={product} language={language} open={setSelected} />)}</AnimatePresence>
+              <AnimatePresence mode="popLayout">{scopedProducts.map((product) => <ProductCard key={product.code} product={product} language={language} open={setSelected} mobileList />)}</AnimatePresence>
             </motion.div>
 
             {scopedProducts.length === 0 && (

@@ -289,7 +289,7 @@ export function Header({
   const reducedMotion = useReducedMotion();
   const pathname = usePathname();
   const categoryLinks: Array<{ label: string; href: string; group?: ProductMapGroup; allCollections?: boolean }> = [
-    { label: localize(language, "Shop all", "عرض جميع المنتجات", "צפייה בכל המוצרים"), href: `${rootPrefix}#products`, allCollections: true },
+    { label: localize(language, "Products", "عرض جميع المنتجات", "צפייה בכל המוצרים"), href: `${rootPrefix}#products`, allCollections: true },
     ...productMapGroups.map((group) => ({ label: localizedText(language, group.label), href: collectionGroupHref(group), group })),
     { label: localize(language, "Projects", "المشاريع", "פרויקטים"), href: "/projects" },
   ];
@@ -803,10 +803,20 @@ function VisualStories({ language }: { language: Language }) {
   );
 }
 
-export function ProductCard({ product, language, open }: { product: Product; language: Language; open: (product: Product) => void }) {
+export function ProductCard({ product, language, open, mobileList = false }: { product: Product; language: Language; open: (product: Product) => void; mobileList?: boolean }) {
   const { add } = useCart();
   const [quantity, setQuantity] = useState(1);
   const name = getProductName(product, language);
+  const mobileListArticleClass = mobileList ? " max-sm:min-h-0 max-sm:flex-row max-sm:shadow-none" : "";
+  const mobileListImageClass = mobileList ? " max-sm:h-auto max-sm:min-h-36 max-sm:w-32 max-sm:aspect-auto" : "";
+  const mobileListContentClass = mobileList ? " max-sm:min-w-0 max-sm:p-4" : "";
+  const mobileListTitleClass = mobileList ? " max-sm:h-auto max-sm:text-base max-sm:leading-6" : "";
+  const mobileListPriceClass = mobileList ? " max-sm:mt-2 max-sm:text-lg" : "";
+  const mobileListFooterClass = mobileList ? " max-sm:mt-4 max-sm:pt-4" : "";
+  const mobileListQuantityClass = mobileList ? " max-sm:flex-col max-sm:items-start max-sm:gap-2" : "";
+  const mobileListQuantityButtonClass = mobileList ? " max-sm:h-9 max-sm:w-9" : "";
+  const mobileListQuantityInputClass = mobileList ? " max-sm:h-9 max-sm:w-10" : "";
+  const mobileListCartButtonClass = mobileList ? " max-sm:min-h-10 max-sm:px-3 max-sm:text-xs" : "";
 
   return (
     <motion.article
@@ -816,12 +826,12 @@ export function ProductCard({ product, language, open }: { product: Product; lan
       viewport={{ once: true, amount: 0.12 }}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
-      className="group flex h-full min-h-[530px] flex-col overflow-hidden border border-[#DEDAD1] bg-white shadow-[0_16px_45px_rgba(15,24,34,0.055)] transition-[border-color,box-shadow] duration-500 hover:border-[#C7C1B6] hover:shadow-[0_28px_75px_rgba(15,24,34,0.13)]"
+      className={`group flex h-full min-h-[530px] flex-col overflow-hidden border border-[#DEDAD1] bg-white shadow-[0_16px_45px_rgba(15,24,34,0.055)] transition-[border-color,box-shadow] duration-500 hover:border-[#C7C1B6] hover:shadow-[0_28px_75px_rgba(15,24,34,0.13)]${mobileListArticleClass}`}
     >
       <button
         type="button"
         onClick={() => open(product)}
-        className="relative block aspect-square w-full shrink-0 overflow-hidden bg-[#F4F2ED] text-start focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#FFDA01]"
+        className={`relative block aspect-square w-full shrink-0 overflow-hidden bg-[#F4F2ED] text-start focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#FFDA01]${mobileListImageClass}`}
         aria-label={copy[language].view}
       >
         <Media
@@ -833,23 +843,23 @@ export function ProductCard({ product, language, open }: { product: Product; lan
         <span className="absolute inset-x-0 bottom-0 h-px origin-start scale-x-0 bg-[#FFDA01] transition-transform duration-500 group-hover:scale-x-100" />
       </button>
 
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
+      <div className={`flex flex-1 flex-col p-5 sm:p-6${mobileListContentClass}`}>
         <button
           type="button"
           onClick={() => open(product)}
           className="block text-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFDA01]"
         >
-          <h3 className="line-clamp-2 h-14 text-xl font-semibold leading-7 tracking-[-0.025em] text-[#0F1822] transition-colors group-hover:text-[#50555B]">
+          <h3 className={`line-clamp-2 h-14 text-xl font-semibold leading-7 tracking-[-0.025em] text-[#0F1822] transition-colors group-hover:text-[#50555B]${mobileListTitleClass}`}>
             {name}
           </h3>
         </button>
 
-        <p className="mt-3 text-2xl font-bold tracking-[-0.035em] text-[#0F1822]">
+        <p className={`mt-3 text-2xl font-bold tracking-[-0.035em] text-[#0F1822]${mobileListPriceClass}`}>
           {formatPrice(product.price, language)}
         </p>
 
-        <div className="mt-auto border-t border-[#DEDAD1] pt-5">
-          <div className="flex items-center justify-between gap-4">
+        <div className={`mt-auto border-t border-[#DEDAD1] pt-5${mobileListFooterClass}`}>
+          <div className={`flex items-center justify-between gap-4${mobileListQuantityClass}`}>
             <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#50555B]">
               {localize(language, "Qty", "الكمية", "כמות")}
             </span>
@@ -857,7 +867,7 @@ export function ProductCard({ product, language, open }: { product: Product; lan
               <button
                 type="button"
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                className="flex h-11 w-11 items-center justify-center text-[#0F1822] transition-colors hover:bg-white focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-[#0F1822]"
+                className={`flex h-11 w-11 items-center justify-center text-[#0F1822] transition-colors hover:bg-white focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-[#0F1822]${mobileListQuantityButtonClass}`}
                 aria-label={localize(language, "Decrease quantity", "تقليل الكمية", "הפחתת כמות")}
               >
                 <Minus size={15} />
@@ -872,12 +882,12 @@ export function ProductCard({ product, language, open }: { product: Product; lan
                   if (!isNaN(value) && value > 0) setQuantity(Math.min(999, value));
                 }}
                 aria-label={localize(language, "Quantity", "الكمية", "כמות")}
-                className="h-11 w-12 border-x border-[#CCCFCE] bg-white text-center text-sm font-bold text-[#0F1822] outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FFDA01] [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                className={`h-11 w-12 border-x border-[#CCCFCE] bg-white text-center text-sm font-bold text-[#0F1822] outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#FFDA01] [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none${mobileListQuantityInputClass}`}
               />
               <button
                 type="button"
                 onClick={() => setQuantity((q) => Math.min(999, q + 1))}
-                className="flex h-11 w-11 items-center justify-center text-[#0F1822] transition-colors hover:bg-white focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-[#0F1822]"
+                className={`flex h-11 w-11 items-center justify-center text-[#0F1822] transition-colors hover:bg-white focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-[#0F1822]${mobileListQuantityButtonClass}`}
                 aria-label={localize(language, "Increase quantity", "زيادة الكمية", "הגדלת כמות")}
               >
                 <Plus size={15} />
@@ -888,7 +898,7 @@ export function ProductCard({ product, language, open }: { product: Product; lan
           <button
             type="button"
             onClick={() => add(product, quantity)}
-            className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-[#FFDA01] px-5 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F1822]"
+            className={`mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 bg-[#FFDA01] px-5 text-sm font-bold text-[#0F1822] transition-colors hover:bg-[#FFD100] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F1822]${mobileListCartButtonClass}`}
           >
             <ShoppingBag size={17} />
             {localize(language, "Add to cart", "أضف إلى السلة", "הוספה לסל")}
