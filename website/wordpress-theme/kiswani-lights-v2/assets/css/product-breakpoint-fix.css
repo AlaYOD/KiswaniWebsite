@@ -1,0 +1,15 @@
+.ks-product-related header a span {
+	display: inline;
+	padding: 0;
+	color: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	letter-spacing: normal;
+	line-height: inherit;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+	.ks-product-specs > div {
+		min-height: 610px;
+	}
+}

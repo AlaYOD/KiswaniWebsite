@@ -1,0 +1,47 @@
+.ks-cart-overlay{position:fixed;z-index:150;inset:0;background:rgba(7,11,14,.75);backdrop-filter:blur(4px);opacity:0;transition:opacity .25s}
+.ks-cart-overlay.is-open{opacity:1}
+.ks-cart-drawer{position:absolute;top:0;right:0;bottom:0;display:flex;width:100%;max-width:512px;flex-direction:column;background:#f4f2ed;color:#0f1822;box-shadow:0 25px 50px rgba(0,0,0,.25);transform:translateX(100%);transition:transform .45s cubic-bezier(.22,1,.36,1);outline:0}
+.ks-cart-overlay.is-open .ks-cart-drawer{transform:translateX(0)}
+.ks-cart-drawer svg{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ks-cart-drawer h2,.ks-cart-drawer h3,.ks-cart-drawer p{margin:0}
+.ks-cart-drawer__header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #cccfce;padding:24px 32px}
+.ks-cart-drawer__header p{color:#73787c;font-size:10px;font-weight:700;line-height:15px;letter-spacing:.2em;text-transform:uppercase}
+.ks-cart-drawer__header h2{margin-top:4px;font-size:30px;font-weight:600;line-height:36px;letter-spacing:-.04em}
+.ks-cart-drawer__header>button{display:flex;width:44px;height:44px;align-items:center;justify-content:center;border:0;background:#0f1822;color:#fff;font-size:28px;line-height:1;cursor:pointer}
+.ks-cart-drawer__body{flex:1;overflow-y:auto;padding:24px 32px}
+.ks-cart-drawer__empty{display:flex;min-height:320px;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+.ks-cart-drawer__empty>span{display:flex;width:64px;height:64px;align-items:center;justify-content:center;border-radius:50%;background:#ffda01}
+.ks-cart-drawer__empty svg{width:26px;height:26px}
+.ks-cart-drawer__empty h3{margin-top:24px;font-size:24px;font-weight:600;line-height:32px}
+.ks-cart-drawer__empty p{max-width:320px;margin-top:12px;color:#73787c;font-size:14px;line-height:24px}
+.ks-cart-drawer__items{display:grid;gap:16px}
+.ks-cart-line{display:grid;grid-template-columns:88px 1fr;gap:16px;border-bottom:1px solid #cccfce;padding-bottom:20px}
+.ks-cart-line__image{height:112px;overflow:hidden;background:rgba(204,207,206,.3)}
+.ks-cart-line__image img{width:100%;height:100%;object-fit:cover}
+.ks-cart-line__copy{min-width:0}
+.ks-cart-line__head,.ks-cart-line__prices{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.ks-cart-line__head p{color:#73787c;font-size:10px;font-weight:600;line-height:15px;letter-spacing:.12em}
+.ks-cart-line__head h3{margin-top:4px;font-size:16px;font-weight:600;line-height:24px}
+.ks-cart-line__remove{border:0;background:none;padding:8px;color:#73787c;cursor:pointer}
+.ks-cart-line__remove svg{width:16px;height:16px}
+.ks-cart-line__prices{align-items:flex-end;margin-top:12px}
+.ks-cart-line__prices p{font-size:12px;font-weight:600;line-height:16px}
+.ks-cart-line__prices small{display:block;margin-top:4px;color:#73787c;font-size:11px;line-height:16px}
+.ks-cart-line__prices strong{font-size:14px}
+.ks-cart-line__quantity{display:inline-flex;margin-top:12px;align-items:center;border:1px solid #a3a7aa;background:#fff}
+.ks-cart-line__quantity button{display:flex;width:36px;height:36px;align-items:center;justify-content:center;border:0;background:#fff;cursor:pointer}
+.ks-cart-line__quantity button svg{width:14px;height:14px}
+.ks-cart-line__quantity input{width:48px;border:0;background:#fff;text-align:center;font:600 14px 'IBM Plex Sans Arabic',Arial,sans-serif;outline:0;appearance:textfield}
+.ks-cart-drawer__footer{border-top:1px solid #cccfce;background:#fff;padding:24px 32px}
+.ks-cart-drawer__totals>div{display:flex;align-items:center;justify-content:space-between;font-size:14px;line-height:20px}
+.ks-cart-drawer__totals>div+div{margin-top:12px;font-size:16px;line-height:24px}
+.ks-cart-drawer__totals span{color:#73787c}
+.ks-cart-drawer__totals strong{font-weight:700}
+.ks-cart-drawer__totals>div+div strong{font-size:20px}
+.ks-cart-drawer__totals p{margin-top:12px;color:#73787c;font-size:12px;line-height:20px}
+.ks-cart-drawer__totals>a{display:flex;min-height:56px;margin-top:20px;align-items:center;justify-content:center;gap:12px;background:#ffda01;padding:0 24px;color:#0f1822;font-size:14px;font-weight:700;text-decoration:none}
+.ks-cart-drawer__totals>button{width:100%;margin-top:12px;border:0;background:none;padding:12px;color:#73787c;font:600 12px 'IBM Plex Sans Arabic',Arial,sans-serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.ks-cart-continue{display:flex;width:100%;min-height:56px;align-items:center;justify-content:center;border:0;background:#0f1822;padding:0 24px;color:#fff;font:700 14px 'IBM Plex Sans Arabic',Arial,sans-serif;cursor:pointer}
+body.ks-cart-locked{overflow:hidden}
+@media(max-width:639px){.ks-cart-drawer__header,.ks-cart-drawer__body,.ks-cart-drawer__footer{padding-left:24px;padding-right:24px}}
+@media(prefers-reduced-motion:reduce){.ks-cart-overlay,.ks-cart-drawer{transition-duration:.01ms}}

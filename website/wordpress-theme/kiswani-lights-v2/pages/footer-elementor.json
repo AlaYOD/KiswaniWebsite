@@ -1,0 +1,93 @@
+[
+  {
+    "id": "f1a2b3c",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "flex_direction": "column",
+      "content_width": "full",
+      "gap": {"unit": "px", "size": 0},
+      "padding": {"unit": "px", "top": 0, "right": 16, "bottom": 0, "left": 16, "isLinked": false},
+      "padding_tablet": {"unit": "px", "top": 0, "right": 32, "bottom": 0, "left": 32, "isLinked": false},
+      "background_background": "classic",
+      "background_color": "#050709",
+      "css_classes": "kiswani-pro-footer"
+    },
+    "elements": [
+      {"id": "d4e5f6g", "elType": "widget", "widgetType": "html", "settings": {"html": "<div class=\"kiswani-pro-footer__rule\" aria-hidden=\"true\"></div>"}, "elements": []},
+      {
+        "id": "h7i8j9k",
+        "elType": "container",
+        "isInner": false,
+        "settings": {
+          "flex_direction": "row",
+          "flex_direction_tablet": "column",
+          "content_width": "boxed",
+          "boxed_width": {"unit": "px", "size": 1440},
+          "gap": {"unit": "px", "size": 56},
+          "padding": {"unit": "px", "top": 112, "right": 0, "bottom": 80, "left": 0, "isLinked": false},
+          "padding_mobile": {"unit": "px", "top": 80, "right": 0, "bottom": 64, "left": 0, "isLinked": false},
+          "border_border": "solid",
+          "border_width": {"unit": "px", "top": 0, "right": 0, "bottom": 1, "left": 0, "isLinked": false},
+          "border_color": "rgba(255,255,255,0.10)",
+          "css_classes": "kiswani-pro-footer__grid"
+        },
+        "elements": [
+          {
+            "id": "l0m1n2o",
+            "elType": "container",
+            "isInner": false,
+            "settings": {"flex_direction": "column", "content_width": "full", "gap": {"unit": "px", "size": 24}, "css_classes": "kiswani-pro-footer__brand"},
+            "elements": [
+              {"id": "p3q4r5s", "elType": "widget", "widgetType": "image", "settings": {"image": {"url": "__THEME_URI__/assets/images/kiswani-logo-since-1994.png", "alt": "Kiswani Lights — Since 1994"}, "image_size": "full", "width": {"unit": "px", "size": 430}, "width_mobile": {"unit": "px", "size": 320}, "css_classes": "kiswani-pro-footer__logo"}, "elements": []},
+              {"id": "t6u7v8w", "elType": "widget", "widgetType": "heading", "settings": {"title": "Lighting is not decoration. It is the soul of the space.", "header_size": "h2", "title_color": "#FFFFFF", "typography_typography": "custom", "typography_font_family": "IBM Plex Sans Arabic", "typography_font_size": {"unit": "px", "size": 36}, "typography_font_size_mobile": {"unit": "px", "size": 24}, "typography_font_weight": "600", "typography_line_height": {"unit": "em", "size": 1.2}, "typography_letter_spacing": {"unit": "em", "size": -0.03}}, "elements": []},
+              {"id": "x9y0z1a", "elType": "widget", "widgetType": "text-editor", "settings": {"editor": "<p><span></span>Decorative · Technical · Architectural</p>", "text_color": "#73787C", "typography_typography": "custom", "typography_font_family": "IBM Plex Sans Arabic", "typography_font_size": {"unit": "px", "size": 10}, "typography_font_weight": "600", "typography_letter_spacing": {"unit": "em", "size": 0.12}, "css_classes": "kiswani-pro-footer__descriptor"}, "elements": []}
+            ]
+          },
+          {
+            "id": "b2c3d4e",
+            "elType": "container",
+            "isInner": false,
+            "settings": {"flex_direction": "column", "content_width": "full", "gap": {"unit": "px", "size": 20}, "css_classes": "kiswani-pro-footer__column"},
+            "elements": [
+              {"id": "f5g6h7i", "elType": "widget", "widgetType": "heading", "settings": {"title": "EXPLORE", "header_size": "p", "title_color": "#FFDA01", "typography_typography": "custom", "typography_font_family": "IBM Plex Sans Arabic", "typography_font_size": {"unit": "px", "size": 10}, "typography_font_weight": "700", "typography_letter_spacing": {"unit": "em", "size": 0.16}}, "elements": []},
+              {"id": "j8k9l0m", "elType": "widget", "widgetType": "html", "settings": {"html": "<nav aria-label=\"Footer exploration\"><a href=\"/#collections\"><span>Collections</span><em>01</em></a><a href=\"/#types\"><span>Lighting types</span><em>02</em></a><a href=\"/#products\"><span>Products</span><em>03</em></a><a href=\"/projects\"><span>Projects</span><em>04</em></a></nav>"}, "elements": []}
+            ]
+          },
+          {
+            "id": "n1o2p3q",
+            "elType": "container",
+            "isInner": false,
+            "settings": {"flex_direction": "column", "content_width": "full", "gap": {"unit": "px", "size": 20}, "css_classes": "kiswani-pro-footer__column"},
+            "elements": [
+              {"id": "r4s5t6u", "elType": "widget", "widgetType": "heading", "settings": {"title": "IMPORTANT LINKS", "header_size": "p", "title_color": "#FFDA01", "typography_typography": "custom", "typography_font_family": "IBM Plex Sans Arabic", "typography_font_size": {"unit": "px", "size": 10}, "typography_font_weight": "700", "typography_letter_spacing": {"unit": "em", "size": 0.16}}, "elements": []},
+              {"id": "v7w8x9y", "elType": "widget", "widgetType": "html", "settings": {"html": "<nav aria-label=\"Important links\"><a href=\"/about\"><span>About us</span><em>01</em></a><a href=\"/support\"><span>Support</span><em>02</em></a><a href=\"/privacy\"><span>Privacy policy</span><em>03</em></a><a href=\"/terms\"><span>Terms of use</span><em>04</em></a></nav>"}, "elements": []}
+            ]
+          },
+          {
+            "id": "z0a1b2c",
+            "elType": "container",
+            "isInner": false,
+            "settings": {"flex_direction": "column", "content_width": "full", "gap": {"unit": "px", "size": 20}, "css_classes": "kiswani-pro-footer__contact"},
+            "elements": [
+              {"id": "d3e4f5g", "elType": "widget", "widgetType": "heading", "settings": {"title": "CONTACT", "header_size": "p", "title_color": "#FFDA01", "typography_typography": "custom", "typography_font_family": "IBM Plex Sans Arabic", "typography_font_size": {"unit": "px", "size": 10}, "typography_font_weight": "700", "typography_letter_spacing": {"unit": "em", "size": 0.16}}, "elements": []},
+              {"id": "h6i7j8k", "elType": "widget", "widgetType": "text-editor", "settings": {"editor": "<p><a href=\"mailto:info@kiswanilights.com\">info@kiswanilights.com</a></p><p><a href=\"tel:+970599671209\">+970 599 67 12 09</a></p><p>Ramallah<br>Palestine</p>", "text_color": "#A3A7AA", "typography_typography": "custom", "typography_font_family": "IBM Plex Sans Arabic", "typography_font_size": {"unit": "px", "size": 14}, "typography_line_height": {"unit": "em", "size": 1.6}}, "elements": []},
+              {"id": "l9m0n1o", "elType": "widget", "widgetType": "button", "settings": {"text": "START A PROJECT", "link": {"url": "/#contact"}, "button_type": "default", "button_text_color": "#FFFFFF", "border_border": "solid", "border_width": {"unit": "px", "top": 1, "right": 1, "bottom": 1, "left": 1, "isLinked": true}, "border_color": "rgba(255,255,255,0.15)", "padding": {"unit": "px", "top": 15, "right": 20, "bottom": 15, "left": 20, "isLinked": false}}, "elements": []}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "p2q3r4s",
+        "elType": "container",
+        "isInner": false,
+        "settings": {"flex_direction": "row", "flex_direction_mobile": "column", "content_width": "boxed", "boxed_width": {"unit": "px", "size": 1440}, "justify_content": "space-between", "gap": {"unit": "px", "size": 20}, "padding": {"unit": "px", "top": 28, "right": 0, "bottom": 28, "left": 0, "isLinked": false}, "css_classes": "kiswani-pro-footer__bottom"},
+        "elements": [
+          {"id": "t5u6v7w", "elType": "widget", "widgetType": "text-editor", "settings": {"editor": "<p>© 2026 Kiswani Lights</p>", "text_color": "#50555B", "typography_typography": "custom", "typography_font_size": {"unit": "px", "size": 10}, "typography_letter_spacing": {"unit": "em", "size": 0.12}}, "elements": []},
+          {"id": "x8y9z0a", "elType": "widget", "widgetType": "text-editor", "settings": {"editor": "<p><a href=\"/checkout\">Checkout</a><a href=\"/privacy\">Privacy</a><a href=\"/terms\">Terms</a><span>Ramallah, Palestine</span></p>", "text_color": "#50555B", "align": "right", "typography_typography": "custom", "typography_font_size": {"unit": "px", "size": 10}, "typography_letter_spacing": {"unit": "em", "size": 0.12}}, "elements": []}
+        ]
+      },
+      {"id": "b1c2d3e", "elType": "widget", "widgetType": "html", "settings": {"html": "<div class=\"kiswani-pro-footer__word\" aria-hidden=\"true\">KISWANI</div><style>.kiswani-pro-footer{position:relative;overflow:hidden;color:#fff}.kiswani-pro-footer__rule{height:4px;background:#FFDA01}.kiswani-pro-footer__grid{display:grid;grid-template-columns:1.2fr .48fr .56fr .6fr}.kiswani-pro-footer a{color:inherit;text-decoration:none}.kiswani-pro-footer__descriptor p{display:flex;align-items:center;gap:16px;margin:0}.kiswani-pro-footer__descriptor span{display:inline-block;width:64px;height:3px;background:#FFDA01}.kiswani-pro-footer__column nav{display:grid;gap:4px}.kiswani-pro-footer__column nav a{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.07);padding:16px 0;color:#A3A7AA;font-size:14px;transition:color .2s}.kiswani-pro-footer__column nav a:hover,.kiswani-pro-footer__contact a:hover{color:#fff}.kiswani-pro-footer__column em{color:#50555B;font-size:9px;font-style:normal}.kiswani-pro-footer__contact .elementor-widget-text-editor p{margin:0 0 16px}.kiswani-pro-footer__bottom .elementor-widget-text-editor p{margin:0;text-transform:uppercase}.kiswani-pro-footer__bottom .elementor-widget-text-editor:last-child p{display:flex;flex-wrap:wrap;justify-content:end;gap:20px}.kiswani-pro-footer__word{pointer-events:none;position:absolute;bottom:-48px;left:50%;transform:translateX(-50%);white-space:nowrap;color:rgba(255,255,255,.018);font-size:15vw;font-weight:700;line-height:1;letter-spacing:-.08em}@media(max-width:1024px){.kiswani-pro-footer__grid{grid-template-columns:1fr 1fr}.kiswani-pro-footer__brand{grid-column:1/-1}}@media(max-width:767px){.kiswani-pro-footer__grid{grid-template-columns:1fr}.kiswani-pro-footer__brand{grid-column:auto}.kiswani-pro-footer__bottom .elementor-widget-text-editor:last-child p{justify-content:start}}</style>"}, "elements": []}
+    ]
+  }
+]

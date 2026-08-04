@@ -1,0 +1,344 @@
+/* Exact responsive rules translated from components/ProductExperience.tsx. */
+.ks-product-breadcrumb {
+	margin-bottom: 0;
+	line-height: 16px;
+}
+
+.ks-product-panel,
+.ks-product-copy {
+	line-height: 24px;
+}
+
+.ks-product-copy .ks-kicker {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 !important;
+	color: #ffda01;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .18em;
+	line-height: 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.ks-product-copy .ks-kicker svg,
+.ks-product-note svg {
+	width: 15px;
+	height: 15px;
+	fill: none;
+	stroke: currentcolor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2;
+}
+
+.ks-product-copy h1 {
+	margin-top: 20px;
+	font-size: 60px;
+	font-weight: 600;
+	line-height: .98;
+}
+
+.ks-product-copy .ks-product-description {
+	margin-top: 16px;
+	color: #a3a7aa;
+	font-size: 16px;
+	line-height: 28px;
+}
+
+.ks-product-price {
+	flex-wrap: wrap;
+	align-items: end;
+	gap: 16px;
+	margin-top: 24px;
+	padding: 16px 0;
+}
+
+.ks-product-price small {
+	font-size: 10px;
+	letter-spacing: .18em;
+	line-height: 15px;
+}
+
+.ks-product-price b {
+	margin-top: 8px;
+	font-size: 36px;
+	line-height: 40px;
+}
+
+.ks-product-price p {
+	max-width: 320px;
+	color: #a3a7aa;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.ks-product-summary {
+	margin-top: 24px;
+	border: 1px solid rgb(255 255 255 / 10%);
+	background: rgb(255 255 255 / 10%);
+	gap: 1px;
+}
+
+.ks-product-summary > div {
+	min-height: 0;
+	border: 0;
+	background: #0b1015;
+	padding: 16px;
+}
+
+.ks-product-summary small {
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: .16em;
+	line-height: 13.5px;
+}
+
+.ks-product-summary b {
+	margin-top: 6px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.ks-product-note {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin: 20px 0 0 !important;
+	border-left: 2px solid #ffda01;
+	padding-left: 16px;
+	color: #a3a7aa;
+}
+
+.ks-product-note svg {
+	width: 17px;
+	height: 17px;
+	margin-top: 2px;
+	flex: 0 0 17px;
+	color: #ffda01;
+}
+
+.ks-product-note p {
+	margin: 0;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.ks-product-quantity label {
+	line-height: 16px;
+}
+
+.ks-product-purchase > button,
+.ks-product-purchase a {
+	line-height: 16px;
+}
+
+.ks-product-data-kicker {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.ks-product-data-kicker i {
+	display: block;
+	width: 56px;
+	height: 3px;
+	background: #ffda01;
+}
+
+.ks-product-data-kicker p {
+	color: #50555b;
+}
+
+.ks-product-specs header > span {
+	margin-top: 16px;
+	line-height: 28px;
+}
+
+.ks-product-specs header > a {
+	display: inline-flex;
+	min-height: 52px;
+	align-items: center;
+	gap: 12px;
+	margin-top: 24px;
+	padding: 0 24px;
+	background: #0f1822;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	text-decoration: none;
+}
+
+.ks-product-specs header > a::before {
+	display: block;
+	width: 13px;
+	height: 17px;
+	border: 2px solid #ffda01;
+	content: '';
+}
+
+.ks-product-related header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.ks-product-related header > a {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	line-height: 20px;
+}
+
+.ks-product-related > div > div > a {
+	display: block;
+}
+
+.ks-related-image {
+	position: relative;
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+}
+
+.ks-related-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.ks-related-image i {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	display: flex;
+	width: 44px;
+	height: 44px;
+	align-items: center;
+	justify-content: center;
+	background: #ffda01;
+	font-size: 18px;
+	font-style: normal;
+}
+
+.ks-related-copy {
+	padding: 20px;
+}
+
+.ks-related-copy span {
+	padding: 0;
+	font-weight: 600;
+	line-height: 15px;
+}
+
+.ks-related-copy h3 {
+	margin-top: 8px;
+	padding: 0;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 32px;
+}
+
+@media (min-width: 640px) and (max-width: 1279px) {
+	.ks-product-copy h1 {
+		font-size: 48px;
+		line-height: .98;
+	}
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+	.ks-product-hero {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+
+	.ks-product-copy {
+		padding: 32px;
+	}
+}
+
+@media (max-width: 1023px) {
+	.ks-product-specs > div {
+		gap: 40px;
+	}
+}
+
+@media (max-width: 767px) {
+	.ks-mainbar__inner {
+		height: 76px;
+	}
+
+	.ks-product-hero {
+		padding: 12px 12px 16px;
+	}
+
+	.ks-product-thumbs {
+		margin-top: 12px;
+	}
+
+	.ks-product-copy {
+		padding: 20px;
+	}
+
+	.ks-product-copy h1 {
+		margin-top: 20px;
+		font-size: 36px;
+		line-height: .98;
+	}
+
+	.ks-product-price {
+		align-items: end;
+		flex-direction: row;
+	}
+
+	.ks-product-price p {
+		max-width: 320px;
+		text-align: left;
+	}
+
+	.ks-product-summary {
+		grid-template-columns: 1fr;
+	}
+
+	.ks-product-specs,
+	.ks-product-related,
+	.ks-product-cta {
+		padding: 56px 16px;
+	}
+
+	.ks-product-specs h2 {
+		font-size: 30px;
+		line-height: 1.02;
+	}
+
+	.ks-product-related header {
+		align-items: stretch;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.ks-product-related h2 {
+		font-size: 30px;
+		line-height: 36px;
+	}
+
+	.ks-related-copy h3 {
+		font-size: 20px;
+		line-height: 28px;
+	}
+
+	.ks-product-cta > div {
+		display: flex;
+		align-items: stretch;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.ks-product-cta h2 {
+		font-size: 30px;
+		line-height: 1;
+	}
+}

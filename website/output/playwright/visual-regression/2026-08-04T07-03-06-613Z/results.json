@@ -1,0 +1,415 @@
+{
+  "sourceBase": "http://localhost:3000",
+  "targetBase": "http://localhost:8088",
+  "thresholdPercent": 2,
+  "comparisonCount": 15,
+  "failedCount": 15,
+  "errorCount": 0,
+  "results": [
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 375,
+      "height": 15801,
+      "mismatchedPixels": 3003312,
+      "pixelDifferencePercent": 50.6856,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\home-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\home-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\home-375-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/about"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/"
+      },
+      "width": 375,
+      "height": 5602,
+      "mismatchedPixels": 817355,
+      "pixelDifferencePercent": 38.9078,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\about-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\about-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\about-375-diff.png"
+      }
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 375,
+      "height": 6386,
+      "mismatchedPixels": 916672,
+      "pixelDifferencePercent": 38.2784,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\support-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\support-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\support-375-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 375,
+      "height": 5689,
+      "mismatchedPixels": 1284924,
+      "pixelDifferencePercent": 60.2296,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\privacy-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\privacy-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\privacy-375-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 375,
+      "height": 6047,
+      "mismatchedPixels": 1082857,
+      "pixelDifferencePercent": 47.7529,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\terms-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\terms-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\terms-375-diff.png"
+      }
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 768,
+      "height": 10338,
+      "mismatchedPixels": 3548232,
+      "pixelDifferencePercent": 44.6904,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\home-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\home-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\home-768-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/about"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/"
+      },
+      "width": 768,
+      "height": 4956,
+      "mismatchedPixels": 829797,
+      "pixelDifferencePercent": 21.8011,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\about-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\about-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\about-768-diff.png"
+      }
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 768,
+      "height": 5080,
+      "mismatchedPixels": 815913,
+      "pixelDifferencePercent": 20.9131,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\support-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\support-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\support-768-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 768,
+      "height": 4751,
+      "mismatchedPixels": 1871600,
+      "pixelDifferencePercent": 51.294,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\privacy-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\privacy-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\privacy-768-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 768,
+      "height": 5009,
+      "mismatchedPixels": 1436898,
+      "pixelDifferencePercent": 37.352,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\terms-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\terms-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\terms-768-diff.png"
+      }
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 1440,
+      "height": 8586,
+      "mismatchedPixels": 6765774,
+      "pixelDifferencePercent": 54.7223,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\home-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\home-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\home-1440-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/about"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/"
+      },
+      "width": 1440,
+      "height": 4029,
+      "mismatchedPixels": 1165423,
+      "pixelDifferencePercent": 20.0874,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\about-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\about-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\about-1440-diff.png"
+      }
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 1440,
+      "height": 3983,
+      "mismatchedPixels": 732448,
+      "pixelDifferencePercent": 12.7704,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\support-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\support-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\support-1440-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 1440,
+      "height": 3730,
+      "mismatchedPixels": 2468329,
+      "pixelDifferencePercent": 45.9549,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\privacy-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\privacy-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\privacy-1440-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 1440,
+      "height": 3999,
+      "mismatchedPixels": 1593951,
+      "pixelDifferencePercent": 27.6797,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\terms-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\terms-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T07-03-06-613Z\\terms-1440-diff.png"
+      }
+    }
+  ]
+}

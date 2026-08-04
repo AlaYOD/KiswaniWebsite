@@ -1,0 +1,11 @@
+.ks-footer--v2 .ks-footer__brand h2 {
+	line-height: 1.25;
+}
+
+.ks-footer--v2 .ks-footer__contact > div p {
+	line-height: 20px;
+}
+
+.ks-footer--v2 .ks-footer__bottom span:last-child {
+	line-height: 15px;
+}

@@ -1,0 +1,529 @@
+- generic [ref=e3]:
+  - status "Kiswani Lights brand introduction" [ref=e4]:
+    - generic [ref=e9]:
+      - img "Kiswani Lights" [ref=e11]
+      - generic [ref=e12]:
+        - paragraph [ref=e13]: Lighting is the soul of the space
+        - paragraph [ref=e14]: الإضاءة هي روح المكان
+    - generic [ref=e16]:
+      - generic [ref=e17]: Kiswani Lights
+      - generic [ref=e18]: Est. 2026
+  - banner [ref=e20]:
+    - generic [ref=e23]:
+      - link "Call Kiswani Lights" [ref=e24] [cursor=pointer]:
+        - /url: tel:+970599671209
+        - generic [ref=e27]: +970 599 67 12 09
+      - link "View Kiswani location on Google Maps" [ref=e29] [cursor=pointer]:
+        - /url: https://www.google.com/maps/search/?api=1&query=Ramallah%2C+Palestine
+        - generic [ref=e33]: Ramallah, Palestine
+      - link "Email Kiswani Lights" [ref=e35] [cursor=pointer]:
+        - /url: mailto:info@kiswanilights.com
+        - generic [ref=e39]: info@kiswanilights.com
+    - generic [ref=e41]:
+      - link "Kiswani Lights home" [ref=e42] [cursor=pointer]:
+        - /url: "#top"
+        - img "Kiswani Lights" [ref=e43]
+      - search [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]: Search products
+          - textbox "Search products" [ref=e48]
+        - button "Search" [ref=e49]
+      - generic [ref=e50]:
+        - link "Contact" [ref=e51] [cursor=pointer]:
+          - /url: "#contact"
+        - generic [ref=e52]:
+          - generic [ref=e53]: Select language
+          - combobox "Select language" [ref=e54]:
+            - option "EN" [selected]
+            - option "العربية"
+            - option "עברית"
+        - button "Open shopping cart with 0 items" [ref=e56]:
+          - generic [ref=e60]: Cart
+    - navigation "Product categories" [ref=e62]:
+      - generic [ref=e63]:
+        - link "Shop all" [ref=e64] [cursor=pointer]:
+          - /url: "#products"
+        - link "Decorative" [ref=e68] [cursor=pointer]:
+          - /url: /collections/decorative
+        - link "Interior" [ref=e72] [cursor=pointer]:
+          - /url: /collections/interior
+        - link "Technical" [ref=e76] [cursor=pointer]:
+          - /url: /collections/technical
+        - link "Accent" [ref=e80] [cursor=pointer]:
+          - /url: /collections/accent
+        - link "Projects" [ref=e84] [cursor=pointer]:
+          - /url: /projects
+  - main [ref=e86]:
+    - generic [ref=e87]:
+      - img "Interior lighting" [ref=e91]
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - paragraph [ref=e98]: KISWANI LIGHTS / 2026
+          - heading "Lighting isn’t just a decorative piece." [level=1] [ref=e99]:
+            - generic [ref=e100]: Lighting isn’t just
+            - generic [ref=e101]: a decorative piece.
+          - paragraph [ref=e102]: Lighting is the soul of the space. We select decorative and technical solutions that make every room feel intentional.
+          - generic [ref=e103]:
+            - link "Explore lighting" [ref=e104] [cursor=pointer]:
+              - /url: "#collections"
+            - link "Start a project" [ref=e110] [cursor=pointer]:
+              - /url: "#contact"
+          - generic [ref=e116]:
+            - generic [ref=e117]:
+              - paragraph [ref=e118]: Interior lighting
+              - paragraph [ref=e119]: Warm, considered light for everyday living.
+            - generic [ref=e120]:
+              - generic [ref=e121]: "01"
+              - generic "Hero scenes" [ref=e122]:
+                - button "Show Interior lighting" [ref=e123]
+                - button "Show Decorative lighting" [ref=e124]
+                - button "Show Technical lighting" [ref=e125]
+                - button "Show Accent lighting" [ref=e126]
+        - generic [ref=e127]:
+          - button "Interior lighting" [ref=e128]
+          - button "Decorative lighting" [ref=e131]
+          - button "Technical lighting" [ref=e134]
+          - button "Accent lighting" [ref=e137]
+    - generic [ref=e141]:
+      - generic "90+ High-CRI light" [ref=e142]:
+        - generic [ref=e143]: 0+
+        - generic [ref=e144]: High-CRI light
+      - generic "48H Project support" [ref=e145]:
+        - generic [ref=e146]: 0H
+        - generic [ref=e147]: Project support
+      - generic "360° Decorative + technical" [ref=e148]:
+        - generic [ref=e149]: 0°
+        - generic [ref=e150]: Decorative + technical
+    - generic [ref=e154]:
+      - generic [ref=e155]: "02"
+      - paragraph [ref=e156]: Lighting is the soul of the space.
+      - paragraph [ref=e157]: The right fixture does more than illuminate. It gives materials depth, creates a focal point, and changes how the whole space feels.
+    - generic [ref=e159]:
+      - generic [ref=e160]:
+        - paragraph [ref=e163]: LIGHTING COLLECTIONS
+        - heading "Find the light that belongs in your space." [level=2] [ref=e164]
+      - generic [ref=e165]:
+        - link "Decorative lighting 01 KISWANI / 2026 Decorative lighting Statement pieces that give the room its character." [ref=e166] [cursor=pointer]:
+          - /url: /collections/decorative
+          - generic [ref=e167]:
+            - img "Decorative lighting" [ref=e170]
+            - generic [ref=e173]: "01"
+            - generic [ref=e176]:
+              - paragraph [ref=e177]: KISWANI / 2026
+              - heading "Decorative lighting" [level=3] [ref=e178]
+              - paragraph [ref=e179]: Statement pieces that give the room its character.
+        - link "Interior lighting 02 KISWANI / 2026 Interior lighting Warm, considered light for everyday living." [ref=e183] [cursor=pointer]:
+          - /url: /collections/interior
+          - generic [ref=e184]:
+            - img "Interior lighting" [ref=e187]
+            - generic [ref=e190]: "02"
+            - generic [ref=e193]:
+              - paragraph [ref=e194]: KISWANI / 2026
+              - heading "Interior lighting" [level=3] [ref=e195]
+              - paragraph [ref=e196]: Warm, considered light for everyday living.
+        - link "Technical lighting 03 KISWANI / 2026 Technical lighting Precise systems for architectural performance." [ref=e200] [cursor=pointer]:
+          - /url: /collections/technical
+          - generic [ref=e201]:
+            - img "Technical lighting" [ref=e204]
+            - generic [ref=e207]: "03"
+            - generic [ref=e210]:
+              - paragraph [ref=e211]: KISWANI / 2026
+              - heading "Technical lighting" [level=3] [ref=e212]
+              - paragraph [ref=e213]: Precise systems for architectural performance.
+        - link "Accent lighting 04 KISWANI / 2026 Accent lighting Focused moments that reveal material and mood." [ref=e217] [cursor=pointer]:
+          - /url: /collections/accent
+          - generic [ref=e218]:
+            - img "Accent lighting" [ref=e221]
+            - generic [ref=e224]: "04"
+            - generic [ref=e227]:
+              - paragraph [ref=e228]: KISWANI / 2026
+              - heading "Accent lighting" [level=3] [ref=e229]
+              - paragraph [ref=e230]: Focused moments that reveal material and mood.
+    - generic [ref=e236]:
+      - generic [ref=e237]:
+        - generic [ref=e238]:
+          - paragraph [ref=e241]: LIGHT IN REAL SPACES
+          - heading "One fixture can change the rhythm of the whole room." [level=2] [ref=e242]
+        - paragraph [ref=e243]: Explore warm, believable interiors where the fixture, materials, and atmosphere work as one composition.
+      - generic [ref=e244]:
+        - link [ref=e245] [cursor=pointer]:
+          - /url: /collections/decorative
+          - img "Sculptural light for shared spaces" [ref=e248]
+          - generic [ref=e251]:
+            - paragraph [ref=e252]: Dining & lounge
+            - heading "Sculptural light for shared spaces" [level=3] [ref=e253]
+        - generic [ref=e258]:
+          - link [ref=e259] [cursor=pointer]:
+            - /url: /collections/technical
+            - img "Guidance after dark" [ref=e262]
+            - generic [ref=e264]:
+              - paragraph [ref=e265]: Stairs & circulation
+              - heading "Guidance after dark" [level=3] [ref=e267]
+          - link [ref=e271] [cursor=pointer]:
+            - /url: /collections/accent
+            - img "Layers of ambient light" [ref=e274]
+            - generic [ref=e276]:
+              - paragraph [ref=e277]: Walls & quiet corners
+              - heading "Layers of ambient light" [level=3] [ref=e279]
+    - generic [ref=e286]:
+      - generic [ref=e287]:
+        - generic [ref=e288]:
+          - paragraph [ref=e291]: A DISTINCTIVE VISUAL LANGUAGE
+          - heading "Every line has a purpose." [level=2] [ref=e292]
+        - paragraph [ref=e293]: From the product silhouette to the way light lands, Kiswani combines decorative presence with technical precision.
+      - generic [ref=e294]:
+        - generic [ref=e295]:
+          - generic [ref=e297]: "01"
+          - heading "Light sources" [level=3] [ref=e301]
+          - paragraph [ref=e302]: Color temperature and clarity for every use.
+        - generic [ref=e303]:
+          - generic [ref=e305]: "02"
+          - heading "Decorative pieces" [level=3] [ref=e312]
+          - paragraph [ref=e313]: Visual presence that gives the space character.
+        - generic [ref=e314]:
+          - generic [ref=e316]: "03"
+          - heading "Functional lighting" [level=3] [ref=e320]
+          - paragraph [ref=e321]: Useful light without visual noise.
+        - generic [ref=e322]:
+          - generic [ref=e324]: "04"
+          - heading "Technical control" [level=3] [ref=e329]
+          - paragraph [ref=e330]: Precision, visual comfort, and reliable output.
+    - generic [ref=e332]:
+      - generic [ref=e333]:
+        - generic [ref=e334]:
+          - paragraph [ref=e337]: FEATURED LIGHTING
+          - heading "Selected pieces, clearly specified." [level=2] [ref=e338]
+        - generic [ref=e339]:
+          - generic [ref=e340]: Search by name, category, or code
+          - textbox "Search by name, category, or code" [ref=e341]
+      - generic [ref=e342]:
+        - article [ref=e343]:
+          - generic [ref=e344]:
+            - generic [ref=e345]:
+              - img "Golden Wall Lamp - 2 Bulb" [ref=e348]
+              - generic [ref=e350]:
+                - generic [ref=e351]: Decorative
+                - generic [ref=e352]: KL-GL-001
+            - generic [ref=e353]:
+              - generic [ref=e354]: KISWANI LIGHTS
+              - heading "Golden Wall Lamp - 2 Bulb" [level=3] [ref=e357]
+              - paragraph [ref=e358]: Brush-gold wall lamp with crystal detail and a warm classic profile.
+              - generic [ref=e360]:
+                - paragraph [ref=e361]: ₪285
+                - paragraph [ref=e362]: Initial price
+          - generic [ref=e363]:
+            - generic [ref=e364]:
+              - generic [ref=e365]: "Qty:"
+              - generic [ref=e366]:
+                - button "Decrease quantity" [ref=e367]
+                - spinbutton [ref=e369]: "1"
+                - button "Increase quantity" [ref=e370]
+            - generic [ref=e372]:
+              - button "Add to cart" [ref=e373]
+              - button "View details" [ref=e377]
+        - article [ref=e381]:
+          - generic [ref=e382]:
+            - generic [ref=e383]:
+              - img "Golden Wall Lamp - 6 Bulb" [ref=e386]
+              - generic [ref=e388]:
+                - generic [ref=e389]: Decorative
+                - generic [ref=e390]: KL-GL-002
+            - generic [ref=e391]:
+              - generic [ref=e392]: KISWANI LIGHTS
+              - heading "Golden Wall Lamp - 6 Bulb" [level=3] [ref=e395]
+              - paragraph [ref=e396]: Six-light golden chandelier wall lamp with crystal accents.
+              - generic [ref=e398]:
+                - paragraph [ref=e399]: ₪690
+                - paragraph [ref=e400]: Initial price
+          - generic [ref=e401]:
+            - generic [ref=e402]:
+              - generic [ref=e403]: "Qty:"
+              - generic [ref=e404]:
+                - button "Decrease quantity" [ref=e405]
+                - spinbutton [ref=e407]: "1"
+                - button "Increase quantity" [ref=e408]
+            - generic [ref=e410]:
+              - button "Add to cart" [ref=e411]
+              - button "View details" [ref=e415]
+        - article [ref=e419]:
+          - generic [ref=e420]:
+            - generic [ref=e421]:
+              - img "Golden Wall Lamp - 15 Bulb" [ref=e424]
+              - generic [ref=e426]:
+                - generic [ref=e427]: Decorative
+                - generic [ref=e428]: KL-GL-003
+            - generic [ref=e429]:
+              - generic [ref=e430]: KISWANI LIGHTS
+              - heading "Golden Wall Lamp - 15 Bulb" [level=3] [ref=e433]
+              - paragraph [ref=e434]: Large golden chandelier with layered arms and crystal drops.
+              - generic [ref=e436]:
+                - paragraph [ref=e437]: ₪1,450
+                - paragraph [ref=e438]: Initial price
+          - generic [ref=e439]:
+            - generic [ref=e440]:
+              - generic [ref=e441]: "Qty:"
+              - generic [ref=e442]:
+                - button "Decrease quantity" [ref=e443]
+                - spinbutton [ref=e445]: "1"
+                - button "Increase quantity" [ref=e446]
+            - generic [ref=e448]:
+              - button "Add to cart" [ref=e449]
+              - button "View details" [ref=e453]
+        - article [ref=e457]:
+          - generic [ref=e458]:
+            - generic [ref=e459]:
+              - img "Golden Wall Lamp - 8 Bulb Long" [ref=e462]
+              - generic [ref=e464]:
+                - generic [ref=e465]: Decorative
+                - generic [ref=e466]: KL-GL-004
+            - generic [ref=e467]:
+              - generic [ref=e468]: KISWANI LIGHTS
+              - heading "Golden Wall Lamp - 8 Bulb Long" [level=3] [ref=e471]
+              - paragraph [ref=e472]: Long eight-light gold chandelier for dining and reception spaces.
+              - generic [ref=e474]:
+                - paragraph [ref=e475]: ₪980
+                - paragraph [ref=e476]: Initial price
+          - generic [ref=e477]:
+            - generic [ref=e478]:
+              - generic [ref=e479]: "Qty:"
+              - generic [ref=e480]:
+                - button "Decrease quantity" [ref=e481]
+                - spinbutton [ref=e483]: "1"
+                - button "Increase quantity" [ref=e484]
+            - generic [ref=e486]:
+              - button "Add to cart" [ref=e487]
+              - button "View details" [ref=e491]
+        - article [ref=e495]:
+          - generic [ref=e496]:
+            - generic [ref=e497]:
+              - img "Amber Globe Wall Lamp" [ref=e500]
+              - generic [ref=e502]:
+                - generic [ref=e503]: Accent
+                - generic [ref=e504]: KL-AG-005
+            - generic [ref=e505]:
+              - generic [ref=e506]: KISWANI LIGHTS
+              - heading "Amber Globe Wall Lamp" [level=3] [ref=e509]
+              - paragraph [ref=e510]: Black wall lamp with amber glass globe for warm accent lighting.
+              - generic [ref=e512]:
+                - paragraph [ref=e513]: ₪220
+                - paragraph [ref=e514]: Initial price
+          - generic [ref=e515]:
+            - generic [ref=e516]:
+              - generic [ref=e517]: "Qty:"
+              - generic [ref=e518]:
+                - button "Decrease quantity" [ref=e519]
+                - spinbutton [ref=e521]: "1"
+                - button "Increase quantity" [ref=e522]
+            - generic [ref=e524]:
+              - button "Add to cart" [ref=e525]
+              - button "View details" [ref=e529]
+        - article [ref=e533]:
+          - generic [ref=e534]:
+            - generic [ref=e535]:
+              - img "Travertine Oval Wall Light" [ref=e538]
+              - generic [ref=e540]:
+                - generic [ref=e541]: Accent
+                - generic [ref=e542]: KL-TV-006
+            - generic [ref=e543]:
+              - generic [ref=e544]: KISWANI LIGHTS
+              - heading "Travertine Oval Wall Light" [level=3] [ref=e547]
+              - paragraph [ref=e548]: Natural travertine wall light with a soft halo glow.
+              - generic [ref=e550]:
+                - paragraph [ref=e551]: ₪260
+                - paragraph [ref=e552]: Initial price
+          - generic [ref=e553]:
+            - generic [ref=e554]:
+              - generic [ref=e555]: "Qty:"
+              - generic [ref=e556]:
+                - button "Decrease quantity" [ref=e557]
+                - spinbutton [ref=e559]: "1"
+                - button "Increase quantity" [ref=e560]
+            - generic [ref=e562]:
+              - button "Add to cart" [ref=e563]
+              - button "View details" [ref=e567]
+        - article [ref=e571]:
+          - generic [ref=e572]:
+            - generic [ref=e573]:
+              - img "Travertine Glass Sconce" [ref=e576]
+              - generic [ref=e578]:
+                - generic [ref=e579]: Accent
+                - generic [ref=e580]: KL-TV-007
+            - generic [ref=e581]:
+              - generic [ref=e582]: KISWANI LIGHTS
+              - heading "Travertine Glass Sconce" [level=3] [ref=e585]
+              - paragraph [ref=e586]: Travertine and glass wall sconce with integrated switch control.
+              - generic [ref=e588]:
+                - paragraph [ref=e589]: ₪240
+                - paragraph [ref=e590]: Initial price
+          - generic [ref=e591]:
+            - generic [ref=e592]:
+              - generic [ref=e593]: "Qty:"
+              - generic [ref=e594]:
+                - button "Decrease quantity" [ref=e595]
+                - spinbutton [ref=e597]: "1"
+                - button "Increase quantity" [ref=e598]
+            - generic [ref=e600]:
+              - button "Add to cart" [ref=e601]
+              - button "View details" [ref=e605]
+        - article [ref=e609]:
+          - generic [ref=e610]:
+            - generic [ref=e611]:
+              - img "Travertine Cylinder Wall Light" [ref=e614]
+              - generic [ref=e616]:
+                - generic [ref=e617]: Accent
+                - generic [ref=e618]: KL-TV-008
+            - generic [ref=e619]:
+              - generic [ref=e620]: KISWANI LIGHTS
+              - heading "Travertine Cylinder Wall Light" [level=3] [ref=e623]
+              - paragraph [ref=e624]: Cylindrical travertine wall light with up and down illumination.
+              - generic [ref=e626]:
+                - paragraph [ref=e627]: ₪210
+                - paragraph [ref=e628]: Initial price
+          - generic [ref=e629]:
+            - generic [ref=e630]:
+              - generic [ref=e631]: "Qty:"
+              - generic [ref=e632]:
+                - button "Decrease quantity" [ref=e633]
+                - spinbutton [ref=e635]: "1"
+                - button "Increase quantity" [ref=e636]
+            - generic [ref=e638]:
+              - button "Add to cart" [ref=e639]
+              - button "View details" [ref=e643]
+    - region "Lighting collections and technologies" [ref=e647]:
+      - generic [ref=e648]:
+        - paragraph [ref=e650]: COLLECTIONS & TECHNOLOGY
+        - generic [ref=e652]:
+          - generic [ref=e653]: DECORATIVE
+          - generic [ref=e656]: ARCHITECTURAL
+          - generic [ref=e659]: TECHNICAL LIGHTING
+          - generic [ref=e662]: DALI CONTROL
+          - generic [ref=e665]: TRIAC DIMMING
+          - generic [ref=e668]: CRI 90+
+          - generic [ref=e671]: OUTDOOR LIGHTING
+          - generic [ref=e674]: DECORATIVE
+          - generic [ref=e677]: ARCHITECTURAL
+          - generic [ref=e680]: TECHNICAL LIGHTING
+          - generic [ref=e683]: DALI CONTROL
+          - generic [ref=e686]: TRIAC DIMMING
+          - generic [ref=e689]: CRI 90+
+          - generic [ref=e692]: OUTDOOR LIGHTING
+    - generic [ref=e696]:
+      - generic [ref=e697]:
+        - generic [ref=e698]:
+          - paragraph [ref=e701]: FEATURED PROJECT
+          - heading "See how light changes the feeling of space." [level=2] [ref=e702]
+        - paragraph [ref=e703]: Drag the line to compare the quiet space before illumination with the final architectural scene, then explore how color temperature changes the atmosphere.
+      - generic [ref=e705]:
+        - img "Interior lighting project before illumination" [ref=e707]
+        - img "Interior lighting project after illumination" [ref=e709]
+        - slider "Move to compare before and after lighting" [ref=e716]: "64"
+        - generic:
+          - generic: BEFORE
+          - generic: AFTER
+        - generic:
+          - generic:
+            - paragraph: Location
+            - paragraph: Private residence, Ramallah
+          - generic:
+            - paragraph: Project type
+            - paragraph: Interior & architectural
+          - generic:
+            - paragraph: Lighting scene
+            - paragraph: 2700K
+      - generic [ref=e717]:
+        - generic [ref=e718]:
+          - paragraph [ref=e719]: SELECT LIGHT TEMPERATURE
+          - group "Light temperature" [ref=e720]:
+            - button "Warm 2700K" [pressed] [ref=e721]:
+              - generic [ref=e722]: Warm
+              - generic [ref=e723]: 2700K
+            - button "Natural 3500K" [ref=e724]:
+              - generic [ref=e725]: Natural
+              - generic [ref=e726]: 3500K
+            - button "Cool 5000K" [ref=e727]:
+              - generic [ref=e728]: Cool
+              - generic [ref=e729]: 5000K
+        - generic [ref=e731]:
+          - generic [ref=e732]:
+            - paragraph [ref=e733]: PRODUCTS USED
+            - generic [ref=e734]:
+              - link "Golden Wall Lamp - 8 Bulb Long" [ref=e735] [cursor=pointer]:
+                - /url: /products/kl-gl-004
+              - link "Travertine Glass Sconce" [ref=e736] [cursor=pointer]:
+                - /url: /products/kl-tv-007
+              - link "Travertine Block Wall Light" [ref=e737] [cursor=pointer]:
+                - /url: /products/kl-tv-009
+          - link "Project & product details" [ref=e738] [cursor=pointer]:
+            - /url: /products/kl-gl-004
+    - generic [ref=e742]:
+      - img "Warmly lit living space" [ref=e745]
+      - generic [ref=e749]:
+        - heading "Let’s light your next space." [level=2] [ref=e757]
+        - paragraph [ref=e758]: Decorative lighting, technical systems, and practical project support in one place.
+        - button "Contact Kiswani" [ref=e759]
+  - contentinfo [ref=e763]:
+    - generic [ref=e764]:
+      - generic [ref=e765]:
+        - generic [ref=e766]:
+          - img "Kiswani Lights" [ref=e768]
+          - paragraph [ref=e769]: Lighting is not decoration. It is the soul of the space.
+          - generic [ref=e770]: Decorative · Technical · Architectural
+        - generic [ref=e773]:
+          - paragraph [ref=e774]: Explore
+          - navigation "Footer navigation" [ref=e775]:
+            - link "Collections 01" [ref=e776] [cursor=pointer]:
+              - /url: "#collections"
+              - generic [ref=e777]: Collections
+              - generic [ref=e778]: "01"
+            - link "Lighting types 02" [ref=e779] [cursor=pointer]:
+              - /url: "#types"
+              - generic [ref=e780]: Lighting types
+              - generic [ref=e781]: "02"
+            - link "Products 03" [ref=e782] [cursor=pointer]:
+              - /url: "#products"
+              - generic [ref=e783]: Products
+              - generic [ref=e784]: "03"
+            - link "Projects 04" [ref=e785] [cursor=pointer]:
+              - /url: /projects
+              - generic [ref=e786]: Projects
+              - generic [ref=e787]: "04"
+        - generic [ref=e788]:
+          - paragraph [ref=e789]: Important links
+          - navigation "Important links" [ref=e790]:
+            - link "About us 01" [ref=e791] [cursor=pointer]:
+              - /url: /about
+              - generic [ref=e792]: About us
+              - generic [ref=e793]: "01"
+            - link "Support 02" [ref=e794] [cursor=pointer]:
+              - /url: /support
+              - generic [ref=e795]: Support
+              - generic [ref=e796]: "02"
+            - link "Privacy policy 03" [ref=e797] [cursor=pointer]:
+              - /url: /privacy
+              - generic [ref=e798]: Privacy policy
+              - generic [ref=e799]: "03"
+            - link "Terms of use 04" [ref=e800] [cursor=pointer]:
+              - /url: /terms
+              - generic [ref=e801]: Terms of use
+              - generic [ref=e802]: "04"
+        - generic [ref=e803]:
+          - paragraph [ref=e804]: Contact
+          - generic [ref=e805]:
+            - link "info@kiswanilights.com" [ref=e806] [cursor=pointer]:
+              - /url: mailto:info@kiswanilights.com
+            - link "+970 599 67 12 09" [ref=e807] [cursor=pointer]:
+              - /url: tel:+970599671209
+            - paragraph [ref=e808]: RamallahPalestine
+          - link "Start a project" [ref=e809] [cursor=pointer]:
+            - /url: "#contact"
+      - generic [ref=e814]:
+        - generic [ref=e815]: © 2026 Kiswani Lights
+        - generic [ref=e816]:
+          - link "Checkout" [ref=e817] [cursor=pointer]:
+            - /url: /checkout
+          - link "Privacy" [ref=e818] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms" [ref=e819] [cursor=pointer]:
+            - /url: /terms
+          - generic [ref=e820]: Ramallah, Palestine
+    - generic: KISWANI

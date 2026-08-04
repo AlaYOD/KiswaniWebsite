@@ -1,0 +1,169 @@
+[
+  {
+    "id": "h1a2b3c",
+    "elType": "container",
+    "isInner": false,
+    "settings": {
+      "flex_direction": "column",
+      "content_width": "full",
+      "gap": {"unit": "px", "size": 0},
+      "css_classes": "kiswani-pro-header",
+      "sticky": "top",
+      "sticky_on": ["desktop", "tablet", "mobile"],
+      "z_index": 50
+    },
+    "elements": [
+      {
+        "id": "d4e5f6g",
+        "elType": "container",
+        "isInner": false,
+        "settings": {
+          "flex_direction": "row",
+          "content_width": "boxed",
+          "boxed_width": {"unit": "px", "size": 1440},
+          "min_height": {"unit": "px", "size": 36},
+          "justify_content": "center",
+          "align_items": "center",
+          "padding": {"unit": "px", "top": 0, "right": 16, "bottom": 0, "left": 16, "isLinked": false},
+          "background_background": "classic",
+          "background_color": "#FFDA01",
+          "css_classes": "kiswani-pro-header__utility"
+        },
+        "elements": [
+          {
+            "id": "h7i8j9k",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+              "editor": "<p><a href=\"tel:+970599671209\">+970 599 67 12 09</a><span aria-hidden=\"true\">|</span><a href=\"https://www.google.com/maps/search/?api=1&amp;query=Ramallah%2C+Palestine\">Ramallah, Palestine</a><span class=\"kiswani-pro-header__email\" aria-hidden=\"true\">|</span><a class=\"kiswani-pro-header__email\" href=\"mailto:info@kiswanilights.com\">info@kiswanilights.com</a></p>",
+              "text_color": "#0F1822",
+              "align": "center",
+              "typography_typography": "custom",
+              "typography_font_family": "IBM Plex Sans Arabic",
+              "typography_font_size": {"unit": "px", "size": 10},
+              "typography_font_weight": "700",
+              "typography_letter_spacing": {"unit": "em", "size": 0.08}
+            },
+            "elements": []
+          }
+        ]
+      },
+      {
+        "id": "l0m1n2o",
+        "elType": "container",
+        "isInner": false,
+        "settings": {
+          "flex_direction": "row",
+          "content_width": "boxed",
+          "boxed_width": {"unit": "px", "size": 1440},
+          "min_height": {"unit": "px", "size": 76},
+          "justify_content": "space-between",
+          "align_items": "center",
+          "gap": {"unit": "px", "size": 32},
+          "padding": {"unit": "px", "top": 8, "right": 32, "bottom": 8, "left": 32, "isLinked": false},
+          "padding_mobile": {"unit": "px", "top": 8, "right": 16, "bottom": 8, "left": 16, "isLinked": false},
+          "background_background": "classic",
+          "background_color": "#111315",
+          "css_classes": "kiswani-pro-header__main"
+        },
+        "elements": [
+          {
+            "id": "p3q4r5s",
+            "elType": "widget",
+            "widgetType": "image",
+            "settings": {
+              "image": {"url": "__THEME_URI__/assets/images/kiswani-logo-header-lockup.png", "alt": "Kiswani Lights"},
+              "link_to": "custom",
+              "link": {"url": "/#top"},
+              "image_size": "full",
+              "width": {"unit": "px", "size": 178},
+              "width_mobile": {"unit": "px", "size": 154},
+              "css_classes": "kiswani-pro-header__logo"
+            },
+            "elements": []
+          },
+          {
+            "id": "t6u7v8w",
+            "elType": "widget",
+            "widgetType": "search-form",
+            "settings": {
+              "skin": "classic",
+              "placeholder": "Search products",
+              "button_type": "text",
+              "button_text": "SEARCH",
+              "button_icon": {"value": "", "library": ""},
+              "input_size": "lg",
+              "button_size": "lg",
+              "css_classes": "kiswani-pro-header__search"
+            },
+            "elements": []
+          },
+          {
+            "id": "x9y0z1a",
+            "elType": "container",
+            "isInner": false,
+            "settings": {"flex_direction": "row", "align_items": "center", "justify_content": "end", "gap": {"unit": "px", "size": 8}, "content_width": "full", "css_classes": "kiswani-pro-header__actions"},
+            "elements": [
+              {"id": "b2c3d4e", "elType": "widget", "widgetType": "button", "settings": {"text": "CONTACT", "link": {"url": "/#contact"}, "button_type": "default", "button_text_color": "#FFFFFF", "border_border": "solid", "border_width": {"unit": "px", "top": 1, "right": 1, "bottom": 1, "left": 1, "isLinked": true}, "border_color": "rgba(255,255,255,0.25)", "padding": {"unit": "px", "top": 14, "right": 16, "bottom": 14, "left": 16, "isLinked": false}}, "elements": []},
+              {"id": "f5g6h7i", "elType": "widget", "widgetType": "html", "settings": {"html": "<a class=\"kiswani-pro-header__cart\" href=\"/checkout\" aria-label=\"View cart\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 3h2l2.1 11.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.5L20 7H6\"/><circle cx=\"9\" cy=\"20\" r=\"1\"/><circle cx=\"18\" cy=\"20\" r=\"1\"/></svg><span>0</span></a>"}, "elements": []}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "j8k9l0m",
+        "elType": "container",
+        "isInner": false,
+        "settings": {
+          "flex_direction": "row",
+          "content_width": "full",
+          "background_background": "classic",
+          "background_color": "#FFFFFF",
+          "border_border": "solid",
+          "border_width": {"unit": "px", "top": 0, "right": 0, "bottom": 1, "left": 0, "isLinked": false},
+          "border_color": "#E4E0D8",
+          "css_classes": "kiswani-pro-header__navigation"
+        },
+        "elements": [
+          {
+            "id": "n1o2p3q",
+            "elType": "widget",
+            "widgetType": "nav-menu",
+            "settings": {
+              "menu": "__PRIMARY_MENU_ID__",
+              "layout": "horizontal",
+              "align": "center",
+              "pointer": "underline",
+              "animation": "slide",
+              "submenu_indicator": "chevron",
+              "breakpoint": "tablet",
+              "full_width": "yes",
+              "toggle_align": "right",
+              "menu_color": "#0F1822",
+              "menu_hover_color": "#8A7400",
+              "pointer_color": "#FFDA01",
+              "typography_typography": "custom",
+              "typography_font_family": "IBM Plex Sans Arabic",
+              "typography_font_size": {"unit": "px", "size": 11},
+              "typography_font_weight": "700",
+              "typography_letter_spacing": {"unit": "em", "size": 0.06},
+              "horizontal_padding": {"unit": "px", "size": 16},
+              "vertical_padding": {"unit": "px", "size": 18},
+              "css_classes": "kiswani-pro-nav"
+            },
+            "elements": []
+          },
+          {
+            "id": "r4s5t6u",
+            "elType": "widget",
+            "widgetType": "html",
+            "settings": {
+              "html": "<!-- Native Nav Menu handles navigation and its hamburger toggle. Elementor Pro settings do not provide the source drawer's start-edge slide direction or overlay. This scoped hook is reserved for the small custom controller that adds those behaviors. --><style>.kiswani-pro-header{box-shadow:0 12px 34px rgba(0,0,0,.18)}.kiswani-pro-header .elementor-widget-text-editor p{margin:0;display:flex;align-items:center;justify-content:center;gap:12px;text-transform:uppercase}.kiswani-pro-header .elementor-widget-text-editor a{color:inherit;text-decoration:none}.kiswani-pro-header__search{width:min(100%,520px)}.kiswani-pro-header__cart{display:flex;width:44px;height:44px;align-items:center;justify-content:center;gap:3px;border:1px solid rgba(255,255,255,.25);color:#fff;text-decoration:none}.kiswani-pro-header__cart svg{width:18px;fill:none;stroke:currentColor;stroke-width:1.7}.kiswani-pro-header__cart span{font-size:10px;color:#FFDA01}@media (max-width:1279px){.kiswani-pro-header__search,.kiswani-pro-header__actions .elementor-widget-button{display:none}.kiswani-pro-header__navigation .elementor-menu-toggle{border:1px solid rgba(15,24,34,.18);padding:12px}.kiswani-pro-header__navigation .elementor-nav-menu--dropdown{position:fixed!important;inset:0 auto 0 0;width:min(92vw,430px);min-height:100vh;padding:72px 20px 24px;background:#fff;box-shadow:18px 0 55px rgba(0,0,0,.25)}html[dir=\"rtl\"] .kiswani-pro-header__navigation .elementor-nav-menu--dropdown{inset:0 0 0 auto;box-shadow:-18px 0 55px rgba(0,0,0,.25)}}@media (max-width:767px){.kiswani-pro-header__utility .kiswani-pro-header__email{display:none}.kiswani-pro-header__logo img{max-width:154px}}</style>"
+            },
+            "elements": []
+          }
+        ]
+      }
+    ]
+  }
+]

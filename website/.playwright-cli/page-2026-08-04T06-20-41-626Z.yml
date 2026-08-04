@@ -1,0 +1,15 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "KISWANI LIGHTS" [ref=e5] [cursor=pointer]:
+        - /url: http://localhost:8088/
+      - navigation "Primary navigation" [ref=e6]:
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "Home" [ref=e9] [cursor=pointer]:
+              - /url: http://localhost:8088/
+  - main [ref=e10]
+  - contentinfo [ref=e11]:
+    - generic [ref=e12]:
+      - strong [ref=e13]: KISWANI LIGHTS
+      - paragraph [ref=e14]: Lighting is not decoration. It is the soul of the space.

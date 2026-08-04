@@ -1,0 +1,244 @@
+.ks-footer--v2 {
+	position: relative;
+	overflow: hidden;
+	border-top: 0;
+	background: #050709;
+	padding: 0 16px 32px;
+	color: #fff;
+}
+
+.ks-footer--v2::before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 4px;
+	background: #ffda01;
+	content: '';
+}
+
+.ks-footer--v2 .ks-footer__inner {
+	position: relative;
+	z-index: 1;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 80px 0 0;
+}
+
+.ks-footer--v2 .ks-footer__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 64px;
+	border-bottom: 1px solid rgb(255 255 255 / 10%);
+	padding-bottom: 80px;
+}
+
+.ks-footer--v2 .ks-footer__grid > .ks-footer__brand {
+	grid-column: auto;
+}
+
+.ks-footer--v2 .ks-footer__logo-wrap {
+	position: relative;
+	width: 320px;
+	height: 96px;
+}
+
+.ks-footer--v2 .ks-footer__logo {
+	display: block;
+	width: 100%;
+	max-width: none;
+	height: 100%;
+	object-fit: contain;
+	object-position: left;
+}
+
+.ks-footer--v2 .ks-footer__brand h2 {
+	max-width: 672px;
+	margin: 32px 0 0;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+.ks-footer--v2 .ks-rule-label {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin: 40px 0 0;
+}
+
+.ks-footer--v2 .ks-rule-label span {
+	display: block;
+	width: 64px;
+	height: 3px;
+	margin: 0;
+	flex: 0 0 64px;
+	background: #ffda01;
+}
+
+.ks-footer--v2 .ks-rule-label p,
+.ks-footer--v2 .ks-footer__title {
+	margin: 0;
+	color: #73787c;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: .22em;
+	line-height: 15px;
+	text-transform: uppercase;
+}
+
+.ks-footer--v2 .ks-footer__title {
+	color: #ffda01;
+	font-weight: 700;
+	letter-spacing: .2em;
+}
+
+.ks-footer--v2 .ks-footer__column nav {
+	display: grid;
+	gap: 4px;
+	margin-top: 28px;
+}
+
+.ks-footer--v2 .ks-footer__column nav a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid rgb(255 255 255 / 7%);
+	padding: 16px 0;
+	color: #a3a7aa;
+	font-size: 14px;
+	line-height: 20px;
+	text-decoration: none;
+}
+
+.ks-footer--v2 .ks-footer__column nav em {
+	color: #50555b;
+	font-size: 9px;
+	font-style: normal;
+	line-height: 13.5px;
+}
+
+.ks-footer--v2 .ks-footer__contact > div {
+	display: grid;
+	gap: 20px;
+	margin-top: 28px;
+	color: #a3a7aa;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.ks-footer--v2 .ks-footer__contact > div a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ks-footer--v2 .ks-footer__contact > div p {
+	margin: 0;
+}
+
+.ks-footer--v2 .ks-footer-cta {
+	display: inline-flex !important;
+	min-height: 48px;
+	align-items: center;
+	gap: 16px;
+	margin-top: 36px;
+	border: 1px solid rgb(255 255 255 / 15%) !important;
+	padding: 0 20px !important;
+	color: #fff !important;
+	font-size: 12px !important;
+	font-weight: 700;
+	line-height: 16px;
+	text-decoration: none;
+}
+
+.ks-footer--v2 .ks-footer-cta i {
+	color: #ffda01;
+	font-size: 15px;
+	font-style: normal;
+}
+
+.ks-footer--v2 .ks-footer__bottom {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 20px;
+	padding: 28px 0;
+	color: #50555b;
+	font-size: 10px;
+	letter-spacing: .15em;
+	line-height: 15px;
+	text-transform: uppercase;
+}
+
+.ks-footer--v2 .ks-footer__bottom > div {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.ks-footer--v2 .ks-footer__bottom a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ks-footer--v2 .ks-footer__word {
+	position: absolute;
+	bottom: -40px;
+	left: 50%;
+	color: rgb(255 255 255 / 1.8%);
+	font-size: 15vw;
+	font-weight: 700;
+	letter-spacing: -.08em;
+	line-height: 1;
+	white-space: nowrap;
+	transform: translateX(-50%);
+}
+
+@media (min-width: 640px) {
+	.ks-footer--v2 {
+		padding-right: 32px;
+		padding-left: 32px;
+	}
+
+	.ks-footer--v2 .ks-footer__inner {
+		padding-top: 112px;
+	}
+
+	.ks-footer--v2 .ks-footer__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.ks-footer--v2 .ks-footer__logo-wrap {
+		width: 430px;
+		height: 112px;
+	}
+
+	.ks-footer--v2 .ks-footer__brand h2 {
+		font-size: 30px;
+		line-height: 36px;
+	}
+
+	.ks-footer--v2 .ks-footer__bottom {
+		align-items: center;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+@media (min-width: 1024px) {
+	.ks-footer--v2 .ks-footer__grid {
+		grid-template-columns: 1.2fr .48fr .56fr .6fr;
+		gap: 56px;
+	}
+
+	.ks-footer--v2 .ks-footer__brand h2 {
+		font-size: 36px;
+		line-height: 40px;
+	}
+}
+
+@media (min-width: 1280px) {
+	.ks-footer--v2 .ks-footer__grid {
+		gap: 80px;
+	}
+}

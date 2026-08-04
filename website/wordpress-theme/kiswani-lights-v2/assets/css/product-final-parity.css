@@ -1,0 +1,50 @@
+.ks-product-related header p {
+	line-height: 15px;
+}
+
+.ks-product-related h2 {
+	line-height: 40px;
+}
+
+.ks-product-spec-list small {
+	line-height: 15px;
+}
+
+.ks-product-spec-list span,
+.ks-product-spec-list b {
+	line-height: 20px;
+}
+
+@media (min-width: 1024px) {
+	.ks-product-cta a {
+		min-width: 201px;
+	}
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+	.ks-product-specs,
+	.ks-product-related,
+	.ks-product-cta {
+		padding-right: 24px;
+		padding-left: 24px;
+	}
+
+	.ks-product-cta > div {
+		display: flex;
+		align-items: stretch;
+		flex-direction: column;
+		gap: 24px;
+	}
+}
+
+@media (max-width: 767px) {
+	.ks-product-spec-list > div {
+		column-gap: 16px;
+		row-gap: 4px;
+	}
+
+	.ks-product-support span {
+		min-height: 24px;
+		line-height: 20px;
+	}
+}

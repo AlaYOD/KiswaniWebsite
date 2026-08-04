@@ -1,0 +1,169 @@
+/* Homepage contact call-to-action parity. */
+.ks-home-contact {
+	background: #070b0e;
+	color: #fff;
+	isolation: isolate;
+	min-height: 520px;
+	overflow: hidden;
+	padding: 64px 16px;
+	position: relative;
+}
+
+.ks-home-contact__image {
+	display: block;
+	height: 100%;
+	inset: 0;
+	object-fit: cover;
+	object-position: center;
+	position: absolute;
+	width: 100%;
+	z-index: -2;
+}
+
+.ks-home-contact__overlay {
+	background: linear-gradient(90deg, rgba(5, 7, 9, .94) 0%, rgba(5, 7, 9, .78) 48%, rgba(5, 7, 9, .22) 100%);
+	inset: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+.ks-home-contact__frame {
+	border: 1px solid rgba(255, 255, 255, .15);
+	inset: 20px;
+	position: absolute;
+}
+
+.ks-home-contact__geometry {
+	border-block-start: 1px solid rgba(174, 107, 13, .78);
+	border-inline-end: 1px solid rgba(174, 107, 13, .78);
+	display: none;
+	height: clamp(128px, 13vw, 192px);
+	inset-block-start: 9%;
+	inset-inline-end: 7%;
+	pointer-events: none;
+	position: absolute;
+	width: clamp(128px, 13vw, 192px);
+	z-index: 10;
+}
+
+.ks-home-contact__geometry::before {
+	border: 1px solid rgba(174, 107, 13, .88);
+	content: "";
+	height: 27.2px;
+	inset-block-start: 20px;
+	inset-inline-end: 20px;
+	position: absolute;
+	transform: rotate(45deg);
+	width: 27.2px;
+}
+
+.ks-home-contact__geometry::after {
+	background: rgba(174, 107, 13, .82);
+	content: "";
+	height: 1px;
+	inset-block-start: 76px;
+	inset-inline-end: -36px;
+	position: absolute;
+	width: 88px;
+}
+
+.ks-home-contact__inner {
+	align-items: flex-end;
+	display: flex;
+	margin: 0 auto;
+	max-width: 1440px;
+	min-height: 360px;
+	position: relative;
+	z-index: 10;
+}
+
+.ks-home-contact__content { max-width: 896px; }
+
+.ks-home-contact__icon {
+	align-items: center;
+	background: #ffda01;
+	color: #0f1822;
+	display: flex;
+	height: 56px;
+	justify-content: center;
+	margin-bottom: 24px;
+	width: 56px;
+}
+
+.ks-home-contact__icon svg {
+	fill: none;
+	height: 27px;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.2;
+	width: 27px;
+}
+
+.ks-home-contact h2,
+.ks-home-contact p { margin: 0; }
+
+.ks-home-contact h2 {
+	color: #fff;
+	font-size: 48px;
+	font-weight: 600;
+	line-height: .94;
+	text-wrap: balance;
+}
+
+.ks-home-contact p {
+	color: rgba(255, 255, 255, .7);
+	font-size: 18px;
+	line-height: 32px;
+	margin-top: 20px;
+	max-width: 672px;
+}
+
+.ks-home-contact button {
+	align-items: center;
+	background: #ffda01;
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0 18px 40px rgba(7, 11, 14, .28);
+	color: #0f1822;
+	display: inline-flex;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 700;
+	gap: 12px;
+	justify-content: center;
+	margin: 28px 0 0;
+	min-height: 56px;
+	padding: 0 32px;
+	transition: background-color 200ms, transform 200ms;
+}
+
+.ks-home-contact button:hover {
+	background: #ffd100;
+	transform: translateY(-4px);
+}
+
+.ks-home-contact button svg {
+	fill: none;
+	height: 17px;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2;
+	width: 17px;
+}
+
+@media (min-width: 640px) {
+	.ks-home-contact { padding: 96px 32px; }
+	.ks-home-contact__frame { inset: 32px; }
+	.ks-home-contact h2 { font-size: 72px; }
+}
+
+@media (min-width: 1024px) {
+	.ks-home-contact__geometry { display: block; }
+	.ks-home-contact h2 { font-size: 96px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ks-home-contact button { transition: none; }
+}

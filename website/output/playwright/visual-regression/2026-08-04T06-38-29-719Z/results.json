@@ -1,0 +1,820 @@
+{
+  "sourceBase": "http://localhost:3000",
+  "targetBase": "http://localhost:8088",
+  "thresholdPercent": 2,
+  "comparisonCount": 30,
+  "failedCount": 30,
+  "errorCount": 0,
+  "results": [
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 375,
+      "height": 15414,
+      "mismatchedPixels": 2826208,
+      "pixelDifferencePercent": 48.8942,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\home-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\home-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\home-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 375,
+      "height": 18671,
+      "mismatchedPixels": 4234485,
+      "pixelDifferencePercent": 60.4786,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\collection-decorative-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\collection-decorative-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\collection-decorative-375-diff.png"
+      }
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001/"
+      },
+      "width": 375,
+      "height": 15373,
+      "mismatchedPixels": 3092735,
+      "pixelDifferencePercent": 53.6479,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\product-kl-gl-001-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\product-kl-gl-001-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\product-kl-gl-001-375-diff.png"
+      }
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/projects"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/projects/"
+      },
+      "width": 375,
+      "height": 15373,
+      "mismatchedPixels": 3831774,
+      "pixelDifferencePercent": 66.4676,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\projects-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\projects-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\projects-375-diff.png"
+      }
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/checkout"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/checkout/"
+      },
+      "width": 375,
+      "height": 15373,
+      "mismatchedPixels": 3412287,
+      "pixelDifferencePercent": 59.191,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\checkout-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\checkout-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\checkout-375-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/about"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/"
+      },
+      "width": 375,
+      "height": 15373,
+      "mismatchedPixels": 3575957,
+      "pixelDifferencePercent": 62.0301,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\about-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\about-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\about-375-diff.png"
+      }
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 375,
+      "height": 15373,
+      "mismatchedPixels": 3139229,
+      "pixelDifferencePercent": 54.4544,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\support-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\support-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\support-375-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 375,
+      "height": 15373,
+      "mismatchedPixels": 3452105,
+      "pixelDifferencePercent": 59.8817,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\privacy-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\privacy-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\privacy-375-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 375,
+      "height": 15373,
+      "mismatchedPixels": 3328937,
+      "pixelDifferencePercent": 57.7452,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\terms-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\terms-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\terms-375-diff.png"
+      }
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "http://localhost:3000/__visual-regression-missing__"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__/"
+      },
+      "width": 375,
+      "height": 15373,
+      "mismatchedPixels": 3549626,
+      "pixelDifferencePercent": 61.5733,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\not-found-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\not-found-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\not-found-375-diff.png"
+      }
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 768,
+      "height": 10270,
+      "mismatchedPixels": 3529507,
+      "pixelDifferencePercent": 44.7489,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\home-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\home-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\home-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 768,
+      "height": 10126,
+      "mismatchedPixels": 5285941,
+      "pixelDifferencePercent": 67.9709,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\collection-decorative-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\collection-decorative-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\collection-decorative-768-diff.png"
+      }
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001/"
+      },
+      "width": 768,
+      "height": 10126,
+      "mismatchedPixels": 4676409,
+      "pixelDifferencePercent": 60.1331,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\product-kl-gl-001-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\product-kl-gl-001-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\product-kl-gl-001-768-diff.png"
+      }
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/projects"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/projects/"
+      },
+      "width": 768,
+      "height": 10126,
+      "mismatchedPixels": 5051175,
+      "pixelDifferencePercent": 64.9521,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\projects-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\projects-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\projects-768-diff.png"
+      }
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/checkout"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/checkout/"
+      },
+      "width": 768,
+      "height": 10126,
+      "mismatchedPixels": 4128985,
+      "pixelDifferencePercent": 53.0938,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\checkout-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\checkout-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\checkout-768-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/about"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/"
+      },
+      "width": 768,
+      "height": 10126,
+      "mismatchedPixels": 4393112,
+      "pixelDifferencePercent": 56.4902,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\about-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\about-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\about-768-diff.png"
+      }
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 768,
+      "height": 10126,
+      "mismatchedPixels": 3850782,
+      "pixelDifferencePercent": 49.5165,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\support-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\support-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\support-768-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 768,
+      "height": 10126,
+      "mismatchedPixels": 4219987,
+      "pixelDifferencePercent": 54.264,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\privacy-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\privacy-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\privacy-768-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 768,
+      "height": 10126,
+      "mismatchedPixels": 3932376,
+      "pixelDifferencePercent": 50.5657,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\terms-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\terms-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\terms-768-diff.png"
+      }
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "http://localhost:3000/__visual-regression-missing__"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__/"
+      },
+      "width": 768,
+      "height": 10126,
+      "mismatchedPixels": 4230797,
+      "pixelDifferencePercent": 54.403,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\not-found-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\not-found-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\not-found-768-diff.png"
+      }
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 1440,
+      "height": 8432,
+      "mismatchedPixels": 6460622,
+      "pixelDifferencePercent": 53.2085,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\home-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\home-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\home-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 1440,
+      "height": 8432,
+      "mismatchedPixels": 7432021,
+      "pixelDifferencePercent": 61.2088,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\collection-decorative-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\collection-decorative-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\collection-decorative-1440-diff.png"
+      }
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001/"
+      },
+      "width": 1440,
+      "height": 8432,
+      "mismatchedPixels": 6512720,
+      "pixelDifferencePercent": 53.6376,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\product-kl-gl-001-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\product-kl-gl-001-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\product-kl-gl-001-1440-diff.png"
+      }
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/projects"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/projects/"
+      },
+      "width": 1440,
+      "height": 8432,
+      "mismatchedPixels": 7599761,
+      "pixelDifferencePercent": 62.5903,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\projects-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\projects-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\projects-1440-diff.png"
+      }
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/checkout"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/checkout/"
+      },
+      "width": 1440,
+      "height": 8432,
+      "mismatchedPixels": 7404553,
+      "pixelDifferencePercent": 60.9826,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\checkout-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\checkout-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\checkout-1440-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/about"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/"
+      },
+      "width": 1440,
+      "height": 8432,
+      "mismatchedPixels": 6749156,
+      "pixelDifferencePercent": 55.5848,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\about-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\about-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\about-1440-diff.png"
+      }
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 1440,
+      "height": 8432,
+      "mismatchedPixels": 6315923,
+      "pixelDifferencePercent": 52.0168,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\support-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\support-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\support-1440-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 1440,
+      "height": 8432,
+      "mismatchedPixels": 6819307,
+      "pixelDifferencePercent": 56.1626,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\privacy-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\privacy-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\privacy-1440-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "http://localhost:3000/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 1440,
+      "height": 8432,
+      "mismatchedPixels": 6273996,
+      "pixelDifferencePercent": 51.6715,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\terms-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\terms-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\terms-1440-diff.png"
+      }
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "http://localhost:3000/__visual-regression-missing__"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__/"
+      },
+      "width": 1440,
+      "height": 8432,
+      "mismatchedPixels": 6981155,
+      "pixelDifferencePercent": 57.4955,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\not-found-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\not-found-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T06-38-29-719Z\\not-found-1440-diff.png"
+      }
+    }
+  ]
+}

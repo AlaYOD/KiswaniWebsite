@@ -1,0 +1,33 @@
+/*
+Theme Name: Kiswani Lights Conversion
+Theme URI: https://kiswanilights.com/
+Author: Kiswani Lights
+Description: Local test shell for the Kiswani Next.js to WordPress conversion artifacts.
+Version: 0.1.0
+Text Domain: kiswani-lights
+*/
+
+:root {
+  --kiswani-yellow: #ffda01;
+  --kiswani-ink: #0f1822;
+  --kiswani-graphite: #50555b;
+  --kiswani-canvas: #ffffff;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--kiswani-canvas); color: var(--kiswani-ink); font-family: "IBM Plex Sans Arabic", Arial, sans-serif; }
+a { color: inherit; }
+.kiswani-shell { min-height: 100vh; display: flex; flex-direction: column; }
+.kiswani-site-header { background: #111315; border-top: 4px solid var(--kiswani-yellow); color: #fff; }
+.kiswani-site-header__inner, .kiswani-site-footer__inner, .kiswani-site-content { width: min(100% - 32px, 1440px); margin-inline: auto; }
+.kiswani-site-header__inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.kiswani-site-title { color: #fff; font-size: 18px; font-weight: 700; letter-spacing: -.03em; text-decoration: none; }
+.kiswani-primary-menu ul { display: flex; flex-wrap: wrap; gap: 20px; margin: 0; padding: 0; list-style: none; }
+.kiswani-primary-menu a { color: #fff; font-size: 12px; font-weight: 700; text-decoration: none; text-transform: uppercase; }
+.kiswani-primary-menu a:hover, .kiswani-primary-menu .current-menu-item > a { color: var(--kiswani-yellow); }
+.kiswani-site-content { flex: 1; padding-block: 64px; }
+.kiswani-site-content h1 { font-size: clamp(36px, 6vw, 72px); line-height: 1; letter-spacing: -.05em; }
+.kiswani-site-footer { position: relative; overflow: hidden; background: #050709; border-top: 4px solid var(--kiswani-yellow); color: #fff; }
+.kiswani-site-footer__inner { padding-block: 64px 32px; }
+.kiswani-site-footer p { color: #a3a7aa; }
+@media (max-width: 767px) { .kiswani-site-header__inner { min-height: 68px; align-items: flex-start; flex-direction: column; justify-content: center; padding-block: 12px; } .kiswani-primary-menu ul { gap: 12px; } }

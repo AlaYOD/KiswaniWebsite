@@ -1,0 +1,121 @@
+.ks-product-copy h1 {
+	font-size: 60px;
+}
+
+.ks-product-price {
+	margin-top: 24px;
+	padding: 16px 0;
+}
+
+.ks-product-summary {
+	margin-top: 24px;
+}
+
+.ks-product-summary > div {
+	min-height: 72px;
+	padding: 16px;
+}
+
+.ks-product-note {
+	margin-top: 20px !important;
+	padding-left: 14px;
+	font-size: 14px !important;
+	line-height: 24px !important;
+}
+
+.ks-product-quantity {
+	margin-top: 20px;
+	border-top: 1px solid rgb(255 255 255 / 10%);
+	padding-top: 20px;
+}
+
+.ks-product-quantity label {
+	display: block;
+	color: #a3a7aa;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+}
+
+.ks-product-quantity > div {
+	display: inline-flex;
+	margin-top: 12px;
+	border: 1px solid rgb(255 255 255 / 20%);
+	background: #151a1d;
+}
+
+.ks-product-quantity button,
+.ks-product-quantity input {
+	width: 48px;
+	height: 48px;
+	border: 0;
+	background: transparent;
+	color: #fff;
+	font-family: 'IBM Plex Sans Arabic', Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.ks-product-quantity input {
+	width: 64px;
+	border-right: 1px solid rgb(255 255 255 / 20%);
+	border-left: 1px solid rgb(255 255 255 / 20%);
+	appearance: textfield;
+}
+
+.ks-product-quantity input::-webkit-inner-spin-button,
+.ks-product-quantity input::-webkit-outer-spin-button {
+	margin: 0;
+	appearance: none;
+}
+
+.ks-product-purchase {
+	display: grid;
+	gap: 12px;
+	margin-top: 20px;
+}
+
+.ks-product-purchase > button,
+.ks-product-purchase a {
+	display: flex;
+	min-height: 52px;
+	align-items: center;
+	justify-content: center;
+	font-family: 'IBM Plex Sans Arabic', Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.ks-product-purchase > button {
+	border: 0;
+	background: #ffda01;
+	color: #0f1822;
+}
+
+.ks-product-purchase > div {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.ks-product-purchase a {
+	border: 1px solid rgb(255 255 255 / 15%);
+	color: #fff;
+}
+
+.ks-product-support span::before {
+	content: '\\2713';
+}
+
+@media (max-width: 767px) {
+	.ks-product-copy h1 {
+		font-size: 40px;
+	}
+
+	.ks-product-purchase > div {
+		grid-template-columns: 1fr;
+	}
+}

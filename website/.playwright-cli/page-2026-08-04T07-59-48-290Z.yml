@@ -1,0 +1,236 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e7]:
+        - link "Call Kiswani Lights" [ref=e8] [cursor=pointer]:
+          - /url: tel:+970599671209
+          - generic [ref=e11]: +970 599 67 12 09
+        - link "View Kiswani location on Google Maps" [ref=e13] [cursor=pointer]:
+          - /url: https://www.google.com/maps/search/?api=1&query=Ramallah%2C+Palestine
+          - generic [ref=e17]: Ramallah, Palestine
+        - link "Email Kiswani Lights" [ref=e19] [cursor=pointer]:
+          - /url: mailto:info@kiswanilights.com
+          - generic [ref=e23]: info@kiswanilights.com
+      - generic [ref=e25]:
+        - link "Kiswani Lights home" [ref=e26] [cursor=pointer]:
+          - /url: /#top
+          - img "Kiswani Lights" [ref=e27]
+        - search [ref=e29]:
+          - generic [ref=e30]:
+            - generic [ref=e31]: Search products
+            - textbox "Search products" [ref=e32]
+          - button "Search" [ref=e33]
+        - generic [ref=e34]:
+          - link "Contact" [ref=e35] [cursor=pointer]:
+            - /url: /#contact
+          - generic [ref=e36]:
+            - generic [ref=e37]: Select language
+            - combobox "Select language" [ref=e38]:
+              - option "EN" [selected]
+              - option "العربية"
+              - option "עברית"
+          - button "Open shopping cart with 0 items" [ref=e40]:
+            - generic [ref=e44]: Cart
+      - navigation "Product categories" [ref=e46]:
+        - generic [ref=e47]:
+          - link "Products" [ref=e48] [cursor=pointer]:
+            - /url: /#products
+          - link "Lighting fixtures" [ref=e52] [cursor=pointer]:
+            - /url: /collections/lighting-fixtures
+          - link "Light bulbs" [ref=e56] [cursor=pointer]:
+            - /url: /collections/light-bulbs
+          - link "Electrical products" [ref=e60] [cursor=pointer]:
+            - /url: /collections/electrical-products
+          - link "i lite" [ref=e64] [cursor=pointer]:
+            - /url: /collections/i-lite
+          - link "Projects" [ref=e68] [cursor=pointer]:
+            - /url: /projects
+    - main [ref=e70]:
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - link "Home" [ref=e73] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e74]: /
+          - link "Decorative" [ref=e75] [cursor=pointer]:
+            - /url: /collections/decorative
+          - generic [ref=e76]: /
+          - generic [ref=e77]: Golden Wall Lamp - 2 Bulb
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - img "Golden Wall Lamp - 2 Bulb - product view" [ref=e82]
+              - generic [ref=e83]: KL-GL-001
+            - generic [ref=e84]:
+              - button "View image 1" [pressed] [ref=e85]
+              - button "View image 2" [ref=e87]
+              - button "View image 3" [ref=e89]
+              - button "View image 4" [ref=e91]
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - link "Decorative" [ref=e95] [cursor=pointer]:
+                - /url: /collections/decorative
+              - heading "Golden Wall Lamp - 2 Bulb" [level=1] [ref=e98]
+              - paragraph [ref=e99]: Brush-gold wall lamp with crystal detail and a warm classic profile.
+              - generic [ref=e100]:
+                - generic [ref=e101]:
+                  - paragraph [ref=e102]: Initial catalog price
+                  - paragraph [ref=e103]: ₪285
+                - paragraph [ref=e104]: Calculated in cart by quantity before final approval.
+              - generic [ref=e105]:
+                - generic [ref=e106]:
+                  - paragraph [ref=e107]: Bulbs
+                  - paragraph [ref=e108]: 2 bulb
+                - generic [ref=e109]:
+                  - paragraph [ref=e110]: Socket
+                  - paragraph [ref=e111]: E14 socket
+                - generic [ref=e112]:
+                  - paragraph [ref=e113]: Height
+                  - paragraph [ref=e114]: 56 cm
+                - generic [ref=e115]:
+                  - paragraph [ref=e116]: Material
+                  - paragraph [ref=e117]: Zinc material + crystals
+              - paragraph [ref=e121]: Initial price, availability, and delivery timing are confirmed with the Kiswani team before final approval.
+            - generic [ref=e122]:
+              - generic [ref=e123]: Select Quantity
+              - generic [ref=e125]:
+                - button "Decrease quantity" [ref=e126]
+                - spinbutton "Select Quantity" [ref=e128]: "1"
+                - button "Increase quantity" [ref=e129]
+            - generic [ref=e131]:
+              - button "Add to project cart" [ref=e132]
+              - generic [ref=e136]:
+                - link "Datasheet PDF" [ref=e137] [cursor=pointer]:
+                  - /url: /downloads/KL-GL-001.pdf
+                - link "Ask about it" [ref=e141] [cursor=pointer]:
+                  - /url: https://wa.me/970599671209?text=Hello%20Kiswani%20Lights%2C%20I%20am%20interested%20in%20Golden%20Wall%20Lamp%20-%202%20Bulb%20(KL-GL-001).%20Initial%20catalog%20price%3A%20%E2%82%AA285.
+      - generic [ref=e145]:
+        - generic [ref=e146]:
+          - paragraph [ref=e149]: PRODUCT DATA
+          - heading "Precise details for a confident decision." [level=2] [ref=e150]
+          - paragraph [ref=e151]: Review the essential specifications and download the data sheet to share with your designer or contractor.
+          - link "Download specification PDF" [ref=e152] [cursor=pointer]:
+            - /url: /downloads/KL-GL-001.pdf
+        - generic [ref=e156]:
+          - generic [ref=e157]:
+            - generic [ref=e158]: "01"
+            - generic [ref=e159]: Bulbs
+            - strong [ref=e160]: 2 bulb
+          - generic [ref=e161]:
+            - generic [ref=e162]: "02"
+            - generic [ref=e163]: Socket
+            - strong [ref=e164]: E14 socket
+          - generic [ref=e165]:
+            - generic [ref=e166]: "03"
+            - generic [ref=e167]: Height
+            - strong [ref=e168]: 56 cm
+          - generic [ref=e169]:
+            - generic [ref=e170]: "04"
+            - generic [ref=e171]: Material
+            - strong [ref=e172]: Zinc material + crystals
+          - generic [ref=e173]:
+            - generic [ref=e174]: "05"
+            - generic [ref=e175]: Finish
+            - strong [ref=e176]: Brush gold
+          - generic [ref=e177]:
+            - generic [ref=e178]: Selection support
+            - generic [ref=e183]: Availability check
+            - generic [ref=e188]: Installation guidance
+      - generic [ref=e194]:
+        - generic [ref=e195]:
+          - generic [ref=e196]:
+            - paragraph [ref=e197]: RELATED LIGHTING
+            - heading "From the same collection" [level=2] [ref=e198]
+          - link "View collection" [ref=e199] [cursor=pointer]:
+            - /url: /collections/decorative
+        - generic [ref=e202]:
+          - link [ref=e203] [cursor=pointer]:
+            - /url: /products/kl-gl-002
+            - img "Golden Wall Lamp - 6 Bulb" [ref=e205]
+            - generic [ref=e210]:
+              - paragraph [ref=e211]: KL-GL-002
+              - heading "Golden Wall Lamp - 6 Bulb" [level=3] [ref=e212]
+          - link [ref=e213] [cursor=pointer]:
+            - /url: /products/kl-gl-003
+            - img "Golden Wall Lamp - 15 Bulb" [ref=e215]
+            - generic [ref=e220]:
+              - paragraph [ref=e221]: KL-GL-003
+              - heading "Golden Wall Lamp - 15 Bulb" [level=3] [ref=e222]
+          - link [ref=e223] [cursor=pointer]:
+            - /url: /products/kl-gl-004
+            - img "Golden Wall Lamp - 8 Bulb Long" [ref=e225]
+            - generic [ref=e230]:
+              - paragraph [ref=e231]: KL-GL-004
+              - heading "Golden Wall Lamp - 8 Bulb Long" [level=3] [ref=e232]
+      - generic [ref=e234]:
+        - generic [ref=e235]:
+          - paragraph [ref=e236]: PROJECT SUPPORT
+          - heading "Want this fixture in a complete lighting plan?" [level=2] [ref=e237]
+        - link "Talk to an advisor" [ref=e238] [cursor=pointer]:
+          - /url: https://wa.me/970599671209?text=Hello%20Kiswani%20Lights%2C%20I%20am%20interested%20in%20Golden%20Wall%20Lamp%20-%202%20Bulb%20(KL-GL-001).%20Initial%20catalog%20price%3A%20%E2%82%AA285.
+    - contentinfo [ref=e242]:
+      - generic [ref=e243]:
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - img "Kiswani Lights" [ref=e247]
+            - paragraph [ref=e248]: Lighting is not decoration. It is the soul of the space.
+            - generic [ref=e249]: Decorative · Technical · Architectural
+          - generic [ref=e252]:
+            - paragraph [ref=e253]: Explore
+            - navigation "Footer navigation" [ref=e254]:
+              - link "Collections 01" [ref=e255] [cursor=pointer]:
+                - /url: /#collections
+                - generic [ref=e256]: Collections
+                - generic [ref=e257]: "01"
+              - link "Lighting types 02" [ref=e258] [cursor=pointer]:
+                - /url: /#types
+                - generic [ref=e259]: Lighting types
+                - generic [ref=e260]: "02"
+              - link "Products 03" [ref=e261] [cursor=pointer]:
+                - /url: /#products
+                - generic [ref=e262]: Products
+                - generic [ref=e263]: "03"
+              - link "Projects 04" [ref=e264] [cursor=pointer]:
+                - /url: /projects
+                - generic [ref=e265]: Projects
+                - generic [ref=e266]: "04"
+          - generic [ref=e267]:
+            - paragraph [ref=e268]: Important links
+            - navigation "Important links" [ref=e269]:
+              - link "About us 01" [ref=e270] [cursor=pointer]:
+                - /url: /about
+                - generic [ref=e271]: About us
+                - generic [ref=e272]: "01"
+              - link "Support 02" [ref=e273] [cursor=pointer]:
+                - /url: /support
+                - generic [ref=e274]: Support
+                - generic [ref=e275]: "02"
+              - link "Privacy policy 03" [ref=e276] [cursor=pointer]:
+                - /url: /privacy
+                - generic [ref=e277]: Privacy policy
+                - generic [ref=e278]: "03"
+              - link "Terms of use 04" [ref=e279] [cursor=pointer]:
+                - /url: /terms
+                - generic [ref=e280]: Terms of use
+                - generic [ref=e281]: "04"
+          - generic [ref=e282]:
+            - paragraph [ref=e283]: Contact
+            - generic [ref=e284]:
+              - link "info@kiswanilights.com" [ref=e285] [cursor=pointer]:
+                - /url: mailto:info@kiswanilights.com
+              - link "+970 599 67 12 09" [ref=e286] [cursor=pointer]:
+                - /url: tel:+970599671209
+              - paragraph [ref=e287]: RamallahPalestine
+            - link "Start a project" [ref=e288] [cursor=pointer]:
+              - /url: /#contact
+        - generic [ref=e293]:
+          - generic [ref=e294]: © 2026 Kiswani Lights
+          - generic [ref=e295]:
+            - link "Checkout" [ref=e296] [cursor=pointer]:
+              - /url: /checkout
+            - link "Privacy" [ref=e297] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms" [ref=e298] [cursor=pointer]:
+              - /url: /terms
+            - generic [ref=e299]: Ramallah, Palestine
+      - generic: KISWANI
+  - alert [ref=e300]

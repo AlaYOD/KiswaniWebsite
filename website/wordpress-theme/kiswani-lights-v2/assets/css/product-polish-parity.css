@@ -1,0 +1,53 @@
+@media (min-width: 640px) {
+	.ks-product-specs > div {
+		min-height: 354px;
+	}
+}
+
+.ks-product-cta p {
+	line-height: 15px;
+}
+
+.ks-product-cta h2 {
+	font-weight: 600;
+	letter-spacing: -.04em;
+}
+
+.ks-product-cta a {
+	gap: 12px;
+	line-height: 20px;
+}
+
+.ks-product-cta a svg,
+.ks-product-related header a svg {
+	display: block;
+	width: 17px;
+	height: 17px;
+	fill: none;
+	stroke: currentcolor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2;
+}
+
+.ks-product-related header a svg {
+	width: 16px;
+	height: 16px;
+}
+
+.ks-related-image i svg {
+	display: block;
+	width: 16px;
+	height: 16px;
+	fill: none;
+	stroke: currentcolor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2;
+}
+
+@media (max-width: 767px) {
+	.ks-product-related h2 {
+		line-height: 36px;
+	}
+}

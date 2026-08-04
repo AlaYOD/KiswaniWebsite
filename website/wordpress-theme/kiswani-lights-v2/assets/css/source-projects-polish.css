@@ -1,0 +1,17 @@
+/* Correct browser-default SVG baselines and the source's tablet p-10 panel. */
+.ks-project-testimonials svg,
+.ks-project-process svg {
+	display: block;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+	.ks-project-testimonials__copy {
+		padding: 40px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.ks-project-card--last {
+		grid-column: span 12;
+	}
+}

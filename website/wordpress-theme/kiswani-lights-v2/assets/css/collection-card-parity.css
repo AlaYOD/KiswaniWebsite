@@ -1,0 +1,48 @@
+/* Final source-card parity: match the deployed React card controls and search sizing. */
+.ks-catalog--v2 .ks-catalog-products header label {
+	height: 56px;
+}
+
+.ks-catalog--v2 .ks-catalog-grid article,
+.ks-catalog--v2 .ks-catalog-card__content,
+.ks-catalog--v2 .ks-catalog-card__footer,
+.ks-catalog--v2 .ks-catalog-card__quantity,
+.ks-catalog--v2 .ks-catalog-card__quantity > div {
+	line-height: 24px;
+}
+
+.ks-catalog--v2 .ks-catalog-card__image img {
+	position: absolute;
+	inset: 0;
+}
+
+.ks-catalog--v2 .ks-catalog-card__title h3 {
+	display: flow-root;
+	overflow: hidden;
+}
+
+.ks-catalog--v2 .ks-catalog-card__quantity button {
+	padding: 0;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.ks-catalog--v2 .ks-catalog-card__quantity button svg {
+	display: block;
+	width: 15px;
+	height: 15px;
+	fill: none;
+	stroke: currentcolor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2;
+}
+
+.ks-catalog--v2 .ks-catalog-card__quantity input {
+	display: block;
+	padding: 0;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+}

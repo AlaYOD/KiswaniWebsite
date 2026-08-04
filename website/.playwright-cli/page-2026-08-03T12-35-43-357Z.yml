@@ -1,0 +1,55 @@
+- generic [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "+970 599 67 12 09" [ref=e5] [cursor=pointer]:
+        - /url: tel:+970599671209
+      - link "info@kiswanilights.com" [ref=e6] [cursor=pointer]:
+        - /url: mailto:info@kiswanilights.com
+    - generic [ref=e7]:
+      - link [ref=e8] [cursor=pointer]:
+        - /url: http://localhost:8088/
+        - img "Kiswani Lights" [ref=e9]
+      - search [ref=e10]:
+        - textbox "Search products" [ref=e11]
+        - button "Search" [ref=e12]
+      - button "Cart 1" [ref=e45]
+      - button "☰" [ref=e14]
+    - navigation
+  - main [ref=e15]:
+    - article [ref=e16]:
+      - img "KL Test Pendant" [ref=e17]
+      - generic [ref=e18]:
+        - paragraph [ref=e19]: KL-TEST-001
+        - heading "KL Test Pendant" [level=1] [ref=e20]
+        - paragraph [ref=e21]: A local theme verification product.
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - term [ref=e24]: Wattage
+            - definition [ref=e25]: 12W
+          - generic [ref=e26]:
+            - term [ref=e27]: Finish
+            - definition [ref=e28]: Matte black
+        - button "Add to cart" [active] [ref=e29] [cursor=pointer]
+  - contentinfo [ref=e30]:
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - img "Kiswani Lights" [ref=e34]
+        - paragraph [ref=e35]: Lighting is not decoration. It is the soul of the space.
+      - heading "Collections" [level=2] [ref=e37]
+      - heading "Company" [level=2] [ref=e39]
+      - generic [ref=e40]:
+        - heading "Contact" [level=2] [ref=e41]
+        - link "+970 599 67 12 09" [ref=e42] [cursor=pointer]:
+          - /url: tel:+970599671209
+        - link "info@kiswanilights.com" [ref=e43] [cursor=pointer]:
+          - /url: mailto:info@kiswanilights.com
+    - text: © Kiswani Lights. All rights reserved.
+    - strong [ref=e44]: KISWANI
+  - complementary [ref=e46]:
+    - button "×" [ref=e47]
+    - heading "Cart" [level=2] [ref=e48]
+    - paragraph [ref=e50]: KL Test Pendant ×1
+    - link "Checkout" [ref=e51] [cursor=pointer]:
+      - /url: http://localhost:8088/checkout/

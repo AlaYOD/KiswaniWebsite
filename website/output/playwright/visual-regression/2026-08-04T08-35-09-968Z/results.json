@@ -1,0 +1,91 @@
+{
+  "sourceBase": "https://kiswani-website-82jb.vercel.app",
+  "targetBase": "http://localhost:8088",
+  "thresholdPercent": 2,
+  "comparisonCount": 3,
+  "failedCount": 2,
+  "errorCount": 0,
+  "results": [
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001"
+      },
+      "width": 375,
+      "height": 6038,
+      "mismatchedPixels": 178282,
+      "pixelDifferencePercent": 7.8738,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T08-35-09-968Z\\product-kl-gl-001-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T08-35-09-968Z\\product-kl-gl-001-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T08-35-09-968Z\\product-kl-gl-001-375-diff.png"
+      }
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001"
+      },
+      "width": 768,
+      "height": 4471,
+      "mismatchedPixels": 105920,
+      "pixelDifferencePercent": 3.0847,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T08-35-09-968Z\\product-kl-gl-001-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T08-35-09-968Z\\product-kl-gl-001-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T08-35-09-968Z\\product-kl-gl-001-768-diff.png"
+      }
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001"
+      },
+      "width": 1440,
+      "height": 3218,
+      "mismatchedPixels": 61470,
+      "pixelDifferencePercent": 1.3265,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-04T08-35-09-968Z\\product-kl-gl-001-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-04T08-35-09-968Z\\product-kl-gl-001-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-04T08-35-09-968Z\\product-kl-gl-001-1440-diff.png"
+      }
+    }
+  ]
+}

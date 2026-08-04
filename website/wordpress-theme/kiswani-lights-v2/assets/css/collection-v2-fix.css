@@ -1,0 +1,13 @@
+.ks-catalog--v2 .ks-catalog-grid article {
+	height: auto;
+}
+
+.ks-catalog--v2 .ks-catalog-card__image {
+	aspect-ratio: auto;
+}
+
+@media (min-width: 640px) {
+	.ks-catalog--v2 .ks-catalog-card__image {
+		aspect-ratio: 1;
+	}
+}
