@@ -7,10 +7,29 @@ wp_enqueue_style( 'kiswani-header-parity', get_stylesheet_directory_uri() . '/as
 wp_enqueue_style( 'kiswani-mobile-header-parity', get_stylesheet_directory_uri() . '/assets/css/mobile-header-parity.css', array( 'kiswani-header-parity' ), '0.1.0' );
 wp_enqueue_style( 'kiswani-header-mobile-final', get_stylesheet_directory_uri() . '/assets/css/header-mobile-final.css', array( 'kiswani-mobile-header-parity' ), '0.1.0' );
 wp_enqueue_style( 'kiswani-header-home-parity', get_stylesheet_directory_uri() . '/assets/css/header-home-parity.css', array( 'kiswani-header-mobile-final' ), '0.1.0' );
-wp_enqueue_style( 'kiswani-footer-parity-v2', get_stylesheet_directory_uri() . '/assets/css/footer-parity-v2.css', array( 'kiswani-header-home-parity' ), '0.1.0' );
+wp_enqueue_style( 'kiswani-source-navbar', get_stylesheet_directory_uri() . '/assets/css/source-navbar.css', array( 'kiswani-header-home-parity' ), '0.8.1' );
+wp_enqueue_style( 'kiswani-footer-parity-v2', get_stylesheet_directory_uri() . '/assets/css/footer-parity-v2.css', array( 'kiswani-source-navbar' ), '0.1.0' );
 wp_enqueue_style( 'kiswani-footer-polish-parity', get_stylesheet_directory_uri() . '/assets/css/footer-polish-parity.css', array( 'kiswani-footer-parity-v2' ), '0.1.0' );
 
 $theme_image_uri = get_stylesheet_directory_uri() . '/assets/images/';
+$source_nav_path = get_stylesheet_directory() . '/data/product-map.json';
+$source_nav_groups = file_exists( $source_nav_path ) ? json_decode( file_get_contents( $source_nav_path ), true ) : array();
+$source_nav_groups = is_array( $source_nav_groups ) ? $source_nav_groups : array();
+$source_nav_asset = static function ( $path ) use ( $theme_image_uri ) {
+	$path = preg_replace( '#^/images/#', '', (string) $path );
+	return $theme_image_uri . ltrim( $path, '/' );
+};
+$source_nav_href = static function ( $group, $section = null, $item = null ) {
+	$query = array();
+	if ( is_array( $section ) && ! empty( $section['id'] ) ) {
+		$query['category'] = $section['id'];
+	}
+	if ( is_array( $item ) && ! empty( $item['id'] ) ) {
+		$query['subcategory'] = $item['id'];
+	}
+	$url = home_url( '/collections/' . sanitize_title( $group['id'] ?? '' ) . '/' );
+	return $query ? add_query_arg( $query, $url ) : $url;
+};
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -21,6 +40,26 @@ $theme_image_uri = get_stylesheet_directory_uri() . '/assets/images/';
 </head>
 <body <?php body_class( 'kiswani-source-site' ); ?>>
 <?php wp_body_open(); ?>
+<section class="ks-cinematic-intro" data-ks-cinematic-intro role="status" aria-live="polite" aria-label="Kiswani Lights brand introduction" hidden>
+	<div class="ks-cinematic-intro__glow" aria-hidden="true"></div>
+	<div class="ks-cinematic-intro__frame" aria-hidden="true"></div>
+	<div class="ks-cinematic-intro__top" aria-hidden="true"></div>
+	<div class="ks-cinematic-intro__horizon" aria-hidden="true"></div>
+	<div class="ks-cinematic-intro__center">
+		<div class="ks-cinematic-intro__content">
+			<div class="ks-cinematic-intro__logo"><img src="<?php echo esc_url( $theme_image_uri . 'kiswani-logo-since-1994.png' ); ?>" alt="Kiswani Lights"></div>
+			<div class="ks-cinematic-intro__rule" aria-hidden="true"></div>
+			<div class="ks-cinematic-intro__copy">
+				<p>Lighting is the soul of the space</p>
+				<p dir="rtl">&#1575;&#1604;&#1573;&#1590;&#1575;&#1569;&#1577; &#1607;&#1610; &#1585;&#1608;&#1581; &#1575;&#1604;&#1605;&#1603;&#1575;&#1606;</p>
+			</div>
+		</div>
+	</div>
+	<div class="ks-cinematic-intro__footer">
+		<div><span>Kiswani Lights</span><span>Est. 2026</span></div>
+		<div class="ks-cinematic-intro__progress"><span></span></div>
+	</div>
+</section>
 <header class="ks-header ks-header--home" data-ks-header>
 	<div class="ks-utility">
 		<div class="ks-utility__inner">
@@ -56,7 +95,7 @@ $theme_image_uri = get_stylesheet_directory_uri() . '/assets/images/';
 				<a class="ks-contact-link" href="#contact">CONTACT</a>
 				<label class="ks-language"><span class="screen-reader-text">Select language</span><select aria-label="Select language"><option value="en">EN</option><option value="ar">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</option><option value="he">&#1506;&#1489;&#1512;&#1497;&#1514;</option></select><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></label>
 				<button class="ks-cart-link" type="button" aria-label="Open shopping cart with 0 items"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg><span>CART</span><b hidden>0</b></button>
-				<button class="ks-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="ks-mobile-menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+				<button class="ks-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-navigation"><svg data-ks-menu-open-icon viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><svg data-ks-menu-close-icon viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M6 6l12 12M18 6 6 18"/></svg></button>
 			</div>
 		</div>
 	</div>
@@ -65,15 +104,5 @@ $theme_image_uri = get_stylesheet_directory_uri() . '/assets/images/';
 		<form role="search" action="/#products"><label><span class="screen-reader-text">Search products</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input name="search" placeholder="Search products"></label><button type="submit">SEARCH</button></form>
 	</div>
 
-	<nav class="ks-desktop-nav" aria-label="Product categories"><div class="ks-desktop-nav__inner">
-		<a href="#products"><span>Products</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
-		<a href="/collections/lighting-fixtures"><span>Lighting fixtures</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
-		<a href="/collections/light-bulbs"><span>Light bulbs</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
-		<a href="/collections/electrical-products"><span>Electrical products</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
-		<a href="/collections/i-lite"><span>i lite</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
-		<a href="/projects"><span>Projects</span></a>
-	</div></nav>
-
-	<aside class="ks-mobile-menu" id="ks-mobile-menu" aria-hidden="true"><button class="ks-menu-close" type="button" aria-label="Close menu">&times;</button><form class="ks-mobile-search" role="search"><label><span class="screen-reader-text">Search products</span><input placeholder="Search products"></label><button type="submit">SEARCH</button></form><a href="#products">Products</a><a href="/collections/lighting-fixtures">Lighting fixtures</a><a href="/collections/light-bulbs">Light bulbs</a><a href="/collections/electrical-products">Electrical products</a><a href="/collections/i-lite">i lite</a><a href="/projects">Projects</a></aside>
-	<div class="ks-menu-backdrop" data-ks-close></div>
+	<?php require get_stylesheet_directory() . '/template-parts/source-navbar.php'; ?>
 </header>

@@ -1,0 +1,15 @@
+/* Live Next.js font rendering parity for source-matched pages. */
+.kiswani-source-site,
+.kiswani-source-site button,
+.kiswani-source-site input,
+.kiswani-source-site select,
+.kiswani-source-site textarea {
+	font-family: 'IBM Plex Sans Arabic', 'IBM Plex Sans Arabic', 'Segoe UI', Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+.kiswani-source-site .ks-product-copy h1 {
+	letter-spacing: -.05em;
+}

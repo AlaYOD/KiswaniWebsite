@@ -26,6 +26,9 @@
 - Built formatted WhatsApp order submission logic.
 - Applied Arabic localization for checkout forms & cart drawer.
 - Implemented quantity selectors (`-` / input / `+`) across product details page, product cards, quick view modals, and cart drawer.
-- Validated Next.js production build.
+- Validated Next.js production build and verified Vercel deployment at `https://kiswani-website-82jb.vercel.app/`.
 - Created Docker Compose environment for local WordPress site, initialized core, activated `kiswani-lights` theme, and verified live runtime at `http://localhost:8000`.
+- Integrated Hostinger MCP server (`hostinger-api-mcp`) with OAuth credentials for domain `kiswanilights.com`.
+- Packaged WordPress custom theme `kiswani-lights-v2` into zip archive at `d:\Kiswani\kiswani-lights-v2.zip`.
+
 

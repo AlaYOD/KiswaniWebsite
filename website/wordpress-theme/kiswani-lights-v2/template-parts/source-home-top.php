@@ -8,7 +8,9 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 <section class="ks-hero" id="top" data-ks-hero>
-	<div class="ks-hero__image" data-ks-hero-image style="background-image:url('<?php echo esc_url( $asset( 'editorial/hero-interior.webp' ) ); ?>')"></div>
+	<div class="ks-hero__image" data-ks-hero-image>
+		<img data-ks-hero-image-element src="<?php echo esc_url( $asset( 'editorial/hero-interior.webp' ) ); ?>" alt="Interior lighting">
+	</div>
 	<div class="ks-hero__veil ks-hero__veil--horizontal"></div>
 	<div class="ks-hero__veil ks-hero__veil--vertical"></div>
 	<div class="ks-hero__frame"></div>

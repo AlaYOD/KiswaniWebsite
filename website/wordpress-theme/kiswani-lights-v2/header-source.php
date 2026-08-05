@@ -6,6 +6,7 @@ wp_enqueue_style( 'kiswani-mobile-header-parity', get_stylesheet_directory_uri()
 wp_enqueue_style( 'kiswani-header-mobile-final', get_stylesheet_directory_uri() . '/assets/css/header-mobile-final.css', array( 'kiswani-mobile-header-parity' ), '0.1.0' );
 wp_enqueue_style( 'kiswani-footer-parity-v2', get_stylesheet_directory_uri() . '/assets/css/footer-parity-v2.css', array( 'kiswani-mobile-header-parity' ), '0.1.0' );
 wp_enqueue_style( 'kiswani-footer-polish-parity', get_stylesheet_directory_uri() . '/assets/css/footer-polish-parity.css', array( 'kiswani-footer-parity-v2' ), '0.1.0' );
+wp_enqueue_style( 'kiswani-source-font-rendering', get_stylesheet_directory_uri() . '/assets/css/source-font-rendering.css', array( 'kiswani-footer-polish-parity' ), '0.1.0' );
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>

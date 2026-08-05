@@ -14,6 +14,14 @@
 	background-position: center;
 }
 
+.ks-hero__image img {
+	display: block;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	width: 100%;
+}
+
 .ks-hero__veil--horizontal {
 	background: linear-gradient(90deg, rgba(7, 11, 14, 0.94) 0%, rgba(7, 11, 14, 0.72) 42%, rgba(7, 11, 14, 0.18) 72%, rgba(7, 11, 14, 0.42) 100%);
 }
@@ -126,6 +134,7 @@
 	font-size: 14px;
 	font-weight: 600;
 	gap: 8px;
+	line-height: 20px;
 	min-height: 48px;
 	padding: 0 24px;
 }
@@ -145,6 +154,13 @@
 	gap: 20px;
 	margin-top: 48px;
 	padding-top: 24px;
+}
+
+.ks-hero__scene strong {
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
 }
 
 .ks-hero__scene small {
@@ -239,6 +255,7 @@
 	font-size: 36px;
 	font-weight: 600;
 	line-height: 1.01;
+	text-wrap: balance;
 	text-transform: uppercase;
 }
 
@@ -316,9 +333,19 @@
 	}
 }
 
+@media (max-width: 639px) {
+	.ks-hero__scene strong {
+		line-height: normal;
+	}
+}
+
 @media (min-width: 1024px) {
 	.ks-hero__image {
 		background-position: center 48%;
+	}
+
+	.ks-hero__image img {
+		object-position: center 48%;
 	}
 
 	.ks-hero__geometry {
@@ -328,7 +355,6 @@
 	.ks-hero__copy {
 		align-items: center;
 		padding: 80px;
-		padding-bottom: 79px;
 	}
 
 	.ks-hero h1 {

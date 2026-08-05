@@ -41,14 +41,15 @@ function kiswani_source_home_assets() {
 	wp_enqueue_style( 'kiswani-source-home', get_stylesheet_directory_uri() . '/assets/css/source-home.css', array( 'kiswani-lights' ), '0.1.1' );
 	wp_enqueue_style( 'kiswani-source-fonts', get_stylesheet_directory_uri() . '/assets/css/fonts.css', array( 'kiswani-source-home' ), '0.1.0' );
 	wp_enqueue_style( 'kiswani-source-home-fidelity', get_stylesheet_directory_uri() . '/assets/css/source-home-fidelity.css', array( 'kiswani-source-fonts' ), '0.1.0' );
-	wp_enqueue_style( 'kiswani-source-home-collections', get_stylesheet_directory_uri() . '/assets/css/source-home-collections.css', array( 'kiswani-source-home-fidelity' ), '0.1.0' );
+	wp_enqueue_style( 'kiswani-source-home-collections', get_stylesheet_directory_uri() . '/assets/css/source-home-collections.css', array( 'kiswani-source-home-fidelity' ), '0.1.1' );
 	wp_enqueue_style( 'kiswani-source-home-stories', get_stylesheet_directory_uri() . '/assets/css/source-home-stories.css', array( 'kiswani-source-home-collections' ), '0.1.0' );
 	wp_enqueue_style( 'kiswani-source-home-types', get_stylesheet_directory_uri() . '/assets/css/source-home-types.css', array( 'kiswani-source-home-stories' ), '0.1.0' );
-	wp_enqueue_style( 'kiswani-source-home-products', get_stylesheet_directory_uri() . '/assets/css/source-home-products.css', array( 'kiswani-source-home-types' ), '0.1.0' );
-	wp_enqueue_style( 'kiswani-source-home-marquee', get_stylesheet_directory_uri() . '/assets/css/source-home-marquee.css', array( 'kiswani-source-home-products' ), '0.1.0' );
+	wp_enqueue_style( 'kiswani-source-home-products', get_stylesheet_directory_uri() . '/assets/css/source-home-products.css', array( 'kiswani-source-home-types' ), '0.1.1' );
+	wp_enqueue_style( 'kiswani-source-home-marquee', get_stylesheet_directory_uri() . '/assets/css/source-home-marquee.css', array( 'kiswani-source-home-products' ), '0.1.1' );
 	wp_enqueue_style( 'kiswani-source-home-project', get_stylesheet_directory_uri() . '/assets/css/source-home-project.css', array( 'kiswani-source-home-marquee' ), '0.1.0' );
-	wp_enqueue_style( 'kiswani-source-home-contact', get_stylesheet_directory_uri() . '/assets/css/source-home-contact.css', array( 'kiswani-source-home-project' ), '0.1.0' );
-	wp_enqueue_script( 'kiswani-source-home', get_stylesheet_directory_uri() . '/assets/js/source-home.js', array(), '0.1.0', true );
+	wp_enqueue_style( 'kiswani-source-home-contact', get_stylesheet_directory_uri() . '/assets/css/source-home-contact.css', array( 'kiswani-source-home-project' ), '0.1.1' );
+	wp_enqueue_style( 'kiswani-source-home-motion', get_stylesheet_directory_uri() . '/assets/css/source-home-motion.css', array( 'kiswani-source-home-contact' ), '0.1.1' );
+	wp_enqueue_script( 'kiswani-source-home', get_stylesheet_directory_uri() . '/assets/js/source-home.js', array(), '0.3.1', true );
 	wp_enqueue_script( 'kiswani-source-home-project', get_stylesheet_directory_uri() . '/assets/js/source-home-project.js', array( 'kiswani-source-home' ), '0.1.0', true );
 	wp_add_inline_script( 'kiswani-source-home', 'window.ksThemeUri = ' . wp_json_encode( get_stylesheet_directory_uri() ) . ';', 'before' );
 }

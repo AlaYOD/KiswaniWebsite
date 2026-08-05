@@ -91,3 +91,27 @@
 @media (prefers-reduced-motion: reduce) {
 	.ks-home .ks-marquee__track { animation-play-state: paused; }
 }
+
+/* Marquee source parity overrides against legacy homepage generic div/span rules. */
+.ks-home .ks-marquee__inner,
+.ks-home .ks-marquee__label,
+.ks-home .ks-marquee__viewport {
+	animation: none;
+	transform: none;
+}
+
+.ks-home .ks-marquee__viewport {
+	display: block;
+	gap: normal;
+}
+
+.ks-home .ks-marquee__item > span {
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+	line-height: inherit;
+}
+
+.ks-home .ks-marquee__item > i {
+	flex: 0 0 6px;
+}

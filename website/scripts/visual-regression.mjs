@@ -72,7 +72,7 @@ const capture = async (page, url, screenshotPath) => {
   const response = await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
 
   await page.evaluate(() => {
-    document.querySelector('section[role=status]')?.remove();
+    document.querySelector('section[role=status], .ks-cinematic-intro, #brandIntro')?.remove();
     document.body.style.overflow = '';
   });
 
@@ -85,6 +85,9 @@ const capture = async (page, url, screenshotPath) => {
         scroll-behavior: auto !important;
         transition-delay: 0s !important;
         transition-duration: 0s !important;
+      }
+      section[role="status"], .ks-cinematic-intro, #brandIntro {
+        display: none !important;
       }
     `,
   });
@@ -126,6 +129,10 @@ const capture = async (page, url, screenshotPath) => {
         }
       }),
     );
+  });
+  await page.evaluate(() => {
+    document.querySelectorAll('section[role="status"], .ks-cinematic-intro, #brandIntro').forEach((node) => node.remove());
+    document.body.style.overflow = '';
   });
   await page.waitForTimeout(300);
   await page.screenshot({ path: screenshotPath, fullPage: true, scale: 'css' });

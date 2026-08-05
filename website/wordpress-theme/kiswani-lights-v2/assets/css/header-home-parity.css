@@ -360,3 +360,21 @@
 	.ks-header--home .ks-utility .ks-utility__desktop,
 	.ks-header--home .ks-utility .ks-email { display: none !important; }
 }
+
+.ks-header--home .ks-cart-link { position: relative; }
+.ks-header--home .ks-cart-link > b:not([hidden]) {
+	align-items: center;
+	background: #ffda01;
+	border-radius: 999px;
+	color: #0f1822;
+	display: flex;
+	font-size: 10px;
+	font-weight: 700;
+	height: 24px;
+	justify-content: center;
+	min-width: 24px;
+	padding: 0 5px;
+	position: absolute;
+	right: -8px;
+	top: -8px;
+}

@@ -50,7 +50,7 @@
     const subtotal = valid.reduce((sum, item) => sum + Number(item.product.price) * item.line.quantity, 0);
     if (headerTrigger) {
       const countEl = headerTrigger.querySelector('b');
-      if (countEl) countEl.textContent = String(count);
+      if (countEl) { countEl.textContent = String(count); countEl.hidden = count === 0; }
       headerTrigger.setAttribute('aria-label', `Open shopping cart with ${count} items`);
     }
     if (!overlay) return;
@@ -114,7 +114,6 @@
     const input = card.querySelector('.ks-product-footer input'); const controls = card.querySelectorAll('.ks-product-footer span button');
     controls.forEach((button, index) => button.addEventListener('click', () => { const delta = index ? 1 : -1; input.value = String(Math.min(999, Math.max(1, (Number.parseInt(input.value, 10) || 1) + delta))); }));
     card.querySelector('.ks-add')?.addEventListener('click', () => add(card.dataset.productCode, input?.value));
-    card.querySelector('.ks-view')?.addEventListener('click', () => { window.location.href = `/products/${String(card.dataset.productCode).toLowerCase()}/`; });
   });
   window.KiswaniCart = { add, open, close, getLines: () => lines.map((line) => ({ ...line })) };
   render();

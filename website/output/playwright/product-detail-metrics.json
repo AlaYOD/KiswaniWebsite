@@ -1,0 +1,1175 @@
+{
+  "375": {
+    "source": {
+      "scrollHeight": 6018,
+      "bodyClass": "antialiased",
+      "sections": {
+        "header": {
+          "tag": "header",
+          "className": "sticky top-0 z-50 shadow-[0_12px_34px_rgba(0,0,0,0.18)]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 375,
+            "h": 169
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "hero": {
+          "tag": "section",
+          "className": "bg-[#050709] px-3 pb-4 pt-3 text-white sm:px-5 sm:pb-5 sm:pt-4 lg:px-8",
+          "rect": {
+            "x": 0,
+            "y": 169,
+            "w": 375,
+            "h": 1707.19
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "12px 12px 16px 12px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "breadcrumb": null,
+        "panel": null,
+        "media": null,
+        "primary": null,
+        "thumbs": null,
+        "copy": null,
+        "kicker": null,
+        "h1": {
+          "tag": "h1",
+          "className": "mt-5 break-words text-balance text-4xl font-semibold leading-[0.98] tracking-[-0.05em] sm:text-5xl xl:text-6xl",
+          "text": "Golden Wall Lamp - 2 Bulb",
+          "rect": {
+            "x": 33,
+            "y": 813.73,
+            "w": 309,
+            "h": 70.53
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px",
+          "font": "600 36px/35.28px \"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic\", \"Segoe UI\", Arial, sans-serif",
+          "color": "rgb(255, 255, 255)"
+        },
+        "desc": null,
+        "price": null,
+        "summary": null,
+        "note": null,
+        "quantity": null,
+        "purchase": null,
+        "specs": null,
+        "related": null,
+        "cta": null,
+        "footer": {
+          "tag": "footer",
+          "className": "relative overflow-hidden bg-[#050709] px-4 pb-8 pt-0 text-white sm:px-8",
+          "rect": {
+            "x": 0,
+            "y": 4453.13,
+            "w": 375,
+            "h": 1565
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 16px 32px 16px",
+          "margin": "0px 0px 0px 0px"
+        }
+      },
+      "primaryImage": {
+        "src": "https://kiswani-website-82jb.vercel.app/images/products/kiswani-product-01.jpg",
+        "natural": [
+          1600,
+          1200
+        ]
+      }
+    },
+    "target": {
+      "scrollHeight": 6018,
+      "bodyClass": "wp-embed-responsive wp-theme-kiswani-lights-v2 kiswani-source-site elementor-default elementor-kit-4",
+      "sections": {
+        "header": {
+          "tag": "header",
+          "className": "ks-header",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 375,
+            "h": 169
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "hero": {
+          "tag": "section",
+          "className": "ks-product-hero",
+          "rect": {
+            "x": 0,
+            "y": 169,
+            "w": 375,
+            "h": 1707.19
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "12px 12px 16px 12px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "breadcrumb": {
+          "tag": "div",
+          "className": "ks-product-breadcrumb",
+          "rect": {
+            "x": 12,
+            "y": 181,
+            "w": 351,
+            "h": 28
+          },
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 12px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "panel": {
+          "tag": "div",
+          "className": "ks-product-panel",
+          "rect": {
+            "x": 12,
+            "y": 209,
+            "w": 351,
+            "h": 1651.19
+          },
+          "display": "block",
+          "gridTemplateColumns": "1fr",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "media": {
+          "tag": "div",
+          "className": "ks-product-media",
+          "rect": {
+            "x": 13,
+            "y": 210,
+            "w": 349,
+            "h": 539.66
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "10px 10px 10px 10px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "primary": {
+          "tag": "div",
+          "className": "ks-product-primary",
+          "rect": {
+            "x": 23,
+            "y": 220,
+            "w": 329,
+            "h": 460
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "thumbs": {
+          "tag": "div",
+          "className": "ks-product-thumbs",
+          "rect": {
+            "x": 23,
+            "y": 692,
+            "w": 329,
+            "h": 47.66
+          },
+          "display": "grid",
+          "gridTemplateColumns": "76.25px 76.25px 76.25px 76.25px",
+          "padding": "0px 0px 0px 0px",
+          "margin": "12px 0px 0px 0px"
+        },
+        "copy": {
+          "tag": "div",
+          "className": "ks-product-copy",
+          "rect": {
+            "x": 13,
+            "y": 749.66,
+            "w": 349,
+            "h": 1109.53
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "20px 20px 20px 20px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "kicker": {
+          "tag": "a",
+          "className": "ks-kicker",
+          "text": "decorative",
+          "rect": {
+            "x": 33,
+            "y": 771.16,
+            "w": 119.23,
+            "h": 16
+          },
+          "display": "inline-flex",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px",
+          "font": "700 12px/16px \"IBM Plex Sans Arabic\", Arial, sans-serif",
+          "color": "rgb(255, 218, 1)"
+        },
+        "h1": {
+          "tag": "h1",
+          "className": "",
+          "text": "Golden Wall Lamp - 2 Bulb",
+          "rect": {
+            "x": 33,
+            "y": 813.66,
+            "w": 309,
+            "h": 70.53
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px",
+          "font": "600 36px/35.28px \"IBM Plex Sans Arabic\", Arial, sans-serif",
+          "color": "rgb(255, 255, 255)"
+        },
+        "desc": {
+          "tag": "p",
+          "className": "ks-product-description",
+          "rect": {
+            "x": 33,
+            "y": 900.19,
+            "w": 309,
+            "h": 56
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "16px 0px 16px 0px",
+          "font": "400 16px/28px \"IBM Plex Sans Arabic\", Arial, sans-serif",
+          "color": "rgb(163, 167, 170)"
+        },
+        "price": {
+          "tag": "div",
+          "className": "ks-product-price",
+          "rect": {
+            "x": 33,
+            "y": 980.19,
+            "w": 309,
+            "h": 133
+          },
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "padding": "16px 0px 16px 0px",
+          "margin": "24px 0px 0px 0px"
+        },
+        "summary": {
+          "tag": "div",
+          "className": "ks-product-summary",
+          "rect": {
+            "x": 33,
+            "y": 1137.19,
+            "w": 309,
+            "h": 291
+          },
+          "display": "grid",
+          "gridTemplateColumns": "307px",
+          "padding": "0px 0px 0px 0px",
+          "margin": "24px 0px 0px 0px"
+        },
+        "note": {
+          "tag": "div",
+          "className": "ks-product-note",
+          "rect": {
+            "x": 33,
+            "y": 1448.19,
+            "w": 309,
+            "h": 72
+          },
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 16px",
+          "margin": "20px 0px 0px 0px"
+        },
+        "quantity": {
+          "tag": "div",
+          "className": "ks-product-quantity",
+          "rect": {
+            "x": 33,
+            "y": 1540.19,
+            "w": 309,
+            "h": 99
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "20px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px"
+        },
+        "purchase": {
+          "tag": "div",
+          "className": "ks-product-purchase",
+          "rect": {
+            "x": 33,
+            "y": 1659.19,
+            "w": 309,
+            "h": 180
+          },
+          "display": "grid",
+          "gridTemplateColumns": "309px",
+          "padding": "0px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px"
+        },
+        "specs": {
+          "tag": "section",
+          "className": "ks-product-specs",
+          "rect": {
+            "x": 0,
+            "y": 1876.19,
+            "w": 375,
+            "h": 974.19
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "56px 16px 56px 16px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "related": {
+          "tag": "section",
+          "className": "ks-product-related",
+          "rect": {
+            "x": 0,
+            "y": 2850.38,
+            "w": 375,
+            "h": 1323.75
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "56px 16px 56px 16px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "cta": {
+          "tag": "section",
+          "className": "ks-product-cta",
+          "rect": {
+            "x": 0,
+            "y": 4174.13,
+            "w": 375,
+            "h": 279
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "56px 16px 56px 16px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "footer": {
+          "tag": "footer",
+          "className": "ks-footer ks-footer--v2",
+          "rect": {
+            "x": 0,
+            "y": 4453.13,
+            "w": 375,
+            "h": 1565
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 16px 32px 16px",
+          "margin": "0px 0px 0px 0px"
+        }
+      },
+      "primaryImage": {
+        "src": "http://localhost:8088/wp-content/themes/kiswani-lights-v2/assets/images/products/kiswani-product-01.jpg",
+        "natural": [
+          1600,
+          1200
+        ]
+      }
+    }
+  },
+  "768": {
+    "source": {
+      "scrollHeight": 4471,
+      "bodyClass": "antialiased",
+      "sections": {
+        "header": {
+          "tag": "header",
+          "className": "sticky top-0 z-50 shadow-[0_12px_34px_rgba(0,0,0,0.18)]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 768,
+            "h": 169
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "hero": {
+          "tag": "section",
+          "className": "bg-[#050709] px-3 pb-4 pt-3 text-white sm:px-5 sm:pb-5 sm:pt-4 lg:px-8",
+          "rect": {
+            "x": 0,
+            "y": 169,
+            "w": 768,
+            "h": 1625.84
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "16px 20px 20px 20px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "breadcrumb": null,
+        "panel": null,
+        "media": null,
+        "primary": null,
+        "thumbs": null,
+        "copy": null,
+        "kicker": null,
+        "h1": {
+          "tag": "h1",
+          "className": "mt-5 break-words text-balance text-4xl font-semibold leading-[0.98] tracking-[-0.05em] sm:text-5xl xl:text-6xl",
+          "text": "Golden Wall Lamp - 2 Bulb",
+          "rect": {
+            "x": 53,
+            "y": 1036.81,
+            "w": 662,
+            "h": 47.03
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px",
+          "font": "600 48px/47.04px \"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic\", \"Segoe UI\", Arial, sans-serif",
+          "color": "rgb(255, 255, 255)"
+        },
+        "desc": null,
+        "price": null,
+        "summary": null,
+        "note": null,
+        "quantity": null,
+        "purchase": null,
+        "specs": null,
+        "related": null,
+        "cta": null,
+        "footer": {
+          "tag": "footer",
+          "className": "relative overflow-hidden bg-[#050709] px-4 pb-8 pt-0 text-white sm:px-8",
+          "rect": {
+            "x": 0,
+            "y": 3517.55,
+            "w": 768,
+            "h": 953.5
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 32px 32px 32px",
+          "margin": "0px 0px 0px 0px"
+        }
+      },
+      "primaryImage": {
+        "src": "https://kiswani-website-82jb.vercel.app/images/products/kiswani-product-01.jpg",
+        "natural": [
+          1600,
+          1200
+        ]
+      }
+    },
+    "target": {
+      "scrollHeight": 4471,
+      "bodyClass": "wp-embed-responsive wp-theme-kiswani-lights-v2 kiswani-source-site elementor-default elementor-kit-4",
+      "sections": {
+        "header": {
+          "tag": "header",
+          "className": "ks-header",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 768,
+            "h": 169
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "hero": {
+          "tag": "section",
+          "className": "ks-product-hero",
+          "rect": {
+            "x": 0,
+            "y": 169,
+            "w": 768,
+            "h": 1625.84
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "16px 20px 20px 20px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "breadcrumb": {
+          "tag": "div",
+          "className": "ks-product-breadcrumb",
+          "rect": {
+            "x": 20,
+            "y": 185,
+            "w": 728,
+            "h": 28
+          },
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 12px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "panel": {
+          "tag": "div",
+          "className": "ks-product-panel",
+          "rect": {
+            "x": 20,
+            "y": 213,
+            "w": 728,
+            "h": 1561.84
+          },
+          "display": "grid",
+          "gridTemplateColumns": "726px",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "media": {
+          "tag": "div",
+          "className": "ks-product-media",
+          "rect": {
+            "x": 21,
+            "y": 214,
+            "w": 726,
+            "h": 746.81
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "16px 16px 16px 16px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "primary": {
+          "tag": "div",
+          "className": "ks-product-primary",
+          "rect": {
+            "x": 37,
+            "y": 230,
+            "w": 694,
+            "h": 600
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "thumbs": {
+          "tag": "div",
+          "className": "ks-product-thumbs",
+          "rect": {
+            "x": 37,
+            "y": 842,
+            "w": 694,
+            "h": 102.81
+          },
+          "display": "grid",
+          "gridTemplateColumns": "164.5px 164.5px 164.5px 164.5px",
+          "padding": "0px 0px 0px 0px",
+          "margin": "12px 0px 0px 0px"
+        },
+        "copy": {
+          "tag": "div",
+          "className": "ks-product-copy",
+          "rect": {
+            "x": 21,
+            "y": 960.81,
+            "w": 726,
+            "h": 813.03
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "32px 32px 32px 32px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "kicker": {
+          "tag": "a",
+          "className": "ks-kicker",
+          "text": "decorative",
+          "rect": {
+            "x": 53,
+            "y": 994.31,
+            "w": 119.23,
+            "h": 16
+          },
+          "display": "inline-flex",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px",
+          "font": "700 12px/16px \"IBM Plex Sans Arabic\", Arial, sans-serif",
+          "color": "rgb(255, 218, 1)"
+        },
+        "h1": {
+          "tag": "h1",
+          "className": "",
+          "text": "Golden Wall Lamp - 2 Bulb",
+          "rect": {
+            "x": 53,
+            "y": 1036.81,
+            "w": 662,
+            "h": 47.03
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px",
+          "font": "600 48px/47.04px \"IBM Plex Sans Arabic\", Arial, sans-serif",
+          "color": "rgb(255, 255, 255)"
+        },
+        "desc": {
+          "tag": "p",
+          "className": "ks-product-description",
+          "rect": {
+            "x": 53,
+            "y": 1099.84,
+            "w": 662,
+            "h": 28
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "16px 0px 16px 0px",
+          "font": "400 16px/28px \"IBM Plex Sans Arabic\", Arial, sans-serif",
+          "color": "rgb(163, 167, 170)"
+        },
+        "price": {
+          "tag": "div",
+          "className": "ks-product-price",
+          "rect": {
+            "x": 53,
+            "y": 1151.84,
+            "w": 662,
+            "h": 97
+          },
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "padding": "16px 0px 16px 0px",
+          "margin": "24px 0px 0px 0px"
+        },
+        "summary": {
+          "tag": "div",
+          "className": "ks-product-summary",
+          "rect": {
+            "x": 53,
+            "y": 1272.84,
+            "w": 662,
+            "h": 146
+          },
+          "display": "grid",
+          "gridTemplateColumns": "329.5px 329.5px",
+          "padding": "0px 0px 0px 0px",
+          "margin": "24px 0px 0px 0px"
+        },
+        "note": {
+          "tag": "div",
+          "className": "ks-product-note",
+          "rect": {
+            "x": 53,
+            "y": 1438.84,
+            "w": 662,
+            "h": 48
+          },
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 16px",
+          "margin": "20px 0px 0px 0px"
+        },
+        "quantity": {
+          "tag": "div",
+          "className": "ks-product-quantity",
+          "rect": {
+            "x": 53,
+            "y": 1506.84,
+            "w": 662,
+            "h": 99
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "20px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px"
+        },
+        "purchase": {
+          "tag": "div",
+          "className": "ks-product-purchase",
+          "rect": {
+            "x": 53,
+            "y": 1625.84,
+            "w": 662,
+            "h": 116
+          },
+          "display": "grid",
+          "gridTemplateColumns": "662px",
+          "padding": "0px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px"
+        },
+        "specs": {
+          "tag": "section",
+          "className": "ks-product-specs",
+          "rect": {
+            "x": 0,
+            "y": 1794.84,
+            "w": 768,
+            "h": 770
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "80px 24px 80px 24px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "related": {
+          "tag": "section",
+          "className": "ks-product-related",
+          "rect": {
+            "x": 0,
+            "y": 2564.84,
+            "w": 768,
+            "h": 589.98
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "80px 24px 80px 24px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "cta": {
+          "tag": "section",
+          "className": "ks-product-cta",
+          "rect": {
+            "x": 0,
+            "y": 3154.83,
+            "w": 768,
+            "h": 363
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "80px 24px 80px 24px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "footer": {
+          "tag": "footer",
+          "className": "ks-footer ks-footer--v2",
+          "rect": {
+            "x": 0,
+            "y": 3517.83,
+            "w": 768,
+            "h": 953.5
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 32px 32px 32px",
+          "margin": "0px 0px 0px 0px"
+        }
+      },
+      "primaryImage": {
+        "src": "http://localhost:8088/wp-content/themes/kiswani-lights-v2/assets/images/products/kiswani-product-01.jpg",
+        "natural": [
+          1600,
+          1200
+        ]
+      }
+    }
+  },
+  "1440": {
+    "source": {
+      "scrollHeight": 3218,
+      "bodyClass": "antialiased",
+      "sections": {
+        "header": {
+          "tag": "header",
+          "className": "sticky top-0 z-50 shadow-[0_12px_34px_rgba(0,0,0,0.18)]",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1440,
+            "h": 164
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "hero": {
+          "tag": "section",
+          "className": "bg-[#050709] px-3 pb-4 pt-3 text-white sm:px-5 sm:pb-5 sm:pt-4 lg:px-8",
+          "rect": {
+            "x": 0,
+            "y": 164,
+            "w": 1440,
+            "h": 981.59
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "16px 32px 20px 32px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "breadcrumb": null,
+        "panel": null,
+        "media": null,
+        "primary": null,
+        "thumbs": null,
+        "copy": null,
+        "kicker": null,
+        "h1": {
+          "tag": "h1",
+          "className": "mt-5 break-words text-balance text-4xl font-semibold leading-[0.98] tracking-[-0.05em] sm:text-5xl xl:text-6xl",
+          "text": "Golden Wall Lamp - 2 Bulb",
+          "rect": {
+            "x": 864.17,
+            "y": 301,
+            "w": 494.83,
+            "h": 117.59
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px",
+          "font": "600 60px/58.8px \"IBM Plex Sans Arabic\", \"IBM Plex Sans Arabic\", \"Segoe UI\", Arial, sans-serif",
+          "color": "rgb(255, 255, 255)"
+        },
+        "desc": null,
+        "price": null,
+        "summary": null,
+        "note": null,
+        "quantity": null,
+        "purchase": null,
+        "specs": null,
+        "related": null,
+        "cta": null,
+        "footer": {
+          "tag": "footer",
+          "className": "relative overflow-hidden bg-[#050709] px-4 pb-8 pt-0 text-white sm:px-8",
+          "rect": {
+            "x": 0,
+            "y": 2632.59,
+            "w": 1440,
+            "h": 585
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 32px 32px 32px",
+          "margin": "0px 0px 0px 0px"
+        }
+      },
+      "primaryImage": {
+        "src": "https://kiswani-website-82jb.vercel.app/images/products/kiswani-product-01.jpg",
+        "natural": [
+          1600,
+          1200
+        ]
+      }
+    },
+    "target": {
+      "scrollHeight": 3218,
+      "bodyClass": "wp-embed-responsive wp-theme-kiswani-lights-v2 kiswani-source-site elementor-default elementor-kit-4",
+      "sections": {
+        "header": {
+          "tag": "header",
+          "className": "ks-header",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1440,
+            "h": 164
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "hero": {
+          "tag": "section",
+          "className": "ks-product-hero",
+          "rect": {
+            "x": 0,
+            "y": 164,
+            "w": 1440,
+            "h": 981.59
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "16px 32px 20px 32px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "breadcrumb": {
+          "tag": "div",
+          "className": "ks-product-breadcrumb",
+          "rect": {
+            "x": 32,
+            "y": 180,
+            "w": 1376,
+            "h": 28
+          },
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 12px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "panel": {
+          "tag": "div",
+          "className": "ks-product-panel",
+          "rect": {
+            "x": 32,
+            "y": 208,
+            "w": 1376,
+            "h": 917.59
+          },
+          "display": "grid",
+          "gridTemplateColumns": "783.172px 590.828px",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "media": {
+          "tag": "div",
+          "className": "ks-product-media",
+          "rect": {
+            "x": 33,
+            "y": 209,
+            "w": 783.17,
+            "h": 915.59
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "16px 16px 16px 16px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "primary": {
+          "tag": "div",
+          "className": "ks-product-primary",
+          "rect": {
+            "x": 49,
+            "y": 225,
+            "w": 751.17,
+            "h": 648
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "thumbs": {
+          "tag": "div",
+          "className": "ks-product-thumbs",
+          "rect": {
+            "x": 49,
+            "y": 885,
+            "w": 751.17,
+            "h": 111.73
+          },
+          "display": "grid",
+          "gridTemplateColumns": "178.781px 178.797px 178.797px 178.797px",
+          "padding": "0px 0px 0px 0px",
+          "margin": "12px 0px 0px 0px"
+        },
+        "copy": {
+          "tag": "div",
+          "className": "ks-product-copy",
+          "rect": {
+            "x": 816.17,
+            "y": 209,
+            "w": 590.83,
+            "h": 915.59
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "48px 48px 48px 48px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "kicker": {
+          "tag": "a",
+          "className": "ks-kicker",
+          "text": "decorative",
+          "rect": {
+            "x": 864.17,
+            "y": 258.5,
+            "w": 119.23,
+            "h": 16
+          },
+          "display": "inline-flex",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "0px 0px 0px 0px",
+          "font": "700 12px/16px \"IBM Plex Sans Arabic\", Arial, sans-serif",
+          "color": "rgb(255, 218, 1)"
+        },
+        "h1": {
+          "tag": "h1",
+          "className": "",
+          "text": "Golden Wall Lamp - 2 Bulb",
+          "rect": {
+            "x": 864.17,
+            "y": 301,
+            "w": 494.83,
+            "h": 117.59
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px",
+          "font": "600 60px/58.8px \"IBM Plex Sans Arabic\", Arial, sans-serif",
+          "color": "rgb(255, 255, 255)"
+        },
+        "desc": {
+          "tag": "p",
+          "className": "ks-product-description",
+          "rect": {
+            "x": 864.17,
+            "y": 434.59,
+            "w": 494.83,
+            "h": 28
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 0px",
+          "margin": "16px 0px 16px 0px",
+          "font": "400 16px/28px \"IBM Plex Sans Arabic\", Arial, sans-serif",
+          "color": "rgb(163, 167, 170)"
+        },
+        "price": {
+          "tag": "div",
+          "className": "ks-product-price",
+          "rect": {
+            "x": 864.17,
+            "y": 486.59,
+            "w": 494.83,
+            "h": 97
+          },
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "padding": "16px 0px 16px 0px",
+          "margin": "24px 0px 0px 0px"
+        },
+        "summary": {
+          "tag": "div",
+          "className": "ks-product-summary",
+          "rect": {
+            "x": 864.17,
+            "y": 607.59,
+            "w": 494.83,
+            "h": 146
+          },
+          "display": "grid",
+          "gridTemplateColumns": "245.906px 245.922px",
+          "padding": "0px 0px 0px 0px",
+          "margin": "24px 0px 0px 0px"
+        },
+        "note": {
+          "tag": "div",
+          "className": "ks-product-note",
+          "rect": {
+            "x": 864.17,
+            "y": 773.59,
+            "w": 494.83,
+            "h": 48
+          },
+          "display": "flex",
+          "gridTemplateColumns": "none",
+          "padding": "0px 0px 0px 16px",
+          "margin": "20px 0px 0px 0px"
+        },
+        "quantity": {
+          "tag": "div",
+          "className": "ks-product-quantity",
+          "rect": {
+            "x": 864.17,
+            "y": 841.59,
+            "w": 494.83,
+            "h": 99
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "20px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px"
+        },
+        "purchase": {
+          "tag": "div",
+          "className": "ks-product-purchase",
+          "rect": {
+            "x": 864.17,
+            "y": 960.59,
+            "w": 494.83,
+            "h": 116
+          },
+          "display": "grid",
+          "gridTemplateColumns": "494.828px",
+          "padding": "0px 0px 0px 0px",
+          "margin": "20px 0px 0px 0px"
+        },
+        "specs": {
+          "tag": "section",
+          "className": "ks-product-specs",
+          "rect": {
+            "x": 0,
+            "y": 1145.59,
+            "w": 1440,
+            "h": 514
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "80px 32px 80px 32px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "related": {
+          "tag": "section",
+          "className": "ks-product-related",
+          "rect": {
+            "x": 0,
+            "y": 1659.59,
+            "w": 1440,
+            "h": 690
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "80px 32px 80px 32px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "cta": {
+          "tag": "section",
+          "className": "ks-product-cta",
+          "rect": {
+            "x": 0,
+            "y": 2349.59,
+            "w": 1440,
+            "h": 283
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "80px 32px 80px 32px",
+          "margin": "0px 0px 0px 0px"
+        },
+        "footer": {
+          "tag": "footer",
+          "className": "ks-footer ks-footer--v2",
+          "rect": {
+            "x": 0,
+            "y": 2632.59,
+            "w": 1440,
+            "h": 585
+          },
+          "display": "block",
+          "gridTemplateColumns": "none",
+          "padding": "0px 32px 32px 32px",
+          "margin": "0px 0px 0px 0px"
+        }
+      },
+      "primaryImage": {
+        "src": "http://localhost:8088/wp-content/themes/kiswani-lights-v2/assets/images/products/kiswani-product-01.jpg",
+        "natural": [
+          1600,
+          1200
+        ]
+      }
+    }
+  }
+}

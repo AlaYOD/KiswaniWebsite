@@ -19,3 +19,27 @@
 		</div>
 	</div>
 </section>
+
+<div class="ks-contact-drawer" data-ks-contact-drawer hidden aria-hidden="true">
+	<button class="ks-contact-drawer__backdrop" type="button" data-ks-contact-close tabindex="-1" aria-label="Close contact form"></button>
+	<aside class="ks-contact-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="ks-contact-title" tabindex="-1">
+		<header class="ks-contact-drawer__header">
+			<div><span aria-hidden="true"></span><b>Kiswani Lights</b></div>
+			<button type="button" data-ks-contact-close aria-label="Close contact form"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+		</header>
+		<form class="ks-contact-form" data-ks-contact-form>
+			<div class="ks-contact-form__title">
+				<div><p>PROJECT ENQUIRY</p><h3 id="ks-contact-title">Tell us about your space</h3></div>
+				<span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg></span>
+			</div>
+			<div class="ks-contact-form__row">
+				<label>Your name<input name="name" required autocomplete="name"></label>
+				<label>Phone or WhatsApp<input name="phone" required type="tel" autocomplete="tel" inputmode="tel"></label>
+			</div>
+			<label>Project type<select name="projectType" required><option value="" selected disabled>Choose project type</option><option value="Residential">Residential</option><option value="Commercial">Commercial</option><option value="Hospitality">Hospitality</option><option value="Other">Other</option></select></label>
+			<label>Project details<textarea name="details" required rows="4" placeholder="Space, style, timeline, and the lighting you need"></textarea></label>
+			<button class="ks-contact-form__submit" type="submit">Continue in WhatsApp <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+			<div class="ks-contact-form__status" data-ks-contact-status hidden aria-live="polite"><p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg><span>Your request is ready. Complete sending it in WhatsApp.</span></p><a data-ks-contact-whatsapp target="_blank" rel="noreferrer">Open WhatsApp <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"></path></svg></a></div>
+		</form>
+	</aside>
+</div>
