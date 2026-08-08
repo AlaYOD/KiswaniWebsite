@@ -449,10 +449,12 @@
 	opacity: 0;
 	overflow-y: auto;
 	position: relative;
+	scrollbar-width: none;
 	transform: translateY(30px);
 	transition: opacity 300ms, transform 420ms cubic-bezier(.22, 1, .36, 1);
 	width: 100%;
 }
+.ks-product-modal__dialog::-webkit-scrollbar { display: none; height: 0; width: 0; }
 .ks-product-modal.is-open .ks-product-modal__dialog { opacity: 1; transform: translateY(0); }
 .ks-product-modal__close {
 	align-items: center;

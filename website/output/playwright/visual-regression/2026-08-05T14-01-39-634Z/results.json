@@ -1,0 +1,91 @@
+{
+  "sourceBase": "https://kiswani-website-82jb.vercel.app",
+  "targetBase": "http://localhost:8088",
+  "thresholdPercent": 2,
+  "comparisonCount": 3,
+  "failedCount": 0,
+  "errorCount": 0,
+  "results": [
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 375,
+      "height": 10816,
+      "mismatchedPixels": 28503,
+      "pixelDifferencePercent": 0.7027,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-01-39-634Z\\collection-decorative-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-01-39-634Z\\collection-decorative-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-01-39-634Z\\collection-decorative-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 768,
+      "height": 7822,
+      "mismatchedPixels": 65567,
+      "pixelDifferencePercent": 1.0915,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-01-39-634Z\\collection-decorative-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-01-39-634Z\\collection-decorative-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-01-39-634Z\\collection-decorative-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 1440,
+      "height": 6089,
+      "mismatchedPixels": 78382,
+      "pixelDifferencePercent": 0.8939,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-01-39-634Z\\collection-decorative-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-01-39-634Z\\collection-decorative-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-01-39-634Z\\collection-decorative-1440-diff.png"
+      }
+    }
+  ]
+}

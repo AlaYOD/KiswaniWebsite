@@ -24,7 +24,27 @@ if (!targetBase) {
 
 const routes = [
   { name: 'home', path: '/' },
+  // Category collections.
   { name: 'collection-decorative', path: '/collections/decorative' },
+  { name: 'collection-interior', path: '/collections/interior' },
+  { name: 'collection-technical', path: '/collections/technical' },
+  { name: 'collection-accent', path: '/collections/accent' },
+  // Product-map group collections.
+  { name: 'collection-lighting-fixtures', path: '/collections/lighting-fixtures' },
+  { name: 'collection-light-bulbs', path: '/collections/light-bulbs' },
+  { name: 'collection-electrical-products', path: '/collections/electrical-products' },
+  { name: 'collection-i-lite', path: '/collections/i-lite' },
+  // Category (section) views.
+  { name: 'collection-lf-indoor', path: '/collections/lighting-fixtures?category=Indoor+lighting' },
+  { name: 'collection-lf-outdoor', path: '/collections/lighting-fixtures?category=Outdoor+lighting' },
+  { name: 'collection-lf-accessories', path: '/collections/lighting-fixtures?category=Accessories' },
+  { name: 'collection-lb-e27', path: '/collections/light-bulbs?category=E27+LED+bulbs' },
+  { name: 'collection-ep-kitchen', path: '/collections/electrical-products?category=Kitchen+electrical+appliances' },
+  { name: 'collection-il-ilite', path: '/collections/i-lite?category=I+LITE' },
+  // Subcategory (item) views.
+  { name: 'collection-lf-indoor-ceiling', path: '/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Ceiling-mounted+lighting' },
+  { name: 'collection-lf-indoor-pendant', path: '/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Pendant+lights' },
+  { name: 'collection-ep-kitchen-kettles', path: '/collections/electrical-products?category=Kitchen+electrical+appliances&subcategory=Kettles' },
   { name: 'product-kl-gl-001', path: '/products/kl-gl-001' },
   { name: 'projects', path: '/projects' },
   { name: 'checkout', path: '/checkout' },
@@ -130,16 +150,67 @@ const capture = async (page, url, screenshotPath) => {
       }),
     );
   });
+  // The scroll pass above starts fresh requests for anything that was still
+  // lazy. Without waiting for those to settle and decoding a second time, tall
+  // pages (45-product collections) capture a few half-painted tiles and the
+  // same route can swing several percent between otherwise identical runs.
+  await page.waitForLoadState('networkidle').catch(() => {});
+  await page.evaluate(async () => {
+    const pending = Array.from(document.images).filter((image) => image.currentSrc || image.getAttribute('src'));
+
+    for (const image of pending) {
+      image.decoding = 'sync';
+    }
+
+    await Promise.all(
+      pending.map(async (image) => {
+        if (!image.complete) {
+          await new Promise((resolve) => {
+            image.addEventListener('load', resolve, { once: true });
+            image.addEventListener('error', resolve, { once: true });
+          });
+        }
+
+        if (typeof image.decode === 'function' && image.naturalWidth > 0) {
+          await image.decode().catch(() => {});
+        }
+      }),
+    );
+  });
+
   await page.evaluate(() => {
     document.querySelectorAll('section[role="status"], .ks-cinematic-intro, #brandIntro').forEach((node) => node.remove());
     document.body.style.overflow = '';
   });
-  await page.waitForTimeout(300);
+
+  // The homepage intro can still be occluding the page at this point, and while
+  // it is, innerText is only the intro's own ~70 characters. Capturing then
+  // yields an "intro screenshot" that scores ~70% against a normal render, so
+  // wait for the real content to be visible first.
+  await page
+    .waitForFunction(() => (document.body?.innerText ?? '').trim().length > 500, undefined, { timeout: 15000 })
+    .catch(() => {});
+
+  await page.waitForTimeout(600);
   await page.screenshot({ path: screenshotPath, fullPage: true, scale: 'css' });
+
+  // The deployed reference occasionally serves a host error page ("This page
+  // couldn't load") with an otherwise healthy response. Comparing against it
+  // silently produces a ~70% difference that looks like a real regression, so
+  // report it as a failed capture instead.
+  const shell = await page.evaluate(() => {
+    const text = (document.body?.innerText ?? '').trim();
+    return {
+      textLength: text.length,
+      // Apostrophe-agnostic: the host error page uses a typographic apostrophe.
+      errorPage: /This page couldn.t load|Application error|DEPLOYMENT_NOT_FOUND|GATEWAY_TIMEOUT|FUNCTION_INVOCATION/i.test(text),
+    };
+  });
 
   return {
     status: response?.status() ?? null,
     finalUrl: page.url(),
+    shell,
   };
 };
 
@@ -162,10 +233,32 @@ try {
       const diffPath = path.join(outputDirectory, `${prefix}-diff.png`);
 
       try {
-        const [source, target] = await Promise.all([
-          capture(sourcePage, toUrl(sourceBase, route.path), sourcePath),
-          capture(targetPage, toUrl(targetBase, route.path), targetPath),
-        ]);
+        // Sequential, not concurrent: driving two full-page captures of a tall
+        // animation-heavy route at once makes the deployed reference fall over
+        // into its client-side error view, which then scores ~70% against a
+        // healthy render.
+        const source = await capture(sourcePage, toUrl(sourceBase, route.path), sourcePath);
+        const target = await capture(targetPage, toUrl(targetBase, route.path), targetPath);
+        // The 404 view is the shortest real page at roughly 150 characters, so
+        // 120 separates "rendered something" from a host error stub without
+        // depending on any app-specific markup.
+        const unrenderable = [['source', source], ['target', target]]
+          .filter(([, side]) => side.shell?.errorPage || (side.shell?.textLength ?? 0) < 120)
+          .map(([side]) => side);
+
+        if (unrenderable.length) {
+          results.push({
+            route: route.path,
+            name: route.name,
+            viewport,
+            error:
+              `capture did not render a usable page for: ${unrenderable.join(', ')}. ` +
+              `source=${JSON.stringify(source.shell)} target=${JSON.stringify(target.shell)}. Re-run this route.`,
+            exceedsTwoPercent: null,
+          });
+          continue;
+        }
+
         const sourceImage = PNG.sync.read(await (await import('node:fs/promises')).readFile(sourcePath));
         const targetImage = PNG.sync.read(await (await import('node:fs/promises')).readFile(targetPath));
         const width = Math.max(sourceImage.width, targetImage.width);
@@ -183,6 +276,35 @@ try {
         );
         await writeFile(diffPath, PNG.sync.write(diff));
 
+        // A whole-page average hides localized breakage: a completely wrong
+        // 175px header on a 6000px page still scores well under 1%. Scoring
+        // horizontal bands as well surfaces "one region is broken" separately
+        // from "the whole page drifted slightly".
+        const bandHeight = 400;
+        const bands = [];
+
+        for (let bandTop = 0; bandTop < height; bandTop += bandHeight) {
+          const bandBottom = Math.min(bandTop + bandHeight, height);
+          let differing = 0;
+
+          for (let y = bandTop; y < bandBottom; y++) {
+            for (let x = 0; x < width; x++) {
+              const index = (width * y + x) << 2;
+              if (diff.data[index] > 128 && diff.data[index + 1] < 128 && diff.data[index + 2] < 128) {
+                differing += 1;
+              }
+            }
+          }
+
+          bands.push({
+            y0: bandTop,
+            y1: bandBottom,
+            percent: Number(((differing / (width * (bandBottom - bandTop))) * 100).toFixed(2)),
+          });
+        }
+
+        const worstBand = bands.reduce((worst, band) => (band.percent > worst.percent ? band : worst), bands[0]);
+
         results.push({
           route: route.path,
           name: route.name,
@@ -194,6 +316,7 @@ try {
           mismatchedPixels,
           pixelDifferencePercent: Number(((mismatchedPixels / (width * height)) * 100).toFixed(4)),
           exceedsTwoPercent: mismatchedPixels / (width * height) > 0.02,
+          worstBand,
           artifacts: { sourcePath, targetPath, diffPath },
         });
       } catch (error) {

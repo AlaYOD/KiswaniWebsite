@@ -1,0 +1,75 @@
+{
+  "sourceBase": "https://kiswani-website-82jb.vercel.app",
+  "targetBase": "http://localhost:8088",
+  "thresholdPercent": 2,
+  "comparisonCount": 3,
+  "failedCount": 0,
+  "errorCount": 1,
+  "results": [
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/products/kl-gl-001\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001"
+      },
+      "width": 768,
+      "height": 4471,
+      "mismatchedPixels": 48105,
+      "pixelDifferencePercent": 1.401,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-12-02-453Z\\product-kl-gl-001-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-12-02-453Z\\product-kl-gl-001-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-12-02-453Z\\product-kl-gl-001-768-diff.png"
+      }
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001"
+      },
+      "width": 1440,
+      "height": 3218,
+      "mismatchedPixels": 56267,
+      "pixelDifferencePercent": 1.2142,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-12-02-453Z\\product-kl-gl-001-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-12-02-453Z\\product-kl-gl-001-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-12-02-453Z\\product-kl-gl-001-1440-diff.png"
+      }
+    }
+  ]
+}

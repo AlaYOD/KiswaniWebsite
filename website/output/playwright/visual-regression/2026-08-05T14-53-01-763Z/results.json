@@ -1,0 +1,1924 @@
+{
+  "sourceBase": "https://kiswani-website-82jb.vercel.app",
+  "targetBase": "http://localhost:8088",
+  "thresholdPercent": 2,
+  "comparisonCount": 78,
+  "failedCount": 3,
+  "errorCount": 12,
+  "results": [
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 375,
+      "height": 15494,
+      "mismatchedPixels": 25472,
+      "pixelDifferencePercent": 0.4384,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\home-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\home-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\home-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 375,
+      "height": 10816,
+      "mismatchedPixels": 8490,
+      "pixelDifferencePercent": 0.2093,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-decorative-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-decorative-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-decorative-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/interior",
+      "name": "collection-interior",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/interior"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/interior"
+      },
+      "width": 375,
+      "height": 4182,
+      "mismatchedPixels": 8355,
+      "pixelDifferencePercent": 0.5328,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-interior-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-interior-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-interior-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/technical",
+      "name": "collection-technical",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/technical"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/technical"
+      },
+      "width": 375,
+      "height": 4182,
+      "mismatchedPixels": 8400,
+      "pixelDifferencePercent": 0.5356,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-technical-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-technical-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-technical-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/accent",
+      "name": "collection-accent",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/accent"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/accent/"
+      },
+      "width": 375,
+      "height": 9949,
+      "mismatchedPixels": 8356,
+      "pixelDifferencePercent": 0.224,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-accent-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-accent-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-accent-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures",
+      "name": "collection-lighting-fixtures",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures"
+      },
+      "width": 375,
+      "height": 17701,
+      "mismatchedPixels": 8394,
+      "pixelDifferencePercent": 0.1265,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lighting-fixtures-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lighting-fixtures-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lighting-fixtures-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/light-bulbs",
+      "name": "collection-light-bulbs",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/light-bulbs"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/light-bulbs"
+      },
+      "width": 375,
+      "height": 17809,
+      "mismatchedPixels": 8260,
+      "pixelDifferencePercent": 0.1237,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-light-bulbs-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-light-bulbs-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-light-bulbs-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/electrical-products",
+      "name": "collection-electrical-products",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/electrical-products"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/electrical-products"
+      },
+      "width": 375,
+      "height": 17809,
+      "mismatchedPixels": 8401,
+      "pixelDifferencePercent": 0.1258,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-electrical-products-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-electrical-products-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-electrical-products-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/i-lite",
+      "name": "collection-i-lite",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/i-lite"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/i-lite"
+      },
+      "width": 375,
+      "height": 17377,
+      "mismatchedPixels": 8053,
+      "pixelDifferencePercent": 0.1236,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-i-lite-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-i-lite-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-i-lite-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Indoor+lighting",
+      "name": "collection-lf-indoor",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Indoor+lighting"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures?category=Indoor+lighting"
+      },
+      "width": 375,
+      "height": 19049,
+      "mismatchedPixels": 1227624,
+      "pixelDifferencePercent": 17.1855,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Outdoor+lighting",
+      "name": "collection-lf-outdoor",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Outdoor+lighting\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Outdoor+lighting\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Accessories",
+      "name": "collection-lf-accessories",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Accessories\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Accessories\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/collections/light-bulbs?category=E27+LED+bulbs",
+      "name": "collection-lb-e27",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://kiswani-website-82jb.vercel.app/collections/light-bulbs?category=E27+LED+bulbs\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/collections/light-bulbs?category=E27+LED+bulbs\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/collections/electrical-products?category=Kitchen+electrical+appliances",
+      "name": "collection-ep-kitchen",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://kiswani-website-82jb.vercel.app/collections/electrical-products?category=Kitchen+electrical+appliances\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/collections/electrical-products?category=Kitchen+electrical+appliances\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/collections/i-lite?category=I+LITE",
+      "name": "collection-il-ilite",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://kiswani-website-82jb.vercel.app/collections/i-lite?category=I+LITE\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/collections/i-lite?category=I+LITE\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Ceiling-mounted+lighting",
+      "name": "collection-lf-indoor-ceiling",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Ceiling-mounted+lighting\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Ceiling-mounted+lighting\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Pendant+lights",
+      "name": "collection-lf-indoor-pendant",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Pendant+lights\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Pendant+lights\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/collections/electrical-products?category=Kitchen+electrical+appliances&subcategory=Kettles",
+      "name": "collection-ep-kitchen-kettles",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://kiswani-website-82jb.vercel.app/collections/electrical-products?category=Kitchen+electrical+appliances&subcategory=Kettles\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/collections/electrical-products?category=Kitchen+electrical+appliances&subcategory=Kettles\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://kiswani-website-82jb.vercel.app/products/kl-gl-001\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/products/kl-gl-001\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://kiswani-website-82jb.vercel.app/projects\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/projects\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://kiswani-website-82jb.vercel.app/checkout\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/checkout\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/about\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 375,
+      "height": 6328,
+      "mismatchedPixels": 7376,
+      "pixelDifferencePercent": 0.3108,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\support-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\support-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\support-375-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 375,
+      "height": 5631,
+      "mismatchedPixels": 7382,
+      "pixelDifferencePercent": 0.3496,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\privacy-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\privacy-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\privacy-375-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 375,
+      "height": 5989,
+      "mismatchedPixels": 7379,
+      "pixelDifferencePercent": 0.3286,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\terms-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\terms-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\terms-375-diff.png"
+      }
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/__visual-regression-missing__"
+      },
+      "target": {
+        "status": 404,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__"
+      },
+      "width": 375,
+      "height": 812,
+      "mismatchedPixels": 0,
+      "pixelDifferencePercent": 0,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\not-found-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\not-found-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\not-found-375-diff.png"
+      }
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 768,
+      "height": 10247,
+      "mismatchedPixels": 35507,
+      "pixelDifferencePercent": 0.4512,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\home-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\home-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\home-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 768,
+      "height": 7822,
+      "mismatchedPixels": 18549,
+      "pixelDifferencePercent": 0.3088,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-decorative-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-decorative-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-decorative-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/interior",
+      "name": "collection-interior",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/interior"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/interior"
+      },
+      "width": 768,
+      "height": 3724,
+      "mismatchedPixels": 17585,
+      "pixelDifferencePercent": 0.6149,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-interior-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-interior-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-interior-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/technical",
+      "name": "collection-technical",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/technical"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/technical"
+      },
+      "width": 768,
+      "height": 3724,
+      "mismatchedPixels": 16803,
+      "pixelDifferencePercent": 0.5875,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-technical-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-technical-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-technical-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/accent",
+      "name": "collection-accent",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/accent"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/accent/"
+      },
+      "width": 768,
+      "height": 7272,
+      "mismatchedPixels": 16150,
+      "pixelDifferencePercent": 0.2892,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-accent-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-accent-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-accent-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures",
+      "name": "collection-lighting-fixtures",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures"
+      },
+      "width": 768,
+      "height": 12072,
+      "mismatchedPixels": 17912,
+      "pixelDifferencePercent": 0.1932,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lighting-fixtures-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lighting-fixtures-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lighting-fixtures-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/light-bulbs",
+      "name": "collection-light-bulbs",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/light-bulbs"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/light-bulbs"
+      },
+      "width": 768,
+      "height": 12072,
+      "mismatchedPixels": 17186,
+      "pixelDifferencePercent": 0.1854,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-light-bulbs-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-light-bulbs-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-light-bulbs-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/electrical-products",
+      "name": "collection-electrical-products",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/electrical-products"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/electrical-products"
+      },
+      "width": 768,
+      "height": 12072,
+      "mismatchedPixels": 16549,
+      "pixelDifferencePercent": 0.1785,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-electrical-products-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-electrical-products-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-electrical-products-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/i-lite",
+      "name": "collection-i-lite",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/i-lite"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/i-lite"
+      },
+      "width": 768,
+      "height": 12072,
+      "mismatchedPixels": 15851,
+      "pixelDifferencePercent": 0.171,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-i-lite-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-i-lite-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-i-lite-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Indoor+lighting",
+      "name": "collection-lf-indoor",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Indoor+lighting"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures?category=Indoor+lighting"
+      },
+      "width": 768,
+      "height": 12220,
+      "mismatchedPixels": 20022,
+      "pixelDifferencePercent": 0.2133,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Outdoor+lighting",
+      "name": "collection-lf-outdoor",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Outdoor+lighting"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures?category=Outdoor+lighting"
+      },
+      "width": 768,
+      "height": 12220,
+      "mismatchedPixels": 20885,
+      "pixelDifferencePercent": 0.2225,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-outdoor-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-outdoor-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-outdoor-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Accessories",
+      "name": "collection-lf-accessories",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Accessories"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures?category=Accessories"
+      },
+      "width": 768,
+      "height": 12220,
+      "mismatchedPixels": 19584,
+      "pixelDifferencePercent": 0.2087,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-accessories-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-accessories-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-accessories-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/light-bulbs?category=E27+LED+bulbs",
+      "name": "collection-lb-e27",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/light-bulbs?category=E27+LED+bulbs"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/light-bulbs?category=E27+LED+bulbs"
+      },
+      "width": 768,
+      "height": 12220,
+      "mismatchedPixels": 17183,
+      "pixelDifferencePercent": 0.1831,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lb-e27-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lb-e27-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lb-e27-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/electrical-products?category=Kitchen+electrical+appliances",
+      "name": "collection-ep-kitchen",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/electrical-products?category=Kitchen+electrical+appliances"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/electrical-products?category=Kitchen+electrical+appliances"
+      },
+      "width": 768,
+      "height": 12220,
+      "mismatchedPixels": 16546,
+      "pixelDifferencePercent": 0.1763,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/i-lite?category=I+LITE",
+      "name": "collection-il-ilite",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/i-lite?category=I+LITE"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/i-lite?category=I+LITE"
+      },
+      "width": 768,
+      "height": 12220,
+      "mismatchedPixels": 15848,
+      "pixelDifferencePercent": 0.1689,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-il-ilite-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-il-ilite-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-il-ilite-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Ceiling-mounted+lighting",
+      "name": "collection-lf-indoor-ceiling",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Ceiling-mounted+lighting"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Ceiling-mounted+lighting"
+      },
+      "width": 768,
+      "height": 12220,
+      "mismatchedPixels": 20026,
+      "pixelDifferencePercent": 0.2134,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-ceiling-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-ceiling-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-ceiling-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Pendant+lights",
+      "name": "collection-lf-indoor-pendant",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Pendant+lights"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Pendant+lights"
+      },
+      "width": 768,
+      "height": 12220,
+      "mismatchedPixels": 20072,
+      "pixelDifferencePercent": 0.2139,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-pendant-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-pendant-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-pendant-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/electrical-products?category=Kitchen+electrical+appliances&subcategory=Kettles",
+      "name": "collection-ep-kitchen-kettles",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/electrical-products?category=Kitchen+electrical+appliances&subcategory=Kettles"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/electrical-products?category=Kitchen+electrical+appliances&subcategory=Kettles"
+      },
+      "width": 768,
+      "height": 12220,
+      "mismatchedPixels": 16546,
+      "pixelDifferencePercent": 0.1763,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-kettles-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-kettles-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-kettles-768-diff.png"
+      }
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001"
+      },
+      "width": 768,
+      "height": 4471,
+      "mismatchedPixels": 46315,
+      "pixelDifferencePercent": 1.3488,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\product-kl-gl-001-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\product-kl-gl-001-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\product-kl-gl-001-768-diff.png"
+      }
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/projects"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/projects/"
+      },
+      "width": 768,
+      "height": 6714,
+      "mismatchedPixels": 77534,
+      "pixelDifferencePercent": 1.5037,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\projects-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\projects-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\projects-768-diff.png"
+      }
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/checkout"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/checkout/"
+      },
+      "width": 768,
+      "height": 3102,
+      "mismatchedPixels": 8023,
+      "pixelDifferencePercent": 0.3368,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\checkout-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\checkout-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\checkout-768-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/about"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/"
+      },
+      "width": 768,
+      "height": 4864,
+      "mismatchedPixels": 7832,
+      "pixelDifferencePercent": 0.2097,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\about-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\about-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\about-768-diff.png"
+      }
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 768,
+      "height": 4989,
+      "mismatchedPixels": 8558,
+      "pixelDifferencePercent": 0.2234,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\support-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\support-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\support-768-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 768,
+      "height": 4660,
+      "mismatchedPixels": 8603,
+      "pixelDifferencePercent": 0.2404,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\privacy-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\privacy-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\privacy-768-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 768,
+      "height": 4918,
+      "mismatchedPixels": 8545,
+      "pixelDifferencePercent": 0.2262,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\terms-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\terms-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\terms-768-diff.png"
+      }
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/__visual-regression-missing__"
+      },
+      "target": {
+        "status": 404,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__"
+      },
+      "width": 768,
+      "height": 1024,
+      "mismatchedPixels": 0,
+      "pixelDifferencePercent": 0,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\not-found-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\not-found-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\not-found-768-diff.png"
+      }
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 1440,
+      "height": 8074,
+      "mismatchedPixels": 64511,
+      "pixelDifferencePercent": 0.5549,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\home-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\home-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\home-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 1440,
+      "height": 6089,
+      "mismatchedPixels": 13888,
+      "pixelDifferencePercent": 0.1584,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-decorative-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-decorative-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-decorative-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/interior",
+      "name": "collection-interior",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/interior"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/interior"
+      },
+      "width": 1440,
+      "height": 2623,
+      "mismatchedPixels": 12950,
+      "pixelDifferencePercent": 0.3429,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-interior-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-interior-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-interior-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/technical",
+      "name": "collection-technical",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/technical"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/technical"
+      },
+      "width": 1440,
+      "height": 2623,
+      "mismatchedPixels": 12168,
+      "pixelDifferencePercent": 0.3222,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-technical-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-technical-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-technical-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/accent",
+      "name": "collection-accent",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/accent"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/accent/"
+      },
+      "width": 1440,
+      "height": 6089,
+      "mismatchedPixels": 11441,
+      "pixelDifferencePercent": 0.1305,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-accent-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-accent-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-accent-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures",
+      "name": "collection-lighting-fixtures",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures"
+      },
+      "width": 1440,
+      "height": 10257,
+      "mismatchedPixels": 13189,
+      "pixelDifferencePercent": 0.0893,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lighting-fixtures-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lighting-fixtures-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lighting-fixtures-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/light-bulbs",
+      "name": "collection-light-bulbs",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/light-bulbs"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/light-bulbs"
+      },
+      "width": 1440,
+      "height": 10257,
+      "mismatchedPixels": 12463,
+      "pixelDifferencePercent": 0.0844,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-light-bulbs-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-light-bulbs-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-light-bulbs-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/electrical-products",
+      "name": "collection-electrical-products",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/electrical-products"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/electrical-products"
+      },
+      "width": 1440,
+      "height": 10257,
+      "mismatchedPixels": 11826,
+      "pixelDifferencePercent": 0.0801,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-electrical-products-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-electrical-products-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-electrical-products-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/i-lite",
+      "name": "collection-i-lite",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/i-lite"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/i-lite"
+      },
+      "width": 1440,
+      "height": 10257,
+      "mismatchedPixels": 477325,
+      "pixelDifferencePercent": 3.2317,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-i-lite-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-i-lite-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-i-lite-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Indoor+lighting",
+      "name": "collection-lf-indoor",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Indoor+lighting"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures?category=Indoor+lighting"
+      },
+      "width": 1440,
+      "height": 10405,
+      "mismatchedPixels": 16131,
+      "pixelDifferencePercent": 0.1077,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Outdoor+lighting",
+      "name": "collection-lf-outdoor",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Outdoor+lighting"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures?category=Outdoor+lighting"
+      },
+      "width": 1440,
+      "height": 10405,
+      "mismatchedPixels": 19238,
+      "pixelDifferencePercent": 0.1284,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-outdoor-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-outdoor-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-outdoor-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Accessories",
+      "name": "collection-lf-accessories",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Accessories"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures?category=Accessories"
+      },
+      "width": 1440,
+      "height": 10405,
+      "mismatchedPixels": 15853,
+      "pixelDifferencePercent": 0.1058,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-accessories-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-accessories-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-accessories-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/light-bulbs?category=E27+LED+bulbs",
+      "name": "collection-lb-e27",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/light-bulbs?category=E27+LED+bulbs"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/light-bulbs?category=E27+LED+bulbs"
+      },
+      "width": 1440,
+      "height": 10405,
+      "mismatchedPixels": 12460,
+      "pixelDifferencePercent": 0.0832,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lb-e27-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lb-e27-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lb-e27-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/electrical-products?category=Kitchen+electrical+appliances",
+      "name": "collection-ep-kitchen",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/electrical-products?category=Kitchen+electrical+appliances"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/electrical-products?category=Kitchen+electrical+appliances"
+      },
+      "width": 1440,
+      "height": 10405,
+      "mismatchedPixels": 12840,
+      "pixelDifferencePercent": 0.0857,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/i-lite?category=I+LITE",
+      "name": "collection-il-ilite",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/i-lite?category=I+LITE"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/i-lite?category=I+LITE"
+      },
+      "width": 1440,
+      "height": 10405,
+      "mismatchedPixels": 469104,
+      "pixelDifferencePercent": 3.1309,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-il-ilite-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-il-ilite-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-il-ilite-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Ceiling-mounted+lighting",
+      "name": "collection-lf-indoor-ceiling",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Ceiling-mounted+lighting"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Ceiling-mounted+lighting"
+      },
+      "width": 1440,
+      "height": 10405,
+      "mismatchedPixels": 16135,
+      "pixelDifferencePercent": 0.1077,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-ceiling-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-ceiling-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-ceiling-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Pendant+lights",
+      "name": "collection-lf-indoor-pendant",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Pendant+lights"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/lighting-fixtures?category=Indoor+lighting&subcategory=Pendant+lights"
+      },
+      "width": 1440,
+      "height": 10405,
+      "mismatchedPixels": 16181,
+      "pixelDifferencePercent": 0.108,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-pendant-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-pendant-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-lf-indoor-pendant-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/electrical-products?category=Kitchen+electrical+appliances&subcategory=Kettles",
+      "name": "collection-ep-kitchen-kettles",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/electrical-products?category=Kitchen+electrical+appliances&subcategory=Kettles"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/electrical-products?category=Kitchen+electrical+appliances&subcategory=Kettles"
+      },
+      "width": 1440,
+      "height": 10405,
+      "mismatchedPixels": 12840,
+      "pixelDifferencePercent": 0.0857,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-kettles-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-kettles-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\collection-ep-kitchen-kettles-1440-diff.png"
+      }
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001"
+      },
+      "width": 1440,
+      "height": 3218,
+      "mismatchedPixels": 51178,
+      "pixelDifferencePercent": 1.1044,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\product-kl-gl-001-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\product-kl-gl-001-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\product-kl-gl-001-1440-diff.png"
+      }
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/projects"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/projects/"
+      },
+      "width": 1440,
+      "height": 5509,
+      "mismatchedPixels": 59329,
+      "pixelDifferencePercent": 0.7479,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\projects-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\projects-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\projects-1440-diff.png"
+      }
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/checkout"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/checkout/"
+      },
+      "width": 1440,
+      "height": 2214,
+      "mismatchedPixels": 11582,
+      "pixelDifferencePercent": 0.3633,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\checkout-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\checkout-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\checkout-1440-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/about"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/"
+      },
+      "width": 1440,
+      "height": 3866,
+      "mismatchedPixels": 11489,
+      "pixelDifferencePercent": 0.2064,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\about-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\about-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\about-1440-diff.png"
+      }
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 1440,
+      "height": 3820,
+      "mismatchedPixels": 11574,
+      "pixelDifferencePercent": 0.2104,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\support-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\support-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\support-1440-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 1440,
+      "height": 3567,
+      "mismatchedPixels": 12278,
+      "pixelDifferencePercent": 0.239,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\privacy-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\privacy-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\privacy-1440-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 1440,
+      "height": 3836,
+      "mismatchedPixels": 12228,
+      "pixelDifferencePercent": 0.2214,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\terms-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\terms-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\terms-1440-diff.png"
+      }
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/__visual-regression-missing__"
+      },
+      "target": {
+        "status": 404,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__"
+      },
+      "width": 1440,
+      "height": 900,
+      "mismatchedPixels": 66,
+      "pixelDifferencePercent": 0.0051,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\not-found-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\not-found-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T14-53-01-763Z\\not-found-1440-diff.png"
+      }
+    }
+  ]
+}

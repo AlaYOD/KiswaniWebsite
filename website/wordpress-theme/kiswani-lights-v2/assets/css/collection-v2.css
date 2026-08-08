@@ -141,6 +141,13 @@
 	object-position: center;
 }
 
+/* source-catalog.css paints this same gradient on ::before with an unscoped
+   selector. The v2 hero uses ::after, and letting both render double-darkens
+   the lower half of the image. */
+.ks-catalog--v2 .ks-catalog-hero__image::before {
+	content: none;
+}
+
 .ks-catalog--v2 .ks-catalog-hero__image::after {
 	position: absolute;
 	inset: 0;
@@ -651,4 +658,51 @@
 	.ks-catalog--v2 .ks-catalog-grid {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
+}
+
+/* Empty state: mt-12 border border-dashed border-[#A3A7AA] bg-[#CCCFCE]/15 px-6 py-16 text-center */
+.ks-catalog--v2 .ks-catalog-empty {
+	margin-top: 48px;
+	border: 1px dashed #a3a7aa;
+	background: rgb(204 207 206 / 15%);
+	padding: 64px 24px;
+	text-align: center;
+}
+
+.ks-catalog--v2 .ks-catalog-empty svg {
+	display: block;
+	width: 24px;
+	height: 24px;
+	margin: 0 auto;
+	color: #73787c;
+	fill: none;
+	stroke: currentcolor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2;
+}
+
+.ks-catalog--v2 .ks-catalog-empty p {
+	margin: 16px 0 0;
+	color: #50555b;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.ks-catalog--v2 .ks-catalog-empty button {
+	margin-top: 16px;
+	border: 0;
+	background: none;
+	padding: 0;
+	color: inherit;
+	font-family: inherit;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+	text-decoration: underline;
+	text-decoration-color: #ffda01;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
+	cursor: pointer;
 }

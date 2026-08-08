@@ -25,6 +25,21 @@ function kiswani_source_route_query_vars( $vars ) {
 add_filter( 'query_vars', 'kiswani_source_route_query_vars' );
 
 function kiswani_source_route_template( $template ) {
+	/*
+	 * WordPress prefers front-page.php over a page template assigned to the front
+	 * page, so the coded homepage always wins and Elementor cannot attach to it.
+	 * If an editor deliberately picks a page template (Elementor registers its
+	 * Canvas and Full Width templates this way), step aside and let that template
+	 * — and Elementor's own template_include filter, which runs after this one —
+	 * take the page. Template "Default" keeps the coded homepage.
+	 */
+	if ( is_front_page() && ! is_home() ) {
+		$assigned = get_page_template_slug( get_queried_object_id() );
+		if ( $assigned ) {
+			return get_page_template();
+		}
+	}
+
 	$special = sanitize_key( (string) get_query_var( 'kiswani_special' ) );
 	if ( 'checkout' === $special ) {
 		global $wp_query;
@@ -71,7 +86,14 @@ function kiswani_source_route_template( $template ) {
 		return get_template_directory() . '/templates/source-projects.php';
 	}
 	$collection = sanitize_key( (string) get_query_var( 'kiswani_collection' ) );
-	if ( $collection && kiswani_catalog_collection_details( $collection ) ) {
+	$is_group   = $collection ? (bool) kiswani_product_map_group( $collection ) : false;
+	if ( $collection && ( $is_group || kiswani_catalog_collection_details( $collection ) ) ) {
+		// The rewrite maps /collections/<slug> onto the kiswani_collection query var,
+		// which WordPress also reads as a taxonomy query. Slugs without a matching
+		// term would otherwise resolve as 404 even though the template renders.
+		global $wp_query;
+		$wp_query->is_404 = false;
+		status_header( 200 );
 		wp_enqueue_style( 'kiswani-source-home', get_template_directory_uri() . '/assets/css/source-home.css', array( 'kiswani-lights' ), '0.1.2' );
 		wp_enqueue_style( 'kiswani-source-fonts', get_template_directory_uri() . '/assets/css/fonts.css', array( 'kiswani-source-home' ), '0.1.0' );
 		wp_enqueue_style( 'kiswani-source-catalog', get_template_directory_uri() . '/assets/css/source-catalog.css', array( 'kiswani-source-fonts' ), '0.1.0' );
@@ -80,6 +102,9 @@ function kiswani_source_route_template( $template ) {
 		wp_enqueue_style( 'kiswani-collection-v2-polish', get_template_directory_uri() . '/assets/css/collection-v2-polish.css', array( 'kiswani-collection-v2-fix' ), '0.1.0' );
 		wp_enqueue_style( 'kiswani-collection-mobile-header-fix', get_template_directory_uri() . '/assets/css/collection-mobile-header-fix.css', array( 'kiswani-collection-v2-polish' ), '0.1.0' );
 		wp_enqueue_style( 'kiswani-collection-card-parity', get_template_directory_uri() . '/assets/css/collection-card-parity.css', array( 'kiswani-collection-mobile-header-fix' ), '0.1.0' );
+		if ( $is_group ) {
+			wp_enqueue_style( 'kiswani-collection-groups', get_template_directory_uri() . '/assets/css/collection-groups.css', array( 'kiswani-collection-card-parity' ), '0.1.0' );
+		}
 		wp_enqueue_script( 'kiswani-source-home', get_template_directory_uri() . '/assets/js/source-home.js', array(), '0.1.0', true );
 		wp_enqueue_script( 'kiswani-source-catalog', get_template_directory_uri() . '/assets/js/source-catalog.js', array(), '0.1.0', true );
 		wp_add_inline_script( 'kiswani-source-home', 'window.ksThemeUri = ' . wp_json_encode( get_template_directory_uri() ) . ';', 'before' );

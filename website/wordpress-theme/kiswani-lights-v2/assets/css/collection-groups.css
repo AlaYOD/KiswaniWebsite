@@ -1,0 +1,322 @@
+/*
+ * Product-map collection mode: the category-tab and subcategory-item rows that
+ * CollectionExperience.tsx renders when a productMapGroup is active.
+ * Values are a literal translation of the source Tailwind classes.
+ */
+
+.ks-catalog--v2 .ks-catalog-tabs svg,
+.ks-catalog--v2 .ks-catalog-crumb svg {
+	fill: none;
+	stroke: currentcolor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2;
+}
+
+/* Hero breadcrumb chip: mt-7 inline-flex items-center gap-2 border-y border-white/10 py-3 */
+.ks-catalog--v2 .ks-catalog-crumb {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-top: 28px;
+	border-top: 1px solid rgb(255 255 255 / 10%);
+	border-bottom: 1px solid rgb(255 255 255 / 10%);
+	padding: 12px 0;
+	gap: 8px;
+	color: #cccfce;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 16px;
+}
+
+.ks-catalog--v2 .ks-catalog-crumb b {
+	color: #ffda01;
+	font-weight: 600;
+}
+
+.ks-catalog--v2 .ks-catalog-crumb svg {
+	width: 14px;
+	height: 14px;
+}
+
+/* Section: bg-[#F4F2ED] px-4 py-10 sm:px-8 sm:py-14 */
+.ks-catalog--v2 .ks-catalog-tabs {
+	background: #f4f2ed;
+	padding: 40px 16px;
+}
+
+.ks-catalog--v2 .ks-catalog-tabs__inner {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+/* Header: mb-6 flex items-end justify-between gap-6 */
+.ks-catalog--v2 .ks-catalog-tabs header {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	margin-bottom: 24px;
+	gap: 24px;
+}
+
+.ks-catalog--v2 .ks-catalog-tabs header p {
+	margin: 0;
+	color: #8a7400;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 16px;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+}
+
+.ks-catalog--v2 .ks-catalog-tabs header h2 {
+	margin: 12px 0 0;
+	font-size: 30px;
+	font-weight: 600;
+	line-height: 36px;
+	letter-spacing: -.04em;
+}
+
+/* Tab row: grid gap-3 pb-3 sm:flex sm:overflow-x-auto */
+.ks-catalog--v2 .ks-catalog-tabs__row {
+	display: grid;
+	padding-bottom: 12px;
+	gap: 12px;
+}
+
+.ks-catalog--v2 .ks-catalog-tab {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid #fff;
+	text-decoration: none;
+	transition: border-color .3s, box-shadow .3s;
+}
+
+/* All-products tab: flex min-h-24 flex-col justify-between p-5 */
+.ks-catalog--v2 .ks-catalog-tab--all {
+	display: flex;
+	min-height: 96px;
+	flex-direction: column;
+	justify-content: space-between;
+	background: #fff;
+	padding: 20px;
+	color: #0f1822;
+}
+
+.ks-catalog--v2 .ks-catalog-tab--all.is-active {
+	border-color: #ffda01;
+	background: #0f1822;
+	box-shadow: 0 18px 45px rgb(15 24 34 / 18%);
+	color: #fff;
+}
+
+.ks-catalog--v2 .ks-catalog-tab__kicker {
+	color: #8a7400;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 16px;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+}
+
+.ks-catalog--v2 .ks-catalog-tab--all.is-active .ks-catalog-tab__kicker {
+	color: #ffda01;
+}
+
+.ks-catalog--v2 .ks-catalog-tab__foot {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.ks-catalog--v2 .ks-catalog-tab--all .ks-catalog-tab__name {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 1.25;
+	letter-spacing: -.04em;
+}
+
+.ks-catalog--v2 .ks-catalog-tab__arrow {
+	display: flex;
+	width: 36px;
+	height: 36px;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+}
+
+.ks-catalog--v2 .ks-catalog-tab__arrow svg {
+	width: 15px;
+	height: 15px;
+}
+
+.ks-catalog--v2 .ks-catalog-tab--all .ks-catalog-tab__arrow {
+	background: #0f1822;
+	color: #ffda01;
+}
+
+.ks-catalog--v2 .ks-catalog-tab--all.is-active .ks-catalog-tab__arrow {
+	background: #ffda01;
+	color: #0f1822;
+}
+
+/* Section tab: relative h-24 overflow-hidden border */
+.ks-catalog--v2 .ks-catalog-tab--section {
+	display: block;
+	height: 96px;
+}
+
+.ks-catalog--v2 .ks-catalog-tab--section.is-active {
+	border-color: #ffda01;
+	box-shadow: 0 18px 45px rgb(15 24 34 / 18%);
+}
+
+.ks-catalog--v2 .ks-catalog-tab--section img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform .7s;
+}
+
+.ks-catalog--v2 .ks-catalog-tab__scrim {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(0deg, rgb(7 11 14 / 82%) 0%, rgb(7 11 14 / 8%) 72%);
+}
+
+.ks-catalog--v2 .ks-catalog-tab--section .ks-catalog-tab__foot {
+	position: absolute;
+	inset-inline: 0;
+	bottom: 0;
+	padding: 20px;
+	color: #fff;
+}
+
+.ks-catalog--v2 .ks-catalog-tab--section .ks-catalog-tab__name {
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.ks-catalog--v2 .ks-catalog-tab--section .ks-catalog-tab__arrow {
+	background: rgb(255 255 255 / 10%);
+	color: #ffda01;
+}
+
+.ks-catalog--v2 .ks-catalog-tab--section.is-active .ks-catalog-tab__arrow {
+	background: #ffda01;
+	color: #0f1822;
+}
+
+/* Item row: mt-7 border-y border-[#D8D4CC] py-5 */
+.ks-catalog--v2 .ks-catalog-items {
+	margin-top: 28px;
+	border-top: 1px solid #d8d4cc;
+	border-bottom: 1px solid #d8d4cc;
+	padding: 20px 0;
+}
+
+.ks-catalog--v2 .ks-catalog-items__row {
+	display: grid;
+	padding-bottom: 4px;
+	gap: 8px;
+}
+
+/* All pill: flex min-h-11 items-center px-4 py-3 text-sm font-bold */
+.ks-catalog--v2 .ks-catalog-item-all {
+	display: flex;
+	min-height: 44px;
+	align-items: center;
+	background: #fff;
+	padding: 12px 16px;
+	color: #50555b;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	text-decoration: none;
+	transition: color .2s;
+}
+
+.ks-catalog--v2 .ks-catalog-item-all.is-active {
+	background: #0f1822;
+	color: #fff;
+}
+
+/* Item card: flex min-h-16 items-center gap-3 border bg-white p-2 */
+.ks-catalog--v2 .ks-catalog-item {
+	display: flex;
+	min-height: 64px;
+	align-items: center;
+	border: 1px solid transparent;
+	background: #fff;
+	padding: 8px;
+	gap: 12px;
+	text-decoration: none;
+	transition: border-color .2s, box-shadow .2s;
+}
+
+.ks-catalog--v2 .ks-catalog-item.is-active {
+	border-color: #0f1822;
+	box-shadow: 0 12px 30px rgb(15 24 34 / 12%);
+}
+
+.ks-catalog--v2 .ks-catalog-item__thumb {
+	position: relative;
+	width: 64px;
+	height: 56px;
+	flex-shrink: 0;
+	overflow: hidden;
+	background: #070b0e;
+}
+
+.ks-catalog--v2 .ks-catalog-item__thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.ks-catalog--v2 .ks-catalog-item__name {
+	min-width: 0;
+	color: #0f1822;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+@media (min-width: 640px) {
+	.ks-catalog--v2 .ks-catalog-tabs {
+		padding: 56px 32px;
+	}
+
+	.ks-catalog--v2 .ks-catalog-tabs header h2 {
+		font-size: 48px;
+		line-height: 1;
+	}
+
+	.ks-catalog--v2 .ks-catalog-tabs__row,
+	.ks-catalog--v2 .ks-catalog-items__row {
+		display: flex;
+		overflow-x: auto;
+	}
+
+	.ks-catalog--v2 .ks-catalog-tab--all {
+		height: 176px;
+		min-width: 280px;
+	}
+
+	.ks-catalog--v2 .ks-catalog-tab--section {
+		height: 176px;
+		min-width: 310px;
+	}
+
+	.ks-catalog--v2 .ks-catalog-item-all,
+	.ks-catalog--v2 .ks-catalog-item {
+		white-space: nowrap;
+	}
+
+	.ks-catalog--v2 .ks-catalog-item {
+		min-width: 210px;
+	}
+}

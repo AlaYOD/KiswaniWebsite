@@ -1,0 +1,163 @@
+{
+  "sourceBase": "https://kiswani-website-82jb.vercel.app",
+  "targetBase": "http://localhost:8088",
+  "thresholdPercent": 2,
+  "comparisonCount": 6,
+  "failedCount": 0,
+  "errorCount": 3,
+  "results": [
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "capture did not render a usable page for: source. source={\"textLength\":70,\"errorPage\":false} target={\"textLength\":3521,\"errorPage\":false}. Re-run this route.",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/__visual-regression-missing__",
+        "shell": {
+          "textLength": 184,
+          "errorPage": false
+        }
+      },
+      "target": {
+        "status": 404,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__",
+        "shell": {
+          "textLength": 184,
+          "errorPage": false
+        }
+      },
+      "width": 375,
+      "height": 812,
+      "mismatchedPixels": 0,
+      "pixelDifferencePercent": 0,
+      "exceedsTwoPercent": false,
+      "worstBand": {
+        "y0": 0,
+        "y1": 400,
+        "percent": 0
+      },
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-06T06-11-55-972Z\\not-found-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-06T06-11-55-972Z\\not-found-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-06T06-11-55-972Z\\not-found-375-diff.png"
+      }
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "error": "capture did not render a usable page for: source. source={\"textLength\":70,\"errorPage\":false} target={\"textLength\":3544,\"errorPage\":false}. Re-run this route.",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/__visual-regression-missing__",
+        "shell": {
+          "textLength": 184,
+          "errorPage": false
+        }
+      },
+      "target": {
+        "status": 404,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__",
+        "shell": {
+          "textLength": 184,
+          "errorPage": false
+        }
+      },
+      "width": 768,
+      "height": 1024,
+      "mismatchedPixels": 0,
+      "pixelDifferencePercent": 0,
+      "exceedsTwoPercent": false,
+      "worstBand": {
+        "y0": 0,
+        "y1": 400,
+        "percent": 0
+      },
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-06T06-11-55-972Z\\not-found-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-06T06-11-55-972Z\\not-found-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-06T06-11-55-972Z\\not-found-768-diff.png"
+      }
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "error": "capture did not render a usable page for: source. source={\"textLength\":70,\"errorPage\":false} target={\"textLength\":3738,\"errorPage\":false}. Re-run this route.",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/__visual-regression-missing__",
+        "shell": {
+          "textLength": 184,
+          "errorPage": false
+        }
+      },
+      "target": {
+        "status": 404,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__",
+        "shell": {
+          "textLength": 184,
+          "errorPage": false
+        }
+      },
+      "width": 1440,
+      "height": 900,
+      "mismatchedPixels": 66,
+      "pixelDifferencePercent": 0.0051,
+      "exceedsTwoPercent": false,
+      "worstBand": {
+        "y0": 0,
+        "y1": 400,
+        "percent": 0.01
+      },
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-06T06-11-55-972Z\\not-found-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-06T06-11-55-972Z\\not-found-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-06T06-11-55-972Z\\not-found-1440-diff.png"
+      }
+    }
+  ]
+}

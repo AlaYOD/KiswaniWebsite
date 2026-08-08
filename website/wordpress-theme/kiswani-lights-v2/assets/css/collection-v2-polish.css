@@ -1,15 +1,3 @@
 .ks-catalog--v2 .ks-catalog-grid {
 	grid-auto-rows: 1fr;
 }
-
-@media (min-width: 640px) {
-	.ks-catalog--v2 .ks-catalog-card__content {
-		padding: 20px;
-	}
-}
-
-@media (min-width: 1280px) {
-	.ks-catalog--v2 .ks-catalog-grid article {
-		height: 600px;
-	}
-}

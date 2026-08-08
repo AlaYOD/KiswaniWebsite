@@ -1,0 +1,440 @@
+{
+  "sourceBase": "https://kiswani-website-82jb.vercel.app",
+  "targetBase": "http://localhost:8088",
+  "thresholdPercent": 2,
+  "comparisonCount": 18,
+  "failedCount": 0,
+  "errorCount": 10,
+  "results": [
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "capture did not render a usable page for: source. source={\"textLength\":70,\"errorPage\":true} target={\"textLength\":3521,\"errorPage\":false}. Re-run this route.",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/collections/decorative\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/products/kl-gl-001\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/projects",
+        "shell": {
+          "textLength": 2333,
+          "errorPage": false
+        }
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/projects/",
+        "shell": {
+          "textLength": 2331,
+          "errorPage": false
+        }
+      },
+      "width": 375,
+      "height": 8783,
+      "mismatchedPixels": 9031,
+      "pixelDifferencePercent": 0.2742,
+      "exceedsTwoPercent": false,
+      "worstBand": {
+        "y0": 5600,
+        "y1": 6000,
+        "percent": 2.65
+      },
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\projects-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\projects-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\projects-375-diff.png"
+      }
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/checkout",
+        "shell": {
+          "textLength": 906,
+          "errorPage": false
+        }
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/checkout/",
+        "shell": {
+          "textLength": 907,
+          "errorPage": false
+        }
+      },
+      "width": 375,
+      "height": 3792,
+      "mismatchedPixels": 3357,
+      "pixelDifferencePercent": 0.2361,
+      "exceedsTwoPercent": false,
+      "worstBand": {
+        "y0": 2400,
+        "y1": 2800,
+        "percent": 1.58
+      },
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\checkout-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\checkout-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\checkout-375-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/about\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/",
+        "shell": {
+          "textLength": 3555,
+          "errorPage": false
+        }
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/",
+        "shell": {
+          "textLength": 3544,
+          "errorPage": false
+        }
+      },
+      "width": 768,
+      "height": 10247,
+      "mismatchedPixels": 30927,
+      "pixelDifferencePercent": 0.393,
+      "exceedsTwoPercent": false,
+      "worstBand": {
+        "y0": 400,
+        "y1": 800,
+        "percent": 4.67
+      },
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\home-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\home-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\home-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/collections/decorative\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/products/kl-gl-001\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/projects",
+        "shell": {
+          "textLength": 2356,
+          "errorPage": false
+        }
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/projects/",
+        "shell": {
+          "textLength": 2354,
+          "errorPage": false
+        }
+      },
+      "width": 768,
+      "height": 6712,
+      "mismatchedPixels": 31778,
+      "pixelDifferencePercent": 0.6165,
+      "exceedsTwoPercent": false,
+      "worstBand": {
+        "y0": 4000,
+        "y1": 4400,
+        "percent": 2.66
+      },
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\projects-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\projects-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\projects-768-diff.png"
+      }
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/checkout",
+        "shell": {
+          "textLength": 929,
+          "errorPage": false
+        }
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/checkout/",
+        "shell": {
+          "textLength": 930,
+          "errorPage": false
+        }
+      },
+      "width": 768,
+      "height": 3102,
+      "mismatchedPixels": 1608,
+      "pixelDifferencePercent": 0.0675,
+      "exceedsTwoPercent": false,
+      "worstBand": {
+        "y0": 2800,
+        "y1": 3102,
+        "percent": 0.26
+      },
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\checkout-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\checkout-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\checkout-768-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/about",
+        "shell": {
+          "textLength": 1733,
+          "errorPage": false
+        }
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/",
+        "shell": {
+          "textLength": 1736,
+          "errorPage": false
+        }
+      },
+      "width": 768,
+      "height": 4864,
+      "mismatchedPixels": 2613,
+      "pixelDifferencePercent": 0.0699,
+      "exceedsTwoPercent": false,
+      "worstBand": {
+        "y0": 4000,
+        "y1": 4400,
+        "percent": 0.24
+      },
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\about-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\about-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\about-768-diff.png"
+      }
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/",
+        "shell": {
+          "textLength": 3749,
+          "errorPage": false
+        }
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/",
+        "shell": {
+          "textLength": 3738,
+          "errorPage": false
+        }
+      },
+      "width": 1440,
+      "height": 8074,
+      "mismatchedPixels": 57212,
+      "pixelDifferencePercent": 0.4921,
+      "exceedsTwoPercent": false,
+      "worstBand": {
+        "y0": 2000,
+        "y1": 2400,
+        "percent": 2.05
+      },
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\home-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\home-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\home-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/collections/decorative\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/products/kl-gl-001\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/projects\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "error": "page.goto: Timeout 60000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://kiswani-website-82jb.vercel.app/checkout\", waiting until \"networkidle\"\u001b[22m\n",
+      "exceedsTwoPercent": null
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/about",
+        "shell": {
+          "textLength": 1862,
+          "errorPage": false
+        }
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/",
+        "shell": {
+          "textLength": 1865,
+          "errorPage": false
+        }
+      },
+      "width": 1440,
+      "height": 3866,
+      "mismatchedPixels": 5410,
+      "pixelDifferencePercent": 0.0972,
+      "exceedsTwoPercent": false,
+      "worstBand": {
+        "y0": 3600,
+        "y1": 3866,
+        "percent": 0.67
+      },
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\about-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\about-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-06T08-35-06-351Z\\about-1440-diff.png"
+      }
+    }
+  ]
+}

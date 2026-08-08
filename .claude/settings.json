@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -)",
+      "PowerShell(Set-Location D:\\\\Kiswani\\\\website; $env:TARGET_URL='http://localhost:8088'; $env:VISUAL_ROUTES='collection-lighting-fixtures'; 1..2 | ForEach-Object { node scripts/visual-regression.mjs 2>&1 | Select-String -Pattern 'pixelDifferencePercent' })",
+      "PowerShell(Set-Location D:\\\\Kiswani\\\\website; $env:TARGET_URL='http://localhost:8088'; $env:VISUAL_ROUTES='home'; node scripts/visual-regression.mjs 2>&1 | Select-String -Pattern 'capture did not render')",
+      "PowerShell(Set-Location D:\\\\Kiswani\\\\website; $env:TARGET_URL='http://localhost:8088'; $env:VISUAL_ROUTES='home'; node scripts/visual-regression.mjs 2>&1 | Select-String -Pattern '\"name\": \"\\\\d+\"|pixelDifferencePercent|\"percent\"|error')",
+      "PowerShell(Set-Location D:\\\\Kiswani\\\\website; $p = 'output\\\\playwright\\\\visual-regression\\\\2026-08-06T08-35-06-351Z\\\\results.json'; Test-Path $p; $r = Get-Content $p -Raw | ConvertFrom-Json; \"comparisons=$\\($r.comparisonCount\\) failed=$\\($r.failedCount\\) errors=$\\($r.errorCount\\)\"; $r.results | ForEach-Object { \"{0,-28} {1,5} {2,8}\" -f $_.name, $_.viewport.name, $\\(if \\($_.error\\) { 'ERR' } else { \"$\\($_.pixelDifferencePercent\\)%\" }\\) })",
+      "PowerShell(Set-Location D:\\\\Kiswani\\\\website; $env:HOSTINGER_API_TOKEN='2UB3IGGPr0wRqmjCn5QRCursrC44GehkXwH2xCHQ7b62db3e'; $env:SCHEMA='1'; $env:TOOL='hosting_listWordPressInstallationsV1,hosting_createAccountCronJobV1,hosting_createLoginLinksV1'; node tmp-hostinger-call.mjs 2>&1 | Select-String -NotMatch 'Initialized|MCP Server|Registered|INFO'; Remove-Item Env:\\\\HOSTINGER_API_TOKEN, Env:\\\\SCHEMA)",
+      "Bash(ssh -p 65002 -o BatchMode=yes -o ConnectTimeout=30 u491010922@145.14.152.251 'cd ~/domains/kiswanilights.com/public_html && ID=$\\(wp option get page_on_front\\) && wp post meta update $ID _wp_page_template elementor_header_footer >/dev/null && wp litespeed-purge all >/dev/null 2>&1; sleep 3 && curl -s \"https://kiswanilights.com/?nc=$RANDOM\" | sed -e \"s/<script[^>]*>.*<\\\\/script>//g\" -e \"s/<[^>]*>/ /g\" | tr -s \" \\\\n\" \" \" | cut -c1-700 && echo && echo \"---REVERTING---\" && wp post meta delete $ID _wp_page_template >/dev/null && wp litespeed-purge all >/dev/null 2>&1')"
+    ]
+  }
+}

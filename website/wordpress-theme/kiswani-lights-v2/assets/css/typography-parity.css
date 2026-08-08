@@ -1,0 +1,129 @@
+/*
+ * Typography parity layer.
+ *
+ * Every rule here is a measured computed value from the deployed source at
+ * https://kiswani-website-82jb.vercel.app, applied where the theme's own
+ * stylesheets resolved to something else. These are small elements — labels,
+ * numerals, button text — that a whole-page pixel average barely registers but
+ * that are visibly wrong at the weight/size level.
+ *
+ * Loaded last so it wins over the per-section stylesheets.
+ */
+
+/* Header -------------------------------------------------------------- */
+.ks-header--home .ks-cart-link > span { line-height: 16px; }
+
+/* Footer -------------------------------------------------------------- */
+/* Matches footer-parity-v2.css's own specificity so source order decides. */
+.ks-footer--v2 .ks-footer__column nav em { line-height: 12.8571px; }
+
+/* Homepage ------------------------------------------------------------ */
+.ks-hero__rail button span {
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 1.65px;
+	line-height: 16.5px;
+}
+
+.ks-story__side-body p { line-height: 13.5px; }
+.ks-add { line-height: 20px; }
+.ks-featured-project__cta { line-height: 20px; }
+.ks-home-contact__content button { line-height: 20px; }
+
+/* Information pages --------------------------------------------------- */
+.ks-info-breadcrumb b { font-weight: 700; }
+.ks-info-kicker p { line-height: 16.5px; }
+.ks-info-nav a span { line-height: 16px; }
+.ks-info-nav a b { font-weight: 700; line-height: 16px; }
+.ks-info-content aside nav a b { font-weight: 500; line-height: 12.8571px; }
+.ks-info-cta .ks-info-container a { line-height: 20px; }
+
+/* Product ------------------------------------------------------------- */
+.ks-product-breadcrumb b { font-weight: 400; }
+.ks-product-primary b { line-height: 15px; }
+.ks-product-price div b { letter-spacing: -1.44px; }
+.ks-product-purchase button { font-size: 14px; line-height: 20px; }
+
+/* Heading steps up at sm; keep the mobile metrics below it. */
+.ks-product-specs header h2 {
+	font-weight: 600;
+	letter-spacing: -1.2px;
+	line-height: 30.6px;
+}
+
+.ks-product-spec-list div small { font-weight: 600; }
+.ks-product-spec-list div span { font-weight: 500; }
+.ks-product-support span { line-height: 20px; }
+.ks-product-related header h2 { font-weight: 600; }
+.ks-related-copy h3 { letter-spacing: -.6px; }
+
+/* Projects ------------------------------------------------------------ */
+/* The bronze kicker is 16px in the source; the others are 15px. */
+.ks-projects-kicker:not(.ks-projects-kicker--bronze) p { line-height: 15px; }
+.ks-project-testimonials__image p,
+.ks-project-testimonials__heading p { line-height: 15px; }
+
+/* Checkout ------------------------------------------------------------ */
+.ks-checkout-empty a { line-height: 20px; }
+
+.ks-checkout-submit span {
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+}
+
+/* Mobile-only hero scene label. */
+@media (max-width: 639px) {
+	.ks-hero__scene strong { line-height: 20px; }
+}
+
+/* Product headings step up at the sm breakpoint. */
+@media (min-width: 640px) {
+	.ks-product-specs header h2 {
+		letter-spacing: -1.44px;
+		line-height: 36.72px;
+	}
+
+	.ks-related-copy h3 { letter-spacing: -.72px; }
+}
+
+/*
+ * The source balances the hero headline (Tailwind `text-balance`). Without it
+ * the browser wraps greedily and the line breaks land in different places at
+ * every viewport, even though the font metrics and the block size match.
+ */
+.ks-hero h1 { text-wrap: balance; }
+
+/* ---------------------------------------------------------------------
+ * Wrapping mode.
+ *
+ * The source balances most display headings (Tailwind `text-balance`) and
+ * pins a few inline items to `nowrap`. Wrapping mode changes where lines
+ * break even when every font metric already matches, so it has to be
+ * ported explicitly.
+ * ------------------------------------------------------------------ */
+.ks-catalog-hero__copy h1,
+.ks-catalog-products header h2,
+.ks-catalog-cta h2,
+.ks-product-details h1,
+.ks-projects-hero__copy h1,
+.ks-project-gallery__inner header h2,
+.ks-project-process__inner header h2,
+.ks-project-cta h2,
+.ks-project-testimonials__quote blockquote {
+	text-wrap: balance;
+}
+
+/* Only the location item is pinned to one line; the phone and email wrap. */
+.ks-utility__links a[target="_blank"] span { white-space: nowrap; }
+
+/* Tailwind's sr-only includes white-space: nowrap. */
+.kiswani-source-site .screen-reader-text { white-space: nowrap; }
+
+/* Breadcrumb links wrap in the source even though the strip scrolls. */
+.ks-product-breadcrumb a { text-wrap: wrap; }
+
+/* Collection nav pills only stop wrapping at sm (source: sm:whitespace-nowrap). */
+@media (max-width: 639px) {
+	.ks-catalog-nav a { white-space: normal; }
+}

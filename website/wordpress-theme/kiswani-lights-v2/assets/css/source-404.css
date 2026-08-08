@@ -1,0 +1,69 @@
+/* Source-matched 404 view. Values map 1:1 to app/not-found.tsx Tailwind classes. */
+
+.ks-404 {
+	align-items: center;
+	background: #070b0e;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+	padding-inline: 16px;
+}
+
+.ks-404__panel {
+	border: 1px solid rgba(255, 255, 255, .1);
+	max-width: 672px;
+	padding: 32px;
+	width: 100%;
+}
+
+.ks-404__rule {
+	background: #ffda01;
+	height: 3px;
+	width: 56px;
+}
+
+.ks-404__eyebrow {
+	color: #ffda01;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .2em;
+	line-height: 16px;
+	margin: 32px 0 0;
+	text-transform: uppercase;
+}
+
+.ks-404__title {
+	font-size: 48px;
+	font-weight: 600;
+	letter-spacing: -.05em;
+	line-height: 1;
+	margin: 20px 0 0;
+}
+
+.ks-404__body {
+	color: #a3a7aa;
+	font-size: 16px;
+	line-height: 32px;
+	margin: 24px 0 0;
+	max-width: 576px;
+}
+
+.ks-404__cta {
+	align-items: center;
+	background: #ffda01;
+	color: #0f1822;
+	display: inline-flex;
+	font-size: 14px;
+	font-weight: 700;
+	justify-content: center;
+	margin-top: 36px;
+	min-height: 56px;
+	padding-inline: 28px;
+	text-decoration: none;
+}
+
+@media (min-width: 640px) {
+	.ks-404__panel { padding: 56px; }
+	.ks-404__title { font-size: 72px; }
+}

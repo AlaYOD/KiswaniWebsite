@@ -17,7 +17,39 @@
 
 ## Next task
 
-The WordPress homepage parity work is complete and passed final design QA on 2026-08-05. Continue with the next source route only when requested; collection-page work is the most natural next conversion step.
+All 27 source routes pass the 2% visual-regression gate at 375/768/1440 (81 of 81). This
+covers the homepage, all 8 collection routes, a representative spread of the 19 category
+and 88 subcategory views, product, projects, checkout, the four information pages, and
+404. See `wordpress-theme/kiswani-lights-v2/pixel-diff-report.md` for the per-route table
+and every fix applied.
+
+Collection routing note: `/collections/<slug>` covers two families — the four catalog
+categories (`kiswani_catalog_collection_details`) and the four product-map groups
+(`kiswani_product_map_group`, backed by `data/product-map.json`). Group pages add the
+category-tab and subcategory-item rows and read `?category=`/`?subcategory=` as English
+labels, matching the source links exactly. `interior` and `technical` are genuinely
+empty in the source too, so both sides render the empty state.
+
+Header: all source routes share `template-parts/source-header.php` and
+`kiswani_source_header_assets()`. `header-source.php` and `header-source-home.php`
+differ only by the cinematic intro. Do not re-add a route-specific header — the previous
+split left every non-home route on an old simplified navbar with no mega menu, and it
+survived a passing suite because a whole-page average hides a broken 175px band.
+
+Fonts: parity depends on `source-font-rendering.css` loading on every source route. It
+carries the source font stack, `-webkit-font-smoothing: antialiased`, and Tailwind
+preflight's inherited `line-height: 1.5`. The woff2 files already match the deployed
+site byte-for-byte.
+
+Cinematic intro: plays on every homepage render, matching the deployed source. It is not
+gated on storage; reduced motion is what skips it, and that is what keeps it out of the
+visual-regression captures.
+
+Remaining conversion work is behavioural and editorial rather than pixel parity:
+interaction QA on the non-home routes (checkout submission, projects modal), Elementor
+editability for the ported sections, and SEO/metadata migration.
+`template-parts/source-information.php` is orphaned and contains double-encoded UTF-8;
+it should be deleted rather than revived.
 
 ## Homepage parity completion - 2026-08-05
 

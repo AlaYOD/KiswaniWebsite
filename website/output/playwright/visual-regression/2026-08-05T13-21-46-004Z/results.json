@@ -1,0 +1,820 @@
+{
+  "sourceBase": "https://kiswani-website-82jb.vercel.app",
+  "targetBase": "http://localhost:8088",
+  "thresholdPercent": 2,
+  "comparisonCount": 30,
+  "failedCount": 11,
+  "errorCount": 0,
+  "results": [
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 375,
+      "height": 15494,
+      "mismatchedPixels": 25577,
+      "pixelDifferencePercent": 0.4402,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\home-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\home-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\home-375-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 375,
+      "height": 10816,
+      "mismatchedPixels": 29749,
+      "pixelDifferencePercent": 0.7335,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\collection-decorative-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\collection-decorative-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\collection-decorative-375-diff.png"
+      }
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001"
+      },
+      "width": 375,
+      "height": 6018,
+      "mismatchedPixels": 28498,
+      "pixelDifferencePercent": 1.2628,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\product-kl-gl-001-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\product-kl-gl-001-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\product-kl-gl-001-375-diff.png"
+      }
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/projects"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/projects/"
+      },
+      "width": 375,
+      "height": 8785,
+      "mismatchedPixels": 49236,
+      "pixelDifferencePercent": 1.4945,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\projects-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\projects-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\projects-375-diff.png"
+      }
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/checkout"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/checkout/"
+      },
+      "width": 375,
+      "height": 3792,
+      "mismatchedPixels": 8874,
+      "pixelDifferencePercent": 0.6241,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\checkout-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\checkout-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\checkout-375-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/about"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/"
+      },
+      "width": 375,
+      "height": 5543,
+      "mismatchedPixels": 7864,
+      "pixelDifferencePercent": 0.3783,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\about-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\about-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\about-375-diff.png"
+      }
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 375,
+      "height": 6374,
+      "mismatchedPixels": 179291,
+      "pixelDifferencePercent": 7.5009,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\support-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\support-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\support-375-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 375,
+      "height": 5631,
+      "mismatchedPixels": 9120,
+      "pixelDifferencePercent": 0.4319,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\privacy-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\privacy-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\privacy-375-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 375,
+      "height": 5989,
+      "mismatchedPixels": 9424,
+      "pixelDifferencePercent": 0.4196,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\terms-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\terms-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\terms-375-diff.png"
+      }
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "375",
+        "width": 375,
+        "height": 812
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/__visual-regression-missing__"
+      },
+      "target": {
+        "status": 404,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__"
+      },
+      "width": 375,
+      "height": 812,
+      "mismatchedPixels": 189410,
+      "pixelDifferencePercent": 62.2036,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\not-found-375-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\not-found-375-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\not-found-375-diff.png"
+      }
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 768,
+      "height": 10247,
+      "mismatchedPixels": 35507,
+      "pixelDifferencePercent": 0.4512,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\home-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\home-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\home-768-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 768,
+      "height": 7822,
+      "mismatchedPixels": 209595,
+      "pixelDifferencePercent": 3.489,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\collection-decorative-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\collection-decorative-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\collection-decorative-768-diff.png"
+      }
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001"
+      },
+      "width": 768,
+      "height": 4471,
+      "mismatchedPixels": 50918,
+      "pixelDifferencePercent": 1.4829,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\product-kl-gl-001-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\product-kl-gl-001-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\product-kl-gl-001-768-diff.png"
+      }
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/projects"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/projects/"
+      },
+      "width": 768,
+      "height": 6714,
+      "mismatchedPixels": 228961,
+      "pixelDifferencePercent": 4.4404,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\projects-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\projects-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\projects-768-diff.png"
+      }
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/checkout"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/checkout/"
+      },
+      "width": 768,
+      "height": 3102,
+      "mismatchedPixels": 9802,
+      "pixelDifferencePercent": 0.4114,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\checkout-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\checkout-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\checkout-768-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/about"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/"
+      },
+      "width": 768,
+      "height": 4864,
+      "mismatchedPixels": 50029,
+      "pixelDifferencePercent": 1.3393,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\about-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\about-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\about-768-diff.png"
+      }
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 768,
+      "height": 5013,
+      "mismatchedPixels": 258441,
+      "pixelDifferencePercent": 6.7128,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\support-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\support-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\support-768-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 768,
+      "height": 4660,
+      "mismatchedPixels": 47414,
+      "pixelDifferencePercent": 1.3248,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\privacy-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\privacy-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\privacy-768-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 768,
+      "height": 4918,
+      "mismatchedPixels": 54170,
+      "pixelDifferencePercent": 1.4342,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\terms-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\terms-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\terms-768-diff.png"
+      }
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/__visual-regression-missing__"
+      },
+      "target": {
+        "status": 404,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__"
+      },
+      "width": 768,
+      "height": 1024,
+      "mismatchedPixels": 573424,
+      "pixelDifferencePercent": 72.9146,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\not-found-768-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\not-found-768-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\not-found-768-diff.png"
+      }
+    },
+    {
+      "route": "/",
+      "name": "home",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/"
+      },
+      "width": 1440,
+      "height": 8074,
+      "mismatchedPixels": 64511,
+      "pixelDifferencePercent": 0.5549,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\home-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\home-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\home-1440-diff.png"
+      }
+    },
+    {
+      "route": "/collections/decorative",
+      "name": "collection-decorative",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/collections/decorative"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/collections/decorative/"
+      },
+      "width": 1440,
+      "height": 6089,
+      "mismatchedPixels": 1409943,
+      "pixelDifferencePercent": 16.0803,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\collection-decorative-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\collection-decorative-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\collection-decorative-1440-diff.png"
+      }
+    },
+    {
+      "route": "/products/kl-gl-001",
+      "name": "product-kl-gl-001",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/products/kl-gl-001"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/products/kl-gl-001"
+      },
+      "width": 1440,
+      "height": 3218,
+      "mismatchedPixels": 56299,
+      "pixelDifferencePercent": 1.2149,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\product-kl-gl-001-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\product-kl-gl-001-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\product-kl-gl-001-1440-diff.png"
+      }
+    },
+    {
+      "route": "/projects",
+      "name": "projects",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/projects"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/projects/"
+      },
+      "width": 1440,
+      "height": 5509,
+      "mismatchedPixels": 63000,
+      "pixelDifferencePercent": 0.7942,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\projects-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\projects-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\projects-1440-diff.png"
+      }
+    },
+    {
+      "route": "/checkout",
+      "name": "checkout",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/checkout"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/checkout/"
+      },
+      "width": 1440,
+      "height": 2214,
+      "mismatchedPixels": 16041,
+      "pixelDifferencePercent": 0.5031,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\checkout-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\checkout-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\checkout-1440-diff.png"
+      }
+    },
+    {
+      "route": "/about",
+      "name": "about",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/about"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/about/"
+      },
+      "width": 1440,
+      "height": 3866,
+      "mismatchedPixels": 55805,
+      "pixelDifferencePercent": 1.0024,
+      "exceedsTwoPercent": false,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\about-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\about-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\about-1440-diff.png"
+      }
+    },
+    {
+      "route": "/support",
+      "name": "support",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/support"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/support/"
+      },
+      "width": 1440,
+      "height": 3833,
+      "mismatchedPixels": 214746,
+      "pixelDifferencePercent": 3.8907,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\support-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\support-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\support-1440-diff.png"
+      }
+    },
+    {
+      "route": "/privacy",
+      "name": "privacy",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/privacy"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/privacy/"
+      },
+      "width": 1440,
+      "height": 3567,
+      "mismatchedPixels": 193247,
+      "pixelDifferencePercent": 3.7622,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\privacy-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\privacy-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\privacy-1440-diff.png"
+      }
+    },
+    {
+      "route": "/terms",
+      "name": "terms",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 200,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/terms"
+      },
+      "target": {
+        "status": 200,
+        "finalUrl": "http://localhost:8088/terms/"
+      },
+      "width": 1440,
+      "height": 3836,
+      "mismatchedPixels": 208196,
+      "pixelDifferencePercent": 3.769,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\terms-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\terms-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\terms-1440-diff.png"
+      }
+    },
+    {
+      "route": "/__visual-regression-missing__",
+      "name": "not-found",
+      "viewport": {
+        "name": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "source": {
+        "status": 404,
+        "finalUrl": "https://kiswani-website-82jb.vercel.app/__visual-regression-missing__"
+      },
+      "target": {
+        "status": 404,
+        "finalUrl": "http://localhost:8088/__visual-regression-missing__"
+      },
+      "width": 1440,
+      "height": 900,
+      "mismatchedPixels": 914075,
+      "pixelDifferencePercent": 70.5305,
+      "exceedsTwoPercent": true,
+      "artifacts": {
+        "sourcePath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\not-found-1440-source.png",
+        "targetPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\not-found-1440-target.png",
+        "diffPath": "output\\playwright\\visual-regression\\2026-08-05T13-21-46-004Z\\not-found-1440-diff.png"
+      }
+    }
+  ]
+}

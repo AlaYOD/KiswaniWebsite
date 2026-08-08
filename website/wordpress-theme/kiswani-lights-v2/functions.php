@@ -8,7 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once get_template_directory() . '/inc/catalog.php';
+require_once get_template_directory() . '/inc/admin-product-fields.php';
 require_once get_template_directory() . '/inc/cart.php';
+require_once get_template_directory() . '/inc/header.php';
 require_once get_template_directory() . '/inc/information.php';
 require_once get_template_directory() . '/inc/projects.php';
 require_once get_template_directory() . '/inc/orders.php';
@@ -32,6 +34,16 @@ function kiswani_lights_assets() {
 	wp_enqueue_style( 'kiswani-lights', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
 }
 add_action( 'wp_enqueue_scripts', 'kiswani_lights_assets' );
+
+function kiswani_source_404_assets() {
+	if ( ! is_404() ) {
+		return;
+	}
+
+	wp_enqueue_style( 'kiswani-source-fonts', get_stylesheet_directory_uri() . '/assets/css/fonts.css', array( 'kiswani-lights' ), '0.1.0' );
+	wp_enqueue_style( 'kiswani-source-404', get_stylesheet_directory_uri() . '/assets/css/source-404.css', array( 'kiswani-source-fonts' ), '0.1.0' );
+}
+add_action( 'wp_enqueue_scripts', 'kiswani_source_404_assets' );
 
 function kiswani_source_home_assets() {
 	if ( ! is_front_page() ) {

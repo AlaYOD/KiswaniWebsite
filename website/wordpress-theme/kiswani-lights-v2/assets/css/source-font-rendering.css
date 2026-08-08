@@ -9,6 +9,16 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+/*
+ * Tailwind preflight sets html{line-height:1.5} on the source, so every element
+ * without an explicit line-height inherits 1.5 rather than the browser's
+ * `normal` (~1.2-1.4 for this face). Without it, unstyled text sits at the
+ * wrong rhythm on every source page.
+ */
+.kiswani-source-site {
+	line-height: 1.5;
+}
+
 
 .kiswani-source-site .ks-product-copy h1 {
 	letter-spacing: -.05em;

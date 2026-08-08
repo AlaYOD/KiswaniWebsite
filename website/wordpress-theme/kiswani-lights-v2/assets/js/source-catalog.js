@@ -6,6 +6,12 @@
       const root = input.closest('.ks-catalog-products');
       const cards = root?.querySelectorAll('[data-ks-catalog-card]') || [];
       const empty = root?.querySelector('.ks-catalog-empty');
+      const clear = root?.querySelector('[data-ks-catalog-clear]');
+      clear?.addEventListener('click', () => {
+        input.value = '';
+        input.dispatchEvent(new Event('input'));
+        input.focus();
+      });
       input.addEventListener('input', () => {
         const query = input.value.trim().toLowerCase();
         let visible = 0;

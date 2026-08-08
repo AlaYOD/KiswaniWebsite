@@ -2,10 +2,10 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const intro = document.querySelector('[data-ks-cinematic-intro]');
   if (intro) {
-    let introSeen = reducedMotion;
-    try { introSeen = introSeen || sessionStorage.getItem('kiswani-brand-intro-2026') === 'seen'; } catch {}
-    if (introSeen) {
-      try { if (reducedMotion) sessionStorage.setItem('kiswani-brand-intro-2026', 'seen'); } catch {}
+    // The deployed source replays the intro on every homepage render, including
+    // a reload or a return from another route in the same session, so it is not
+    // gated on storage here either. Reduced motion still skips it.
+    if (reducedMotion) {
       intro.remove();
     } else {
       let leavingTimer = 0;
@@ -13,7 +13,6 @@
       const finishIntro = () => {
         clearTimeout(leavingTimer);
         clearTimeout(finishTimer);
-        try { sessionStorage.setItem('kiswani-brand-intro-2026', 'seen'); } catch {}
         document.body.classList.remove('ks-intro-locked');
         intro.remove();
         document.removeEventListener('keydown', escapeIntro);
